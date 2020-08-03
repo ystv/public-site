@@ -1,0 +1,6 @@
+{
+  "api": {
+    "graphql": null,
+    "rest": "https://api.ystv.co.uk"
+  }
+}
