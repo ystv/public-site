@@ -15,11 +15,13 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     controls: true,
     sources: video.files
       .filter((e) => e.mimeType == "video/mp4")
-      .map((e) => {
+      .map((e, i, t) => {
+        let sel = i == t.length - 1 ? true : false; // Sets to last item in list (assumed to be highest quality)
         return {
           src: `https://ystv.co.uk/videofile${e.uri.substring(6)}`,
           type: e.mimeType,
           label: `${e.height}p`,
+          selected: sel,
         };
       }),
   };

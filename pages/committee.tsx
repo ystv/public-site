@@ -1,5 +1,6 @@
 import YstvHead from "../Components/YstvHead";
 import config from "../config.json";
+import { Fragment } from "react";
 
 export default function Committee({ people }) {
   return (
@@ -9,21 +10,21 @@ export default function Committee({ people }) {
         <div className="grid">
           <h1>This is all of us &rarr;</h1>
           {people !== null &&
-            people.map((e) => {
+            people.map((e, i) => {
               return (
-                <>
+                <Fragment key={`committeemid${i}`}>
                   <h2>{e.name}</h2>
-                  {e.members.map((e) => {
+                  {e.members.map((e, i) => {
                     return (
-                      <>
+                      <Fragment key={`committeesub${i}`}>
                         <h3>{e.position}</h3>
                         <h4>{e.name}</h4>
                         <a href={e.email}>{e.email}</a>
-                      </>
+                      </Fragment>
                     );
                   })}
                   <br />
-                </>
+                </Fragment>
               );
             })}
         </div>

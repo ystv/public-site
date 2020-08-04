@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 interface Props {
   breadcrumb: {
     name: string;
@@ -11,18 +13,18 @@ export default function Breadcrumb({ breadcrumb }: Props) {
   return (
     <h4>
       {breadcrumb.map((e, i, a) => (
-        <>
+        <Fragment key={`breadcrumbmaster${i}`}>
           {i != a.length - 1 ? (
-            <>
-              <a href={`/watch/series/${e.id}`} key={"breadcrumb" + i}>
+            <Fragment key={`breadcrumbsub${i}`}>
+              <a href={`/watch/series/${e.id}`} key={`breadcrumb${i}`}>
                 {e.name}
               </a>{" "}
               {" / "}
-            </>
+            </Fragment>
           ) : (
-            <a key={"breadcrumb" + i}>{e.name}</a>
+            <a key={`breadcrumb${i}`}>{e.name}</a>
           )}
-        </>
+        </Fragment>
       ))}
     </h4>
   );
