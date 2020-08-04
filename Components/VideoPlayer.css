@@ -277,8 +277,9 @@
 .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-content {
   background-color: transparent;
   width: 12em;
-  left: -1.5em;
+  left: -3em;
   padding-bottom: 0.5em;
+  max-height: none !important;
 }
 
 .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-item,

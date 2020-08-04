@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import videojs, { VideoJsPlayer } from "video.js";
+import "videojs-contrib-quality-levels";
 
 // eslint-disable-next-line import/prefer-default-export
 const usePlayer = (options, time?) => {
@@ -7,9 +8,49 @@ const usePlayer = (options, time?) => {
   const [player, setPlayer] = useState<VideoJsPlayer | null>(null);
 
   useEffect(() => {
-    const vjsPlayer = videojs(videoRef.current, {
+    require("@silvermine/videojs-quality-selector")(videojs);
+    require("videojs-hls-quality-selector");
+    let vjsPlayer = videojs(videoRef.current, {
+      plugins: {
+        qualityLevels: {},
+      },
+      controlBar: {
+        children: [
+          "playToggle",
+          "volumePanel",
+          "currentTimeDisplay",
+          "timeDivider",
+          "durationDisplay",
+          "progressControl",
+          "liveDisplay",
+          "seekToLive",
+          "remainingTimeDisplay",
+          "customControlSpacer",
+          "playbackRateMenuButton",
+          "chaptersButton",
+          "descriptionsButton",
+          "subsCapsButton",
+          "audioTrackButton",
+          "pictureInPictureToggle",
+          "QualitySelector",
+          "fullscreenToggle",
+        ],
+      },
       ...options,
     });
+
+    vjsPlayer.hlsQualitySelector({
+      displayCurrentQuality: true,
+    });
+
+    vjsPlayer
+      .getChild("ControlBar")
+      .getChild("QualitySelector")
+      .getChild("QualitySelector")
+      .el()
+      .getElementsByClassName("vjs-icon-placeholder")
+      .item(0).className = "vjs-icon-placeholder vjs-icon-cog";
+
     setPlayer(vjsPlayer);
 
     return () => {
@@ -21,6 +62,7 @@ const usePlayer = (options, time?) => {
 
   useEffect(() => {
     if (player !== null) {
+      console.log(player.qualityLevels());
       //console.log(player); // valid player object lives in here
       if (time !== 0) {
         player.play();
@@ -48,10 +90,5 @@ function VideoPlayer(options, time) {
     </div>
   );
 }
-
-VideoPlayer.defaultProps = {
-  controls: true,
-  autoplay: false,
-};
 
 export default VideoPlayer;

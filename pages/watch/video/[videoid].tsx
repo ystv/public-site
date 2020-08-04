@@ -13,12 +13,15 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     playbackRates: [0.5, 1, 1.25, 1.5, 2],
     height: 500,
     controls: true,
-    sources: [
-      {
-        src: `https://ystv.co.uk/videofile/${video.files[0].uri.slice(7)}`,
-        type: "video/mp4",
-      },
-    ],
+    sources: video.files
+      .filter((e) => e.mimeType == "video/mp4")
+      .map((e) => {
+        return {
+          src: `https://ystv.co.uk/videofile${e.uri.substring(6)}`,
+          type: e.mimeType,
+          label: `${e.height}p`,
+        };
+      }),
   };
 
   var myplayer = VideoPlayer(videoJSOptions, time);
