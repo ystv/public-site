@@ -13,11 +13,12 @@ export default function SeriesCell({ series }: Props) {
 
   return (
     <div>
-      <img
-        src={`https://ystv.co.uk/static/images/shows/${e.thumbnail}`}
-        height="100"
-      ></img>
       <a href={"/watch/series/" + e.id}>
+        <img
+          src={`https://ystv.co.uk/static/images/shows/${e.thumbnail}`}
+          height="100"
+        ></img>
+
         <h2>{e.name}</h2>
       </a>
       <h5>{e.description}</h5>

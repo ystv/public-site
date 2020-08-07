@@ -88,6 +88,10 @@
   text-shadow: 0 0 1em #fff, 0 0 1em #fff, 0 0 1em #fff;
 }
 
+.vjs-control-bar button:focus {
+  outline: none !important;
+}
+
 .video-js .vjs-spacer,
 .video-js .vjs-time-control {
   display: -webkit-box;
@@ -167,6 +171,10 @@
 .video-js .vjs-progress-control .vjs-play-progress,
 .video-js .vjs-progress-control .vjs-progress-holder {
   height: 100%;
+}
+
+.video-js .vjs-load-progress {
+  background: rgb(143 143 143 / 74%);
 }
 
 .video-js .vjs-progress-control .vjs-progress-holder {
@@ -325,7 +333,7 @@
 
 .video-js .vjs-play-progress,
 .video-js .vjs-volume-level {
-  background-color: rgba(103, 103, 103, 0.54);
+  background-color: rgba(215, 215, 215);
 }
 
 .video-js .vjs-big-play-button:active,

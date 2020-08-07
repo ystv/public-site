@@ -15,6 +15,9 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     controls: true,
     sources: video.files
       .filter((e) => e.mimeType == "video/mp4")
+      .filter((e) => e.uri.split("/")[1] !== "playout") //While rhys hasn't given me filtering
+      .filter((e) => e.uri.split("/")[1] !== "HQdownload")
+      .filter((e) => e.uri.split("/")[1] !== "HDdownload")
       .map((e, i, t) => {
         let sel = i == t.length - 1 ? true : false; // Sets to last item in list (assumed to be highest quality)
         return {
@@ -76,7 +79,3 @@ export async function getServerSideProps(context) {
     return { props: { video: { videos: [] } } };
   }
 }
-
-// TODO //
-// Add proper video player
-// Track selection and assignment based on quality

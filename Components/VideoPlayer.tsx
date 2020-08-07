@@ -1,6 +1,7 @@
+//    NEEDS CLEANING!!!
+
 import React, { useEffect, useRef, useState } from "react";
 import videojs, { VideoJsPlayer } from "video.js";
-import "videojs-contrib-quality-levels";
 
 // eslint-disable-next-line import/prefer-default-export
 const usePlayer = (options, time?) => {
@@ -11,9 +12,6 @@ const usePlayer = (options, time?) => {
     require("@silvermine/videojs-quality-selector")(videojs);
     require("videojs-hls-quality-selector");
     let vjsPlayer = videojs(videoRef.current, {
-      plugins: {
-        qualityLevels: {},
-      },
       controlBar: {
         children: [
           "playToggle",
@@ -43,6 +41,7 @@ const usePlayer = (options, time?) => {
       displayCurrentQuality: true,
     });
 
+    // Add settings icon to VOD quality selector
     vjsPlayer
       .getChild("ControlBar")
       .getChild("QualitySelector")
@@ -62,8 +61,6 @@ const usePlayer = (options, time?) => {
 
   useEffect(() => {
     if (player !== null) {
-      console.log(player.qualityLevels());
-      //console.log(player); // valid player object lives in here
       if (time !== 0) {
         player.play();
         player.currentTime(time);

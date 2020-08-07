@@ -1,4 +1,5 @@
 import { formatTime, removeHTMLTags } from "./commonFunctions";
+import { SyntheticEvent } from "react";
 
 interface Props {
   video: {
@@ -12,19 +13,34 @@ interface Props {
     views;
     duration;
   };
+  style?;
 }
 
-export default function VideoCell({ video }: Props) {
+interface eventTargetInterfaceImg {
+  target: {
+    onerror;
+    src;
+  };
+}
+
+export default function VideoCell({ video, style }: Props) {
   let e = video;
 
   return (
-    <div>
-      <img
-        src={`https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`}
-        height="100"
-      ></img>
+    <div style={style}>
       <a href={"/watch/video/" + e.id}>
-        <h1>{e.name}</h1>
+        <img
+          src={`https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`}
+          height="100"
+          onError={(e: SyntheticEvent<HTMLImageElement>) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src =
+              "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
+            e.target;
+          }}
+        ></img>
+
+        <h2>{e.name}</h2>
       </a>
       <h5>
         Published {new Date(e.broadcastDate).toLocaleString().split(",")[0]}
