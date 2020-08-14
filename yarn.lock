@@ -5703,16 +5703,6 @@ videojs-hls-quality-selector@^1.1.1:
     video.js "^7.5.5"
     videojs-contrib-quality-levels "^2.0.9"
 
-videojs-resolution-switcher-vjs7@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/videojs-resolution-switcher-vjs7/-/videojs-resolution-switcher-vjs7-1.0.0.tgz#9a3d00f26ba3a9fded00a526d8be16835085f301"
-  integrity sha512-BowDOEJ63lJKThw9WlxAP86vNwjRWsLjYkelJ01wIuFHNLlyJghstfs8U9QZwT5b3Fevbg+cHUVxtvlB9J4s4w==
-
-videojs-resolution-switcher@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/videojs-resolution-switcher/-/videojs-resolution-switcher-0.4.2.tgz#53ef38c58e95b90a61a7452de8177ee838a26405"
-  integrity sha1-U+84xY6VuQphp0Ut6Bd+6DiiZAU=
-
 videojs-vtt.js@^0.15.2:
   version "0.15.2"
   resolved "https://registry.yarnpkg.com/videojs-vtt.js/-/videojs-vtt.js-0.15.2.tgz#a828c4ea0aac6303fa471fd69bc7586a5ba1a273"
