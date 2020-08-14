@@ -1,15 +1,13 @@
-//    NEEDS CLEANING!!!
-
 import React, { useEffect, useRef, useState } from "react";
 import videojs, { VideoJsPlayer } from "video.js";
 
-// eslint-disable-next-line import/prefer-default-export
 const usePlayer = (options, time?) => {
   const videoRef = useRef(null);
   const [player, setPlayer] = useState<VideoJsPlayer | null>(null);
 
   useEffect(() => {
     require("@silvermine/videojs-quality-selector")(videojs);
+    require("videojs-contrib-quality-levels");
     require("videojs-hls-quality-selector");
     let vjsPlayer = videojs(videoRef.current, {
       controlBar: {
@@ -28,7 +26,7 @@ const usePlayer = (options, time?) => {
           "chaptersButton",
           "descriptionsButton",
           "subsCapsButton",
-          "audioTrackButton",
+          //"audioTrackButton",
           "pictureInPictureToggle",
           "QualitySelector",
           "fullscreenToggle",
@@ -61,6 +59,7 @@ const usePlayer = (options, time?) => {
 
   useEffect(() => {
     if (player !== null) {
+      player.qualityLevels(); // Needed for HLS quality selector
       if (time !== 0) {
         player.play();
         player.currentTime(time);
