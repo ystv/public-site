@@ -10,7 +10,7 @@ export default function Live() {
     controls: true,
     sources: [
       {
-        src: "https://content.jwplatform.com/manifests/yp34SRmf.m3u8",
+        src: "http://stream.ystv.co.uk/hls/stream1.m3u8",
       },
     ],
   };
@@ -21,6 +21,7 @@ export default function Live() {
     <>
       <YstvHead title="Live" />
       <h1>Live videos</h1>
+      <h3>Stream 1</h3>
       {myplayer}
     </>
   );
