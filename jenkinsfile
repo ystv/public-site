@@ -23,7 +23,7 @@ pipeline {
         stage('Final Cleanup') {
             steps {
                 echo "Performing Final Cleanup"
-                sh "docker rmi $(docker images --filter=reference='localhost:5000/ystv/public-site:*')" // Removing the local image
+                sh "docker rmi \$(docker images --filter=reference='localhost:5000/ystv/public-site:*')" // Removing the local image
 //                sh "docker image prune -f --filter label=stage=result --filter label=build=${env.BUILD_ID} --filter label=item_name=website_public"
             }
         }
