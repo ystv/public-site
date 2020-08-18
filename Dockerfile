@@ -8,6 +8,8 @@ ARG SOURCE_ID_ARG
 
 LABEL build=$BUILD_ID
 
+LABEL "site"="public"
+
 # Set working directory
 WORKDIR /usr/app
 
