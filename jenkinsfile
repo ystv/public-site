@@ -33,7 +33,7 @@ pipeline {
                 sh "docker pull localhost:5000/ystv/public-site:$BUILD_ID" // Pulling image from local registry
                 sh "docker kill ystv-dev-site" // Stop old container
                 sh "docker run -d --rm -p 1337:3000 --name ystv-dev-site localhost:5000/ystv/public-site:$BUILD_ID" // Deploying site
-                sh 'docker image prune -f --filter "site=public"' // remove old image
+                sh 'docker image prune -f --filter "label=site=public"' // remove old image
             }
         }
     }
