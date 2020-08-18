@@ -22,8 +22,8 @@ pipeline {
         }
         stage('Final Cleanup') {
             steps {
-                echo "Performing Final Cleanup"
-                sh "docker rmi \$(docker images --filter=reference='localhost:5000/ystv/public-site:*')" // Removing the local image
+                echo "Performing Cleanup"
+                sh "docker image rm localhost:5000/ystv/public-site:$BUILD_ID" // Removing the local builder image
 //                sh "docker image prune -f --filter label=stage=result --filter label=build=${env.BUILD_ID} --filter label=item_name=website_public"
             }
         }
@@ -31,9 +31,9 @@ pipeline {
             steps {
                 echo "Deploying"
                 sh "docker pull localhost:5000/ystv/public-site:$BUILD_ID" // Pulling image from local registry
-                sh "docker kill ystv-dev-site"
+                sh "docker kill ystv-dev-site" // Stop old container
                 sh "docker run -d --rm -p 1337:3000 --name ystv-dev-site localhost:5000/ystv/public-site:$BUILD_ID" // Deploying site
-                //SSH TO WEB DOCKER-COMPOSE DOWN, UPDATE AND UP
+                sh "docker image prune -f \$(docker images --filter=reference='localhost:5000/ystv/public-site:*')" // remove old image
             }
         }
     }
