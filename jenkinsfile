@@ -11,13 +11,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building"
-                sh "docker build --build-arg=SOURCE_ID_ARG=$(git rev-parse HEAD) --build-arg BUILD_ID=${env.BUILD_ID} -t localhost:5000/ystv/public-site:${env.BUILD_ID} ."
+                sh 'docker build --build-arg=SOURCE_ID_ARG=$(git rev-parse HEAD) --build-arg BUILD_ID=${env.BUILD_ID} -t localhost:5000/ystv/public-site:${env.BUILD_ID} .'
             }
         }
         stage('Upload') {
             steps {
                 echo "Uploading To Registry"
-                sh "docker push localhost:5000/ystv/public-site:${env.BUILD_ID}" // Uploaded to registry
+                sh 'docker push localhost:5000/ystv/public-site:${env.BUILD_ID}' // Uploaded to registry
             }
         }
         stage('Final Cleanup') {
@@ -30,9 +30,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying"
-                sh "docker pull localhost:5000/ystv/public-site:${env.BUILD_ID}" // Pulling image from local registry
+                sh 'docker pull localhost:5000/ystv/public-site:${env.BUILD_ID}' // Pulling image from local registry
                 sh "docker kill ystv-dev-site"
-                sh "docker run -d --rm -p 1337:3000 --name ystv-dev-site localhost:5000/ystv/public-site:${env.BUILD_ID}" // Deploying site
+                sh 'docker run -d --rm -p 1337:3000 --name ystv-dev-site localhost:5000/ystv/public-site:${env.BUILD_ID}' // Deploying site
                 //SSH TO WEB DOCKER-COMPOSE DOWN, UPDATE AND UP
             }
         }
