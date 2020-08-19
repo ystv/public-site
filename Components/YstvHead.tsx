@@ -29,7 +29,6 @@ function YstvHead({ title }: props) {
   return (
     <Head>
       <title>{pageTitle}</title>
-      <link rel="icon" href="http://ystv.co.uk/static/images/favicon.ico" />
     </Head>
   );
 }
