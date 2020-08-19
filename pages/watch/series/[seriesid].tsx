@@ -1,8 +1,8 @@
 import config from "../../../config.json";
-import YstvHead from "../../../components/YstvHead";
-import SeriesCell from "../../../components/SeriesCell";
-import VideoCell from "../../../components/VideoCell";
-import Breadcrumb from "../../../components/Breadcrumb";
+import YstvHead from "../../../components-1/YstvHead";
+import SeriesCell from "../../../components-1/SeriesCell";
+import VideoCell from "../../../components-1/VideoCell";
+import Breadcrumb from "../../../components-1/Breadcrumb";
 
 interface Props {
   series: {

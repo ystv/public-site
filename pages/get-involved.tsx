@@ -1,4 +1,4 @@
-import YstvHead from "../components/YstvHead";
+import YstvHead from "../components-1/YstvHead";
 
 export default function GetInvolved() {
   return (

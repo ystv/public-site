@@ -1,6 +1,6 @@
-import YSTVHead from "../../../components/YstvHead";
-import YstvHead from "../../../components/YstvHead";
-import VideoPlayer from "../../../components/VideoPlayer";
+import YSTVHead from "../../../components-1/YstvHead";
+import YstvHead from "../../../components-1/YstvHead";
+import VideoPlayer from "../../../components-1/VideoPlayer";
 
 export default function Live() {
   const videoJSOptions = {
