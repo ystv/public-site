@@ -1,6 +1,6 @@
 import config from "../../config.json";
-import YstvHead from "../../components-1/YstvHead";
-import VideoCarousel from "../../components-1/VideoCarousel";
+import YstvHead from "../../components/YstvHead";
+import VideoCarousel from "../../components/VideoCarousel";
 
 export default function Watch({
   videos,
