@@ -3,7 +3,7 @@ export default function Hires() {
     <div>
       <main>
         <div className="grid">
-          <h1>This is how to hire us &rarr;</h1>
+          <h1>We'd love to work with you, this is how to hire us &rarr;</h1>
         </div>
       </main>
     </div>
