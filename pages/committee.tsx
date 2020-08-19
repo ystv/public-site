@@ -1,4 +1,4 @@
-import YstvHead from "../Components/YstvHead";
+import YstvHead from "../components/YstvHead";
 import config from "../config.json";
 import { Fragment } from "react";
 

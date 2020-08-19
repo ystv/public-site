@@ -1,4 +1,4 @@
-import YstvHead from "../Components/YstvHead";
+import YstvHead from "../components/YstvHead";
 
 export default function Home() {
   return (

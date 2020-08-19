@@ -1,11 +1,11 @@
-import YstvHead from "../../../Components/YstvHead";
-import VideoPlayer from "../../../Components/VideoPlayer";
-import Breadcrumb from "../../../Components/Breadcrumb";
+import YstvHead from "../../../components/YstvHead";
+import VideoPlayer from "../../../components/VideoPlayer";
+import Breadcrumb from "../../../components/Breadcrumb";
 import config from "../../../config.json";
 import {
   formatTime,
   removeHTMLTags,
-} from "../../../Components/commonFunctions";
+} from "../../../components/commonFunctions";
 
 export default function WatchVideo({ video, time, breadcrumb }) {
   try {
