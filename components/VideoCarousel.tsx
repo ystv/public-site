@@ -4,6 +4,8 @@ import { Component } from "react";
 interface CarouselProps {
   videos: [];
   count?: number | 0;
+  detail?: boolean;
+  title?: string;
 }
 
 interface CarouselState {
@@ -38,20 +40,26 @@ class VideoCarousel extends Component<CarouselProps> {
 
   render() {
     return (
-      <div style={{ display: "flex" }}>
-        <button
-          onClick={this.handleRClick}
-          disabled={this.state.count == 0}
-        ></button>
+      <>
+        {this.props.title !== undefined ? <h2>{this.props.title}</h2> : <></>}
+        <div style={{ display: "flex" }}>
+          <button
+            onClick={this.handleRClick}
+            disabled={this.state.count == 0}
+            style={{ flexGrow: 1 }}
+          ></button>
 
-        {this.state.videos.map((e, i) => (
-          <VideoCell video={e} style={{ flex: "1 1 0px" }} key={i} />
-        ))}
-        <button
-          onClick={this.handleFClick}
-          disabled={this.state.count == 9}
-        ></button>
-      </div>
+          {this.state.videos.map((e, i) => (
+            <VideoCell video={e} key={i} detail={this.props.detail} />
+          ))}
+
+          <button
+            onClick={this.handleFClick}
+            disabled={this.state.count == 9}
+            style={{ flexGrow: 1 }}
+          ></button>
+        </div>
+      </>
     );
   }
 }

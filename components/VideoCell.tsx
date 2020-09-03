@@ -1,5 +1,6 @@
 import { formatTime, removeHTMLTags } from "./commonFunctions";
 import { SyntheticEvent } from "react";
+import styles from "./VideoCell.module.css";
 
 interface Props {
   video: {
@@ -13,7 +14,7 @@ interface Props {
     views;
     duration;
   };
-  style?;
+  detail?: boolean;
 }
 
 interface eventTargetInterfaceImg {
@@ -23,31 +24,39 @@ interface eventTargetInterfaceImg {
   };
 }
 
-export default function VideoCell({ video, style }: Props) {
+export default function VideoCell({ video, detail = false }: Props) {
   let e = video;
 
   return (
-    <div style={style}>
-      <a href={"/watch/video/" + e.id}>
-        <img
-          src={`https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`}
-          height="100"
-          onError={(e: SyntheticEvent<HTMLImageElement>) => {
-            e.currentTarget.onerror = null;
-            e.currentTarget.src =
-              "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
-            e.target;
-          }}
-        ></img>
-
-        <h2>{e.name}</h2>
-      </a>
-      <h5>
-        Published {new Date(e.broadcastDate).toLocaleString().split(",")[0]}
-      </h5>
-      <h5>{e.views} Views</h5>
-      <h5>Duration: {formatTime(e.duration)}</h5>
-      <h4>{removeHTMLTags(e.description)}</h4>
+    <div className={styles.flexContainer}>
+      <div className={styles.cell}>
+        <a href={"/watch/video/" + e.id}>
+          <div className={styles.imageContainer}>
+            <img
+              src={`https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`}
+              height="100"
+              onError={(e: SyntheticEvent<HTMLImageElement>) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src =
+                  "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
+                e.target;
+              }}
+              className={styles.thumbnail}
+            />
+            <small className={styles.duration}>{formatTime(e.duration)}</small>
+          </div>
+          <h3 className={styles.title}>{e.name}</h3>
+        </a>
+        <h5>
+          {e.views} Views -{" "}
+          {new Date(e.broadcastDate).toLocaleString().split(",")[0]}
+        </h5>
+        {detail === true ? (
+          <p className={styles.description}>{removeHTMLTags(e.description)}</p>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,8 +1,76 @@
-.menu li {
-  display: inline;
-  margin: 1rem;
+.menu div {
+  padding: 0 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.menu {
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: #fbfbfb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.menu a {
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: 0.5s ease;
+  background-size: 100% 200%;
+  background-position: left top;
+}
+
+.menu a:hover {
+  background-position: left bottom;
 }
 
 .searchform {
   display: contents;
+}
+
+.searchform input {
+  background: #fbfbfb;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.6rem;
+  height: 2.2rem;
+  border-style: none;
+  width: 20rem;
+}
+
+.searchform input:focus {
+  outline: none;
+}
+
+.logo {
+  height: 80%;
+  padding: 0 1rem;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.watch {
+  background: linear-gradient(to top, #eb4141 50%, #fbfbfb 50%);
+}
+
+.freshers {
+  background: linear-gradient(to top, #f5d143 50%, #fbfbfb 50%);
+}
+
+.about {
+  background: linear-gradient(to top, #81e654 50%, #fbfbfb 50%);
+}
+
+.hires {
+  background: linear-gradient(to top, #74b5ff 50%, #fbfbfb 50%);
+}
+
+.login {
+  background: linear-gradient(to top, #c577f5 50%, #fbfbfb 50%);
 }

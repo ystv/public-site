@@ -7,9 +7,10 @@ function Footer() {
   }
 
   return (
-    <footer>
+    <footer style={{ position: "absolute", bottom: 0 }}>
       <br />
       <small>Website ©2020{year} York Student Television.</small>
+      <br />
       <small>All rights reserved.</small>
     </footer>
   );

@@ -1,43 +1,30 @@
-import config from "../../config.json";
 import YstvHead from "../../components/YstvHead";
 import VideoCarousel from "../../components/VideoCarousel";
+import config from "../../config.json";
 
-export default function Watch({
-  videos,
-  recentVideoPageState,
-  oldVideoPageState,
-}) {
+export default function Watch({ recentVideoPageState, oldVideoPageState }) {
   return (
     <>
       <YstvHead />
       <h1>Watch</h1>
 
-      <VideoCarousel videos={recentVideoPageState} />
+      <VideoCarousel videos={recentVideoPageState} detail />
 
-      <VideoCarousel videos={oldVideoPageState} />
-
-      {
-        //{videos.map((e) => (<VideoCell video={e} />))}
-      }
+      <VideoCarousel videos={oldVideoPageState} detail />
     </>
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   try {
-    let page = context.query.page;
-    if (page === undefined) {
-      page = 0;
-    }
-    let res = []; //await fetch(`${config.api.rest}/v1/public/videos/10/${page * 10}`).then((res) => res.json());
     let recentVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/50/0`
+      `${config.REST_API}/v1/public/videos/50/0`
     ).then((res) => res.json());
 
     let oldVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/50/1000`
+      `${config.REST_API}/v1/public/videos/50/1000`
     ).then((res) => res.json());
-    return { props: { videos: res, recentVideoPageState, oldVideoPageState } };
+    return { props: { recentVideoPageState, oldVideoPageState } };
   } catch {
     return { props: { res: { videos: [] } } };
   }

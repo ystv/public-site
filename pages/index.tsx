@@ -1,24 +1,31 @@
 import YstvHead from "../components/YstvHead";
+import VideoCarousel from "../components/VideoCarousel";
+import config from "../config.json";
 
-export default function Home() {
+export default function Home({ recentVideoPageState, oldVideoPageState }) {
   return (
     <>
       <YstvHead />
       <main>
-        <div className="grid">
-          <h3>Join Us &rarr;</h3>
-          <p>Some about text linking to a proper freshers page.</p>
-          <h3>Featured &rarr;</h3>
-          <p>Some videos</p>
-          <h3>Recent &rarr;</h3>
-          <p>More videos</p>
-          <h3>Popular &rarr;</h3>
-          <p>Other videos</p>
-          <a href="/watch">
-            <h3>Watch More</h3>
-          </a>
-        </div>
+        <VideoCarousel title="Recent Videos" videos={recentVideoPageState} />
+
+        <VideoCarousel title="Old Videos" videos={oldVideoPageState} />
       </main>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    let recentVideoPageState = await fetch(
+      `${config.REST_API}/v1/public/videos/50/0`
+    ).then((res) => res.json());
+
+    let oldVideoPageState = await fetch(
+      `${config.REST_API}/v1/public/videos/50/1000`
+    ).then((res) => res.json());
+    return { props: { recentVideoPageState, oldVideoPageState } };
+  } catch {
+    return { props: { res: { videos: [] } } };
+  }
 }
