@@ -22,7 +22,7 @@ export async function getServerSideProps() {
     ).then((res) => res.json());
 
     let oldVideoPageState = await fetch(
-      `${config.REST_API}/v1/public/videos/50/1000`
+      `${config.api.rest}/v1/public/videos/50/1000`
     ).then((res) => res.json());
     return { props: { recentVideoPageState, oldVideoPageState } };
   } catch {
