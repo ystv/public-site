@@ -1,3 +1,5 @@
 {
-  "REST_API": "https://api.ystv.co.uk"
+  "api": {
+  "rest": "https://api.ystv.co.uk"
+  }
 }

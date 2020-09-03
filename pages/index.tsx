@@ -18,7 +18,7 @@ export default function Home({ recentVideoPageState, oldVideoPageState }) {
 export async function getServerSideProps() {
   try {
     let recentVideoPageState = await fetch(
-      `${config.REST_API}/v1/public/videos/50/0`
+      `${config.api.rest}/v1/public/videos/50/0`
     ).then((res) => res.json());
 
     let oldVideoPageState = await fetch(

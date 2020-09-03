@@ -40,7 +40,7 @@ export default About;
 
 export async function getServerSideProps(context) {
   try {
-    let res = await fetch(`${config.REST_API}/v1/public/teams`).then((res) => {
+    let res = await fetch(`${config.api.rest}/v1/public/teams`).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
         context.res.setHeader("Location", `/404`);
