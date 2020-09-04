@@ -6,23 +6,20 @@ import "../components/global.css";
 
 export default function App({ Component, pageProps }) {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        position: "relative",
-        paddingBottom: "4rem",
-      }}
-    >
+    <>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans"
       ></link>
       <Navbar />
-      <div style={{ height: "4.5rem" }} />
-      <div style={{ padding: "1rem", width: "80rem", margin: "auto" }}>
+      <div
+        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      >
+        <div style={{ height: "4.5rem", flexShrink: 0 }} />
         <Component {...pageProps} />
+        <div style={{ flex: 1 }} />
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }

@@ -1,0 +1,71 @@
+.banner {
+  background-image: url("/site-images/carousel.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  width: 100%;
+}
+
+.bannerFilter {
+  background: rgba(73, 73, 73, 0.34);
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.bannerContents button {
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  margin-right: 2rem;
+}
+
+.aboutButton {
+  background: #fbfbfb;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  border: none;
+}
+
+.highlightsButton {
+  border: 2px solid #fbfbfb;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: transparent;
+
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+
+  color: #fbfbfb;
+}
+
+.bannerContents {
+  width: fit-content;
+  color: #fbfbfb;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bannerContents h1 {
+  font-weight: normal;
+  font-size: 5.5rem;
+  margin: 0;
+}
+
+.bannerContents h3 {
+  font-weight: normal;
+  font-size: 2.5rem;
+}
+
+.homethin {
+  width: 70%;
+  margin: auto;
+}

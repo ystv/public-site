@@ -1,0 +1,36 @@
+.container {
+  height: 20rem;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.gridContainer {
+  display: grid;
+  margin: auto;
+  width: fit-content;
+  grid-template-columns: repeat(3, 20rem);
+
+  row-gap: 2rem;
+  column-gap: 2rem;
+  justify-content: space-evenly;
+
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gridContainer h4 {
+  margin: 0 0 0.5rem 0;
+}
+
+.gridContainer a {
+  color: #000;
+  text-decoration: none;
+}
+
+.gridContainer a:hover {
+  text-decoration: underline;
+}
