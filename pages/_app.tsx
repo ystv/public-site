@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
       ></link>
       <Navbar />
       <div style={{ height: "4.5rem" }} />
-      <div style={{ padding: "1rem" }}>
+      <div style={{ padding: "1rem", width: "80rem", margin: "auto" }}>
         <Component {...pageProps} />
       </div>
       <Footer />
