@@ -15,10 +15,7 @@ export default function WatchVideo({ video, time, breadcrumb }) {
       height: 500,
       controls: true,
       sources: video.files
-        .filter((e) => e.mimeType == "video/mp4")
-        .filter((e) => e.uri.split("/")[1] !== "playout") //While rhys hasn't given me filtering
-        .filter((e) => e.uri.split("/")[1] !== "HQdownload")
-        .filter((e) => e.uri.split("/")[1] !== "HDdownload")
+        .filter((e) => e.mode == "watch")
         .map((e, i, t) => {
           let sel = i == t.length - 1 ? true : false; // Sets to last item in list (assumed to be highest quality)
           return {
