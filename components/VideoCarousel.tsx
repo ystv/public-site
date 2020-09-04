@@ -41,7 +41,7 @@ class VideoCarousel extends Component<CarouselProps> {
   render() {
     return (
       <>
-        {this.props.title !== undefined ? <h2>{this.props.title}</h2> : <></>}
+        {this.props.title !== undefined ? <h1>{this.props.title}</h1> : <></>}
         <div style={{ display: "flex" }}>
           <button
             onClick={this.handleRClick}

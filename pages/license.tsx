@@ -1,0 +1,94 @@
+export default function License() {
+  return (
+    <div style={{ width: "80rem", margin: "auto" }}>
+      <h1>License</h1>
+      <div>
+        <img
+          src="/site-images/license/by-nc-sa.png"
+          alt=""
+          width="403"
+          height="141"
+        />
+      </div>
+      <ul>
+        <li>
+          Any content produced <strong>on or after 1 June 2014</strong> by YSTV
+          is made available under the Creative Commons
+          "Attribution-NonCommercial-ShareAlike Works" licence, version 4.0 (
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+            summary
+          </a>
+          ,{" "}
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">
+            full details
+          </a>
+          ). This page <strong>must</strong> be read before embarking on any
+          re-use of our work.
+        </li>
+        <li>
+          This licence requires that you attribute YSTV as the source of the
+          work. Attribution of our work must be as follows:
+          <br /> <em>[Show Name]</em> produced by York Student Television
+          [http://ystv.co.uk/] released under a Creative Commons BY-NC-SA 4.0
+          licence.
+        </li>
+      </ul>
+      <p>&nbsp;</p>
+      <p>
+        <img
+          src="/site-images/license/by-nc-nd.png"
+          alt=""
+          width="403"
+          height="141"
+        />
+      </p>
+      <ul>
+        <li>
+          Any content produced <strong>prior to 1 June 2014</strong> by YSTV is
+          made available under&nbsp;the Creative Commons
+          "Attribution-NonCommercial-NoDerivative Works" licence, version 2.5 (
+          <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/">
+            summary
+          </a>
+          ,&nbsp;
+          <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/legalcode">
+            full details
+          </a>
+          ).&nbsp;
+        </li>
+        <li>
+          This licence requires that you re-broadcast our work in full (without
+          alteration) and that you attribute YSTV as the source of the work.
+          Attribution of our work must be as follows:
+          <br />
+          <em>[Show Name]</em>&nbsp;produced by York Student Television
+          [http://ystv.co.uk/] released under a Creative Commons BY-NC-ND 2.5
+          licence.
+        </li>
+        <li>
+          Permission to create derivative works (modifying our original work) is
+          not allowed through this licence. Please contact&nbsp;
+          <a href="mailto:reuse@ystv.co.uk">reuse at YSTV</a>&nbsp;if you wish
+          to use footage licensed under BY-NC-ND in any other way.
+        </li>
+      </ul>
+      <p>&nbsp;</p>
+      <p>
+        <strong>Applicable to all content:</strong>
+      </p>
+      <ul>
+        <li>
+          All works produced by members of York Student Television using the
+          station's equipment remains the property of YSTV. Persons involved in
+          producing these works are free to re-use them under the applicable
+          licence specified above, however further permissions can be granted at
+          the discretion of a station meeting.
+        </li>
+        <li>
+          The easiest way to share our content on a website is to use the embed
+          code available on individual video pages.
+        </li>
+      </ul>{" "}
+    </div>
+  );
+}

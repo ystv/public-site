@@ -40,7 +40,7 @@ export default function Navbar() {
           <a href="/hires" className={styles.hires}>
             <div>Hires</div>
           </a>
-          <a href="/login" className={styles.login}>
+          <a href="https://my.ystv.co.uk" className={styles.login}>
             <div>Login</div>
           </a>
         </div>

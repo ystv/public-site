@@ -13,33 +13,28 @@ function Footer() {
       <div className={styles.gridContainer}>
         <div>
           <h4>Legal Stuff</h4>
-          <a href="">
+          <a href="/disclaimer">
             <p>Disclaimer</p>
           </a>
-          <a href="">
+          <a href="/license">
             <p>License</p>
           </a>
-          <br />
-          <br />
-          <small>Website ©2020{year} York Student Television.</small>
-          <br />
-          <small>All rights reserved.</small>
         </div>
         <div>
           <h4>Other Platforms</h4>
-          <a href="">
+          <a href="https://facebook.com/YorkStudentTelevision">
             <p>Facebook</p>
           </a>
-          <a href="">
+          <a href="https://instagram.com/YorkStudentTelevision">
             <p>Instagram</p>
           </a>
-          <a href="">
+          <a href="https://twitter.com/YSTV">
             <p>Twitter</p>
           </a>
-          <a href="">
+          <a href="https://www.youtube.com/user/YorkStudentTV">
             <p>Youtube</p>
           </a>
-          <a href="">
+          <a href="https://github.com/YSTV">
             <p>Github</p>
           </a>
         </div>
@@ -56,6 +51,11 @@ function Footer() {
           <br />
           <sub>YO10 5DD</sub>
         </div>
+      </div>
+      <div className={styles.copyright}>
+        <small>Website ©2020{year} York Student Television.</small>
+        <br />
+        <small>All rights reserved.</small>
       </div>
     </footer>
   );

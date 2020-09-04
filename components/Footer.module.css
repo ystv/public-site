@@ -9,10 +9,10 @@
   display: grid;
   margin: auto;
   width: fit-content;
-  grid-template-columns: repeat(3, 20rem);
+  grid-template-columns: repeat(3, 10rem);
 
   row-gap: 2rem;
-  column-gap: 2rem;
+  column-gap: 15rem;
   justify-content: space-evenly;
 
   margin: 0;
@@ -33,4 +33,10 @@
 
 .gridContainer a:hover {
   text-decoration: underline;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
