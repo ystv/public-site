@@ -7,13 +7,16 @@ import {
   removeHTMLTags,
 } from "../../../components/commonFunctions";
 
+import styles from "./video.module.css";
+
 export default function WatchVideo({ video, time, breadcrumb }) {
   try {
     const videoJSOptions = {
       autoplay: false,
       playbackRates: [0.5, 1, 1.25, 1.5, 2],
-      height: 500,
       controls: true,
+      fill: true,
+      fluid: true,
       sources: video.files
         .filter((e) => e.mode == "watch")
         .map((e, i, t) => {
@@ -32,17 +35,26 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     return (
       <>
         <YstvHead title={`Watch - ${video.name}`} />
-        <Breadcrumb breadcrumb={breadcrumb} />
-        <h1>{video.name}</h1>
-        {myplayer}
-        <h5>{video.views} Views</h5>
-        <h5>Duration: {formatTime(video.duration)}</h5>
-        <h5>
-          Published{" "}
-          {new Date(video.broadcastDate).toLocaleString().split(",")[0]}
-        </h5>
-        <h4 dangerouslySetInnerHTML={{ __html: video.description }}></h4>
-        {JSON.stringify(video)}
+        <div className={styles.container}>
+          <Breadcrumb breadcrumb={breadcrumb} />
+          <h1>{video.name}</h1>
+          {myplayer}
+          <div className={styles.videoinfo}>
+            <p
+              dangerouslySetInnerHTML={{ __html: video.description }}
+              style={{ flex: 1 }}
+            />
+            <div className={styles.spacer} />
+            <div className={styles.rightinfo}>
+              <h4>{video.views} Views</h4>
+              <h5>Duration: {formatTime(video.duration)}</h5>
+              <h5>
+                Published{" "}
+                {new Date(video.broadcastDate).toLocaleString().split(",")[0]}
+              </h5>
+            </div>
+          </div>
+        </div>
       </>
     );
   } catch {

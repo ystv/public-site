@@ -1,0 +1,16 @@
+.container {
+  width: 80rem;
+  margin: auto;
+}
+
+.videoinfo {
+  display: flex;
+}
+
+.rightinfo {
+  text-align: right;
+}
+
+.spacer {
+  width: 10rem;
+}
