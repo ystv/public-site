@@ -1,0 +1,20 @@
+.videoContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 16rem);
+  row-gap: 2rem;
+  column-gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.seriesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 16rem);
+  row-gap: 2rem;
+  column-gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.container {
+  margin: auto;
+  width: 80rem;
+}

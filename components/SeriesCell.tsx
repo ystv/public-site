@@ -1,3 +1,6 @@
+import { SyntheticEvent } from "react";
+import styles from "./SeriesCell.module.css";
+
 interface Props {
   series: {
     id;
@@ -12,16 +15,26 @@ export default function SeriesCell({ series }: Props) {
   let e = series;
 
   return (
-    <div>
-      <a href={"/watch/series/" + e.id}>
-        <img
-          src={`https://ystv.co.uk/static/images/shows/${e.thumbnail}`}
-          height="100"
-        ></img>
+    <div className={styles.flexContainer}>
+      <div className={styles.cell}>
+        <a href={"/watch/series/" + e.id}>
+          <div className={styles.imageContainer}>
+            <img
+              src={`https://ystv.co.uk/static/images/shows/${e.thumbnail}`}
+              className={styles.thumbnail}
+              onError={(e: SyntheticEvent<HTMLImageElement>) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src =
+                  "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
+                e.target;
+              }}
+            />
+          </div>
 
-        <h2>{e.name}</h2>
-      </a>
-      <h5>{e.description}</h5>
+          <h2 className={styles.title}>{e.name}</h2>
+        </a>
+        <p className={styles.description}>{e.description}</p>
+      </div>
     </div>
   );
 }

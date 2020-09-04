@@ -7,7 +7,7 @@ import {
   removeHTMLTags,
 } from "../../../components/commonFunctions";
 
-import styles from "./video.module.css";
+import styles from "./videoid.module.css";
 
 export default function WatchVideo({ video, time, breadcrumb }) {
   try {

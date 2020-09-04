@@ -4,6 +4,8 @@ import SeriesCell from "../../../components/SeriesCell";
 import VideoCell from "../../../components/VideoCell";
 import Breadcrumb from "../../../components/Breadcrumb";
 
+import styles from "./seriesid.module.css";
+
 interface Props {
   series: {
     id;
@@ -21,15 +23,24 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
   return (
     <>
       <YstvHead title={`Series - ${series.name}`} />
-      <Breadcrumb breadcrumb={breadcrumb} />
-      <h1>{series.name}</h1>
-      <h3>{series.description}</h3>
-      {series.childSeries.map((e, i) => (
-        <SeriesCell series={e} />
-      ))}
-      {series.videos.map((e, i) => (
-        <VideoCell video={e} key={i} />
-      ))}
+      <div className={styles.container}>
+        <Breadcrumb breadcrumb={breadcrumb} />
+        <h1>{series.name}</h1>
+        <p>{series.description}</p>
+        {series.childSeries.length !== 0 ? <h3>Series</h3> : null}
+        <div className={styles.seriesContainer}>
+          {series.childSeries.map((e) => (
+            <SeriesCell series={e} />
+          ))}
+        </div>
+
+        {series.videos.length !== 0 ? <h3>Videos</h3> : null}
+        <div className={styles.videoContainer}>
+          {series.videos.map((e, i) => (
+            <VideoCell video={e} key={i} />
+          ))}
+        </div>
+      </div>
     </>
   );
 }

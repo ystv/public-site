@@ -47,10 +47,12 @@ export default function VideoCell({ video, detail = false }: Props) {
           </div>
           <h3 className={styles.title}>{e.name}</h3>
         </a>
-        <h5>
-          {e.views} Views -{" "}
-          {new Date(e.broadcastDate).toLocaleString().split(",")[0]}
-        </h5>
+        <span>
+          <h5>{e.views} Views</h5>
+          <h5 className={styles.date}>
+            {new Date(e.broadcastDate).toLocaleString().split(",")[0]}
+          </h5>
+        </span>
         {detail === true ? (
           <p className={styles.description}>{removeHTMLTags(e.description)}</p>
         ) : (
