@@ -4,7 +4,7 @@ import config from "../config.json";
 
 function About({ people }) {
   return (
-    <div style={{ width: "80rem", margin: "auto" }}>
+    <div className="center thin">
       <YstvHead />
       <h1>About</h1>
       <h2>We Are York Student TV!</h2>

@@ -10,7 +10,8 @@ export default function App({ Component, pageProps }) {
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans"
-      ></link>
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <Navbar />
       <div
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}

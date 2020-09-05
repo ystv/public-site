@@ -23,7 +23,7 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
   return (
     <>
       <YstvHead title={`Series - ${series.name}`} />
-      <div className={styles.container}>
+      <div className="center thin">
         <Breadcrumb breadcrumb={breadcrumb} />
         <h1>{series.name}</h1>
         <p>{series.description}</p>

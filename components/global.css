@@ -6,3 +6,16 @@ body {
 * {
   font-family: Open Sans;
 }
+
+.thin {
+  width: 80rem;
+}
+
+.center {
+  margin: auto;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}

@@ -1,6 +1,6 @@
 export default function License() {
   return (
-    <div style={{ width: "80rem", margin: "auto" }}>
+    <div className="center thin">
       <h1>License</h1>
       <div>
         <img

@@ -2,7 +2,7 @@ import YstvHead from "../components/YstvHead";
 
 export default function GetInvolved() {
   return (
-    <div style={{ width: "80rem", margin: "auto" }}>
+    <div className="center thin">
       <main>
         <>
           <YstvHead />

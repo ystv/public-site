@@ -6,11 +6,7 @@ interface CarouselProps {
   count?: number | 0;
   detail?: boolean;
   title?: string;
-}
-
-interface CarouselState {
-  videos: [];
-  count: 0;
+  inverted?: boolean | false;
 }
 
 class VideoCarousel extends Component<CarouselProps> {
@@ -50,7 +46,12 @@ class VideoCarousel extends Component<CarouselProps> {
           ></button>
 
           {this.state.videos.map((e, i) => (
-            <VideoCell video={e} key={i} detail={this.props.detail} />
+            <VideoCell
+              video={e}
+              key={i}
+              detail={this.props.detail}
+              inverted={this.props.inverted}
+            />
           ))}
 
           <button

@@ -35,7 +35,7 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     return (
       <>
         <YstvHead title={`Watch - ${video.name}`} />
-        <div className={styles.container}>
+        <div className="center thin">
           <Breadcrumb breadcrumb={breadcrumb} />
           <h1>{video.name}</h1>
           {myplayer}

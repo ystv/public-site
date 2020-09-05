@@ -31,7 +31,7 @@ export default function SeriesCell({ series }: Props) {
             />
           </div>
 
-          <h2 className={styles.title}>{e.name}</h2>
+          <h3 className={styles.title}>{e.name}</h3>
         </a>
         <p className={styles.description}>{e.description}</p>
       </div>

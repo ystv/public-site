@@ -25,7 +25,7 @@ export default function Home({
           </div>
         </div>
 
-        <div className={styles.homethin}>
+        {/* <div className={styles.homethin}>
           <br />
           <VideoCarousel title="Recent Videos" videos={recentVideoPageState} />
           <br />
@@ -34,7 +34,7 @@ export default function Home({
           <br />
         </div>
 
-        {GenreBox(genreVideoPageState)}
+        {GenreBox(genreVideoPageState)} */}
       </main>
     </>
   );
@@ -51,7 +51,7 @@ export async function getServerSideProps() {
     ).then((res) => res.json());
 
     let genreVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/20/500`
+      `${config.api.rest}/v1/public/videos/50/500`
     ).then((res) => res.json());
 
     return {

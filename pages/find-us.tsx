@@ -1,6 +1,6 @@
 export default function FindUs() {
   return (
-    <div style={{ width: "80rem", margin: "auto" }}>
+    <div className="center thin">
       <h1>Find Us</h1>
       <img
         src="/site-images/ystv_map.png"

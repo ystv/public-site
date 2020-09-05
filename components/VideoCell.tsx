@@ -15,6 +15,7 @@ interface Props {
     duration;
   };
   detail?: boolean;
+  inverted?: boolean;
 }
 
 interface eventTargetInterfaceImg {
@@ -24,11 +25,18 @@ interface eventTargetInterfaceImg {
   };
 }
 
-export default function VideoCell({ video, detail = false }: Props) {
+export default function VideoCell({
+  video,
+  detail = false,
+  inverted = false,
+}: Props) {
   let e = video;
 
   return (
-    <div className={styles.flexContainer}>
+    <div
+      className={styles.flexContainer}
+      style={{ color: inverted ? "#fbfbfb" : "black" }}
+    >
       <div className={styles.cell}>
         <a href={"/watch/video/" + e.id}>
           <div className={styles.imageContainer}>
@@ -45,7 +53,12 @@ export default function VideoCell({ video, detail = false }: Props) {
             />
             <small className={styles.duration}>{formatTime(e.duration)}</small>
           </div>
-          <h3 className={styles.title}>{e.name}</h3>
+          <h3
+            className={styles.title}
+            style={{ color: inverted ? "#fbfbfb" : "black" }}
+          >
+            {e.name}
+          </h3>
         </a>
         <span>
           <h5>{e.views} Views</h5>
