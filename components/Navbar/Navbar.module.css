@@ -114,14 +114,6 @@
   width: 100% !important;
 }
 
-.searchMobile {
-  width: 100% !important;
-  position: absolute;
-  top: 4.5rem;
-  left: 0;
-  display: flex;
-}
-
 .menuToggle {
   cursor: pointer;
   padding: 1rem;
@@ -142,6 +134,10 @@
 
   .searchToggle {
     display: none;
+  }
+
+  .logo {
+    padding: 0 2rem;
   }
 }
 
@@ -171,10 +167,33 @@
     top: 4.5rem;
     right: 0;
     background-color: #fbfbfb;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   .buttonContainer a {
     height: 3.5rem;
     font-size: large;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .searchMobile {
+    width: 90% !important;
+    display: flex;
+    position: absolute;
+    top: 0.5rem;
+    left: 5%;
+  }
+
+  .searchlayoutdiv {
+    display: block;
+    position: absolute;
+    top: 4.5rem;
+    left: 0;
+    width: 100vw;
+    height: 4rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }

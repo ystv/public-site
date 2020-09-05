@@ -1,11 +1,27 @@
 .videoinfo {
   display: flex;
+  flex-direction: column-reverse;
 }
 
 .rightinfo {
-  text-align: right;
+  text-align: center;
 }
 
 .spacer {
   width: 10rem;
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .videoinfo {
+    flex-direction: row;
+  }
+
+  .spacer {
+    display: block;
+  }
+
+  .rightinfo {
+    text-align: right;
+  }
 }

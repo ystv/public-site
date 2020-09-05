@@ -1,4 +1,4 @@
-import { formatTime, removeHTMLTags } from "./commonFunctions";
+import { formatTime, removeHTMLTags } from "../commonFunctions";
 import { SyntheticEvent } from "react";
 import styles from "./VideoCell.module.css";
 

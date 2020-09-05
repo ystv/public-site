@@ -1,5 +1,5 @@
 import styles from "./GenreBox.module.css";
-import VideoCarousel from "../VideoCarousel";
+import VideoCarousel from "../VideoCarousel/VideoCarousel";
 
 export default function GenreBox(genreVideoPageState) {
   return (

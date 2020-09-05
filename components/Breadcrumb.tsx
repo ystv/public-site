@@ -16,7 +16,11 @@ export default function Breadcrumb({ breadcrumb }: Props) {
         <Fragment key={`breadcrumbmaster${i}`}>
           {i != a.length - 1 ? (
             <Fragment key={`breadcrumbsub${i}`}>
-              <a href={`/watch/series/${e.id}`} key={`breadcrumb${i}`}>
+              <a
+                href={`/watch/series/${e.id}`}
+                key={`breadcrumb${i}`}
+                style={{ fontWeight: "bolder", textDecoration: "underline" }}
+              >
                 {e.name}
               </a>{" "}
               {" / "}

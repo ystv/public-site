@@ -29,7 +29,14 @@ export default function GetInvolved() {
                 </a>
               </strong>
               , or drop in to our studio anytime.&nbsp; You can find out where
-              we are by clicking <a href="/find-us">here</a>.
+              we are by clicking{" "}
+              <a
+                style={{ textDecoration: "underline", fontWeight: "bold" }}
+                href="/find-us"
+              >
+                here
+              </a>
+              .
             </p>
             <p>&nbsp;</p>
             <p>

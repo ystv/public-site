@@ -1,5 +1,7 @@
-import VideoCell from "./VideoCell";
+import VideoCell from "../VideoCell/VideoCell";
 import { Component } from "react";
+
+import styles from "./VideoCarousel.module.css";
 
 interface CarouselProps {
   videos: [];
@@ -36,9 +38,9 @@ class VideoCarousel extends Component<CarouselProps> {
 
   render() {
     return (
-      <>
+      <div>
         {this.props.title !== undefined ? <h1>{this.props.title}</h1> : <></>}
-        <div style={{ display: "flex" }}>
+        <div className={styles.flexContainer}>
           <button
             onClick={this.handleRClick}
             disabled={this.state.count == 0}
@@ -60,7 +62,7 @@ class VideoCarousel extends Component<CarouselProps> {
             style={{ flexGrow: 1 }}
           ></button>
         </div>
-      </>
+      </div>
     );
   }
 }

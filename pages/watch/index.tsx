@@ -1,5 +1,5 @@
 import YstvHead from "../../components/YstvHead";
-import VideoCarousel from "../../components/VideoCarousel";
+import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
 import config from "../../config.json";
 
 export default function Watch({ recentVideoPageState, oldVideoPageState }) {

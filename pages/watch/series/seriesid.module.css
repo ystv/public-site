@@ -1,6 +1,5 @@
 .videoContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 16rem);
   row-gap: 2rem;
   column-gap: 2rem;
   justify-content: space-evenly;
@@ -8,8 +7,20 @@
 
 .seriesContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 16rem);
   row-gap: 2rem;
   column-gap: 2rem;
   justify-content: space-evenly;
+}
+
+@media only screen and (min-width: 600px) {
+  .seriesContainer {
+    grid-template-columns: repeat(auto-fill, 16rem);
+
+    min-width: 600px;
+  }
+
+  .videoContainer {
+    grid-template-columns: repeat(auto-fill, 16rem);
+    min-width: 600px;
+  }
 }

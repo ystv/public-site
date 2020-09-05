@@ -5,6 +5,7 @@ export default function FindUs() {
       <img
         src="/site-images/ystv_map.png"
         alt="Map showing YSTV's location on Campus West"
+        style={{ width: "100%" }}
       />
       <p>
         YSTV’s studio is in James College; if you need any help finding us just

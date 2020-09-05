@@ -1,5 +1,5 @@
 import YstvHead from "../../../components/YstvHead";
-import VideoPlayer from "../../../components/VideoPlayer";
+import VideoPlayer from "../../../components//VideoPlayer/VideoPlayer";
 import Breadcrumb from "../../../components/Breadcrumb";
 import config from "../../../config.json";
 import {

@@ -1,5 +1,5 @@
 import YstvHead from "../components/YstvHead";
-import VideoCarousel from "../components/VideoCarousel";
+import VideoCarousel from "../components/VideoCarousel/VideoCarousel";
 import config from "../config.json";
 
 import styles from "./index.module.css";
@@ -25,7 +25,7 @@ export default function Home({
           </div>
         </div>
 
-        {/* <div className={styles.homethin}>
+        <div className={styles.homethin}>
           <br />
           <VideoCarousel title="Recent Videos" videos={recentVideoPageState} />
           <br />
@@ -34,7 +34,7 @@ export default function Home({
           <br />
         </div>
 
-        {GenreBox(genreVideoPageState)} */}
+        {GenreBox(genreVideoPageState)}
       </main>
     </>
   );

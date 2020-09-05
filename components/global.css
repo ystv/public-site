@@ -8,7 +8,9 @@ body {
 }
 
 .thin {
-  width: 80rem;
+  max-width: 80rem;
+  padding: 0 1rem;
+  object-fit: contain;
 }
 
 .center {

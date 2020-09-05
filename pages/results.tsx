@@ -1,15 +1,13 @@
 export default function Results(props) {
   return (
-    <div>
-      <main>
-        <div className="grid">
-          <h1>These are results for "{props.search}" &rarr;</h1>
-          {props.res.map((e) => (
-            <h2>{e}</h2>
-          ))}
-        </div>
-      </main>
-    </div>
+    <main>
+      <div className="center thin">
+        <h1>These are results for "{props.search}" &rarr;</h1>
+        {props.res.map((e) => (
+          <h2>{e}</h2>
+        ))}
+      </div>
+    </main>
   );
 }
 

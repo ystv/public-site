@@ -3,12 +3,7 @@ export default function License() {
     <div className="center thin">
       <h1>License</h1>
       <div>
-        <img
-          src="/site-images/license/by-nc-sa.png"
-          alt=""
-          width="403"
-          height="141"
-        />
+        <img src="/site-images/license/by-nc-sa.png" alt="" width="100%" />
       </div>
       <ul>
         <li>
@@ -35,12 +30,7 @@ export default function License() {
       </ul>
       <p>&nbsp;</p>
       <p>
-        <img
-          src="/site-images/license/by-nc-nd.png"
-          alt=""
-          width="403"
-          height="141"
-        />
+        <img src="/site-images/license/by-nc-nd.png" alt="" width="100%" />
       </p>
       <ul>
         <li>

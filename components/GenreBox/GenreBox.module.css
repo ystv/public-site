@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 45vh;
+  height: fit-content;
   position: relative;
 
   background: linear-gradient(
@@ -14,14 +14,31 @@
 }
 
 .carouselcontainer {
-  width: 70%;
+  width: fit-content;
   margin: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+
+.genreSelector h1 {
+  color: white;
 }
 
 .genreSelector {
   display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 70%;
+  margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    height: 45vh;
+  }
+  .genreSelector {
+    flex-direction: row;
+  }
+
+  .genreSelector h1 {
+    flex: 1;
+  }
 }

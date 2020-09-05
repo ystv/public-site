@@ -1,7 +1,7 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import "video.js/dist/video-js.css";
-import "../components/VideoPlayer.css";
+import "../components/VideoPlayer/VideoPlayer.css";
 import "../components/global.css";
 
 export default function App({ Component, pageProps }) {

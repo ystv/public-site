@@ -1,7 +1,7 @@
 import config from "../../../config.json";
 import YstvHead from "../../../components/YstvHead";
-import SeriesCell from "../../../components/SeriesCell";
-import VideoCell from "../../../components/VideoCell";
+import SeriesCell from "../../../components/SeriesCell/SeriesCell";
+import VideoCell from "../../../components/VideoCell/VideoCell";
 import Breadcrumb from "../../../components/Breadcrumb";
 
 import styles from "./seriesid.module.css";
