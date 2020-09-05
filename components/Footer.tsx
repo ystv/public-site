@@ -11,6 +11,7 @@ function Footer() {
   return (
     <footer className={styles.container}>
       <div className={styles.gridContainer}>
+        <div />
         <div>
           <h4>Legal Stuff</h4>
           <a href="/disclaimer">
@@ -51,6 +52,7 @@ function Footer() {
           <br />
           <sub>YO10 5DD</sub>
         </div>
+        <div />
       </div>
       <div className={styles.copyright}>
         <small>Website ©2020{year} York Student Television.</small>

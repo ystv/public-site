@@ -1,6 +1,9 @@
 import styles from "./Navbar.module.css";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   return (
     <header>
       <div className={styles.menu}>
@@ -12,8 +15,14 @@ export default function Navbar() {
               className={styles.logo}
             />
           </a>
-          <div>
-            <form action="/results" className={styles.searchform} method="get">
+          <div className={styles.searchlayoutdiv}>
+            <form
+              action="/results"
+              className={`${searchOpen ? styles.searchMobile : null} ${
+                styles.searchform
+              }`}
+              method="get"
+            >
               <input
                 type="text"
                 placeholder="Search our videos..."
@@ -27,22 +36,47 @@ export default function Navbar() {
               </button>
             </form>
           </div>
+
           <div className={styles.spacer} />
-          <a href="/watch" className={styles.watch}>
-            <div>Watch</div>
-          </a>
-          <a href="/get-involved" className={styles.freshers}>
-            <div>Get Involved</div>
-          </a>
-          <a href="/about" className={styles.about}>
-            <div>About</div>
-          </a>
-          <a href="/hires" className={styles.hires}>
-            <div>Hires</div>
-          </a>
-          <a href="https://my.ystv.co.uk" className={styles.login}>
-            <div>Login</div>
-          </a>
+          <div
+            className={`${menuOpen ? styles.unhidden : null} ${
+              styles.buttonContainer
+            }`}
+          >
+            <a href="/watch" className={styles.watch}>
+              <div>Watch</div>
+            </a>
+            <a href="/get-involved" className={styles.freshers}>
+              <div>Get Involved</div>
+            </a>
+            <a href="/about" className={styles.about}>
+              <div>About</div>
+            </a>
+            <a href="/hires" className={styles.hires}>
+              <div>Hires</div>
+            </a>
+            <a href="https://my.ystv.co.uk" className={styles.login}>
+              <div>Login</div>
+            </a>
+          </div>
+          <img
+            className={styles.searchToggle}
+            src="/icons/search-24px.svg"
+            alt="Search Toggle"
+            onClick={(e) => {
+              setSearchOpen(!searchOpen);
+              setMenuOpen(false);
+            }}
+          />
+          <img
+            className={styles.menuToggle}
+            src="/icons/menu-24px.svg"
+            alt="Menu Toggle"
+            onClick={(e) => {
+              setMenuOpen(!menuOpen);
+              setSearchOpen(false);
+            }}
+          />
         </div>
       </div>
     </header>

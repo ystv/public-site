@@ -7,19 +7,13 @@
 
 .gridContainer {
   display: grid;
-  margin: auto;
-  width: fit-content;
-  grid-template-columns: repeat(3, 10rem);
+  margin: 2rem auto;
+  width: 100%;
+  grid-template-columns: auto;
 
   row-gap: 2rem;
-  column-gap: 15rem;
+  column-gap: 2rem;
   justify-content: space-evenly;
-
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .gridContainer h4 {
@@ -36,7 +30,20 @@
 }
 
 .copyright {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+  margin: auto;
+  width: fit-content;
+  padding-bottom: 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .gridContainer {
+    grid-template-columns: auto repeat(3, 10rem) auto;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding-bottom: 0;
+  }
 }

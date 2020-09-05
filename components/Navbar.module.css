@@ -1,8 +1,8 @@
 .menuContainer div {
-  padding: 0 2rem;
   font-weight: 400;
   text-transform: uppercase;
   color: #333333;
+  margin: auto;
 }
 
 .menu {
@@ -32,8 +32,14 @@
   height: 100%;
   display: flex;
   align-items: center;
-  width: 100rem;
+  max-width: 100rem;
   margin: auto;
+}
+
+.buttonContainer {
+  display: none;
+  align-items: center;
+  flex-direction: column;
 }
 
 .searchform {
@@ -42,9 +48,7 @@
   border-radius: 0.9rem;
   height: 2.6rem;
   border-style: none;
-  width: 25rem;
-  padding: 0 1rem;
-  display: flex;
+  display: none;
 }
 
 .searchform input {
@@ -103,4 +107,74 @@
 
 .login {
   background: linear-gradient(to top, #c577f5 50%, #fbfbfb 50%);
+}
+
+.unhidden {
+  display: flex;
+  width: 100% !important;
+}
+
+.searchMobile {
+  width: 100% !important;
+  position: absolute;
+  top: 4.5rem;
+  left: 0;
+  display: flex;
+}
+
+.menuToggle {
+  cursor: pointer;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.searchToggle {
+  cursor: pointer;
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .searchform {
+    width: 16rem;
+    display: flex;
+    padding: 0 1rem;
+  }
+
+  .searchToggle {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1340px) {
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+
+  .searchform {
+    width: 24rem;
+  }
+
+  .menuContainer div {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 1339.5px) {
+  .buttonContainer {
+    position: absolute;
+    top: 4.5rem;
+    right: 0;
+    background-color: #fbfbfb;
+  }
+
+  .buttonContainer a {
+    height: 3.5rem;
+    font-size: large;
+  }
 }
