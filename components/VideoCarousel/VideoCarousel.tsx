@@ -3,44 +3,78 @@ import { Component } from "react";
 
 import styles from "./VideoCarousel.module.css";
 
+import Carousel from "react-multi-carousel";
+
 interface CarouselProps {
   videos: [];
-  count?: number | 0;
   detail?: boolean;
   title?: string;
   inverted?: boolean | false;
 }
 
-class VideoCarousel extends Component<CarouselProps> {
-  state = {
-    count: 0,
-    videos: this.props.videos.slice(0, 5),
-  };
-  handleFClick = async () => {
-    this.setState(({ count }: CarouselProps) => ({
-      count: count < 9 ? count + 1 : count,
-    }));
-    this.updateVideoBoxes();
+// class VideoCarousel extends Component<CarouselProps> {
+// state = {
+//   count: 0,
+//   videos: this.props.videos.slice(0, 5),
+// };
+// handleFClick = async () => {
+//   this.setState(({ count }: CarouselProps) => ({
+//     count: count < 9 ? count + 1 : count,
+//   }));
+//   this.updateVideoBoxes();
+// };
+
+// handleRClick = async () => {
+//   this.setState(({ count }: CarouselProps) => ({
+//     count: count > 0 ? count - 1 : count,
+//   }));
+//   this.updateVideoBoxes();
+// };
+
+// updateVideoBoxes() {
+//   this.setState(({ count }: CarouselProps) => ({
+//     videos: this.props.videos.slice(count * 5, (count + 1) * 5),
+//   }));
+// }
+
+export default function VideoCarousel({
+  videos,
+  detail,
+  title,
+  inverted = false,
+}: CarouselProps) {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1600 },
+      items: 5,
+      slidesToSlide: 5, // optional, default to 1.
+    },
+    laptop: {
+      breakpoint: { max: 1600, min: 1440 },
+      items: 4,
+      slidesToSlide: 4, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1440, min: 1000 },
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
+    },
+    lphone: {
+      breakpoint: { max: 1000, min: 650 },
+      items: 2,
+      slidesToSlide: 2, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 650, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
   };
 
-  handleRClick = async () => {
-    this.setState(({ count }: CarouselProps) => ({
-      count: count > 0 ? count - 1 : count,
-    }));
-    this.updateVideoBoxes();
-  };
-
-  updateVideoBoxes() {
-    this.setState(({ count }: CarouselProps) => ({
-      videos: this.props.videos.slice(count * 5, (count + 1) * 5),
-    }));
-  }
-
-  render() {
-    return (
-      <div>
-        {this.props.title !== undefined ? <h1>{this.props.title}</h1> : <></>}
-        <div className={styles.flexContainer}>
+  return (
+    <div className={styles.container}>
+      {title !== undefined ? <h1>{title}</h1> : <></>}
+      {/* <div className={styles.flexContainer}>
           <button
             onClick={this.handleRClick}
             disabled={this.state.count == 0}
@@ -61,10 +95,26 @@ class VideoCarousel extends Component<CarouselProps> {
             disabled={this.state.count == 9}
             style={{ flexGrow: 1 }}
           ></button>
-        </div>
-      </div>
-    );
-  }
+        </div> */}
+      <Carousel
+        swipeable={true}
+        draggable={true}
+        showDots={true}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlaySpeed={1000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={500}
+        containerClass={styles.carouselcontainer}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+      >
+        {videos.map((e, i) => (
+          <VideoCell video={e} key={i} detail={detail} inverted={inverted} />
+        ))}
+      </Carousel>
+    </div>
+  );
 }
-
-export default VideoCarousel;

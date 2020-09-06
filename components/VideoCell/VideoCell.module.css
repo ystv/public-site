@@ -3,7 +3,7 @@
 }
 
 .cell {
-  width: 20rem;
+  width: 16rem;
   margin: auto;
 }
 
@@ -24,7 +24,7 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  height: calc(20rem * 0.5625);
+  height: calc(16rem * 0.5625);
 }
 
 .duration {
@@ -51,24 +51,4 @@
 .date {
   text-align: right;
   flex: 1;
-}
-
-@media only screen and (min-width: 600px) {
-  .cell {
-    width: 10rem;
-  }
-
-  .imageContainer {
-    height: calc(10rem * 0.5625);
-  }
-}
-
-@media only screen and (min-width: 1350px) {
-  .cell {
-    width: 16rem;
-  }
-
-  .imageContainer {
-    height: calc(16rem * 0.5625);
-  }
 }

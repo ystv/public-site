@@ -11,7 +11,7 @@
 }
 
 .carouselcontainer {
-  width: fit-content;
+  width: 100%;
   margin: auto;
 }
 
@@ -61,7 +61,7 @@
       rgba(236, 72, 160, 0.74) 4.76%,
       rgba(170, 0, 109, 0.3) 94.47%
     ),
-    url("/site-images/IMG_3734.JPG");
+    url("/site-images/IMG_3734-s.jpg");
 }
 
 .Factual {
@@ -70,7 +70,7 @@
       rgba(34, 126, 228, 0.74) 4.76%,
       rgba(40, 71, 205, 0.3) 94.47%
     ),
-    url("/site-images/IMG_3734.JPG");
+    url("/site-images/IMG_3734-s.jpg");
 }
 
 .Scripted {
@@ -79,7 +79,7 @@
       rgba(47, 201, 48, 0.74) 4.76%,
       rgba(42, 131, 35, 0.3) 94.47%
     ),
-    url("/site-images/IMG_3734.JPG");
+    url("/site-images/IMG_3734-s.jpg");
 }
 
 .Sport {
@@ -88,7 +88,7 @@
       rgba(250, 175, 24, 0.74) 4.76%,
       rgba(227, 131, 10, 0.3) 94.47%
     ),
-    url("/site-images/IMG_3734.JPG");
+    url("/site-images/IMG_3734-s.jpg");
 }
 
 .Archives {
@@ -97,5 +97,5 @@
       rgba(153, 70, 209, 0.74) 4.76%,
       rgba(119, 34, 166, 0.3) 94.47%
     ),
-    url("/site-images/IMG_3734.JPG");
+    url("/site-images/IMG_3734-s.jpg");
 }

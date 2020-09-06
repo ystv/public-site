@@ -8,3 +8,13 @@
     flex-direction: row;
   }
 }
+
+.carouselcontainer {
+  height: 16rem;
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}

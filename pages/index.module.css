@@ -6,11 +6,28 @@
   width: 100%;
 }
 
+.banneri {
+  height: 70vh;
+  width: 100%;
+  position: relative;
+}
+
+.banneri img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.banneri picture {
+  height: 0;
+}
+
 .bannerFilter {
   background: rgba(73, 73, 73, 0.34);
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
 }
 
 .bannerContents button {

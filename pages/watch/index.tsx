@@ -4,14 +4,20 @@ import config from "../../config.json";
 
 export default function Watch({ recentVideoPageState, oldVideoPageState }) {
   return (
-    <div className="thin center">
-      <YstvHead />
-      <h1>Watch</h1>
-
+    <>
+      <div style={{ paddingLeft: "10%" }}>
+        <YstvHead />
+        <h1>Watch</h1>
+      </div>
       <VideoCarousel videos={recentVideoPageState} detail />
 
+      <br />
+
       <VideoCarousel videos={oldVideoPageState} detail />
-    </div>
+
+      <br />
+      <br />
+    </>
   );
 }
 

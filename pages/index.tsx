@@ -14,7 +14,13 @@ export default function Home({
     <>
       <YstvHead />
       <main>
-        <div className={styles.banner}>
+        <div className={styles.banneri}>
+          <picture>
+            <source srcSet="/site-images/carousel.webp" type="image/webp" />
+            <source srcSet="/site-images/carousel.jpg" type="image/jpeg" />
+            <img src="/site-images/carousel.jpg" />
+          </picture>
+
           <div className={styles.bannerFilter}>
             <div className={styles.bannerContents}>
               <h1>We are York Student Television.</h1>
@@ -43,15 +49,15 @@ export default function Home({
 export async function getServerSideProps() {
   try {
     let recentVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/50/0`
+      `${config.api.rest}/v1/public/videos/10/0`
     ).then((res) => res.json());
 
     let oldVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/50/1000`
+      `${config.api.rest}/v1/public/videos/10/1000`
     ).then((res) => res.json());
 
     let genreVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/50/500`
+      `${config.api.rest}/v1/public/videos/10/500`
     ).then((res) => res.json());
 
     return {
