@@ -30,16 +30,22 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
         {series.childSeries.length !== 0 ? <h3>Series</h3> : null}
         <div className={styles.seriesContainer}>
           {series.childSeries.map((e) => (
-            <SeriesCell series={e} />
+            <div className={styles.flexSpacer}>
+              <SeriesCell series={e} />
+            </div>
           ))}
         </div>
 
         {series.videos.length !== 0 ? <h3>Videos</h3> : null}
         <div className={styles.videoContainer}>
           {series.videos.map((e, i) => (
-            <VideoCell video={e} key={i} />
+            <div className={styles.flexSpacer}>
+              <VideoCell video={e} key={i} />
+            </div>
           ))}
         </div>
+        <br />
+        <br />
       </div>
     </>
   );

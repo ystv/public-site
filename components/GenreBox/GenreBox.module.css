@@ -5,6 +5,9 @@
 
   background-size: cover !important;
   background-position: center !important;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .carouselcontainer {
@@ -14,7 +17,7 @@
 
 .genreSelector h1 {
   color: white;
-  font-weight: 400;
+  font-weight: 300;
   text-transform: uppercase;
   font-size: x-large;
 }
@@ -23,9 +26,13 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  max-width: 70%;
+  width: 70%;
   margin: auto;
   justify-content: space-between;
+}
+
+.selected {
+  font-weight: 600 !important;
 }
 
 @media only screen and (min-width: 600px) {

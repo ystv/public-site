@@ -84,6 +84,7 @@ function About({ people }) {
             })}
         </div>
       </main>
+      <br />
     </div>
   );
 }

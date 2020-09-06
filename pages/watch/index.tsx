@@ -4,14 +4,14 @@ import config from "../../config.json";
 
 export default function Watch({ recentVideoPageState, oldVideoPageState }) {
   return (
-    <>
+    <div className="thin center">
       <YstvHead />
       <h1>Watch</h1>
 
       <VideoCarousel videos={recentVideoPageState} detail />
 
       <VideoCarousel videos={oldVideoPageState} detail />
-    </>
+    </div>
   );
 }
 

@@ -34,7 +34,6 @@ export default function Home({
           <br />
         </div>
 
-        {/* {GenreBox([genreVideoPageState])} */}
         <GenreBox videos={[genreVideoPageState]} />
       </main>
     </>

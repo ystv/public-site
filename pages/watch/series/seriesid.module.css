@@ -1,15 +1,17 @@
 .videoContainer {
-  display: grid;
-  row-gap: 2rem;
-  column-gap: 2rem;
-  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .seriesContainer {
-  display: grid;
-  row-gap: 2rem;
-  column-gap: 2rem;
-  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flexSpacer {
+  padding: 0 0.5rem;
 }
 
 @media only screen and (min-width: 600px) {
