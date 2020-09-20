@@ -29,6 +29,30 @@ function YstvHead({ title }: props) {
   return (
     <Head>
       <title>{pageTitle}</title>
+      {/* Page metadata */}
+      <meta name="title" content="York Student Television" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta
+        name="description"
+        content="York Student Television is an award-winning TV station run entirely by students, for students at the University of York. YSTV produces live and pre-recorded shows, including music, news, chat and quiz shows, featuring interviews with bands, politicians and celebrities, as well as coverage of big campus events."
+      />
+      <link rel="image_src" href="/static/images/logos/YSTV_meta.jpg" />
+      {/* Facebook/Open Graph */}
+      <meta property="og:site_name" content="YSTV" />
+      <meta
+        property="og:image"
+        content="https://ystv.co.uk/static/images/logos/YSTV_meta.jpg"
+      />
+      <meta property="og:image:alt" content="YSTV Logo" />
+      <meta property="og:type" content="website" />
+      {/* Twitter Card */}
+      <meta name="twitter:title" content="York Student Television" />
+      <meta name="twitter:site" content="@ystv" />
+      <meta name="twitter:domain" content="ystv.co.uk" />
+      <meta
+        name="twitter:image"
+        content="https://ystv.co.uk/static/images/logos/YSTV_meta.jpg"
+      />
     </Head>
   );
 }

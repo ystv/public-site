@@ -1,6 +1,9 @@
+import YstvHead from "../components/YstvHead";
+
 export default function FindUs() {
   return (
     <div className="center thin">
+      <YstvHead />
       <h1>Find Us</h1>
       <img
         src="/site-images/ystv_map.png"

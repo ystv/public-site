@@ -1,6 +1,9 @@
+import YSTVHead from "../components/YstvHead";
+
 export default function Disclaimer() {
   return (
     <div className="center thin">
+      <YSTVHead />
       <h1>Disclaimer/Copyright</h1>
       <ul>
         <li>

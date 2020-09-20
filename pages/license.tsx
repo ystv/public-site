@@ -1,6 +1,9 @@
+import YstvHead from "../components/YstvHead";
+
 export default function License() {
   return (
     <div className="center thin">
+      <YstvHead />
       <h1>License</h1>
       <div>
         <img src="/site-images/license/by-nc-sa.png" alt="" width="100%" />

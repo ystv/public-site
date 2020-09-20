@@ -1,6 +1,9 @@
+import YstvHead from "../components/YstvHead";
+
 export default function Results(props) {
   return (
     <main>
+      <YstvHead />
       <div className="center thin">
         <h1>These are results for "{props.search}" &rarr;</h1>
         {props.res.map((e) => (
