@@ -61,7 +61,9 @@ export default function VideoCell({
           </h3>
         </a>
         <span>
-          <h5>{e.views} Views</h5>
+          <h5>
+            {e.views} View{e.views !== 1 ? "s" : null}
+          </h5>
           <h5 className={styles.date}>
             {new Date(e.broadcastDate).toLocaleString().split(",")[0]}
           </h5>
