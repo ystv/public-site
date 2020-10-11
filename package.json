@@ -10,7 +10,8 @@
   "dependencies": {
     "@silvermine/videojs-quality-selector": "^1.2.4",
     "@types/video.js": "^7.3.10",
-    "next": "9.5.1",
+    "next": "^9.5.5",
+    "node-fetch": "^2.6.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-multi-carousel": "^2.5.5",
