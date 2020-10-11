@@ -38,7 +38,10 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
 
         {series.videos.length !== 0 ? <h3>Videos</h3> : null}
         <div className={styles.videoContainer}>
-          {series.videos.map((e, i) => (
+          {series.videos.sort((a,b)=>{
+            let x= a.id; let y=b.id;
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+          }).map((e, i) => (
             <div className={styles.flexSpacer}>
               <VideoCell video={e} key={i} />
             </div>
