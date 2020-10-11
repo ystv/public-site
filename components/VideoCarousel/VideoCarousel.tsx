@@ -115,6 +115,7 @@ export default function VideoCarousel({
           <VideoCell video={e} key={i} detail={detail} inverted={inverted} />
         ))}
       </Carousel>
+      <br />
     </div>
   );
 }

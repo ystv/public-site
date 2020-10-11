@@ -32,15 +32,14 @@ export default function Home({
         </div>
 
         <div className={styles.homethin}>
-          <br />
           <VideoCarousel title="Recent Videos" videos={recentVideoPageState} />
-          <br />
-          <br />
-          <VideoCarousel title="Old Videos" videos={oldVideoPageState} />
-          <br />
         </div>
 
         <GenreBox videos={[genreVideoPageState]} />
+
+        <div className={styles.homethin}>
+          <VideoCarousel title="Old Videos" videos={oldVideoPageState} />
+        </div>
       </main>
     </>
   );
