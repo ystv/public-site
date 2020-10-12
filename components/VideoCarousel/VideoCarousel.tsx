@@ -45,27 +45,27 @@ export default function VideoCarousel({
 }: CarouselProps) {
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1600 },
+      breakpoint: { max: 3000, min: 1750 },
       items: 5,
       slidesToSlide: 5, // optional, default to 1.
     },
     laptop: {
-      breakpoint: { max: 1600, min: 1440 },
+      breakpoint: { max: 1750, min: 1440 },
       items: 4,
       slidesToSlide: 4, // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1440, min: 1000 },
+      breakpoint: { max: 1440, min: 1110 },
       items: 3,
       slidesToSlide: 3, // optional, default to 1.
     },
     lphone: {
-      breakpoint: { max: 1000, min: 650 },
+      breakpoint: { max: 1110, min: 780 },
       items: 2,
       slidesToSlide: 2, // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 650, min: 0 },
+      breakpoint: { max: 780, min: 0 },
       items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -88,7 +88,11 @@ export default function VideoCarousel({
 
   return (
     <div className={styles.container}>
-      {title !== undefined ? <h1>{title}</h1> : <></>}
+      {title !== undefined ? (
+        <h1 style={{ margin: "1rem 0 0 0" }}>{title}</h1>
+      ) : (
+        <></>
+      )}
       {/* <div className={styles.flexContainer}>
           <button
             onClick={this.handleRClick}
