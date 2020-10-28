@@ -43,8 +43,8 @@ export default function VideoCell({
           <div className={styles.imageContainer}>
             <Image
               src={`https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`}
-              height="200"
-              width="400"
+              height="180"
+              width="320"
               unoptimized
               onError={(e: SyntheticEvent<HTMLImageElement>) => {
                 e.currentTarget.onerror = null;

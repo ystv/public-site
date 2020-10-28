@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.css";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,14 +9,22 @@ export default function Navbar() {
     <header>
       <div className={styles.menu}>
         <div className={styles.menuContainer}>
-          <a href="/">
-            <img
+          <a href="/" className={styles.menua}>
+            <Image
+              width="104"
+              height="52"
+              loading="eager"
+              priority
               src="/ystv_colour.png"
               alt="YSTV logo"
               className={styles.logo}
             />
           </a>
-          <div className={`${searchOpen ? styles.searchlayoutdiv : styles.searchNoPadding}`}>
+          <div
+            className={`${
+              searchOpen ? styles.searchlayoutdiv : styles.searchNoPadding
+            }`}
+          >
             <form
               action="/results"
               className={`${searchOpen ? styles.searchMobile : null} ${

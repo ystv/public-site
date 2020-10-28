@@ -84,9 +84,8 @@
   outline: none;
 }
 
-.logo {
-  height: 80%;
-  padding: 0 0 0 2rem;
+.menua {
+  padding: 0 2rem 0 2rem;
 }
 
 .spacer {
@@ -139,10 +138,6 @@
 
   .searchToggle {
     display: none;
-  }
-
-  .logo {
-    padding: 0 2rem;
   }
 }
 
