@@ -48,15 +48,15 @@ export default function Home({
 export async function getServerSideProps() {
   try {
     let recentVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/10/0`
+      `${config.api.rest}/v1/public/videos/30/0`
     ).then((res) => res.json());
 
     let oldVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/10/1000`
+      `${config.api.rest}/v1/public/videos/30/1000`
     ).then((res) => res.json());
 
     let genreVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/10/500`
+      `${config.api.rest}/v1/public/videos/30/500`
     ).then((res) => res.json());
 
     return {
