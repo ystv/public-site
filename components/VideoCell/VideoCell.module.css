@@ -52,3 +52,16 @@
   text-align: right;
   flex: 1;
 }
+
+@media only screen and (max-width: 430px) {
+  .cell {
+    width: 10rem;
+    margin: auto;
+    font-size: 80%;
+  }
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: calc(10rem * 0.5625);
+  }
+}

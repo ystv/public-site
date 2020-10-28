@@ -46,7 +46,7 @@ export default function WatchVideo({ video, time, breadcrumb }) {
             />
             <div className={styles.spacer} />
             <div className={styles.rightinfo}>
-              <h4>{video.views} Views</h4>
+              <h4>{video.views} View{video.views !== 1 ? "s" : null}</h4>
               <h5>Duration: {formatTime(video.duration)}</h5>
               <h5>
                 Published{" "}

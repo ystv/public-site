@@ -1,12 +1,7 @@
 .flexContainer {
   display: flex;
-  flex-direction: column;
-}
-
-@media only screen and (min-width: 600px) {
-  .flexContainer {
-    flex-direction: row;
-  }
+  flex-direction: row;
+  align-items: center;
 }
 
 .carouselcontainer {
@@ -17,4 +12,53 @@
 .container {
   width: 80%;
   margin: auto;
+}
+
+.arrow {
+  border: solid #333333;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 6px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.round:hover {
+  background-color: #333333;
+  color: #fbfbfb;
+  cursor: pointer;
+}
+
+.round {
+  border-radius: 50%;
+  color: #333333;
+  text-decoration: none;
+  display: inline-block;
+  height: 3rem;
+  width: 3.3rem;
+  text-align: center;
+  background-color: transparent;
+  font-size: 3rem;
+  line-height: 2.5rem;
+  border-color: #333333;
+  border-width: 0.1rem;
+  border-style: solid;
+}
+
+.inv {
+  color: #fbfbfb;
+  border-color: #fbfbfb;
+}
+
+.inv:hover {
+  background-color: #fbfbfb;
+  color: #333333;
 }

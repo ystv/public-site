@@ -51,6 +51,10 @@
   display: none;
 }
 
+.searchNoPadding {
+  padding: 0 !important;
+}
+
 .searchform input {
   background-color: transparent;
   border: none;
@@ -87,6 +91,7 @@
 
 .spacer {
   flex-grow: 1;
+  padding: 0 !important;
 }
 
 .watch {
@@ -141,7 +146,13 @@
   }
 }
 
-@media only screen and (min-width: 1340px) {
+@media only screen and (min-width: 1200px) {
+  .searchform {
+    width: 24rem;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
   .buttonContainer {
     display: flex;
     flex-direction: row;
@@ -153,16 +164,12 @@
     display: none;
   }
 
-  .searchform {
-    width: 24rem;
-  }
-
   .menuContainer div {
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 }
 
-@media only screen and (max-width: 1339.5px) {
+@media only screen and (max-width: 1019.5px) {
   .buttonContainer {
     position: absolute;
     top: 4.5rem;

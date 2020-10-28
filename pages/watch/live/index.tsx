@@ -10,7 +10,7 @@ export default function Live() {
     controls: true,
     sources: [
       {
-        src: "http://stream.ystv.co.uk/hls/stream1.m3u8",
+        src: "https://stream.ystv.co.uk/hls/stream1.m3u8",
       },
     ],
   };

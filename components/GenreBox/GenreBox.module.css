@@ -31,15 +31,16 @@
   width: 70%;
   margin: auto;
   justify-content: space-between;
+  padding-top: 1rem;
 }
 
 .selected {
   font-weight: 600 !important;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
   .container {
-    height: 45vh;
+    height: fit-content;
   }
   .genreSelector {
     flex-direction: row;

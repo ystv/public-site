@@ -15,7 +15,7 @@ export default function Navbar() {
               className={styles.logo}
             />
           </a>
-          <div className={`${searchOpen ? styles.searchlayoutdiv : null}`}>
+          <div className={`${searchOpen ? styles.searchlayoutdiv : styles.searchNoPadding}`}>
             <form
               action="/results"
               className={`${searchOpen ? styles.searchMobile : null} ${
