@@ -1,5 +1,6 @@
 import { formatTime, removeHTMLTags } from "../commonFunctions";
 import { SyntheticEvent } from "react";
+import Image from "next/image";
 import styles from "./VideoCell.module.css";
 
 interface Props {
@@ -40,9 +41,11 @@ export default function VideoCell({
       <div className={styles.cell}>
         <a href={"/watch/video/" + e.id}>
           <div className={styles.imageContainer}>
-            <img
+            <Image
               src={`https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`}
-              height="100"
+              height="200"
+              width="400"
+              unoptimized
               onError={(e: SyntheticEvent<HTMLImageElement>) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src =
