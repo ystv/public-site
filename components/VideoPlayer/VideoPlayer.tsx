@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import videojs, { VideoJsPlayer } from "video.js";
 
-const usePlayer = (options, time?) => {
+const usePlayer = (options, time?, titleOverlay?) => {
   const videoRef = useRef(null);
   const [player, setPlayer] = useState<VideoJsPlayer | null>(null);
 
@@ -9,6 +9,7 @@ const usePlayer = (options, time?) => {
     require("@silvermine/videojs-quality-selector")(videojs);
     require("videojs-contrib-quality-levels");
     require("videojs-hls-quality-selector");
+    require("videojs-titleoverlay");
     let vjsPlayer = videojs(videoRef.current, {
       controlBar: {
         children: [
@@ -38,6 +39,14 @@ const usePlayer = (options, time?) => {
     vjsPlayer.hlsQualitySelector({
       displayCurrentQuality: true,
     });
+
+    if (titleOverlay !== undefined) {
+      vjsPlayer.titleoverlay({
+        title: `YSTV: ${titleOverlay}`, //Title for movie
+        floatPosition: "left", //Float left or right (to prevent big play button overlap) (default left)
+        fontSize: "1.5em", //font size (default 1em)
+      });
+    }
 
     // Add settings icon to VOD quality selector
     vjsPlayer
@@ -77,8 +86,8 @@ const usePlayer = (options, time?) => {
   return videoRef;
 };
 
-function VideoPlayer(options, time) {
-  const playerRef = usePlayer(options, time);
+function VideoPlayer(options, time, titleOverlay?) {
+  const playerRef = usePlayer(options, time, titleOverlay);
 
   return (
     <div data-vjs-player>

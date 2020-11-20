@@ -2,10 +2,9 @@ import YstvHead from "../../../components/YstvHead";
 import VideoPlayer from "../../../components//VideoPlayer/VideoPlayer";
 import Breadcrumb from "../../../components/Breadcrumb";
 import config from "../../../config.json";
-import {
-  formatTime,
-  removeHTMLTags,
-} from "../../../components/commonFunctions";
+import { formatTime } from "../../../components/commonFunctions";
+import { useState } from "react";
+import Popover from "react-popover";
 
 import styles from "./videoid.module.css";
 
@@ -32,6 +31,29 @@ export default function WatchVideo({ video, time, breadcrumb }) {
 
     var myplayer = VideoPlayer(videoJSOptions, time);
 
+    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+    const popoverProps = {
+      isOpen: isPopoverOpen,
+      onOuterAction: () => setIsPopoverOpen(false),
+      body: (
+        <div className={styles.popover}>
+          <h1 key="a">Embed this video on your site:</h1>
+          <div
+            style={{ border: "solid", padding: "1rem", borderRadius: "1rem" }}
+            key="b"
+          >{`<iframe
+    src="http://ystv.co.uk/embed/${video.id}?height=360"
+    width="640"
+    height="360"
+    frameborder="0"
+    allowfullscreen
+    scrolling="no"
+    ></iframe>`}</div>
+        </div>
+      ),
+    };
+
     return (
       <>
         <YstvHead title={`Watch - ${video.name}`} />
@@ -46,15 +68,26 @@ export default function WatchVideo({ video, time, breadcrumb }) {
             />
             <div className={styles.spacer} />
             <div className={styles.rightinfo}>
-              <h4>{video.views} View{video.views !== 1 ? "s" : null}</h4>
+              <h4>
+                {video.views} View{video.views !== 1 ? "s" : null}
+              </h4>
               <h5>Duration: {formatTime(video.duration)}</h5>
               <h5>
                 Published{" "}
                 {new Date(video.broadcastDate).toLocaleString().split(",")[0]}
               </h5>
+              <button
+                className={styles.embedButton}
+                onClick={() => setIsPopoverOpen(true)}
+              >
+                Embed
+              </button>
             </div>
           </div>
         </div>
+        <Popover {...popoverProps}>
+          <div />
+        </Popover>
       </>
     );
   } catch {
