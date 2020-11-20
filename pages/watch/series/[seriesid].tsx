@@ -26,7 +26,7 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
       <div className="center thin">
         <Breadcrumb breadcrumb={breadcrumb} />
         <h1>{series.name}</h1>
-        <p>{series.description}</p>
+        <p dangerouslySetInnerHTML={{ __html: series.description }} />
         {series.childSeries.length !== 0 ? <h3>Series</h3> : null}
         <div className={styles.seriesContainer}>
           {series.childSeries.map((e) => (
@@ -38,14 +38,17 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
 
         {series.videos.length !== 0 ? <h3>Videos</h3> : null}
         <div className={styles.videoContainer}>
-          {series.videos.sort((a,b)=>{
-            let x= a.id; let y=b.id;
-            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-          }).map((e, i) => (
-            <div className={styles.flexSpacer}>
-              <VideoCell video={e} key={i} />
-            </div>
-          ))}
+          {series.videos
+            .sort((a, b) => {
+              let x = a.id;
+              let y = b.id;
+              return x < y ? -1 : x > y ? 1 : 0;
+            })
+            .map((e, i) => (
+              <div className={styles.flexSpacer}>
+                <VideoCell video={e} key={i} />
+              </div>
+            ))}
         </div>
         <br />
         <br />

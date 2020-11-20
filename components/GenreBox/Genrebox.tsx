@@ -34,7 +34,7 @@ export default function GenreBox({ videos }: Props) {
     <div className={`${styles[genres[genre].name]} ${styles.container}`}>
       <div className={styles.genreSelector}>
         {genres.map(function (e, i) {
-          return <GenreButton name={e.name} id={i} />;
+          return <GenreButton name={e.name} id={i} key={i} />;
         })}
       </div>
       <div className={styles.carouselcontainer}>
