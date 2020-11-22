@@ -41,7 +41,7 @@ const usePlayer = (options, time?, titleOverlay?) => {
     });
 
     if (titleOverlay !== undefined) {
-      vjsPlayer.titleoverlay({
+      (vjsPlayer as any).titleoverlay({
         title: `YSTV: ${titleOverlay}`, //Title for movie
         floatPosition: "left", //Float left or right (to prevent big play button overlap) (default left)
         fontSize: "1.5em", //font size (default 1em)
