@@ -33,6 +33,20 @@ export default function GetInvolved() {
             </p>
             <p>&nbsp;</p>
             <p>
+              If you like what you hear and want to know how to get started,{" "}
+              <strong>
+                <a href="https://welcome.ystv.co.uk/">
+                  take a look at our getting started guide
+                </a>
+              </strong>{" "}
+              and{" "}
+              <a href="https://auth.ystv.co.uk/signup">
+                create an account on our website
+              </a>
+              !
+            </p>
+            <p>&nbsp;</p>
+            <p>
               For more information about what you can do at YSTV, click on the
               links to the left.
             </p>
