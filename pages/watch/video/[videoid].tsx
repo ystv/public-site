@@ -3,7 +3,6 @@ import VideoPlayer from "../../../components//VideoPlayer/VideoPlayer";
 import Breadcrumb from "../../../components/Breadcrumb";
 import config from "../../../config.json";
 import { formatTime } from "../../../components/commonFunctions";
-import { ClipboardJS } from "clipboard";
 import { useState } from "react";
 import Popover from "react-popover";
 
@@ -117,7 +116,11 @@ export default function WatchVideo({ video, time, breadcrumb }) {
       </>
     );
   } catch {
-    return <div />;
+    return (
+      <div className="center thin">
+        <h1>Sorry! Video Could Not Be Loaded</h1>
+      </div>
+    );
   }
 }
 
