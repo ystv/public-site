@@ -7,7 +7,8 @@ import GenreBox from "../components/GenreBox/Genrebox";
 
 export default function Home({
   recentVideoPageState,
-  oldVideoPageState,
+  popularVideoPageState,
+  featuredVideoPageState,
   genreVideoPageState,
 }) {
   return (
@@ -27,18 +28,30 @@ export default function Home({
               <h3>NaSTA Best Broadcaster and Best Tech 2019</h3>
               <button className={styles.aboutButton}>About Us</button>
               <button className={styles.highlightsButton}>Highlights</button>
+              {/* <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/3F076oLy_Lo"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              /> */}
             </div>
           </div>
         </div>
 
         <div className={styles.homethin}>
-          <VideoCarousel title="Recent Videos" videos={recentVideoPageState} />
+          <VideoCarousel title="Featured" videos={featuredVideoPageState} />
+        </div>
+
+        <div className={styles.homethin}>
+          <VideoCarousel title="Recent" videos={recentVideoPageState} />
         </div>
 
         <GenreBox videos={[genreVideoPageState]} />
 
         <div className={styles.homethin}>
-          <VideoCarousel title="Old Videos" videos={oldVideoPageState} />
+          <VideoCarousel title="Popular" videos={popularVideoPageState} />
         </div>
       </main>
     </>
@@ -51,7 +64,7 @@ export async function getServerSideProps() {
       `${config.api.rest}/v1/public/videos/30/0`
     ).then((res) => res.json());
 
-    let oldVideoPageState = await fetch(
+    let popularVideoPageState = await fetch(
       `${config.api.rest}/v1/public/videos/30/1000`
     ).then((res) => res.json());
 
@@ -59,8 +72,17 @@ export async function getServerSideProps() {
       `${config.api.rest}/v1/public/videos/30/500`
     ).then((res) => res.json());
 
+    let featuredVideoPageState = await fetch(
+      `${config.api.rest}/v1/public/videos/30/600`
+    ).then((res) => res.json());
+
     return {
-      props: { recentVideoPageState, oldVideoPageState, genreVideoPageState },
+      props: {
+        recentVideoPageState,
+        popularVideoPageState,
+        featuredVideoPageState,
+        genreVideoPageState,
+      },
     };
   } catch {
     return { props: { res: { videos: [] } } };

@@ -36,6 +36,16 @@
   padding: 0.5rem 2rem;
   margin-right: 2rem;
   margin-top: 1rem;
+  transition: 0.5s ease;
+}
+
+.bannerContents button:hover {
+  transition: 0.5s ease;
+  scale: 1.05;
+}
+
+.bannerContents button:focus {
+  outline: none;
 }
 
 .aboutButton {

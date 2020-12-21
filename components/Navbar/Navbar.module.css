@@ -74,10 +74,16 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: 0.5s ease;
 }
 
 .searchform button:focus {
   outline: none;
+}
+
+.searchform button:hover {
+  transition: 0.5s ease;
+  scale: 1.05;
 }
 
 .searchform input:focus {
@@ -86,6 +92,12 @@
 
 .menua {
   padding: 0 2rem 0 2rem;
+  transition: 1s ease;
+}
+
+.menua:hover {
+  transition: 1s ease;
+  scale: 1.05;
 }
 
 .spacer {

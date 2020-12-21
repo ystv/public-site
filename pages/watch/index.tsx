@@ -9,11 +9,47 @@ export default function Watch({ recentVideoPageState, oldVideoPageState }) {
         <YstvHead />
         <h1>Watch</h1>
       </div>
-      <VideoCarousel videos={recentVideoPageState} detail />
+      <VideoCarousel title="Popular" videos={recentVideoPageState} detail />
 
       <br />
 
-      <VideoCarousel videos={oldVideoPageState} detail />
+      <VideoCarousel title="Featured" videos={recentVideoPageState} detail />
+
+      <br />
+
+      <VideoCarousel title="Recent" videos={recentVideoPageState} detail />
+
+      <br />
+
+      <VideoCarousel
+        title="Entertainment"
+        videos={recentVideoPageState}
+        detail
+      />
+
+      <br />
+
+      <VideoCarousel title="Factual" videos={recentVideoPageState} detail />
+
+      <br />
+
+      <VideoCarousel title="Scripted" videos={recentVideoPageState} detail />
+
+      <br />
+
+      <VideoCarousel title="Sport" videos={recentVideoPageState} detail />
+
+      <br />
+
+      <VideoCarousel title="Archives" videos={recentVideoPageState} detail />
+
+      <br />
+
+      <VideoCarousel
+        title="Something Random"
+        videos={recentVideoPageState}
+        detail
+      />
 
       <br />
       <br />
@@ -35,7 +71,3 @@ export async function getServerSideProps() {
     return { props: { res: { videos: [] } } };
   }
 }
-
-// TODO //
-// Add multiple video genres and orderings
-// Navigating between pages + useState

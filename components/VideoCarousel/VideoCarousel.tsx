@@ -89,7 +89,7 @@ export default function VideoCarousel({
   return (
     <div className={styles.container}>
       {title !== undefined ? (
-        <h1 style={{ margin: "1rem 0 0 0" }}>{title}</h1>
+        <h2 style={{ margin: "1rem 0 0 0" }}>{title}</h2>
       ) : (
         <></>
       )}
@@ -115,54 +115,63 @@ export default function VideoCarousel({
             style={{ flexGrow: 1 }}
           ></button>
         </div> */}
-      <div className={styles.flexContainer}>
-        <a
-          className={`${styles.round} ${inverted ? styles.inv : ""}`}
-          onClick={() =>
-            carouselRef.current.goToSlide(
-              carouselRef.current.state.currentSlide -
-                carouselRef.current.state.slidesToShow
-            )
-          }
-        >
-          &lsaquo;
-        </a>
+      {videos.length == 0 ? (
+        <h3>Couldn't fetch data</h3>
+      ) : (
+        <div className={styles.flexContainer}>
+          <a
+            className={`${styles.round} ${inverted ? styles.inv : ""}`}
+            onClick={() =>
+              carouselRef.current.goToSlide(
+                carouselRef.current.state.currentSlide -
+                  carouselRef.current.state.slidesToShow
+              )
+            }
+          >
+            &lsaquo;
+          </a>
 
-        <Carousel
-          ref={carouselRef}
-          swipeable={true}
-          draggable={false}
-          arrows={false}
-          //customButtonGroup={<CustomButtonGroupAsArrows />}
-          showDots={true}
-          responsive={responsive}
-          renderButtonGroupOutside
-          ssr={true} // means to render carousel on server-side.
-          infinite={true}
-          autoPlaySpeed={1000}
-          keyBoardControl={true}
-          customTransition="all .5"
-          transitionDuration={500}
-          containerClass={styles.carouselcontainer}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-        >
-          {videos.map((e, i) => (
-            <VideoCell video={e} key={i} detail={detail} inverted={inverted} />
-          ))}
-        </Carousel>
-        <a
-          className={`${styles.round} ${inverted ? styles.inv : ""}`}
-          onClick={() =>
-            carouselRef.current.goToSlide(
-              carouselRef.current.state.currentSlide +
-                carouselRef.current.state.slidesToShow
-            )
-          }
-        >
-          &rsaquo;
-        </a>
-      </div>
+          <Carousel
+            ref={carouselRef}
+            swipeable={true}
+            draggable={false}
+            arrows={false}
+            //customButtonGroup={<CustomButtonGroupAsArrows />}
+            showDots={true}
+            responsive={responsive}
+            renderButtonGroupOutside
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            autoPlaySpeed={1000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass={styles.carouselcontainer}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {videos.map((e, i) => (
+              <VideoCell
+                video={e}
+                key={i}
+                detail={detail}
+                inverted={inverted}
+              />
+            ))}
+          </Carousel>
+          <a
+            className={`${styles.round} ${inverted ? styles.inv : ""}`}
+            onClick={() =>
+              carouselRef.current.goToSlide(
+                carouselRef.current.state.currentSlide +
+                  carouselRef.current.state.slidesToShow
+              )
+            }
+          >
+            &rsaquo;
+          </a>
+        </div>
+      )}
       <br />
     </div>
   );
