@@ -11,46 +11,54 @@ function Footer() {
   return (
     <footer className={styles.container}>
       <div className={styles.gridContainer}>
-        <div />
+        <div className={styles.topPaddingDiv} />
+
         <div>
-          <h4>Legal Stuff</h4>
-          <a href="/disclaimer">
-            <p>Disclaimer</p>
-          </a>
-          <a href="/license">
-            <p>License</p>
-          </a>
+          <h3>Legal Stuff</h3>
+          <div className={styles.legalContainer}>
+            <a href="/disclaimer">
+              <p>Disclaimer</p>
+            </a>
+            <a href="/license">
+              <p>License</p>
+            </a>
+          </div>
         </div>
         <div>
-          <h4>Other Platforms</h4>
-          <a href="https://facebook.com/YorkStudentTelevision">
-            <p>Facebook</p>
-          </a>
-          <a href="https://instagram.com/YorkStudentTelevision">
-            <p>Instagram</p>
-          </a>
-          <a href="https://twitter.com/YSTV">
-            <p>Twitter</p>
-          </a>
-          <a href="https://www.youtube.com/user/YorkStudentTV">
-            <p>Youtube</p>
-          </a>
-          <a href="https://github.com/YSTV">
-            <p>Github</p>
-          </a>
+          <h3>Other Platforms</h3>
+          <div className={styles.platformsContainer}>
+            <a href="https://facebook.com/YorkStudentTelevision">
+              <p>Facebook</p>
+            </a>
+            <a href="https://instagram.com/YorkStudentTelevision">
+              <p>Instagram</p>
+            </a>
+            <a href="https://twitter.com/YSTV">
+              <p>Twitter</p>
+            </a>
+            <a href="https://www.youtube.com/user/YorkStudentTV">
+              <p>Youtube</p>
+            </a>
+            <a href="https://github.com/YSTV">
+              <p>GitHub</p>
+            </a>
+          </div>
         </div>
         <div>
-          <h4>Contact Us</h4>
-          <p>info@ystv.co.uk</p>
-          <sub>James College</sub>
+          <h3>Contact Us</h3>
+          <a href="mailto:info@ystv.co.uk">info@ystv.co.uk</a>
           <br />
-          <sub>Newton Way</sub>
-          <br />
-          <sub>Heslington,</sub>
-          <br />
-          <sub>York</sub>
-          <br />
-          <sub>YO10 5DD</sub>
+          <div className={styles.addressContainer}>
+            <sub>James College </sub>
+            <br />
+            <sub>Newton Way </sub>
+            <br />
+            <sub>Heslington, </sub>
+            <br />
+            <sub>York </sub>
+            <br />
+            <sub>YO10 5DD</sub>
+          </div>
         </div>
         <div />
       </div>
