@@ -3,6 +3,7 @@ import VideoPlayer from "../../../components//VideoPlayer/VideoPlayer";
 import Breadcrumb from "../../../components/Breadcrumb";
 import config from "../../../config.json";
 import { formatTime } from "../../../components/commonFunctions";
+import { ClipboardJS } from "clipboard";
 import { useState } from "react";
 import Popover from "react-popover";
 
@@ -33,6 +34,17 @@ export default function WatchVideo({ video, time, breadcrumb }) {
 
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
+    const copyText = `<iframe
+    src="http://ystv.co.uk/embed/${video.id}?height=360"
+    width="640"
+    height="360"
+    frameborder="0"
+    allowfullscreen
+    scrolling="no"
+    ></iframe>`;
+
+    const [copyButtonText, setCopyButtonText] = useState("Copy");
+
     const popoverProps = {
       isOpen: isPopoverOpen,
       onOuterAction: () => setIsPopoverOpen(false),
@@ -41,15 +53,28 @@ export default function WatchVideo({ video, time, breadcrumb }) {
           <h1 key="a">Embed this video on your site:</h1>
           <div
             style={{ border: "solid", padding: "1rem", borderRadius: "1rem" }}
+            key="c"
+          >
+            {copyText}
+          </div>
+          <br />
+          <button
+            className={styles.embedButton}
             key="b"
-          >{`<iframe
-    src="http://ystv.co.uk/embed/${video.id}?height=360"
-    width="640"
-    height="360"
-    frameborder="0"
-    allowfullscreen
-    scrolling="no"
-    ></iframe>`}</div>
+            onClick={() => {
+              navigator.clipboard.writeText(copyText).then(
+                function () {
+                  console.log("Async: Copying to clipboard was successful!");
+                  setCopyButtonText("Copied");
+                },
+                function (err) {
+                  console.error("Async: Could not copy text: ", err);
+                }
+              );
+            }}
+          >
+            {copyButtonText}
+          </button>
         </div>
       ),
     };
@@ -87,6 +112,7 @@ export default function WatchVideo({ video, time, breadcrumb }) {
         </div>
         <Popover {...popoverProps}>
           <div />
+          {/* Needs to be there coz reasons...? */}
         </Popover>
       </>
     );

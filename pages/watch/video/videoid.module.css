@@ -41,6 +41,7 @@
   height: 2.6rem;
   width: 6rem;
   border-style: none;
+  cursor: pointer;
 }
 
 .embedButton:focus {

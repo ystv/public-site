@@ -19,14 +19,17 @@ export default function Breadcrumb({ breadcrumb }: Props) {
               <a
                 href={`/watch/series/${e.id}`}
                 key={`breadcrumb${i}`}
-                style={{ fontWeight: "bold", textDecoration: "underline" }}
+                style={{ fontWeight: "bold" }}
               >
                 {e.name}
               </a>{" "}
               {" / "}
             </Fragment>
           ) : (
-            <a key={`breadcrumb${i}`} style={{ fontWeight: "bold" }}>
+            <a
+              key={`breadcrumb${i}`}
+              style={{ fontWeight: "bold", textDecoration: "none" }}
+            >
               {e.name}
             </a>
           )}
