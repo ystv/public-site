@@ -10,10 +10,6 @@ export default function App({ Component, pageProps }) {
   if (useRouter().pathname.split("/")[1] !== "embed") {
     return (
       <>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
-        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <Navbar />
