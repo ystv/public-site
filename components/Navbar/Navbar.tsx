@@ -48,7 +48,7 @@ export default function Navbar() {
 
           <div className={styles.spacer} />
           <div
-            className={`${menuOpen ? styles.unhidden : null} ${
+            className={`${menuOpen ? styles.unhidden : ""} ${
               styles.buttonContainer
             }`}
           >
@@ -69,18 +69,20 @@ export default function Navbar() {
             </a>
           </div>
           <img
-            className={styles.searchToggle}
+            className={`${styles.searchToggle} ${styles.toggle}`}
             src="/icons/search-24px.svg"
             alt="Search Toggle"
+            draggable="false"
             onClick={(e) => {
               setSearchOpen(!searchOpen);
               setMenuOpen(false);
             }}
           />
           <img
-            className={styles.menuToggle}
+            className={`${styles.menuToggle} ${styles.toggle}`}
             src="/icons/menu-24px.svg"
             alt="Menu Toggle"
+            draggable="false"
             onClick={(e) => {
               setMenuOpen(!menuOpen);
               setSearchOpen(false);
