@@ -68,10 +68,15 @@
     max-width: 90vw;
     justify-content: center;
     margin: 0 auto;
+    padding-bottom: 1rem;
   }
 
   .legalContainer a {
     padding: 0 0.5rem;
+  }
+
+  .legalContainer p {
+    margin: 0;
   }
 
   .platformsContainer a {
