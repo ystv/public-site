@@ -39,13 +39,11 @@
 @media only screen and (min-width: 600px) {
   .gridContainer {
     grid-template-columns: auto repeat(3, 10rem) auto;
+    margin: 1rem auto;
   }
 
   .copyright {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    padding-bottom: 0;
+    margin: 0 0 0 2rem;
   }
 }
 
@@ -65,18 +63,26 @@
   .legalContainer {
     display: flex;
     align-items: baseline;
-    gap: 1rem;
+    /* gap: 1rem; */
     flex-wrap: wrap;
     max-width: 90vw;
     justify-content: center;
     margin: 0 auto;
   }
 
+  .legalContainer a {
+    padding: 0 0.5rem;
+  }
+
+  .platformsContainer a {
+    padding: 0 0.5rem;
+  }
+
   .addressContainer {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 0.1rem;
+    /* gap: 0.1rem; */
     max-width: 90vw;
     justify-content: center;
     margin: auto;
@@ -85,7 +91,7 @@
   .platformsContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 2rem;
+    /* gap: 0 2rem; */
     justify-content: center;
     padding-bottom: 1rem;
   }

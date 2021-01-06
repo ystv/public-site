@@ -49,13 +49,13 @@ function Footer() {
           <a href="mailto:info@ystv.co.uk">info@ystv.co.uk</a>
           <br />
           <div className={styles.addressContainer}>
-            <sub>James College </sub>
+            <sub>James College,&nbsp;</sub>
             <br />
-            <sub>Newton Way </sub>
+            <sub>Newton Way,&nbsp;</sub>
             <br />
-            <sub>Heslington, </sub>
+            <sub>Heslington,&nbsp;</sub>
             <br />
-            <sub>York </sub>
+            <sub>York&nbsp;</sub>
             <br />
             <sub>YO10 5DD</sub>
           </div>
