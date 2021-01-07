@@ -3,7 +3,6 @@ import Footer from "../components/Footer/Footer";
 import "video.js/dist/video-js.css";
 import "../components/VideoPlayer/VideoPlayer.css";
 import "../components/global.css";
-import "react-multi-carousel/lib/styles.css";
 import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {

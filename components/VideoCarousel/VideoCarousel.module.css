@@ -76,13 +76,19 @@
 }
 
 .inv {
-  color: #fbfbfb;
   border-color: #fbfbfb;
 }
 
 .inv:hover {
   background-color: #fbfbfb;
-  color: #333333;
+}
+
+.inv .arrow {
+  border-color: #fbfbfb;
+}
+
+.inv:hover .arrow {
+  border-color: #333333;
 }
 
 .scrollerCarousel {
