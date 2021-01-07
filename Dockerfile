@@ -27,7 +27,7 @@ RUN yarn build
 
 # Expose the listening port
 EXPOSE 3000
-HEALTHCHECK --interval=12s --timeout=12s --start-period=30s CMD node /healthcheck.js
+HEALTHCHECK --interval=12s --timeout=12s --start-period=30s CMD node ./healthcheck.js
 
 # Run container as non-root (unprivileged) user
 # The node user is provided in the Node.js Alpine base image

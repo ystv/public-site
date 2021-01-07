@@ -124,3 +124,8 @@
   background: transparent;
   border-radius: 0px;
 }
+
+.scrollerCarousel {
+  scrollbar-width: thin;
+  scrollbar-color: #dbdbdb transparent;
+}
