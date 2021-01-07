@@ -1,5 +1,5 @@
 import VideoCell from "../VideoCell/VideoCell";
-import { createRef } from "react";
+import { createRef, useRef } from "react";
 
 import styles from "./VideoCarousel.module.css";
 
@@ -55,17 +55,17 @@ export default function VideoCarousel({
       slidesToSlide: 4, // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1440, min: 1110 },
+      breakpoint: { max: 1440, min: 800 },
       items: 3,
       slidesToSlide: 3, // optional, default to 1.
     },
     lphone: {
-      breakpoint: { max: 1110, min: 780 },
+      breakpoint: { max: 800, min: 300 },
       items: 2,
       slidesToSlide: 2, // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 780, min: 0 },
+      breakpoint: { max: 300, min: 0 },
       items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -86,10 +86,12 @@ export default function VideoCarousel({
 
   var carouselRef = createRef<Carousel>();
 
+  const scrollerCarousel = useRef(null);
+
   return (
     <div className={styles.container}>
       {title !== undefined ? (
-        <h2 style={{ margin: "1rem 0 0 0" }}>{title}</h2>
+        <h2 style={{ margin: "1rem 0 0 1rem" }}>{title}</h2>
       ) : (
         <></>
       )}
@@ -119,57 +121,63 @@ export default function VideoCarousel({
         <h3>Couldn't fetch data</h3>
       ) : (
         <div className={styles.flexContainer}>
-          <a
-            className={`${styles.round} ${inverted ? styles.inv : ""}`}
-            onClick={() =>
-              carouselRef.current.goToSlide(
-                carouselRef.current.state.currentSlide -
-                  carouselRef.current.state.slidesToShow
-              )
-            }
-          >
-            &lsaquo;
-          </a>
-
-          <Carousel
+          {/* <Carousel
             ref={carouselRef}
             swipeable={true}
             draggable={false}
             arrows={false}
+            partialVisbile={true}
             //customButtonGroup={<CustomButtonGroupAsArrows />}
             showDots={true}
             responsive={responsive}
-            renderButtonGroupOutside
             ssr={true} // means to render carousel on server-side.
             infinite={true}
             autoPlaySpeed={1000}
             keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
+            customTransition="transform 300ms ease-in-out"
+            transitionDuration={300}
             containerClass={styles.carouselcontainer}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
-          >
-            {videos.map((e, i) => (
-              <VideoCell
-                video={e}
-                key={i}
-                detail={detail}
-                inverted={inverted}
-              />
-            ))}
-          </Carousel>
-          <a
+          > */}
+          <button
+            onClick={() => {
+              scrollerCarousel.current.scrollLeft -= 400;
+            }}
             className={`${styles.round} ${inverted ? styles.inv : ""}`}
-            onClick={() =>
-              carouselRef.current.goToSlide(
-                carouselRef.current.state.currentSlide +
-                  carouselRef.current.state.slidesToShow
-              )
-            }
           >
-            &rsaquo;
-          </a>
+            <i
+              className={`${styles.arrow} ${styles.left} ${
+                inverted ? styles.inv : ""
+              }`}
+            />
+          </button>
+          <div className={styles.scrollerCarousel} ref={scrollerCarousel}>
+            {videos.map((e, i) => (
+              <div className={styles.child}>
+                <VideoCell
+                  video={e}
+                  key={i}
+                  detail={detail}
+                  inverted={inverted}
+                />
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => {
+              scrollerCarousel.current.scrollLeft += 400;
+            }}
+            className={`${styles.round} ${inverted ? styles.inv : ""}`}
+            style={{ marginLeft: ".25rem" }}
+          >
+            <i
+              className={`${styles.arrow} ${styles.right} ${
+                inverted ? styles.inv : ""
+              }`}
+            />
+          </button>
+          {/* </Carousel> */}
         </div>
       )}
       <br />

@@ -7,7 +7,7 @@
 }
 
 .banneri {
-  height: 70vh;
+  height: 80vh;
   width: 100%;
   position: relative;
 }
@@ -80,7 +80,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 0 2rem;
+  padding: 2rem;
 }
 
 .homethin {

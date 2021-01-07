@@ -10,7 +10,7 @@
 }
 
 .container {
-  width: 80%;
+  width: 98%;
   margin: auto;
 }
 
@@ -21,37 +21,58 @@
   padding: 6px;
 }
 
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
 .round:hover {
   background-color: #333333;
-  color: #fbfbfb;
   cursor: pointer;
 }
 
+.round:hover .arrow {
+  border-color: #fbfbfb;
+}
+
+.round:focus {
+  outline: none;
+}
+
 .round {
-  border-radius: 50%;
-  color: #333333;
-  text-decoration: none;
-  display: inline-block;
-  height: 3rem;
-  width: 3.3rem;
-  text-align: center;
-  background-color: transparent;
-  font-size: 3rem;
-  line-height: 2.5rem;
-  border-color: #333333;
-  border-width: 0.1rem;
-  border-style: solid;
-  user-select: none;
+  display: none;
+}
+@media only screen and (min-width: 750px) {
+  .round {
+    color: #333333;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    background-color: transparent;
+    border-color: #333333;
+    /* font-size: 3rem;
+    line-height: 2.5rem; */
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 2px;
+    user-select: none;
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s;
+  }
+
+  .round .arrow {
+    border-color: #333333;
+    border-style: solid;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 5px;
+  }
+
+  .right {
+    transform: translate(2px, 2px) rotate(-45deg);
+    -webkit-transform: translate(-2px, 2px) rotate(-45deg);
+  }
+
+  .left {
+    transform: translate(3px, 2px) rotate(135deg);
+    -webkit-transform: translate(3px, 2px) rotate(135deg);
+  }
 }
 
 .inv {
@@ -62,4 +83,38 @@
 .inv:hover {
   background-color: #fbfbfb;
   color: #333333;
+}
+
+.scrollerCarousel {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  width: 100%;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-x: repeat(200px);
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.child {
+  scroll-snap-align: start;
+  padding: 0 0.25rem;
+}
+
+.scrollerCarousel::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+.scrollerCarousel::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 15px;
+}
+.scrollerCarousel::-webkit-scrollbar-thumb:hover {
+  background: #858585;
+}
+.scrollerCarousel::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0px;
 }
