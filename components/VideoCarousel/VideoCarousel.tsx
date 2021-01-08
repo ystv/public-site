@@ -42,7 +42,7 @@ export default function VideoCarousel({
           </button>
           <div className={styles.scrollerCarousel} ref={scrollerCarousel}>
             {videos.map((e, i) => (
-              <div className={styles.child}>
+              <div className={styles.child} key={i}>
                 <VideoCell
                   video={e}
                   key={i}
