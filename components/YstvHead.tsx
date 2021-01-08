@@ -42,10 +42,10 @@ function YstvHead({ title }: props) {
         property="og:image"
         content="https://ystv.co.uk/static/images/logos/YSTV_meta.jpg"
       />
-      <meta property="og:image:alt" content="YSTV Logo" />
+      <meta property="og:image:alt" content="YSTV" />
       <meta property="og:type" content="website" />
       {/* Twitter Card */}
-      <meta name="twitter:title" content="York Student Television" />
+      <meta name="twitter:title" content="YSTV" />
       <meta name="twitter:site" content="@ystv" />
       <meta name="twitter:domain" content="ystv.co.uk" />
       <meta
