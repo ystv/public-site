@@ -4,6 +4,7 @@ import config from "../config.json";
 
 import styles from "./index.module.css";
 import GenreBox from "../components/GenreBox/Genrebox";
+import Image from "next/image";
 
 export default function Home({
   recentVideoPageState,
@@ -16,11 +17,12 @@ export default function Home({
       <YstvHead />
       <main>
         <div className={styles.banneri}>
-          <picture>
-            <source srcSet="/site-images/carousel.webp" type="image/webp" />
-            <source srcSet="/site-images/carousel.jpg" type="image/jpeg" />
-            <img src="/site-images/carousel.jpg" />
-          </picture>
+          <Image
+            src="/site-images/carousel.jpg"
+            layout="fill"
+            priority
+            objectFit={"cover"}
+          />
 
           <div className={styles.bannerFilter}>
             <div className={styles.bannerContents}>

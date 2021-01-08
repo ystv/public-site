@@ -1,6 +1,7 @@
 import styles from "./GenreBox.module.css";
 import VideoCarousel from "../VideoCarousel/VideoCarousel";
 import { useState } from "react";
+import Image from "next/image";
 
 interface Props {
   videos: any;
@@ -31,14 +32,21 @@ export default function GenreBox({ videos }: Props) {
   }
 
   return (
-    <div className={`${styles[genres[genre].name]} ${styles.container}`}>
-      <div className={styles.genreSelector}>
-        {genres.map(function (e, i) {
-          return <GenreButton name={e.name} id={i} key={i} />;
-        })}
-      </div>
-      <div className={styles.carouselcontainer}>
-        <VideoCarousel videos={genres[0].videos} inverted />
+    <div className={styles.container}>
+      <Image
+        src="/site-images/IMG_3734-s.jpg"
+        layout="fill"
+        objectFit={"cover"}
+      />
+      <div className={`${styles[genres[genre].name]} ${styles.showAbove}`}>
+        <div className={styles.genreSelector}>
+          {genres.map(function (e, i) {
+            return <GenreButton name={e.name} id={i} key={i} />;
+          })}
+        </div>
+        <div className={styles.carouselcontainer}>
+          <VideoCarousel videos={genres[0].videos} inverted />
+        </div>
       </div>
     </div>
   );

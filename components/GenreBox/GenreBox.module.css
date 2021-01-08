@@ -3,13 +3,12 @@
   height: fit-content;
   position: relative;
 
-  background-size: cover !important;
-  background-position: center !important;
-
   display: flex;
   flex-direction: column;
+}
 
-  padding: 0 0 1rem 0;
+.showAbove {
+  z-index: 1;
 }
 
 .carouselcontainer {
@@ -65,45 +64,40 @@
 
 .Entertainment {
   background: linear-gradient(
-      103.13deg,
-      rgba(236, 72, 160, 0.74) 4.76%,
-      rgba(170, 0, 109, 0.3) 94.47%
-    ),
-    url("/site-images/IMG_3734-s.jpg");
+    103.13deg,
+    rgba(236, 72, 160, 0.74) 4.76%,
+    rgba(170, 0, 109, 0.3) 94.47%
+  );
 }
 
 .Factual {
   background: linear-gradient(
-      103.13deg,
-      rgba(34, 126, 228, 0.74) 4.76%,
-      rgba(40, 71, 205, 0.3) 94.47%
-    ),
-    url("/site-images/IMG_3734-s.jpg");
+    103.13deg,
+    rgba(34, 126, 228, 0.74) 4.76%,
+    rgba(40, 71, 205, 0.3) 94.47%
+  );
 }
 
 .Scripted {
   background: linear-gradient(
-      103.13deg,
-      rgba(47, 201, 48, 0.74) 4.76%,
-      rgba(42, 131, 35, 0.3) 94.47%
-    ),
-    url("/site-images/IMG_3734-s.jpg");
+    103.13deg,
+    rgba(47, 201, 48, 0.74) 4.76%,
+    rgba(42, 131, 35, 0.3) 94.47%
+  );
 }
 
 .Sport {
   background: linear-gradient(
-      103.13deg,
-      rgba(250, 175, 24, 0.74) 4.76%,
-      rgba(227, 131, 10, 0.3) 94.47%
-    ),
-    url("/site-images/IMG_3734-s.jpg");
+    103.13deg,
+    rgba(250, 175, 24, 0.74) 4.76%,
+    rgba(227, 131, 10, 0.3) 94.47%
+  );
 }
 
 .Archives {
   background: linear-gradient(
-      103.13deg,
-      rgba(153, 70, 209, 0.74) 4.76%,
-      rgba(119, 34, 166, 0.3) 94.47%
-    ),
-    url("/site-images/IMG_3734-s.jpg");
+    103.13deg,
+    rgba(153, 70, 209, 0.74) 4.76%,
+    rgba(119, 34, 166, 0.3) 94.47%
+  );
 }

@@ -13,11 +13,11 @@ export default function Navbar() {
             <Image
               width="104"
               height="52"
-              loading="eager"
               priority
               src="/ystv_colour.png"
               alt="YSTV logo"
               className={styles.logo}
+              layout="fixed"
             />
           </a>
           <div
