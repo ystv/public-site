@@ -3,6 +3,7 @@ var http = require("http");
 var options = {
   host: "localhost",
   port: "3000",
+  path: "/api/healthz",
   timeout: 2000,
 };
 
