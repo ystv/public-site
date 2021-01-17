@@ -24,6 +24,11 @@ a {
   font-weight: bold;
 }
 
+.noa {
+  font-weight: initial;
+  text-decoration: none;
+}
+
 /* FONTS */
 
 /* cyrillic-ext */

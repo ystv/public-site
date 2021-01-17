@@ -1,4 +1,5 @@
 import { SyntheticEvent } from "react";
+import Image from "next/image";
 import styles from "./SeriesCell.module.css";
 
 interface Props {
@@ -29,6 +30,18 @@ export default function SeriesCell({ series }: Props) {
                 e.target;
               }}
             />
+            {/* <Image
+              src={`https://ystv.co.uk/static/images/shows/${e.thumbnail}`}
+              height="180"
+              width="320"
+              unoptimized
+              onError={(e: SyntheticEvent<HTMLImageElement>) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src =
+                  "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
+                e.target;
+              }}
+            /> */}
           </div>
 
           <h3 className={styles.title}>{e.name}</h3>

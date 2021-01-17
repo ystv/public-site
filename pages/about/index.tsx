@@ -1,8 +1,8 @@
-import YstvHead from "../components/YstvHead";
-import { Fragment } from "react";
-import config from "../config.json";
+import YstvHead from "../../components/YstvHead";
+import config from "../../config.json";
+import { Teams } from "../../types/api/Team";
 
-function About({ people }) {
+function About({ teams }: Teams) {
   return (
     <div className="center thin">
       <YstvHead />
@@ -63,25 +63,18 @@ function About({ people }) {
 
       <main>
         <div className="grid">
-          <h2>Our Committee</h2>
-          {people !== null &&
-            people.map((e, i) => {
-              return (
-                <Fragment key={`committeemid${i}`}>
-                  <h3>{e.name}</h3>
-                  {e.members.map((e, i) => {
-                    return (
-                      <Fragment key={`committeesub${i}`}>
-                        <h4>{e.position}</h4>
-                        <h5>{e.name}</h5>
-                        <a href={e.email}>{e.email}</a>
-                      </Fragment>
-                    );
-                  })}
-                  <br />
-                </Fragment>
-              );
-            })}
+          <h2>Our Committee:</h2>
+          {teams.map((team, i) => {
+            return (
+              <div key={`committeemid${i}`}>
+                <a href={`/about/team/${team.id}`}>
+                  <h3>{team.name}</h3>
+                </a>
+                <p className="noa">{team.shortDescription}</p>
+                <br />
+              </div>
+            );
+          })}
         </div>
       </main>
       <br />
@@ -101,8 +94,8 @@ export async function getServerSideProps(context) {
         return res.json();
       }
     });
-    return { props: { people: res } };
+    return { props: { teams: res } };
   } catch {
-    return { props: { people: null } };
+    return { props: { teams: null } };
   }
 }
