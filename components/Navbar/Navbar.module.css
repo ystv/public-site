@@ -100,6 +100,10 @@
   scale: 1.05;
 }
 
+.menua div {
+  color: transparent;
+}
+
 .spacer {
   flex-grow: 1;
   padding: 0 !important;
