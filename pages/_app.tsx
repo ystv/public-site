@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
         >
           <div style={{ height: "4.5rem", flexShrink: 0 }} />
           <Component {...pageProps} />
-          <div style={{ flex: 1 }} />
+          <div style={{ flexShrink: 0, height: "2rem" }} />
           <Footer />
         </div>
       </>
