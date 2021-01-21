@@ -50,9 +50,6 @@ export default function Watch({ recentVideoPageState, oldVideoPageState }) {
         videos={recentVideoPageState}
         detail
       />
-
-      <br />
-      <br />
     </>
   );
 }
