@@ -37,6 +37,7 @@ export default function GenreBox({ videos }: Props) {
         src="/site-images/IMG_3734-s.jpg"
         layout="fill"
         objectFit={"cover"}
+        loading="eager"
       />
       <div className={`${styles[genres[genre].name]} ${styles.showAbove}`}>
         <div className={styles.genreSelector}>

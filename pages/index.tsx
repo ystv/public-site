@@ -20,7 +20,7 @@ export default function Home({
           <Image
             src="/site-images/carousel.jpg"
             layout="fill"
-            priority
+            loading="eager"
             objectFit={"cover"}
           />
 

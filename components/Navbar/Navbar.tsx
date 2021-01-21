@@ -13,7 +13,7 @@ export default function Navbar() {
             <Image
               width="104"
               height="52"
-              priority
+              loading="eager"
               src="/ystv_colour.png"
               alt="YSTV logo"
               className={styles.logo}
