@@ -20,8 +20,9 @@ export default function Home({
           <Image
             src="/site-images/carousel.jpg"
             layout="fill"
-            loading="eager"
-            objectFit={"cover"}
+            priority
+            objectFit="cover"
+            unoptimized
           />
 
           <div className={styles.bannerFilter}>

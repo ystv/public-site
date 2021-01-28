@@ -20,7 +20,7 @@ export default function SeriesCell({ series }: Props) {
       <div className={styles.cell}>
         <a href={"/watch/series/" + e.id}>
           <div className={styles.imageContainer}>
-            <img
+            {/* <img
               src={`https://ystv.co.uk/static/images/shows/${e.thumbnail}`}
               className={styles.thumbnail}
               onError={(e: SyntheticEvent<HTMLImageElement>) => {
@@ -29,11 +29,12 @@ export default function SeriesCell({ series }: Props) {
                   "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
                 e.target;
               }}
-            />
-            {/* <Image
+            /> */}
+            <Image
               src={`https://ystv.co.uk/static/images/shows/${e.thumbnail}`}
               height="180"
               width="320"
+              className={styles.thumbnail}
               unoptimized
               onError={(e: SyntheticEvent<HTMLImageElement>) => {
                 e.currentTarget.onerror = null;
@@ -41,7 +42,7 @@ export default function SeriesCell({ series }: Props) {
                   "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
                 e.target;
               }}
-            /> */}
+            />
           </div>
 
           <h3 className={styles.title}>{e.name}</h3>

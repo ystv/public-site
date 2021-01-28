@@ -1,6 +1,6 @@
 .menuContainer div {
   font-weight: 400;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #333333;
   margin: auto;
 }
