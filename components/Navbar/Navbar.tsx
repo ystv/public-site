@@ -15,7 +15,7 @@ export default function Navbar() {
               height="52"
               loading="eager"
               src="/ystv_colour.png"
-              alt="YSTV logo"
+              alt="YSTV"
               className={styles.logo}
               layout="fixed"
             />
