@@ -52,19 +52,19 @@ export default function Navbar() {
               styles.buttonContainer
             }`}
           >
-            <a href="/watch" className={styles.watch}>
+            <a href="/watch">
               <div>Watch</div>
             </a>
-            <a href="/get-involved" className={styles.freshers}>
+            <a href="/get-involved">
               <div>Get Involved</div>
             </a>
-            <a href="/about" className={styles.about}>
+            <a href="/about">
               <div>About</div>
             </a>
-            <a href="/hires" className={styles.hires}>
+            <a href="/hires">
               <div>Hires</div>
             </a>
-            <a href="https://my.ystv.co.uk" className={styles.login}>
+            <a href="https://my.ystv.co.uk">
               <div>Login</div>
             </a>
           </div>
