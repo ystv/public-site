@@ -83,8 +83,20 @@
   border-color: #fbfbfb;
 }
 
+.inv.seeMore {
+  color: #fbfbfb;
+}
+
+.seeMore {
+  margin-right: 1rem;
+}
+
+.inv.seeMore:hover {
+  color: #fbfbfb;
+}
+
 .inv:hover {
-  background-color: #fbfbfb;
+  background-color: none;
 }
 
 .inv .arrow {

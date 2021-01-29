@@ -6,14 +6,16 @@ interface CarouselProps {
   videos: [];
   detail?: boolean;
   title?: string;
-  inverted?: boolean | false;
+  inverted?: boolean;
+  disableSeeMore?: boolean;
 }
 
 export default function VideoCarousel({
   videos,
   detail,
   title,
-  inverted = false,
+  inverted,
+  disableSeeMore,
 }: CarouselProps) {
   const scrollerCarousel = useRef(null);
 
@@ -65,6 +67,16 @@ export default function VideoCarousel({
               }`}
             />
           </button>
+        </div>
+      )}
+      {!disableSeeMore && (
+        <div style={{ width: "100%", textAlign: "right" }}>
+          <a
+            href=""
+            className={`${inverted ? styles.inv : ""} ${styles.seeMore}`}
+          >
+            See More
+          </a>
         </div>
       )}
       <br />

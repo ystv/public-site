@@ -43,7 +43,7 @@
 
 .description {
   margin: 0;
-  height: 3.6rem;
+  height: fit-content;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
