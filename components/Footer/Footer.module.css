@@ -36,6 +36,26 @@
   padding-bottom: 2rem;
 }
 
+.platformsContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 0.2rem;
+}
+
+.platformsContainer img {
+  width: 32px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.platformsContainer a {
+  justify-self: center;
+  padding: 0 0.5rem;
+}
+
 @media only screen and (min-width: 600px) {
   .gridContainer {
     grid-template-columns: auto repeat(3, 10rem) auto;
@@ -79,8 +99,12 @@
     margin: 0;
   }
 
-  .platformsContainer a {
+  .sitesContainer a {
     padding: 0 0.5rem;
+  }
+
+  .platformsContainer {
+    margin: auto;
   }
 
   .addressContainer {
@@ -93,7 +117,7 @@
     margin: auto;
   }
 
-  .platformsContainer {
+  .sitesContainer {
     display: flex;
     flex-wrap: wrap;
     /* gap: 0 2rem; */
@@ -101,7 +125,7 @@
     padding-bottom: 1rem;
   }
 
-  .platformsContainer p {
+  .sitesContainer p {
     margin: 0.1rem 0;
   }
 
