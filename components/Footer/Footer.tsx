@@ -39,6 +39,9 @@ function Footer() {
             <a href="https://medium.com/ystv">
               <p>Tech Blog</p>
             </a>
+            <a href="https://status.ystv.co.uk">
+              <p>Status</p>
+            </a>
           </div>
         </div>
         <div>
