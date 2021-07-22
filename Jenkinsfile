@@ -70,7 +70,6 @@ pipeline {
         }
         stage('Cleanup') {
             steps {
-                sh "docker image rm $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID" // Removing the local builder image
                 sh 'docker image prune -a -f --filter "label=site=public"' // remove old image
             }
         }

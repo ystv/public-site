@@ -31,7 +31,14 @@ HEALTHCHECK --interval=12s --timeout=12s --start-period=30s CMD node ./healthche
 
 # Run container as non-root (unprivileged) user
 # The node user is provided in the Node.js Alpine base image
-USER node
+ENV NODE_ENV production
+
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+USER nextjs
+
+ENV NEXT_TELEMETRY_DISABLED 1
 
 # Run npm start script when container starts
-CMD yarn start
+CMD ["yarn", "start"]
