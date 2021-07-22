@@ -39,7 +39,7 @@ pipeline {
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
                                     docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID // Deploying site
+                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }
@@ -59,7 +59,7 @@ pipeline {
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
                                     docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID // Deploying site
+                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }
