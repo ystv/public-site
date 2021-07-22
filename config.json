@@ -1,5 +1,5 @@
 {
   "api": {
-  "rest": "https://api.ystv.co.uk"
+    "rest": "https://api.dev.ystv.co.uk"
   }
 }
