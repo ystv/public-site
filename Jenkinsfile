@@ -39,8 +39,7 @@ pipeline {
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
                                     docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID" // Deploying site
-                                    docker image prune -a -f --filter "label=site=public"
+                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID // Deploying site
                                     exit 0
                                 EOF'''
                             }
@@ -60,8 +59,7 @@ pipeline {
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
                                     docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID" // Deploying site
-                                    docker image prune -a -f --filter "label=site=public"
+                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID // Deploying site
                                     exit 0
                                 EOF'''
                             }
@@ -71,8 +69,10 @@ pipeline {
             }
         }
         stage('Cleanup') {
-            sh "docker image rm $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID" // Removing the local builder image
-            sh 'docker image prune -a -f --filter "label=site=public"' // remove old image
+            steps {
+                sh "docker image rm $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID" // Removing the local builder image
+                sh 'docker image prune -a -f --filter "label=site=public"' // remove old image
+            }
         }
     }
     post {
