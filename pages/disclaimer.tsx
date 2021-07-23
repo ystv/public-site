@@ -1,4 +1,5 @@
 import YSTVHead from "../components/YstvHead";
+import Link from "next/link";
 
 export default function Disclaimer() {
   return (
@@ -8,7 +9,7 @@ export default function Disclaimer() {
       <ul>
         <li>
           In addition to this disclaimer, this website is also covered by the
-          University of York's&nbsp;
+          University of York&apos;s&nbsp;
           <a href="http://www.york.ac.uk/docs/disclaimer/disclaimer.htm">
             standard disclaimer
           </a>
@@ -40,23 +41,24 @@ export default function Disclaimer() {
         <li>
           The contents of this website, including but not limited to text,
           graphics, audio and visual material, as well as video streamed on the
-          'Watch' section of this website, is subject to YSTV's standard
-          licence, defined <a href="/license">here</a>.
+          &apos;Watch&apos; section of this website, is subject to YSTV&apos;s
+          standard licence, defined <Link href="/license">here</Link>.
         </li>
         <li>
           Where York Student Television (YSTV) hold personal data about
           individuals, in the form of the membership and authentication
           databases, the data is held securely in accordance with the Data
           Protection Act 1998, following the guidelines of the University of
-          York's{" "}
+          York&apos;s{" "}
           <a
             title="Data Protection Policy"
             href="http://www.york.ac.uk/recordsmanagement/dpa/dppolicy2002.htm"
             target="_blank"
+            rel="noreferrer"
           >
             Data Protection Policy
           </a>{" "}
-          and active York University Student's Union (YUSU) Policy.
+          and active York University Student&apos;s Union (YUSU) Policy.
         </li>
         <li>
           If you are interested in using the contents of this website in any

@@ -1,4 +1,5 @@
 import styles from "./Footer.module.css";
+import Link from "next/link";
 
 function Footer() {
   const current_date = new Date();
@@ -16,12 +17,16 @@ function Footer() {
         <div>
           <h3>Legal Stuff</h3>
           <div className={styles.legalContainer}>
-            <a href="/disclaimer">
-              <p>Disclaimer</p>
-            </a>
-            <a href="/license">
-              <p>License</p>
-            </a>
+            <Link href="/disclaimer">
+              <a>
+                <p>Disclaimer</p>
+              </a>
+            </Link>
+            <Link href="/license">
+              <a>
+                <p>License</p>
+              </a>
+            </Link>
           </div>
         </div>
         <div>

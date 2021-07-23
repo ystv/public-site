@@ -12,7 +12,8 @@ export default function License() {
         <li>
           Any content produced <strong>on or after 1 June 2014</strong> by YSTV
           is made available under the Creative Commons
-          "Attribution-NonCommercial-ShareAlike Works" licence, version 4.0 (
+          &quot;Attribution-NonCommercial-ShareAlike Works&quot; licence,
+          version 4.0 (
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
             summary
           </a>
@@ -39,7 +40,8 @@ export default function License() {
         <li>
           Any content produced <strong>prior to 1 June 2014</strong> by YSTV is
           made available under&nbsp;the Creative Commons
-          "Attribution-NonCommercial-NoDerivative Works" licence, version 2.5 (
+          &quot;Attribution-NonCommercial-NoDerivative Works&quot; licence,
+          version 2.5 (
           <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/">
             summary
           </a>
@@ -72,16 +74,16 @@ export default function License() {
       <ul>
         <li>
           All works produced by members of York Student Television using the
-          station's equipment remains the property of YSTV. Persons involved in
-          producing these works are free to re-use them under the applicable
-          licence specified above, however further permissions can be granted at
-          the discretion of a station meeting.
+          station&apos;s equipment remains the property of YSTV. Persons
+          involved in producing these works are free to re-use them under the
+          applicable licence specified above, however further permissions can be
+          granted at the discretion of a station meeting.
         </li>
         <li>
           The easiest way to share our content on a website is to use the embed
           code available on individual video pages.
         </li>
-      </ul>{" "}
+      </ul>
     </div>
   );
 }

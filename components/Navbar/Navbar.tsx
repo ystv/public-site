@@ -1,6 +1,7 @@
 import styles from "./Navbar.module.css";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import ystv_colour from "../../public/ystv_colour.png";
 
 export default function Navbar() {
@@ -14,7 +15,8 @@ export default function Navbar() {
             <Image
               width="104"
               height="52"
-              loading="eager"
+              priority
+              placeholder="blur"
               src={ystv_colour}
               alt="YSTV"
               className={styles.logo}
@@ -53,18 +55,26 @@ export default function Navbar() {
               styles.buttonContainer
             }`}
           >
-            <a href="/watch">
-              <div>Watch</div>
-            </a>
-            <a href="/get-involved">
-              <div>Get Involved</div>
-            </a>
-            <a href="/about">
-              <div>About</div>
-            </a>
-            <a href="/hires">
-              <div>Hires</div>
-            </a>
+            <Link href="/watch">
+              <a>
+                <div>Watch</div>
+              </a>
+            </Link>
+            <Link href="/get-involved">
+              <a>
+                <div>Get Involved</div>
+              </a>
+            </Link>
+            <Link href="/about">
+              <a>
+                <div>About</div>
+              </a>
+            </Link>
+            <Link href="/hires">
+              <a>
+                <div>Hires</div>
+              </a>
+            </Link>
             <a href="https://my.ystv.co.uk">
               <div>Login</div>
             </a>

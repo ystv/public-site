@@ -1,6 +1,7 @@
 import YstvHead from "../../components/YstvHead";
 import config from "../../config.json";
 import { Teams } from "../../types/api/Team";
+import Link from "next/link";
 
 function About({ teams }: Teams) {
   return (
@@ -56,7 +57,7 @@ function About({ teams }: Teams) {
           So if you’ve ever wanted to get your face on screen, try out your
           skills behind a camera, or have a brilliant idea for a show then email{" "}
           <a href="mailto:getinvolved@ystv.co.uk">getinvolved@ystv.co.uk</a> or
-          click on “<a href="/get-involved">Get Involved</a>”.
+          click on “<Link href="/get-involved">Get Involved</Link>”.
         </p>{" "}
       </div>
       <br />

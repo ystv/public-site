@@ -9,6 +9,9 @@ import Popover from "react-popover";
 import styles from "./videoid.module.css";
 
 export default function WatchVideo({ video, time, breadcrumb }) {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [copyButtonText, setCopyButtonText] = useState("Copy");
+
   try {
     const videoJSOptions = {
       autoplay: false,
@@ -31,8 +34,6 @@ export default function WatchVideo({ video, time, breadcrumb }) {
 
     var myplayer = VideoPlayer(videoJSOptions, time);
 
-    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-
     const copyText = `<iframe
     src="http://ystv.co.uk/embed/${video.id}?height=360"
     width="640"
@@ -41,8 +42,6 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     allowfullscreen
     scrolling="no"
     ></iframe>`;
-
-    const [copyButtonText, setCopyButtonText] = useState("Copy");
 
     const popoverProps = {
       isOpen: isPopoverOpen,

@@ -73,8 +73,8 @@ export default function GetInvolved() {
               <strong>DIRECTOR</strong>
               <br />
               The director leads the show, making sure everyone is doing
-              everything they need to be doing at the right time. They're in
-              charge of ensuring all members of the team do their job!
+              everything they need to be doing at the right time. They&apos;re
+              in charge of ensuring all members of the team do their job!
             </p>
             <p>
               <strong>FLOOR MANAGER</strong>
@@ -105,16 +105,16 @@ export default function GetInvolved() {
               <strong>VISION MIXER</strong>
               <br />
               Ever wondered who chooses between which camera shots get to be on
-              telly? That's the vision mixer's job. Although it looks like
-              you're merely pressing buttons, it's one of the most popular
-              jobs!&nbsp;
+              telly? That&apos;s the vision mixer&apos;s job. Although it looks
+              like you&apos;re merely pressing buttons, it&apos;s one of the
+              most popular jobs!&nbsp;
             </p>
             <p>
               <strong>VT OPERATOR&nbsp;</strong>
               <br />
-              VT stands for 'video tape', in other words pre-filmed and edited
-              footage made specifically for programmes. A VT operator is needed
-              to ensure that VTs appear on screen during live shows.
+              VT stands for &apos;video tape&apos;, in other words pre-filmed
+              and edited footage made specifically for programmes. A VT operator
+              is needed to ensure that VTs appear on screen during live shows.
             </p>
             <p>
               <strong>PRESENTING</strong>
@@ -129,40 +129,42 @@ export default function GetInvolved() {
               <strong>PRODUCING</strong>
               <br />
               The Production Team is always on the lookout for new ideas and
-              budding producers. If you're interested in getting involved with
-              the creation and running of our programmes, we want you working on
-              our Team! New members wishing to become a permanent part of the
-              Production Team are always welcome. We are a flexible, friendly
-              and enthusiastic group of people passionate about TV production,
-              and if you have something to offer us, or want to find out more
-              about what we do, we would love to have you.
+              budding producers. If you&apos;re interested in getting involved
+              with the creation and running of our programmes, we want you
+              working on our Team! New members wishing to become a permanent
+              part of the Production Team are always welcome. We are a flexible,
+              friendly and enthusiastic group of people passionate about TV
+              production, and if you have something to offer us, or want to find
+              out more about what we do, we would love to have you.
               <br />
-              Despite the fanciness of the word 'production', it is in essence
-              another way of saying 'creating and organising a show'. Production
-              involves a plethora of things to do and skills to learn or build
-              upon, and is without a doubt one of the best and easiest ways to
-              get involved at YSTV. If you love to organise, delegate, lead,
-              create and inspire, then production is for you. From finding the
-              concept for a new show, to bringing the right people together to
-              make it happen, to learning how to operate a camera and edit
-              footage, production is hands-on, extremely fun, and open to anyone
-              willing to put in the time. Even if you don't have a specific idea
-              for a show, talk to us! There's something for everyone, and you
-              will have the time of your life!
+              Despite the fanciness of the word &apos;production&apos;, it is in
+              essence another way of saying &apos;creating and organising a
+              show&apos;. Production involves a plethora of things to do and
+              skills to learn or build upon, and is without a doubt one of the
+              best and easiest ways to get involved at YSTV. If you love to
+              organise, delegate, lead, create and inspire, then production is
+              for you. From finding the concept for a new show, to bringing the
+              right people together to make it happen, to learning how to
+              operate a camera and edit footage, production is hands-on,
+              extremely fun, and open to anyone willing to put in the time. Even
+              if you don&apos;t have a specific idea for a show, talk to us!
+              There&apos;s something for everyone, and you will have the time of
+              your life!
               <br />
               To give you a taste of what we do, please do email us!
             </p>
             <p>
               <strong>PUBLICITY</strong>
               <br />
-              The Commercial Team controls the 'face of YSTV' and is responsible
-              for promoting the station to campus and the outside world.
+              The Commercial Team controls the &apos;face of YSTV&apos; and is
+              responsible for promoting the station to campus and the outside
+              world.
               <br />
-              We're an open, friendly team and are always looking for new faces
-              and talents. If you're interested in marketing, branding, graphic
-              design, photography, organising sponsorship or masterminding an
-              advertising campaign, then don't hesitate to get in touch with our
-              Commercial Director at&nbsp;
+              We&apos;re an open, friendly team and are always looking for new
+              faces and talents. If you&apos;re interested in marketing,
+              branding, graphic design, photography, organising sponsorship or
+              masterminding an advertising campaign, then don&apos;t hesitate to
+              get in touch with our Commercial Director at&nbsp;
               <strong>
                 <a href="mailto:commercial.director@ystv.co.uk">
                   commercial.director@ystv.co.uk

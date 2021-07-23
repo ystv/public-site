@@ -6,7 +6,9 @@ export default function Hires() {
       <YstvHead />
       <main>
         <div className="grid center thin">
-          <h1>We'd love to work with you, this is how to hire us &rarr;</h1>
+          <h1>
+            We&apos;d love to work with you, this is how to hire us &rarr;
+          </h1>
           <p>YSTV has the following equipment available for hire.</p>
           <p>
             Ratified YSTV productions can see all equipment available free of

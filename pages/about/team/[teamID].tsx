@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { Fragment } from "react";
 import { Team } from "../../../types/api/Team";
 import config from "../../../config.json";
@@ -11,7 +12,7 @@ function TeamID({ team }: Props) {
   return (
     <div className="center thin">
       <br />
-      <a href="/about">&larr; About</a>
+      <Link href="/about">&larr; About</Link>
       <h1>{team.name}</h1>
       <a
         href={`mailto:${team.emailAlias}@ystv.co.uk`}

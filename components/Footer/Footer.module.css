@@ -97,6 +97,7 @@
 
   .legalContainer p {
     margin: 0;
+    font-weight: bold;
   }
 
   .sitesContainer a {

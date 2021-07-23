@@ -1,3 +1,3 @@
-export default (req, res) => {
-  res.status(200).json({ status: "ok!" });
-};
+const healthz = (req, res) => res.status(200).json({ status: "ok!" });
+
+export default healthz;

@@ -5,6 +5,7 @@ import config from "../config.json";
 import styles from "./index.module.css";
 import GenreBox from "../components/GenreBox/Genrebox";
 import Image from "next/image";
+import carouselBG from "../public/site-images/carousel.jpg";
 
 export default function Home({
   recentVideoPageState,
@@ -18,13 +19,12 @@ export default function Home({
       <main>
         <div className={styles.banneri}>
           <Image
-            src="/site-images/carousel.jpg"
+            src={carouselBG}
             layout="fill"
             priority
             objectFit="cover"
-            unoptimized
+            placeholder="blur"
           />
-
           <div className={styles.bannerFilter}>
             <div className={styles.bannerContents}>
               <h1>We are York Student Television.</h1>
@@ -43,17 +43,17 @@ export default function Home({
           </div>
         </div>
 
-        <div className={styles.homethin}>
+        <div className={styles.homeThin}>
           <VideoCarousel title="Featured" videos={featuredVideoPageState} />
         </div>
 
-        <div className={styles.homethin}>
+        <div className={styles.homeThin}>
           <VideoCarousel title="Recent" videos={recentVideoPageState} />
         </div>
 
         <GenreBox videos={[genreVideoPageState]} />
 
-        <div className={styles.homethin}>
+        <div className={styles.homeThin}>
           <VideoCarousel title="Popular" videos={popularVideoPageState} />
         </div>
       </main>
