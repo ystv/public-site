@@ -1,6 +1,7 @@
 import styles from "./Navbar.module.css";
 import { useState } from "react";
 import Image from "next/image";
+import ystv_colour from "../../public/ystv_colour.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function Navbar() {
               width="104"
               height="52"
               loading="eager"
-              src="/ystv_colour.png"
+              src={ystv_colour}
               alt="YSTV"
               className={styles.logo}
               layout="fixed"
