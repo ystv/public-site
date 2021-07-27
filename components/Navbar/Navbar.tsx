@@ -11,18 +11,20 @@ export default function Navbar() {
     <header>
       <div className={styles.menu}>
         <div className={styles.menuContainer}>
-          <a href="/" className={styles.menua}>
-            <Image
-              width="104"
-              height="52"
-              priority
-              placeholder="blur"
-              src={ystv_colour}
-              alt="YSTV"
-              className={styles.logo}
-              layout="fixed"
-            />
-          </a>
+          <Link href="/" passHref>
+            <a className={styles.menua}>
+              <Image
+                width="104"
+                height="52"
+                priority
+                placeholder="blur"
+                src={ystv_colour}
+                alt="YSTV"
+                className={styles.logo}
+                layout="fixed"
+              />
+            </a>
+          </Link>
           <div
             className={`${
               searchOpen ? styles.searchlayoutdiv : styles.searchNoPadding

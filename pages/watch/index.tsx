@@ -11,15 +11,9 @@ export default function Watch({ recentVideoPageState, oldVideoPageState }) {
       </div>
       <VideoCarousel title="Popular" videos={recentVideoPageState} detail />
 
-      <br />
-
       <VideoCarousel title="Featured" videos={recentVideoPageState} detail />
 
-      <br />
-
       <VideoCarousel title="Recent" videos={recentVideoPageState} detail />
-
-      <br />
 
       <VideoCarousel
         title="Entertainment"
@@ -27,23 +21,13 @@ export default function Watch({ recentVideoPageState, oldVideoPageState }) {
         detail
       />
 
-      <br />
-
       <VideoCarousel title="Factual" videos={recentVideoPageState} detail />
-
-      <br />
 
       <VideoCarousel title="Scripted" videos={recentVideoPageState} detail />
 
-      <br />
-
       <VideoCarousel title="Sport" videos={recentVideoPageState} detail />
 
-      <br />
-
       <VideoCarousel title="Archives" videos={recentVideoPageState} detail />
-
-      <br />
 
       <VideoCarousel
         title="Something Random"
