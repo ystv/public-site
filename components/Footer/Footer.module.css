@@ -43,14 +43,6 @@
   padding-bottom: 0.2rem;
 }
 
-.platformsContainer img {
-  width: 32px;
-  margin: 0 auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .platformsContainer a {
   justify-self: center;
   padding: 0 0.5rem;

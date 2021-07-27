@@ -46,6 +46,7 @@ export default function Navbar() {
                 <img
                   className={styles.searchIcon}
                   src="/icons/search-24px.svg"
+                  alt=""
                 />
               </button>
             </form>

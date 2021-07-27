@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 function Footer() {
   const current_date = new Date();
@@ -71,19 +72,49 @@ function Footer() {
       <div className={styles.copyright}>
         <div className={styles.platformsContainer}>
           <a href="https://facebook.com/YorkStudentTelevision">
-            <img src="/socials/facebook.svg" alt="YSTV Facebook Page" />
+            <Image
+              src="/socials/facebook.svg"
+              alt="YSTV Facebook Page"
+              width="32px"
+              height="32px"
+              unoptimized
+            />
           </a>
           <a href="https://instagram.com/YorkStudentTelevision">
-            <img src="/socials/instagram.svg" alt="YSTV Instagrm Page" />
+            <Image
+              src="/socials/instagram.svg"
+              alt="YSTV Instagrm Page"
+              width="32px"
+              height="32px"
+              unoptimized
+            />
           </a>
           <a href="https://twitter.com/ystv">
-            <img src="/socials/twitter.svg" alt="YSTV Twitter Page" />
+            <Image
+              src="/socials/twitter.svg"
+              alt="YSTV Twitter Page"
+              width="32px"
+              height="32px"
+              unoptimized
+            />
           </a>
           <a href="https://www.youtube.com/user/YorkStudentTV">
-            <img src="/socials/youtube.svg" alt="YSTV Youtube Page" />
+            <Image
+              src="/socials/youtube.svg"
+              alt="YSTV Youtube Page"
+              width="32px"
+              height="32px"
+              unoptimized
+            />
           </a>
           <a href="https://github.com/ystv">
-            <img src="/socials/github.svg" alt="YSTV Github Page" />
+            <Image
+              src="/socials/github.svg"
+              alt="YSTV Github Page"
+              width="32px"
+              height="32px"
+              unoptimized
+            />
           </a>
         </div>
         <small>Website ©2020{year} York Student Television.</small>

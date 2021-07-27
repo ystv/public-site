@@ -1,14 +1,17 @@
 import YstvHead from "../components/YstvHead";
+import Image from "next/image"
+import MapImage from "../public/site-images/ystv_map.png"
 
 export default function FindUs() {
   return (
     <div className="center thin">
       <YstvHead />
       <h1>Find Us</h1>
-      <img
-        src="/site-images/ystv_map.png"
+      <Image
+        src={MapImage}
         alt="Map showing YSTV's location on Campus West"
-        style={{ width: "100%" }}
+        layout="responsive"
+        unoptimized
       />
       <p>
         YSTV’s studio is in James College; if you need any help finding us just

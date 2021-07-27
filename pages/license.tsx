@@ -1,4 +1,7 @@
 import YstvHead from "../components/YstvHead";
+import Image from "next/image";
+import Licence1 from "../public/site-images/license/by-nc-sa.png";
+import Licence2 from "../public/site-images/license/by-nc-nd.png";
 
 export default function License() {
   return (
@@ -6,7 +9,7 @@ export default function License() {
       <YstvHead />
       <h1>License</h1>
       <div>
-        <img src="/site-images/license/by-nc-sa.png" alt="" width="100%" />
+        <Image src={Licence1} alt="" unoptimized layout={"responsive"} />
       </div>
       <ul>
         <li>
@@ -34,7 +37,7 @@ export default function License() {
       </ul>
       <p>&nbsp;</p>
       <p>
-        <img src="/site-images/license/by-nc-nd.png" alt="" width="100%" />
+        <Image src={Licence2} alt="" unoptimized layout={"responsive"} />
       </p>
       <ul>
         <li>

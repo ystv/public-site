@@ -40,6 +40,7 @@ export default function GenreBox({ videos }: Props) {
         objectFit={"cover"}
         priority
         placeholder="blur"
+        alt=""
       />
       <div className={`${styles[genres[genre].name]} ${styles.showAbove}`}>
         <div className={styles.genreSelector}>

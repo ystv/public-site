@@ -53,6 +53,7 @@ export default function VideoCell({
                 e.target;
               }}
               className={styles.thumbnail}
+              alt=""
             />
             <small className={styles.duration}>{formatTime(e.duration)}</small>
           </div>

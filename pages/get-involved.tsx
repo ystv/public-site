@@ -1,4 +1,5 @@
 import YstvHead from "../components/YstvHead";
+import Link from "next/link"
 
 export default function GetInvolved() {
   return (
@@ -29,7 +30,7 @@ export default function GetInvolved() {
                 </a>
               </strong>
               , or drop in to our studio anytime.&nbsp; You can find out where
-              we are by clicking <a href="/find-us">here</a>.
+              we are by clicking <Link href="/find-us">here</Link>.
             </p>
             <p>&nbsp;</p>
             <p>

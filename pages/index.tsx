@@ -25,6 +25,7 @@ export default function Home({
             priority
             objectFit="cover"
             placeholder="blur"
+            alt=""
           />
           <div className={styles.bannerFilter}>
             <div className={styles.bannerContents}>
