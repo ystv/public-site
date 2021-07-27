@@ -6,15 +6,18 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-RUN echo commitID: ${SOURCE_ID_ARG}
-ENV SOURCE_ID=$SOURCE_ID_ARG
-ENV BUILD_ID=$BUILD_ID_ARG
-
 # Rebuild the source code only when needed
 FROM node:alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
+
+ARG SOURCE_ID_ARG="n/a"
+ARG BUILD_ID_ARG="n/a"
+RUN echo commitID: ${SOURCE_ID_ARG}
+ENV SOURCE_ID=$SOURCE_ID_ARG
+ENV BUILD_ID=$BUILD_ID_ARG
+
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
 # Production image, copy all the files and run next
