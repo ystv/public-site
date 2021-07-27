@@ -64,13 +64,15 @@ function About({ teams }: Teams) {
 
       <main>
         <div className="grid">
-          <h2>Our Committee:</h2>
+          <h2>Our Teams:</h2>
           {teams.map((team, i) => {
             return (
               <div key={`committeemid${i}`}>
-                <a href={`/about/team/${team.id}`}>
-                  <h3>{team.name}</h3>
-                </a>
+                <Link href={`/about/team/${team.id}`}>
+                  <a>
+                    <h3>{team.name}</h3>
+                  </a>
+                </Link>
                 <p className="noa">{team.shortDescription}</p>
                 <br />
               </div>

@@ -64,32 +64,28 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  try {
-    let recentVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/12/0`
-    ).then((res) => res.json());
+  let recentVideoPageState = await fetch(
+    `${config.api.rest}/v1/public/videos/12/0`
+  ).then((res) => res.json());
 
-    let popularVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/12/1000`
-    ).then((res) => res.json());
+  let popularVideoPageState = await fetch(
+    `${config.api.rest}/v1/public/videos/12/1000`
+  ).then((res) => res.json());
 
-    let genreVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/12/500`
-    ).then((res) => res.json());
+  let genreVideoPageState = await fetch(
+    `${config.api.rest}/v1/public/videos/12/500`
+  ).then((res) => res.json());
 
-    let featuredVideoPageState = await fetch(
-      `${config.api.rest}/v1/public/videos/12/600`
-    ).then((res) => res.json());
+  let featuredVideoPageState = await fetch(
+    `${config.api.rest}/v1/public/videos/12/600`
+  ).then((res) => res.json());
 
-    return {
-      props: {
-        recentVideoPageState,
-        popularVideoPageState,
-        featuredVideoPageState,
-        genreVideoPageState,
-      },
-    };
-  } catch {
-    return { props: { res: { videos: [] } } };
-  }
+  return {
+    props: {
+      recentVideoPageState,
+      popularVideoPageState,
+      featuredVideoPageState,
+      genreVideoPageState,
+    },
+  };
 }
