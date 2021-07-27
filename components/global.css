@@ -8,7 +8,7 @@ body {
 }
 
 .thin {
-  max-width: 80rem;
+  max-width: 70rem;
   width: calc(100% - 2rem);
   padding: 0 1rem;
   object-fit: contain;
