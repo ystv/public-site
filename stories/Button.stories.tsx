@@ -1,13 +1,19 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Button } from './Button';
+import Button from "../components/Button/Button";
 
 export default {
-  title: 'Example/Button',
+  title: "UI Elements/Button",
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    primaryColour: { control: "color" },
+    secondaryColour: { control: "color" },
+  },
+  parameters: {
+    backgrounds: {
+      default: "dark",
+    },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -15,23 +21,27 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  outline: false,
+  label: "Button",
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
+export const Outline = Template.bind({});
+Outline.args = {
+  outline: true,
+  label: "Button",
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
+export const PrimaryColour = Template.bind({});
+PrimaryColour.args = {
+  outline: false,
+  label: "Button",
+  primaryColour: "#4da89d",
+  secondaryColour: "#0f5f87",
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const OutlineColour = Template.bind({});
+OutlineColour.args = {
+  outline: true,
+  label: "Button",
+  primaryColour: "#1c84da",
 };

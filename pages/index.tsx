@@ -6,6 +6,7 @@ import styles from "./index.module.css";
 import GenreBox from "../components/GenreBox/Genrebox";
 import Image from "next/image";
 import carouselBG from "../public/site-images/carousel.jpg";
+import Button from "../components/Button/Button";
 
 export default function Home({
   recentVideoPageState,
@@ -29,8 +30,8 @@ export default function Home({
             <div className={styles.bannerContents}>
               <h1>We are York Student Television.</h1>
               <h3>NaSTA Best Broadcaster and Best Tech 2019</h3>
-              <button className={styles.aboutButton}>About Us</button>
-              <button className={styles.highlightsButton}>Highlights</button>
+              <Button label="About Us" />
+              <Button label="Highlights" outline />
               {/* <iframe
                 width="560"
                 height="315"
