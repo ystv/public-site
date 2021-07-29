@@ -1,5 +1,7 @@
-// next.config.js
-module.exports = {
-  // Force a trailing slash, the default value is no trailing slash (false)
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx$/,
+});
+module.exports = withMDX({
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   trailingSlash: true,
-};
+});

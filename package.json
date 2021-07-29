@@ -11,6 +11,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^11.0.1",
     "@silvermine/videojs-quality-selector": "^1.2.5",
     "@types/video.js": "^7.3.26",
     "ini": "2.0.0",
