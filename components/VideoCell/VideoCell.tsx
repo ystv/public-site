@@ -36,7 +36,7 @@ export default function VideoCell({
   return (
     <div
       className={styles.flexContainer}
-      style={{ color: inverted ? "#fbfbfb" : "black" }}
+      style={{ color: inverted ? "var(--light)" : "black" }}
     >
       <div className={styles.cell}>
         <a href={"/watch/video/" + e.id}>
@@ -59,7 +59,7 @@ export default function VideoCell({
           </div>
           <h3
             className={styles.title}
-            style={{ color: inverted ? "#fbfbfb" : "black" }}
+            style={{ color: inverted ? "var(--light)" : "black" }}
           >
             {e.name}
           </h3>

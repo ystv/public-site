@@ -83,13 +83,13 @@ export default function WatchVideo({ video, time, breadcrumb }) {
           <Breadcrumb breadcrumb={breadcrumb} />
           <h1>{video.name}</h1>
           {myplayer}
-          <div className={styles.videoinfo}>
+          <div className={styles.videoInfo}>
             <p
               dangerouslySetInnerHTML={{ __html: video.description }}
               style={{ flex: 1 }}
             />
             <div className={styles.spacer} />
-            <div className={styles.rightinfo}>
+            <div className={styles.rightInfo}>
               <h4>
                 {video.views} View{video.views !== 1 ? "s" : null}
               </h4>

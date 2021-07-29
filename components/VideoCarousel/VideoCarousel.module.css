@@ -11,21 +11,21 @@
 }
 
 .arrow {
-  border: solid #333333;
+  border: solid var(--dark);
   border-width: 0 6px 6px 0;
   display: inline-block;
   padding: 6px;
 }
 
 .round:hover {
-  background-color: #333333;
+  background-color: var(--dark);
   cursor: pointer;
   transition: 0.5s ease;
   transform: scale(1.05);
 }
 
 .round:hover .arrow {
-  border-color: #fbfbfb;
+  border-color: var(--light);
 }
 
 .round:focus {
@@ -40,7 +40,7 @@
 .fader {
   position: absolute;
   right: -.1rem;
-  background: linear-gradient(90deg, #fbfbfb00, var(--light));
+  background: linear-gradient(90deg, rgba(var(--light) 0), var(--light));
   width: 3rem;
   height: 100%;
 }
@@ -51,14 +51,12 @@
   }
 
   .round {
-    color: #333333;
+    color: var(--dark);
     text-decoration: none;
     display: inline-block;
     text-align: center;
     background-color: transparent;
-    border-color: #333333;
-    /* font-size: 3rem;
-    line-height: 2.5rem; */
+    border-color: var(--dark);
     border-radius: 1rem;
     border-style: solid;
     border-width: 2px;
@@ -69,7 +67,7 @@
   }
 
   .round .arrow {
-    border-color: #333333;
+    border-color: var(--dark);
     border-style: solid;
     border-width: 0 5px 5px 0;
     display: inline-block;
@@ -97,11 +95,11 @@
 }
 
 .inv {
-  border-color: #fbfbfb;
+  border-color: var(--light);
 }
 
 .inv.seeMore {
-  color: #fbfbfb;
+  color: var(--light);
 }
 
 .seeMore {
@@ -109,19 +107,19 @@
 }
 
 .inv.seeMore:hover {
-  color: #fbfbfb;
+  color: var(--light);
 }
 
 .inv:hover {
-  background-color: #fbfbfb;
+  background-color: var(--light);
 }
 
 .inv .arrow {
-  border-color: #fbfbfb;
+  border-color: var(--light);
 }
 
 .inv:hover .arrow {
-  border-color: #333333;
+  border-color: var(--dark);
 }
 
 .scrollerCarousel {
