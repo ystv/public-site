@@ -61,7 +61,6 @@ const NextLinkMenuCloser = ({ setMenuOpen, link, text }) => (
 
 const MenuList = ({ setMenuOpen }) => (
   <>
-    <hr className={styles.disappearingHR} />
     <ul className={styles.menuList}>
       <NextLinkMenuCloser
         setMenuOpen={setMenuOpen}
@@ -89,21 +88,23 @@ const MenuList = ({ setMenuOpen }) => (
 );
 
 const Logo = ({ setMenuOpen }) => (
-  <Link href="/" passHref>
-    <Image
-      width="104"
-      height="52"
-      priority
-      placeholder="blur"
-      src={ystv_colour}
-      alt="YSTV Logo"
-      className={styles.logo}
-      layout="fixed"
-      onClick={(event) => {
-        setMenuOpen(false);
-      }}
-    />
-  </Link>
+  <div className={styles.noShrink}>
+    <Link href="/" passHref>
+      <Image
+        width="104"
+        height="52"
+        priority
+        placeholder="blur"
+        src={ystv_colour}
+        alt="YSTV Logo"
+        className={styles.logo}
+        layout="fixed"
+        onClick={(event) => {
+          setMenuOpen(false);
+        }}
+      />
+    </Link>
+  </div>
 );
 
 const SearchBar = () => (
