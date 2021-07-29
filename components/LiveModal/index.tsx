@@ -100,9 +100,10 @@ const LiveModal = () => {
           <Embed time={0} video={testData} />
           <br />
         </div>
-        <div style={{ flex: 1, padding: "0 1rem" }}>
-          <div>Channel</div>
-          <h2>Title of Stream</h2>
+        <div style={{ flex: 1 }}>
+          <div>Channel 1</div>
+          <h2 style={{ margin: 0 }}>Title of Stream</h2>
+          <small>10-11pm</small>
           <h5>Live from Central Hall</h5>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ea
