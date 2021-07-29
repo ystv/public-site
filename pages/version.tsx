@@ -16,5 +16,10 @@ export default function Version({ ver, build }) {
 }
 
 export async function getStaticProps() {
-  return { props: { ver: process.env.SOURCE_ID, build: process.env.BUILD_ID } };
+  return {
+    props: {
+      ver: process.env.SOURCE_ID ?? "n/a",
+      build: process.env.BUILD_ID ?? "n/a",
+    },
+  };
 }
