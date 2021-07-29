@@ -1,96 +1,80 @@
-.menuContainer div {
-  font-weight: 400;
-  /* text-transform: uppercase; */
-  color: #333333;
+.spacer {
+  flex-grow: 1;
+}
+
+.menuFixedBar {
+  height: 4.5rem;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  width: 100%;
+  background-color: var(--light);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.menuWidthLimiter {
+  display: flex;
+  flex-direction: column;
+  max-width: 95rem;
   margin: auto;
 }
 
-.menu {
+.menuContents {
   height: 4.5rem;
-  position: fixed;
-  width: 100%;
-  background-color: #fbfbfb;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  z-index: 10000;
-}
-
-.menu a {
-  text-decoration: none;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  transition: 0.5s ease;
-  background-size: 100% 200%;
-  background-position: left top;
-}
-
-.menu a:hover {
-  background-position: left bottom;
-}
-
-.menuContainer {
-  height: 100%;
   display: flex;
   align-items: center;
   max-width: 100rem;
-  margin: auto;
+  padding-left: 1rem;
+  flex-shrink: 0;
+}
+.menuOpen{
+  height: 20rem;
 }
 
-.buttonContainer {
-  display: none;
-  align-items: center;
-  flex-direction: column;
+.menuFixedBar a{
+  transition: transform 0.3s ease-in-out;
+}
+.menuFixedBar a:hover {
+  transform: scale3d(1.05,1.05,1);
 }
 
-.buttonContainer div {
-  position: relative;
+.logo {
+  transition: transform 0.3s ease-in-out;
 }
 
-.buttonContainer div::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #333333;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-  transform: scaleX(0);
+.logo:hover{
+  cursor: pointer;
+  transform: scale3d(1.05,1.05,1);
 }
 
-.buttonContainer a:hover div::before {
-  visibility: visible;
-  /* width: 100%; */
-  transform: scaleX(1);
-}
+/*----------------------------------------------------*/
 
-.searchform {
-  background: #fbfbfb;
+.searchForm {
   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0.9rem;
   height: 2.6rem;
   border-style: none;
-  display: none;
+  display: flex;
+  min-width: 3rem;
+  overflow: hidden;
+  margin-left: 1rem;
 }
 
-.searchNoPadding {
-  padding: 0 !important;
-}
-
-.searchform input {
+.searchForm input {
   background-color: transparent;
   border: none;
   height: 100%;
   flex: 1;
+  min-width: 7rem;
+  transform: translate3d(5px, -1px, 0px);
 }
 
-.searchIcon {
-  height: 1.6rem;
+.iconOpacity {
   opacity: 75%;
 }
 
-.searchform button {
+.searchForm button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,46 +84,15 @@
   transition: 0.5s ease;
 }
 
-.searchform button:focus {
+.searchForm button:focus {
   outline: none;
 }
 
-.searchform button:hover {
-  transition: 0.5s ease;
-  scale: 1.05;
-}
-
-.searchform input:focus {
+.searchForm input:focus {
   outline: none;
 }
 
-.menua {
-  padding: 0 2rem 0 2rem;
-  transition: 1s ease;
-}
-
-.menua:hover {
-  transition: 1s ease;
-  scale: 1.05;
-}
-
-.menua div {
-  color: transparent;
-}
-
-.spacer {
-  flex-grow: 1;
-  padding: 0 !important;
-}
-
-.unhidden {
-  display: flex;
-  width: 100% !important;
-}
-
-.menuToggle {
-  margin-right: 1rem;
-}
+/*----------------------------------------------------*/
 
 .toggle {
   --toggleAnimationTime: 0.5s;
@@ -165,117 +118,69 @@
   transform: scale(1.3);
 }
 
-@media only screen and (min-width: 600px) {
-  .searchform {
-    width: 16rem;
-    display: flex;
-    padding: 0 1rem;
+/*----------------------------------------------------*/
+
+.menuList {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menuList a {
+  padding: .5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 800px) {
+  .disappearingHR{
+    display: none;
   }
 
-  .searchToggle {
+  .hamburgerToggleArea{
     display: none;
+  }
+
+  .menuContents{
+    max-width: 22rem;
+  }
+
+  .menuFixedBar{
+    height: 4.5rem;
+  }
+
+  .menuWidthLimiter{
+    flex-direction: row;
+  }
+
+  .menuList{
+    flex-direction: row;
+    align-items: center;
+    max-width: 25rem;
+  }
+
+  .menuList a {
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .searchform {
-    width: 24rem;
-  }
-}
-
-@media only screen and (min-width: 1020px) {
-  .buttonContainer {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    padding: 0 2rem 0 0 !important;
-    user-select: none;
+  .menuContents{
+    max-width: 40rem;
+    padding-left: 2rem;
   }
 
-  .menuToggle {
-    display: none;
+  .menuList{
+    max-width: 35rem;
   }
 
-  .menuContainer div {
-    margin: 0 1rem;
-  }
-}
-
-@media only screen and (max-width: 1019.5px) {
-  .buttonContainer {
-    position: absolute;
-    top: 4.5rem;
-    right: 0;
-    background-color: #fbfbfb;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  .unhidden {
-    overflow: hidden;
-
-    animation-name: slidemenu;
-    animation-duration: 0.2s;
-    animation-timing-function: ease;
-    animation-delay: 0s;
-    animation-direction: normal;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-    animation-play-state: running;
-  }
-
-  @keyframes slidemenu {
-    0% {
-      height: 0;
-    }
-    100% {
-      height: 16rem;
-    }
-  }
-
-  .buttonContainer a {
-    height: 3.5rem;
-    font-size: large;
-    width: 100%;
-    user-select: none;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .searchMobile {
-    width: 90% !important;
-    display: flex;
-    position: absolute;
-    top: 0.5rem;
-    left: 5%;
-  }
-
-  .searchlayoutdiv {
-    display: block;
-    position: absolute;
-    top: 4.5rem;
-    left: 0;
-    width: 100vw;
-    /* height: 4rem; */
-    background-color: #fbfbfb;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-
-    animation-name: slidesearch;
-    animation-duration: 0.2s;
-    animation-timing-function: ease;
-    animation-delay: 0s;
-    animation-direction: normal;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-    animation-play-state: running;
-  }
-
-  @keyframes slidesearch {
-    0% {
-      height: 0;
-    }
-    100% {
-      height: 4rem;
-    }
+  .searchForm{
+    width: 30rem
   }
 }
