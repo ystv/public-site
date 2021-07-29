@@ -1,4 +1,3 @@
-import config from "../../../config.json";
 import YstvHead from "../../../components/YstvHead";
 import SeriesCell from "../../../components/SeriesCell/SeriesCell";
 import VideoCell from "../../../components/VideoCell/VideoCell";
@@ -58,15 +57,11 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
 }
 
 export async function getServerSideProps(context) {
-  try {
-    let series = await fetch(
-      `${config.api.rest}/v1/public/series/${context.query.seriesid}`
-    ).then((res) => res.json());
-    let breadcrumb = await fetch(
-      `${config.api.rest}/v1/public/series/${context.query.seriesid}/breadcrumb`
-    ).then((res) => res.json());
-    return { props: { series, breadcrumb } };
-  } catch {
-    return { props: { series: [], breadcrumb: [] } };
-  }
+  let series = await fetch(
+    `${process.env.REST_API}/v1/public/series/${context.query.seriesid}`
+  ).then((res) => res.json());
+  let breadcrumb = await fetch(
+    `${process.env.REST_API}/v1/public/series/${context.query.seriesid}/breadcrumb`
+  ).then((res) => res.json());
+  return { props: { series, breadcrumb } };
 }

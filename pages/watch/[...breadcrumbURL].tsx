@@ -1,6 +1,5 @@
 import Series from "./series/[seriesid]";
 import Video from "./video/[videoid]";
-import config from "../../config.json";
 
 interface Props {
   res;
@@ -36,9 +35,9 @@ export async function getServerSideProps(context) {
 
   try {
     let res = await fetch(
-      `${config.api.rest}/v1/public/find/${context.query.breadcrumbURL.join(
-        "/"
-      )}`
+      `${
+        process.env.REST_API
+      }/v1/public/find/${context.query.breadcrumbURL.join("/")}`
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
@@ -57,7 +56,7 @@ export async function getServerSideProps(context) {
     }
 
     let breadcrumb: [] = await fetch(
-      `${config.api.rest}/v1/public/${url}/breadcrumb`
+      `${process.env.REST_API}/v1/public/${url}/breadcrumb`
     ).then((res) => res.json());
 
     return {

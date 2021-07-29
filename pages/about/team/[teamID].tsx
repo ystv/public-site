@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Fragment } from "react";
 import { Team } from "../../../types/api/Team";
-import config from "../../../config.json";
 
 interface Props {
   team: Team;
@@ -51,7 +50,7 @@ export default TeamID;
 export async function getServerSideProps(context) {
   try {
     let res = await fetch(
-      `${config.api.rest}/v1/public/teams/${context.query.teamID}`
+      `${process.env.REST_API}/v1/public/teams/${context.query.teamID}`
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;

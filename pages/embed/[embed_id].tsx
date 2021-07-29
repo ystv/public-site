@@ -1,6 +1,5 @@
 import YstvHead from "../../components/YstvHead";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
-import config from "../../config.json";
 
 import styles from "./embed.module.css";
 
@@ -41,7 +40,7 @@ export async function getServerSideProps(context) {
   }
   try {
     let video = await fetch(
-      `${config.api.rest}/v1/public/video/${context.query.embed_id}`
+      `${process.env.REST_API}/v1/public/video/${context.query.embed_id}`
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;

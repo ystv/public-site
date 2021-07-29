@@ -1,5 +1,4 @@
 import YstvHead from "../../components/YstvHead";
-import config from "../../config.json";
 import { Teams } from "../../types/api/Team";
 import Link from "next/link";
 
@@ -89,14 +88,16 @@ export default About;
 
 export async function getServerSideProps(context) {
   try {
-    let res = await fetch(`${config.api.rest}/v1/public/teams`).then((res) => {
-      if (!res.ok) {
-        context.res.statusCode = 302;
-        context.res.setHeader("Location", `/404`);
-      } else {
-        return res.json();
+    let res = await fetch(`${process.env.REST_API}/v1/public/teams`).then(
+      (res) => {
+        if (!res.ok) {
+          context.res.statusCode = 302;
+          context.res.setHeader("Location", `/404`);
+        } else {
+          return res.json();
+        }
       }
-    });
+    );
     return { props: { teams: res } };
   } catch {
     return { props: { teams: null } };

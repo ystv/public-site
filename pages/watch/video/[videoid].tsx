@@ -1,7 +1,6 @@
 import YstvHead from "../../../components/YstvHead";
 import VideoPlayer from "../../../components//VideoPlayer/VideoPlayer";
 import Breadcrumb from "../../../components/Breadcrumb";
-import config from "../../../config.json";
 import { formatTime } from "../../../components/commonFunctions";
 import { useState } from "react";
 import Popover from "react-popover";
@@ -130,7 +129,7 @@ export async function getServerSideProps(context) {
   }
   try {
     let video = await fetch(
-      `${config.api.rest}/v1/public/video/${context.query.videoid}`
+      `${process.env.REST_API}/v1/public/video/${context.query.videoid}`
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
@@ -140,7 +139,7 @@ export async function getServerSideProps(context) {
       }
     });
     let breadcrumb: [] = await fetch(
-      `${config.api.rest}/v1/public/video/${context.query.videoid}/breadcrumb`
+      `${process.env.REST_API}/v1/public/video/${context.query.videoid}/breadcrumb`
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
