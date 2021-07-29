@@ -35,6 +35,7 @@ export default function VideoCarousel({
               scrollerCarousel.current.scrollLeft -= 400;
             }}
             className={`${styles.round} ${inverted ? styles.inv : ""}`}
+            style={{ marginRight: ".25rem" }}
           >
             <i
               className={`${styles.arrow} ${styles.left} ${

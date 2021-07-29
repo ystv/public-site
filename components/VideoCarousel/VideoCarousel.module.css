@@ -120,6 +120,7 @@
   flex-direction: row;
   overflow-x: scroll;
   width: 100%;
+gap: 0.25rem;
 
   scroll-behavior: smooth;
   scroll-snap-type: mandatory;
@@ -130,7 +131,7 @@
 
 .child {
   scroll-snap-align: start;
-  padding: 0 0.25rem;
+  /*padding: 0 0.25rem;*/
 }
 
 .scrollerCarousel::-webkit-scrollbar {

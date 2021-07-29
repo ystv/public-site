@@ -3,7 +3,7 @@ import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
 
 export default function Watch({ recentVideoPageState, oldVideoPageState }) {
   return (
-    <div className="thin center">
+    <div className="mediumThin center">
       <YstvHead />
       <h1>Watch</h1>
       <VideoCarousel title="Popular" videos={recentVideoPageState} detail />

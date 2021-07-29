@@ -25,6 +25,13 @@ hr {
   object-fit: contain;
 }
 
+.mediumThin {
+  max-width: 80rem;
+  width: 100%;
+  /*padding: 0 1rem;*/
+  object-fit: contain;
+}
+
 .center {
   margin: auto;
 }
