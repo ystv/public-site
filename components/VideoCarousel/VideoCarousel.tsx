@@ -55,6 +55,7 @@ export default function VideoCarousel({
               </div>
             ))}
           </div>
+          {/*<div className={styles.fader} />*/}
           <button
             onClick={() => {
               scrollerCarousel.current.scrollLeft += 400;
