@@ -19,7 +19,7 @@ hr {
 }
 
 .thin {
-  max-width: 70rem;
+  max-width: 80rem;
   width: calc(100% - 2rem);
   padding: 0 1rem;
   object-fit: contain;

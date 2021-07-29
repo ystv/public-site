@@ -3,11 +3,9 @@ import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
 
 export default function Watch({ recentVideoPageState, oldVideoPageState }) {
   return (
-    <>
-      <div style={{ paddingLeft: "10%" }}>
-        <YstvHead />
-        <h1>Watch</h1>
-      </div>
+    <div className="thin center">
+      <YstvHead />
+      <h1>Watch</h1>
       <VideoCarousel title="Popular" videos={recentVideoPageState} detail />
 
       <VideoCarousel title="Featured" videos={oldVideoPageState} detail />
@@ -33,7 +31,7 @@ export default function Watch({ recentVideoPageState, oldVideoPageState }) {
         videos={recentVideoPageState}
         detail
       />
-    </>
+    </div>
   );
 }
 
