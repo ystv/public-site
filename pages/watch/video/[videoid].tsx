@@ -1,5 +1,5 @@
 import YstvHead from "../../../components/YstvHead";
-import VideoPlayer from "../../../components//VideoPlayer/VideoPlayer";
+import VideoPlayer from "../../../components/VideoPlayer";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { formatTime } from "../../../components/commonFunctions";
 import { useState } from "react";

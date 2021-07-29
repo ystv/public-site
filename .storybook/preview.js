@@ -1,4 +1,6 @@
 import "../components/global.css";
+import "video.js/dist/video-js.css";
+import "../components/VideoPlayer/VideoPlayer.css";
 
 import * as nextImage from "next/image";
 
