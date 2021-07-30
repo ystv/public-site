@@ -12,6 +12,10 @@ pipeline {
             }
         }
         stage('Build') {
+            environment {
+                APP_ENV = credentials('publicsite-staging-env')
+            }
+            }
             steps {
                 sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
             }
@@ -32,6 +36,7 @@ pipeline {
                     }
                     environment {
                         TARGET_SERVER = credentials('staging-server-address')
+                        APP_ENV = credentials('publicsite-staging-env')
                     }
                     steps {
                         sshagent(credentials : ['staging-server-key']) {
