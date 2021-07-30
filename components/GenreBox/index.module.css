@@ -1,0 +1,135 @@
+.container {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.showAbove {
+    z-index: 1;
+}
+
+.carouselcontainer {
+    width: 100%;
+    margin: auto;
+}
+
+.genreSelector h1 {
+    color: white;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: x-large;
+}
+
+.genreSelector a {
+    text-decoration: none;
+}
+
+.genreSelector {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    gap: 2rem;
+    margin: auto;
+    justify-content: space-between;
+    padding-top: 1rem;
+    overflow-x: scroll;
+}
+
+.genreSelector::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+.genreSelector::-webkit-scrollbar-thumb {
+    background: #dbdbdb;
+    border-radius: 15px;
+}
+
+.genreSelector::-webkit-scrollbar-thumb:hover {
+    background: #858585;
+}
+
+.genreSelector::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 0;
+}
+
+.genreSelector {
+    scrollbar-width: thin;
+    scrollbar-color: #dbdbdb transparent;
+}
+
+.selected {
+    font-weight: 600 !important;
+}
+
+@media only screen and (min-width: 700px) {
+    .container {
+        height: fit-content;
+    }
+
+    .genreSelector {
+        min-width: 600px;
+        max-width: 70%;
+    }
+
+    .genreSelector h1 {
+        flex: 1;
+        font-size: large;
+        cursor: pointer;
+    }
+
+    .disappearingGenre {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .genreSelector h1 {
+        font-size: xx-large;
+    }
+}
+
+.Entertainment {
+    background: linear-gradient(
+            103.13deg,
+            rgba(236, 72, 160, 0.74) 4.76%,
+            rgba(170, 0, 109, 0.3) 94.47%
+    );
+}
+
+.Factual {
+    background: linear-gradient(
+            103.13deg,
+            rgba(34, 126, 228, 0.74) 4.76%,
+            rgba(40, 71, 205, 0.3) 94.47%
+    );
+}
+
+.Scripted {
+    background: linear-gradient(
+            103.13deg,
+            rgba(47, 201, 48, 0.74) 4.76%,
+            rgba(42, 131, 35, 0.3) 94.47%
+    );
+}
+
+.Sport {
+    background: linear-gradient(
+            103.13deg,
+            rgba(250, 175, 24, 0.74) 4.76%,
+            rgba(227, 131, 10, 0.3) 94.47%
+    );
+}
+
+.Archives {
+    background: linear-gradient(
+            103.13deg,
+            rgba(153, 70, 209, 0.74) 4.76%,
+            rgba(119, 34, 166, 0.3) 94.47%
+    );
+}

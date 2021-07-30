@@ -1,4 +1,4 @@
-import styles from "./GenreBox.module.css";
+import styles from "./index.module.css";
 import VideoCarousel from "../VideoCarousel/VideoCarousel";
 import { useState } from "react";
 import Image from "next/image";
@@ -13,7 +13,7 @@ interface ButtonProps {
   id: number;
 }
 
-export default function GenreBox({ videos }: Props) {
+export default function Index({ videos }: Props) {
   const genres = [
     { name: "Entertainment", videos: videos[0] },
     { name: "Factual" },
@@ -37,13 +37,14 @@ export default function GenreBox({ videos }: Props) {
       <Image
         src={GenreImage}
         layout="fill"
-        objectFit={"cover"}
+        objectFit="cover"
         priority
         placeholder="blur"
         alt=""
       />
       <div className={`${styles[genres[genre].name]} ${styles.showAbove}`}>
         <div className={styles.genreSelector}>
+          <div className={styles.disappearingGenre} />
           {genres.map(function (e, i) {
             return <GenreButton name={e.name} id={i} key={i} />;
           })}

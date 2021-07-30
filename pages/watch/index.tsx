@@ -1,7 +1,11 @@
 import YstvHead from "../../components/YstvHead";
 import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
 
-export default function Watch({ recentVideoPageState, oldVideoPageState }) {
+export default function Watch({
+  recentVideoPageState,
+  oldVideoPageState,
+  randomVideoPageState,
+}) {
   return (
     <>
       <YstvHead />
@@ -31,7 +35,7 @@ export default function Watch({ recentVideoPageState, oldVideoPageState }) {
 
         <VideoCarousel
           title="Something Random"
-          videos={recentVideoPageState}
+          videos={randomVideoPageState}
           detail
         />
       </div>
@@ -40,16 +44,18 @@ export default function Watch({ recentVideoPageState, oldVideoPageState }) {
 }
 
 export async function getServerSideProps() {
-  try {
-    let recentVideoPageState = await fetch(
-      `${process.env.REST_API}/v1/public/videos/50/0`
-    ).then((res) => res.json());
+  let recentVideoPageState = await fetch(
+    `${process.env.REST_API}/v1/public/videos/50/0`
+  ).then((res) => res.json());
 
-    let oldVideoPageState = await fetch(
-      `${process.env.REST_API}/v1/public/videos/50/1000`
-    ).then((res) => res.json());
-    return { props: { recentVideoPageState, oldVideoPageState } };
-  } catch {
-    return { props: { res: { videos: [] } } };
-  }
+  let oldVideoPageState = await fetch(
+    `${process.env.REST_API}/v1/public/videos/50/1000`
+  ).then((res) => res.json());
+
+  let randomVideoPageState = await fetch(
+    `${process.env.REST_API}/v1/public/playlist/random`
+  ).then((res) => res.json());
+  return {
+    props: { recentVideoPageState, oldVideoPageState, randomVideoPageState },
+  };
 }

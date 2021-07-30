@@ -26,7 +26,7 @@ export default function VideoCarousel({
       ) : (
         <></>
       )}
-      {videos.length == 0 ? (
+      {videos.length == 0 || videos.length == undefined ? (
         <h3>Couldn&apos;t fetch data</h3>
       ) : (
         <div className={styles.flexContainer}>
