@@ -15,7 +15,6 @@ pipeline {
             environment {
                 APP_ENV = credentials('publicsite-staging-env')
             }
-            }
             steps {
                 sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
             }

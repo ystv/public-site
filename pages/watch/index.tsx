@@ -54,7 +54,9 @@ export async function getServerSideProps() {
 
   let randomVideoPageState = await fetch(
     `${process.env.REST_API}/v1/public/playlist/random`
-  ).then((res) => res.json());
+  )
+    .then((res) => res.json())
+    .then((res) => res.videos);
   return {
     props: { recentVideoPageState, oldVideoPageState, randomVideoPageState },
   };
