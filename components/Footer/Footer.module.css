@@ -1,5 +1,5 @@
 .container {
-  height: 20rem;
+  /*height: 20rem; let's see if this works*/
   width: 100%;
   flex-shrink: 0;
   position: relative;

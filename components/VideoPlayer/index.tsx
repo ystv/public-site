@@ -86,7 +86,7 @@ const usePlayer = (options, time?, titleOverlay?) => {
   return videoRef;
 };
 
-function VideoPlayer(options, time, titleOverlay?) {
+function Index(options, time, titleOverlay?) {
   const playerRef = usePlayer(options, time, titleOverlay);
 
   return (
@@ -96,4 +96,4 @@ function VideoPlayer(options, time, titleOverlay?) {
   );
 }
 
-export default VideoPlayer;
+export default Index;

@@ -18,7 +18,7 @@ export default function Button({
 }: Props) {
   return (
     <button
-      className={`${styles.button} ${outline && styles.transparantButton}`}
+      className={`${styles.button} ${outline && styles.transparentButton}`}
       onClick={onClick}
       style={
         outline

@@ -6,104 +6,120 @@ import ystv_colour from "../../public/ystv_colour.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   return (
     <header>
-      <div className={styles.menu}>
-        <div className={styles.menuContainer}>
-          <Link href="/" passHref>
-            <a className={styles.menua}>
-              <Image
-                width="104"
-                height="52"
-                priority
-                placeholder="blur"
-                src={ystv_colour}
-                alt="YSTV"
-                className={styles.logo}
-                layout="fixed"
-              />
-            </a>
-          </Link>
-          <div
-            className={`${
-              searchOpen ? styles.searchlayoutdiv : styles.searchNoPadding
-            }`}
-          >
-            <form
-              action="/results"
-              className={`${searchOpen ? styles.searchMobile : null} ${
-                styles.searchform
-              }`}
-              method="get"
-            >
-              <input
-                type="text"
-                placeholder="Search our videos..."
-                name="search"
-              />
-              <button type="submit">
-                <img
-                  className={styles.searchIcon}
-                  src="/icons/search-24px.svg"
-                  alt=""
-                />
-              </button>
-            </form>
+      <div
+        className={`${styles.menuFixedBar} ${menuOpen ? styles.menuOpen : ""}`}
+      >
+        <div className={styles.menuWidthLimiter}>
+          <div className={styles.menuContents}>
+            <Logo setMenuOpen={setMenuOpen} />
+            <SearchBar />
+            <div className={styles.spacer} />
+            <MenuIconButton
+              onClick={(e) => {
+                setMenuOpen(!menuOpen);
+              }}
+            />
           </div>
-
           <div className={styles.spacer} />
-          <div
-            className={`${menuOpen ? styles.unhidden : ""} ${
-              styles.buttonContainer
-            }`}
-          >
-            <Link href="/watch">
-              <a>
-                <div>Watch</div>
-              </a>
-            </Link>
-            <Link href="/get-involved">
-              <a>
-                <div>Get Involved</div>
-              </a>
-            </Link>
-            <Link href="/about">
-              <a>
-                <div>About</div>
-              </a>
-            </Link>
-            <Link href="/hires">
-              <a>
-                <div>Hires</div>
-              </a>
-            </Link>
-            <a href="https://my.ystv.co.uk">
-              <div>Login</div>
-            </a>
-          </div>
-          <img
-            className={`${styles.searchToggle} ${styles.toggle}`}
-            src="/icons/search-24px.svg"
-            alt="Search Toggle"
-            draggable="false"
-            onClick={(e) => {
-              setSearchOpen(!searchOpen);
-              setMenuOpen(false);
-            }}
-          />
-          <img
-            className={`${styles.menuToggle} ${styles.toggle}`}
-            src="/icons/menu-24px.svg"
-            alt="Menu Toggle"
-            draggable="false"
-            onClick={(e) => {
-              setMenuOpen(!menuOpen);
-              setSearchOpen(false);
-            }}
-          />
+          <MenuList setMenuOpen={setMenuOpen} />
         </div>
       </div>
     </header>
   );
 }
+
+const MenuIconButton = ({ onClick }) => (
+  <div
+    onClick={onClick}
+    className={`${styles.hamburgerToggleArea} ${styles.toggle}`}
+  >
+    <Image
+      className={`${styles.iconOpacity}`}
+      src="/icons/menu-24px.svg"
+      alt="Menu Toggle"
+      draggable="false"
+      unoptimized
+      width="25px"
+      height="25px"
+    />
+  </div>
+);
+
+const NextLinkMenuCloser = ({ setMenuOpen, link, text }) => (
+  <Link href={link}>
+    <a
+      onClick={(event) => {
+        setMenuOpen(false);
+      }}
+    >
+      {text}
+    </a>
+  </Link>
+);
+
+const MenuList = ({ setMenuOpen }) => (
+  <>
+    <ul className={styles.menuList}>
+      <NextLinkMenuCloser
+        setMenuOpen={setMenuOpen}
+        link="/watch"
+        text="Watch"
+      />
+      <NextLinkMenuCloser
+        setMenuOpen={setMenuOpen}
+        link="/get-involved"
+        text="Get Involved"
+      />
+      <NextLinkMenuCloser
+        setMenuOpen={setMenuOpen}
+        link="/about"
+        text="About"
+      />
+      <NextLinkMenuCloser
+        setMenuOpen={setMenuOpen}
+        link="/hires"
+        text="Hires"
+      />
+      <a href="https://my.ystv.co.uk">Login</a>
+    </ul>
+  </>
+);
+
+const Logo = ({ setMenuOpen }) => (
+  <div className={styles.noShrink}>
+    <Link href="/" passHref>
+      <Image
+        width="104"
+        height="52"
+        priority
+        placeholder="blur"
+        src={ystv_colour}
+        alt="YSTV Logo"
+        className={styles.logo}
+        layout="fixed"
+        onClick={(event) => {
+          setMenuOpen(false);
+        }}
+      />
+    </Link>
+  </div>
+);
+
+const SearchBar = () => (
+  <form action="/results" className={`${styles.searchForm}`} method="get">
+    <input type="text" placeholder="Search our videos..." name="search" />
+    <button type="submit">
+      <Image
+        className={`${styles.iconOpacity} ${styles.toggle}`}
+        src="/icons/search-24px.svg"
+        alt=""
+        unoptimized
+        height={"25px"}
+        width={"25px"}
+        draggable="false"
+      />
+    </button>
+  </form>
+);

@@ -2,7 +2,7 @@ import YstvHead from "../components/YstvHead";
 import VideoCarousel from "../components/VideoCarousel/VideoCarousel";
 
 import styles from "./index.module.css";
-import GenreBox from "../components/GenreBox/Genrebox";
+import GenreBox from "../components/GenreBox";
 import Image from "next/image";
 import carouselBG from "../public/site-images/carousel.jpg";
 import Button from "../components/Button/Button";

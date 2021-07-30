@@ -7,9 +7,9 @@ type props = {
 
 function YstvHead({ title }: props) {
   const router = useRouter();
-  var pageTitle = "York Student Television"; // Standard Title displayed on homepage
+  let pageTitle = "York Student Television"; // Standard Title displayed on homepage
 
-  // if path isn't home do concatonation
+  // if path isn't home do concatenation
   if (router.pathname !== "/") {
     //if title isn't preset, get title from first part of url pathname
     if (title == null) {

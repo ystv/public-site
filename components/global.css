@@ -1,6 +1,17 @@
+:root {
+  --light: #fbfbfb;
+  --dark: #333333;
+}
+
 body {
   margin: 0;
-  background-color: #fbfbfb;
+  background-color: var(--light);
+}
+
+hr {
+  margin: 0;
+  color: var(--dark);
+  background-color: var(--dark);
 }
 
 * {
@@ -8,9 +19,16 @@ body {
 }
 
 .thin {
-  max-width: 70rem;
+  max-width: 80rem;
   width: calc(100% - 2rem);
   padding: 0 1rem;
+  object-fit: contain;
+}
+
+.mediumThin {
+  max-width: 80rem;
+  width: 100%;
+  /*padding: 0 1rem;*/
   object-fit: contain;
 }
 

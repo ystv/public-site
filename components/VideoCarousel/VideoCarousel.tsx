@@ -26,7 +26,7 @@ export default function VideoCarousel({
       ) : (
         <></>
       )}
-      {videos.length == 0 ? (
+      {videos.length == 0 || videos.length == undefined ? (
         <h3>Couldn&apos;t fetch data</h3>
       ) : (
         <div className={styles.flexContainer}>
@@ -35,6 +35,7 @@ export default function VideoCarousel({
               scrollerCarousel.current.scrollLeft -= 400;
             }}
             className={`${styles.round} ${inverted ? styles.inv : ""}`}
+            style={{ marginRight: ".25rem" }}
           >
             <i
               className={`${styles.arrow} ${styles.left} ${
@@ -54,6 +55,7 @@ export default function VideoCarousel({
               </div>
             ))}
           </div>
+          {/*<div className={styles.fader} />*/}
           <button
             onClick={() => {
               scrollerCarousel.current.scrollLeft += 400;

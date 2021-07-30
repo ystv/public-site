@@ -14,7 +14,7 @@
 
 .bannerContents {
   width: fit-content;
-  color: #fbfbfb;
+  color: var(--light);
   margin: 0;
   position: absolute;
   top: 50%;

@@ -1,5 +1,5 @@
 import YstvHead from "../../components/YstvHead";
-import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+import Index from "../../components/VideoPlayer";
 
 import styles from "./embed.module.css";
 
@@ -23,7 +23,7 @@ export default function Embed({ video, time }) {
       }),
   };
 
-  var myplayer = VideoPlayer(videoJSOptions, time, video.name);
+  var myplayer = Index(videoJSOptions, time, video.name);
 
   return (
     <div className={styles.bg}>
@@ -34,7 +34,7 @@ export default function Embed({ video, time }) {
 }
 
 export async function getServerSideProps(context) {
-  var time: number = 0;
+  let time: number = 0;
   if (context.query.time !== undefined) {
     time = context.query.time;
   }

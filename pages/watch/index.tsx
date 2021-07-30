@@ -1,53 +1,61 @@
 import YstvHead from "../../components/YstvHead";
 import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
 
-export default function Watch({ recentVideoPageState, oldVideoPageState }) {
+export default function Watch({
+  recentVideoPageState,
+  oldVideoPageState,
+  randomVideoPageState,
+}) {
   return (
     <>
-      <div style={{ paddingLeft: "10%" }}>
-        <YstvHead />
+      <YstvHead />
+      <div className="thin center">
         <h1>Watch</h1>
       </div>
-      <VideoCarousel title="Popular" videos={recentVideoPageState} detail />
+      <div className="mediumThin center">
+        <VideoCarousel title="Popular" videos={recentVideoPageState} detail />
 
-      <VideoCarousel title="Featured" videos={oldVideoPageState} detail />
+        <VideoCarousel title="Featured" videos={oldVideoPageState} detail />
 
-      <VideoCarousel title="Recent" videos={recentVideoPageState} detail />
+        <VideoCarousel title="Recent" videos={recentVideoPageState} detail />
 
-      <VideoCarousel
-        title="Entertainment"
-        videos={recentVideoPageState}
-        detail
-      />
+        <VideoCarousel
+          title="Entertainment"
+          videos={recentVideoPageState}
+          detail
+        />
 
-      <VideoCarousel title="Factual" videos={recentVideoPageState} detail />
+        <VideoCarousel title="Factual" videos={recentVideoPageState} detail />
 
-      <VideoCarousel title="Scripted" videos={recentVideoPageState} detail />
+        <VideoCarousel title="Scripted" videos={recentVideoPageState} detail />
 
-      <VideoCarousel title="Sport" videos={recentVideoPageState} detail />
+        <VideoCarousel title="Sport" videos={recentVideoPageState} detail />
 
-      <VideoCarousel title="Archives" videos={recentVideoPageState} detail />
+        <VideoCarousel title="Archives" videos={recentVideoPageState} detail />
 
-      <VideoCarousel
-        title="Something Random"
-        videos={recentVideoPageState}
-        detail
-      />
+        <VideoCarousel
+          title="Something Random"
+          videos={randomVideoPageState}
+          detail
+        />
+      </div>
     </>
   );
 }
 
 export async function getServerSideProps() {
-  try {
-    let recentVideoPageState = await fetch(
-      `${process.env.REST_API}/v1/public/videos/50/0`
-    ).then((res) => res.json());
+  let recentVideoPageState = await fetch(
+    `${process.env.REST_API}/v1/public/videos/50/0`
+  ).then((res) => res.json());
 
-    let oldVideoPageState = await fetch(
-      `${process.env.REST_API}/v1/public/videos/50/1000`
-    ).then((res) => res.json());
-    return { props: { recentVideoPageState, oldVideoPageState } };
-  } catch {
-    return { props: { res: { videos: [] } } };
-  }
+  let oldVideoPageState = await fetch(
+    `${process.env.REST_API}/v1/public/videos/50/1000`
+  ).then((res) => res.json());
+
+  let randomVideoPageState = await fetch(
+    `${process.env.REST_API}/v1/public/playlist/random`
+  ).then((res) => res.json());
+  return {
+    props: { recentVideoPageState, oldVideoPageState, randomVideoPageState },
+  };
 }
