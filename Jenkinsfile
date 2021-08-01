@@ -33,6 +33,7 @@ pipeline {
                     environment {
                         TARGET_SERVER = credentials('staging-server-address')
                         APP_ENV = credentials('publicsite-staging-env')
+                        TARGET_PATH = credentials('staging-server-path')
                     }
                     steps {
                         sshagent(credentials : ['staging-server-key']) {
