@@ -12,9 +12,6 @@ pipeline {
             }
         }
         stage('Build') {
-            environment {
-                APP_ENV = credentials('publicsite-staging-env')
-            }
             steps {
                 sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
             }
@@ -40,10 +37,11 @@ pipeline {
                     steps {
                         sshagent(credentials : ['staging-server-key']) {
                             script {
+                                sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
                                     docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 -env-file $APP_ENV --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
+                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }

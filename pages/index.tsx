@@ -28,7 +28,9 @@ export default function Home({
           />
           <div className={styles.bannerFilter}>
             <div className={styles.bannerContents}>
-              <h1>We are York Student Television.</h1>
+              <h1>
+                <b>We are York Student Television.</b>
+              </h1>
               <h3>NaSTA Best Broadcaster and Best Tech 2019</h3>
               <Button label="About Us" />
               <Button label="Highlights" outline />
