@@ -14,7 +14,7 @@ enum pageType {
   None,
 }
 
-export default function BreadcumbWatch({ res, breadcrumb, type, time }) {
+export default function BreadcrumbWatch({ res, breadcrumb, type, time }) {
   if (type == pageType.Video) {
     return <Video breadcrumb={breadcrumb} video={res.video} time={time} />;
   } else if (type == pageType.Series) {

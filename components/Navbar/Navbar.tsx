@@ -90,19 +90,21 @@ const MenuList = ({ setMenuOpen }) => (
 const Logo = ({ setMenuOpen }) => (
   <div className={styles.noShrink}>
     <Link href="/" passHref>
-      <Image
-        width="104"
-        height="52"
-        priority
-        placeholder="blur"
-        src={ystv_colour}
-        alt="YSTV Logo"
-        className={styles.logo}
-        layout="fixed"
-        onClick={(event) => {
-          setMenuOpen(false);
-        }}
-      />
+      <a>
+        <Image
+          width="104"
+          height="52"
+          priority
+          placeholder="blur"
+          src={ystv_colour}
+          alt="YSTV Logo"
+          className={styles.logo}
+          layout="fixed"
+          onClick={(event) => {
+            setMenuOpen(false);
+          }}
+        />
+      </a>
     </Link>
   </div>
 );
