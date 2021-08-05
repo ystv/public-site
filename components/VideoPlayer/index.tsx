@@ -64,7 +64,7 @@ const usePlayer = (options, time?, titleOverlay?) => {
         player.dispose();
       }
     };
-  }, []);
+  }, [options, player, titleOverlay]);
 
   useEffect(() => {
     if (player !== null) {
@@ -74,14 +74,14 @@ const usePlayer = (options, time?, titleOverlay?) => {
         player.currentTime(time);
       }
     }
-  }, [player]);
+  }, [player, time]);
 
   useEffect(() => {
     // is this needed?
     if (player !== null) {
       player.src(options.src);
     }
-  }, [options.src]);
+  }, [options.src, player]);
 
   return videoRef;
 };

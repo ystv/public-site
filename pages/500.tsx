@@ -34,7 +34,9 @@ export default function FiveHundred() {
               500 - Internal Error
             </h1>
           </div>
-          <h1>Oops, looks like somebody left the lens cap on!</h1>
+          <h1>
+            Argh, we left the microphone unplugged, we&apos;ll do it live!
+          </h1>
         </div>
       </main>
     </>
