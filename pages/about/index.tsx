@@ -69,7 +69,7 @@ function About({ teams }: Teams) {
               <div key={`committeemid${i}`}>
                 <Link href={`/about/team/${team.id}`}>
                   <a>
-                    <h3>{team.name}</h3>
+                    <h3 style={{ textTransform: "capitalize" }}>{team.name}</h3>
                   </a>
                 </Link>
                 <p className="noa">{team.shortDescription}</p>
