@@ -52,7 +52,11 @@ export default function Home({
             placeholder="blur"
             alt=""
           />
-          <div className={styles.bannerFilter}>
+          <div
+            className={`${styles.bannerFilter} ${
+              bannerState !== BannerState.Text ? styles.blur : ""
+            }`}
+          >
             <div className={styles.bannerContents}>
               <LazyMotion features={domAnimation} strict>
                 <AnimatePresence exitBeforeEnter>
