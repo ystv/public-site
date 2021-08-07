@@ -48,8 +48,7 @@ export default function VideoCell({
               unoptimized
               onError={(e: SyntheticEvent<HTMLImageElement>) => {
                 e.currentTarget.onerror = null;
-                e.currentTarget.src =
-                  "https://ystv.co.uk/static/images/logos/YSTV_meta.jpg";
+                e.currentTarget.src = "/ystv_thumbnail_fallback.jpg";
                 e.target;
               }}
               className={styles.thumbnail}

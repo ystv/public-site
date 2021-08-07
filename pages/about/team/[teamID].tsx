@@ -7,19 +7,19 @@ interface Props {
   team: Team;
 }
 
-function TeamID({ team }: Props) {
+export default function TeamID({ team }: Props) {
   return (
     <div className="center thin">
       <br />
       <Link href="/about">&larr; About</Link>
-      <h1>{team.name}</h1>
+      <h1 className="capitalise">{team.name}</h1>
       <a
         href={`mailto:${team.emailAlias}@ystv.co.uk`}
       >{`${team.emailAlias}@ystv.co.uk`}</a>
       <p>{team.longDescription}</p>
       <br />
       <h2>Team Members:</h2>
-      {team.members.map((e, i) => {
+      {team.members?.map((e, i) => {
         return (
           <Fragment key={`committeesub${i}`}>
             <h3>
@@ -30,22 +30,12 @@ function TeamID({ team }: Props) {
                 href={`mailto:${e.emailAlias}@ystv.co.uk`}
               >{`${e.emailAlias}@ystv.co.uk`}</a>
             </span>
-            {/* {e.avatar !== "" ? (
-              <img
-                src={`https://ystv.co.uk/static/images/members/thumb/${e.avatar}`}
-                alt={`${e.userName}'s Profile`}
-              />
-            ) : (
-              <Fragment />
-            )} */}
           </Fragment>
         );
       })}
     </div>
   );
 }
-
-export default TeamID;
 
 export async function getServerSideProps(context) {
   try {
