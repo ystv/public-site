@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         REGISTRY_ENDPOINT = credentials('docker-registry-endpoint')
+        APP_ENV = credentials('publicsite-staging-env')
     }
 
     stages {
@@ -12,8 +13,38 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {
-                sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
+            stages {
+                stage('Staging') {
+                    when {
+                        branch 'master'
+                        not {
+                            expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ }
+                        }
+                    }
+                    environment {
+                        TARGET_SERVER = credentials('staging-server-address')
+                        APP_ENV = credentials('publicsite-staging-env')
+                        TARGET_PATH = credentials('staging-server-path')
+                    }
+                    steps {
+                        sh "cp $APP_ENV .env.local"
+                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
+                    }
+                }
+                stage('Production') {
+                    when {
+                        expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ } // Checking if it is main semantic version release
+                    }
+                    environment {
+                        TARGET_SERVER = credentials('prod-server-address')
+                        APP_ENV = credentials('publicsite-production-env')
+                        TARGET_PATH = credentials('staging-server-path')
+                    }
+                    steps {
+                        sh "cp $APP_ENV .env.local"
+                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
+                    }
+                }
             }
         }
         stage('Registry Upload') {
