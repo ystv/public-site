@@ -42,7 +42,11 @@ export default function VideoCell({
         <a href={"/watch/video/" + e.id}>
           <div className={styles.imageContainer}>
             <Image
-              src={`https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`}
+              src={
+                e.thumbnail
+                  ? e.thumbnail
+                  : `https://ystv.co.uk/static/images/videos/thumbnails/0${e.id}.jpg`
+              }
               height="180"
               width="320"
               unoptimized
