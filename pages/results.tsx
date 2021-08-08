@@ -12,6 +12,7 @@ export default function Results(props) {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-around",
+            gap: "1rem",
           }}
         >
           {props.res.videos ? (
