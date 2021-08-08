@@ -28,7 +28,7 @@ export default function SeriesCell({ series }: Props) {
               unoptimized
               onError={(e: SyntheticEvent<HTMLImageElement>) => {
                 e.currentTarget.onerror = null;
-                e.currentTarget.src = "/ystv_thumbnail_fallback.jpg";
+                e.currentTarget.src = "/ystv_primary_logo_small.jpg";
                 e.target;
               }}
               alt=""

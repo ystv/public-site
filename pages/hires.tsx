@@ -6,23 +6,24 @@ export default function Hires() {
       <YstvHead />
       <main>
         <div className="grid center thin">
-          <h1>
-            We&apos;d love to work with you, this is how to hire us &rarr;
-          </h1>
-          <p>YSTV has the following equipment available for hire.</p>
+          <h1>Hires</h1>
+          <h2>We&apos;d love to work with you, here&apos;s how to hire us!</h2>
           <p>
-            Ratified YSTV productions can see all equipment available free of
-            charge here.
+            We&apos;re still pulling our updated kit list together for this year
+            so unfortunately a list isn&apos;t viewable online at this time, but
+            please reach out with your requests and our Production Team will be
+            glad to help you out.
           </p>
           <p>
-            Costs are per item per day, but this page should be used as a guide
-            only and charges/equipment may change at any time.
+            Whether you want a video produced about your society, or a
+            livestream of your event, or even to borrow our kit to shoot on
+            yourself - we have experience catering to all sizes of production.
           </p>
           <p>
             Please contact{" "}
             <a href="mailto:hires@ystv.co.uk">hires@ystv.co.uk</a> with details
             of what you need and what you plan to do at least 24 hours before
-            you need it, and an exact quote will be provided.
+            you need it, and we can provide you with a quote.
           </p>
           <p>
             All hires are subject to availability of equipment, with priority

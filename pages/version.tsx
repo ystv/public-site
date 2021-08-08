@@ -1,4 +1,3 @@
-import { env } from "process";
 import YstvHead from "../components/YstvHead";
 
 export default function Version({ ver, build }) {
