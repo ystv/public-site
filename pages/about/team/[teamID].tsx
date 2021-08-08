@@ -21,7 +21,7 @@ export default function TeamID({ team }: Props) {
       <h2>Team Members:</h2>
       {team.members?.map((e, i) => {
         return (
-          <Fragment key={`committeesub${i}`}>
+          <Fragment key={`member${i}`}>
             <h3>
               {e.officerName} - {e.userName}
             </h3>

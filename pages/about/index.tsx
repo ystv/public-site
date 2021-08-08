@@ -6,64 +6,60 @@ function About({ teams }: Teams) {
   return (
     <div className="center thin">
       <YstvHead />
-      <h1>About</h1>
-      <h2>We Are York Student TV!</h2>
-
-      <div>
-        <p>
-          <span>
-            <strong>Have you ever wanted to be on TV?</strong>
-          </span>
-        </p>
-        <p>&nbsp;</p>
-        <p>
-          <span>
-            <strong></strong>
-          </span>
-        </p>
-        <p>
-          Well here’s your chance!&nbsp; York Student Television is a student TV
-          station run by students, for students.&nbsp; That means that students
-          write, produce, present and direct all the programmes.&nbsp; YSTV
-          broadcasts both live and pre-recorded shows online with our on demand
-          service.
-        </p>
-        <p>&nbsp;</p>
-        <p>
-          YSTV has been broadcasting since 1967, which makes it England’s
-          longest running student television station (and second longest in the
-          UK).&nbsp; It’s won countless awards for everything from its live
-          music shows to documentaries.
-        </p>
-        <p>&nbsp;</p>
-        <p>
-          Each week YSTV produces live and pre-recorded shows, including
-          cookery, news, chat and quiz shows, featuring interviews with bands,
-          politicians and celebrities. The major events YSTV broadcasts each
-          year are the whole of Battle of the Bands, the YUSU elections and
-          Roses. Viewers can watch the events from the comfort of their own
-          room.
-        </p>
-        <p>&nbsp;</p>
-        <p>
-          YSTV is very lucky to have its own control room and studio (complete
-          with green screen!), something most student TV stations don’t have the
-          space for.&nbsp; You don’t need to have any experience to join YSTV,
-          as we can teach you to do anything, just lots of enthusiasm!
-        </p>
-        <p>&nbsp;</p>
-        <p>
-          So if you’ve ever wanted to get your face on screen, try out your
-          skills behind a camera, or have a brilliant idea for a show then email{" "}
-          <a href="mailto:getinvolved@ystv.co.uk">getinvolved@ystv.co.uk</a> or
-          click on “<Link href="/get-involved">Get Involved</Link>”.
-        </p>{" "}
-      </div>
-      <br />
-
       <main>
-        <div className="grid">
-          <h2>Our Teams:</h2>
+        <h1>About</h1>
+        <h2>We Are York Student TV!</h2>
+        <div>
+          <p>
+            <strong>Have you ever wanted to be on TV?</strong>
+          </p>
+          <br />
+          <p>
+            <span>
+              <strong></strong>
+            </span>
+          </p>
+          <p>
+            Well here’s your chance!&nbsp; York Student Television is a student
+            TV station run by students, for students.&nbsp; That means that
+            students write, produce, present and direct all the
+            programmes.&nbsp; YSTV broadcasts both live and pre-recorded shows
+            online with our on demand service.
+          </p>
+          <br />
+          <p>
+            YSTV has been broadcasting since 1967, which makes it England’s
+            longest running student television station (and second longest in
+            the UK).&nbsp; It’s won countless awards for everything from its
+            live music shows to documentaries.
+          </p>
+          <br />
+          <p>
+            Each week YSTV produces live and pre-recorded shows, including
+            cookery, news, chat and quiz shows, featuring interviews with bands,
+            politicians and celebrities. The major events YSTV broadcasts each
+            year are the whole of Battle of the Bands, the YUSU elections and
+            Roses. Viewers can watch the events from the comfort of their own
+            room.
+          </p>
+          <br />
+          <p>
+            YSTV is very lucky to have its own control room and studio (complete
+            with green screen!), something most student TV stations don’t have
+            the space for.&nbsp; You don’t need to have any experience to join
+            YSTV, as we can teach you to do anything, just lots of enthusiasm!
+          </p>
+          <br />
+          <p>
+            So if you’ve ever wanted to get your face on screen, try out your
+            skills behind a camera, or have a brilliant idea for a show then
+            email{" "}
+            <a href="mailto:getinvolved@ystv.co.uk">getinvolved@ystv.co.uk</a>{" "}
+            or click on “<Link href="/get-involved">Get Involved</Link>”.
+          </p>
+        </div>
+        <br /> <h2>Our Teams:</h2>
+        <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
           {teams.map((team, i) => {
             return (
               <div key={`committeemid${i}`}>
@@ -79,7 +75,6 @@ function About({ teams }: Teams) {
           })}
         </div>
       </main>
-      <br />
     </div>
   );
 }
