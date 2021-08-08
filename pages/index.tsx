@@ -186,16 +186,28 @@ export default function Home({
         </div>
         <div className="mediumThin center">
           <div className={styles.homeThin}>
-            <VideoCarousel title="Featured" videos={featuredVideoPageState} />
+            <VideoCarousel
+              title="Featured"
+              videos={featuredVideoPageState}
+              disableSeeMore
+            />
           </div>
           <div className={styles.homeThin}>
-            <VideoCarousel title="Recent" videos={recentVideoPageState} />
+            <VideoCarousel
+              title="Recent"
+              videos={recentVideoPageState}
+              disableSeeMore
+            />
           </div>
         </div>
         <GenreBox videos={[genreVideoPageState]} />
         <div className="mediumThin center">
           <div className={styles.homeThin}>
-            <VideoCarousel title="Popular" videos={popularVideoPageState} />
+            <VideoCarousel
+              title="Popular"
+              videos={popularVideoPageState}
+              disableSeeMore
+            />
           </div>
         </div>
       </main>
@@ -209,8 +221,10 @@ export async function getServerSideProps() {
   ).then((res) => res.json());
 
   let popularVideoPageState = await fetch(
-    `${process.env.REST_API}/v1/public/videos/12/1000`
-  ).then((res) => res.json());
+    `${process.env.REST_API}/v1/public/playlist/popular/all`
+  )
+    .then((res) => res.json())
+    .then((json) => json.videos);
 
   let genreVideoPageState = await fetch(
     `${process.env.REST_API}/v1/public/videos/12/500`

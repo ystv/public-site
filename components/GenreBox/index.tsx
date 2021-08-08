@@ -50,7 +50,7 @@ export default function Index({ videos }: Props) {
           })}
         </div>
         <div className="mediumThin center">
-          <VideoCarousel videos={genres[0].videos} inverted />
+          <VideoCarousel videos={genres[0].videos} inverted disableSeeMore />
         </div>
       </div>
     </div>

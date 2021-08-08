@@ -3,8 +3,8 @@ import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
 
 export default function Watch({
   recentVideoPageState,
-  oldVideoPageState,
   randomVideoPageState,
+  popularVideoPageState,
 }) {
   return (
     <>
@@ -13,31 +13,86 @@ export default function Watch({
         <h1>Watch</h1>
       </div>
       <div className="mediumThin center">
-        <VideoCarousel title="Popular" videos={recentVideoPageState} detail />
-
-        <VideoCarousel title="Featured" videos={oldVideoPageState} detail />
-
-        <VideoCarousel title="Recent" videos={recentVideoPageState} detail />
+        <VideoCarousel
+          title="Most Popular (Ever)"
+          videos={popularVideoPageState.all}
+          detail
+          disableSeeMore
+        />
 
         <VideoCarousel
-          title="Entertainment"
+          title="Recent"
           videos={recentVideoPageState}
           detail
+          disableSeeMore
         />
-
-        <VideoCarousel title="Factual" videos={recentVideoPageState} detail />
-
-        <VideoCarousel title="Scripted" videos={recentVideoPageState} detail />
-
-        <VideoCarousel title="Sport" videos={recentVideoPageState} detail />
-
-        <VideoCarousel title="Archives" videos={recentVideoPageState} detail />
 
         <VideoCarousel
-          title="Something Random"
+          title="Featured"
+          videos={recentVideoPageState}
+          detail
+          disableSeeMore
+        />
+
+        <VideoCarousel
+          title="Most Popular (Month)"
+          videos={popularVideoPageState.month}
+          detail
+          disableSeeMore
+        />
+
+        <VideoCarousel
+          title="Most Popular (Year)"
+          videos={popularVideoPageState.year}
+          detail
+          disableSeeMore
+        />
+
+        {/*<VideoCarousel*/}
+        {/*  title="Entertainment"*/}
+        {/*  videos={recentVideoPageState}*/}
+        {/*  detail*/}
+        {/*  disableSeeMore*/}
+        {/*/>*/}
+
+        {/*<VideoCarousel*/}
+        {/*  title="Factual"*/}
+        {/*  videos={recentVideoPageState}*/}
+        {/*  detail*/}
+        {/*  disableSeeMore*/}
+        {/*/>*/}
+
+        {/*<VideoCarousel*/}
+        {/*  title="Scripted"*/}
+        {/*  videos={recentVideoPageState}*/}
+        {/*  detail*/}
+        {/*  disableSeeMore*/}
+        {/*/>*/}
+
+        {/*<VideoCarousel*/}
+        {/*  title="Sport"*/}
+        {/*  videos={recentVideoPageState}*/}
+        {/*  detail*/}
+        {/*  disableSeeMore*/}
+        {/*/>*/}
+
+        {/*<VideoCarousel*/}
+        {/*  title="Archives"*/}
+        {/*  videos={recentVideoPageState}*/}
+        {/*  detail*/}
+        {/*  disableSeeMore*/}
+        {/*/>*/}
+
+        <VideoCarousel
+          title="Looking for something random?"
           videos={randomVideoPageState}
           detail
+          disableSeeMore
         />
+
+        <h2 style={{ textAlign: "center" }}>
+          More ways to discover our content coming soon...
+        </h2>
       </div>
     </>
   );
@@ -48,16 +103,43 @@ export async function getServerSideProps() {
     `${process.env.REST_API}/v1/public/videos/50/0`
   ).then((res) => res.json());
 
-  let oldVideoPageState = await fetch(
-    `${process.env.REST_API}/v1/public/videos/50/1000`
-  ).then((res) => res.json());
-
   let randomVideoPageState = await fetch(
     `${process.env.REST_API}/v1/public/playlist/random`
   )
     .then((res) => res.json())
     .then((res) => res.videos);
+
+  let popularVideoPageState = {
+    all: null,
+    year: null,
+    month: null,
+  };
+
+  popularVideoPageState.all = await fetch(
+    `${process.env.REST_API}/v1/public/playlist/popular/all`
+  )
+    .then((res) => res.json())
+    .then((res) => res.videos);
+
+  popularVideoPageState.year = await fetch(
+    `${process.env.REST_API}/v1/public/playlist/popular/year`
+  )
+    .then((res) => res.json())
+    .then((res) => res.videos);
+
+  popularVideoPageState.month = await fetch(
+    `${process.env.REST_API}/v1/public/playlist/popular/month`
+  )
+    .then((res) => res.json())
+    .then((res) => res.videos);
+
+  let featuredVideoPageState = null;
   return {
-    props: { recentVideoPageState, oldVideoPageState, randomVideoPageState },
+    props: {
+      recentVideoPageState,
+      randomVideoPageState,
+      popularVideoPageState,
+      featuredVideoPageState,
+    },
   };
 }

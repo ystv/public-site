@@ -2,12 +2,14 @@ import VideoCell from "../VideoCell/VideoCell";
 import { createRef, useRef } from "react";
 
 import styles from "./VideoCarousel.module.css";
+
 interface CarouselProps {
   videos: [];
   detail?: boolean;
   title?: string;
   inverted?: boolean;
   disableSeeMore?: boolean;
+  seeMoreLink?: string;
 }
 
 export default function VideoCarousel({
@@ -16,6 +18,7 @@ export default function VideoCarousel({
   title,
   inverted,
   disableSeeMore,
+  seeMoreLink,
 }: CarouselProps) {
   const scrollerCarousel = useRef(null);
 
@@ -74,7 +77,7 @@ export default function VideoCarousel({
       {!disableSeeMore && (
         <div style={{ width: "100%", textAlign: "right" }}>
           <a
-            href=""
+            href={seeMoreLink}
             className={`${inverted ? styles.inv : ""} ${styles.seeMore}`}
           >
             See More
