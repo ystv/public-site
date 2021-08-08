@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof ResponsiveBGImage> = (args) => (
   <ResponsiveBGImage {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Page = Template.bind({});
+Page.args = {
   src: image,
   backgroundColourOverlay: "rgba(73, 73, 73, 0.14)",
   width: "",
