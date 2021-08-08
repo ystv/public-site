@@ -45,6 +45,6 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 
 # Healthcheck
-HEALTHCHECK --interval=15s --timeout=3s --start-period=30s CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+HEALTHCHECK --interval=15s --timeout=3s --start-period=30s CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/healthz || exit 1
 
 CMD ["yarn", "start"]
