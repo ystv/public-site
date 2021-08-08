@@ -27,6 +27,7 @@ export default function Home({
     visible: {
       y: 0,
       opacity: 1,
+      transition: { duration: 0.8 },
     },
   };
 
@@ -65,8 +66,8 @@ export default function Home({
                       variants={wrapperTransitions}
                       transition={{
                         duration: 1,
-                        staggerChildren: 0.3,
-                        when: "beforeChildren",
+                        staggerChildren: 0.25,
+                        delayChildren: 0.2,
                       }}
                       initial="hidden"
                       animate="visible"
@@ -77,7 +78,7 @@ export default function Home({
                         <b>We are York Student Television.</b>
                       </m.h1>
                       <m.h3 variants={itemTransition}>
-                        NaSTA Best Broadcaster and Best Tech 2019
+                        University of York Student Group of the Year 2021
                       </m.h3>
                       <div
                         style={{
