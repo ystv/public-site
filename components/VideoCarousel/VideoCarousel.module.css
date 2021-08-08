@@ -128,7 +128,7 @@
     flex-direction: row;
     overflow-x: scroll;
     width: 100%;
-    gap: 0.25rem;
+    gap: .75rem;
 
     scroll-behavior: smooth;
     scroll-snap-points-x: repeat(auto-fill, 200px);

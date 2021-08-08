@@ -1,5 +1,5 @@
 import YstvHead from "../components/YstvHead";
-import Link from "next/link"
+import Link from "next/link";
 
 export default function GetInvolved() {
   return (
@@ -7,7 +7,7 @@ export default function GetInvolved() {
       <main>
         <>
           <YstvHead />
-          <h1>Get Involved!</h1>
+          <h1>Get Involved</h1>
           <div>
             <p>
               Have you had a lifelong dream to work in television?&nbsp; Maybe

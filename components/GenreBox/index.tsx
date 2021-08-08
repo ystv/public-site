@@ -49,7 +49,7 @@ export default function Index({ videos }: Props) {
             return <GenreButton name={e.name} id={i} key={i} />;
           })}
         </div>
-        <div className={styles.carouselcontainer}>
+        <div className="mediumThin center">
           <VideoCarousel videos={genres[0].videos} inverted />
         </div>
       </div>

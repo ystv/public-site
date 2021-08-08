@@ -184,15 +184,19 @@ export default function Home({
             </div>
           </div>
         </div>
-        <div className={styles.homeThin}>
-          <VideoCarousel title="Featured" videos={featuredVideoPageState} />
-        </div>
-        <div className={styles.homeThin}>
-          <VideoCarousel title="Recent" videos={recentVideoPageState} />
+        <div className="mediumThin center">
+          <div className={styles.homeThin}>
+            <VideoCarousel title="Featured" videos={featuredVideoPageState} />
+          </div>
+          <div className={styles.homeThin}>
+            <VideoCarousel title="Recent" videos={recentVideoPageState} />
+          </div>
         </div>
         <GenreBox videos={[genreVideoPageState]} />
-        <div className={styles.homeThin}>
-          <VideoCarousel title="Popular" videos={popularVideoPageState} />
+        <div className="mediumThin center">
+          <div className={styles.homeThin}>
+            <VideoCarousel title="Popular" videos={popularVideoPageState} />
+          </div>
         </div>
       </main>
     </>

@@ -36,7 +36,7 @@ hr {
 }
 
 .mediumThin {
-    max-width: 80rem;
+    max-width: 100rem;
     width: 100%;
     /*padding: 0 1rem;*/
     object-fit: contain;

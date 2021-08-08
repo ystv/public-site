@@ -55,10 +55,13 @@ pipeline {
                     }
                     environment {
                         TARGET_SERVER = credentials('prod-server-address')
+                        APP_ENV = credentials('publicsite-production-env')
+                        TARGET_PATH = credentials('staging-server-path')
                     }
                     steps {
                         sshagent(credentials : ['prod-server-key']) {
                             script {
+                                sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
                                     docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     docker rm -f ystv-public-site

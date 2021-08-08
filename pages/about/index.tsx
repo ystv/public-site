@@ -8,17 +8,13 @@ function About({ teams }: Teams) {
       <YstvHead />
       <main>
         <h1>About</h1>
-        <h2>We Are York Student TV!</h2>
+        <h2>We Are York Student Television!</h2>
         <div>
+          <br />
           <p>
             <strong>Have you ever wanted to be on TV?</strong>
           </p>
-          <br />
-          <p>
-            <span>
-              <strong></strong>
-            </span>
-          </p>
+
           <p>
             Well here’s your chance!&nbsp; York Student Television is a student
             TV station run by students, for students.&nbsp; That means that
@@ -55,7 +51,7 @@ function About({ teams }: Teams) {
             skills behind a camera, or have a brilliant idea for a show then
             email{" "}
             <a href="mailto:getinvolved@ystv.co.uk">getinvolved@ystv.co.uk</a>{" "}
-            or click on “<Link href="/get-involved">Get Involved</Link>”.
+            or click here to <Link href="/get-involved">get involved</Link>!
           </p>
         </div>
         <br /> <h2>Our Teams:</h2>
