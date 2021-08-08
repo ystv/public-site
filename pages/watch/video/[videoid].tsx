@@ -98,19 +98,19 @@ export default function WatchVideo({ video, time, breadcrumb }) {
                 Published{" "}
                 {new Date(video.broadcastDate).toLocaleString().split(",")[0]}
               </h5>
-              <button
-                className={styles.embedButton}
-                onClick={() => setIsPopoverOpen(true)}
-              >
-                Embed
-              </button>
+              {/*<button*/}
+              {/*  className={styles.embedButton}*/}
+              {/*  onClick={() => setIsPopoverOpen(true)}*/}
+              {/*>*/}
+              {/*  Embed*/}
+              {/*</button>*/}
             </div>
           </div>
         </div>
-        <Popover {...popoverProps}>
-          <div />
-          {/* Needs to be there coz reasons...? */}
-        </Popover>
+        {/*<Popover {...popoverProps}>*/}
+        {/*  <div />*/}
+        {/*  /!* Needs to be there coz reasons...? *!/*/}
+        {/*</Popover>*/}
       </>
     );
   } catch {
@@ -123,7 +123,7 @@ export default function WatchVideo({ video, time, breadcrumb }) {
 }
 
 export async function getServerSideProps(context) {
-  var time: number = 0;
+  let time: number = 0;
   if (context.query.time !== undefined) {
     time = context.query.time;
   }
