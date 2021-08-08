@@ -1,13 +1,18 @@
 import styles from "./index.module.css";
 import Image from "next/image";
 import { FunctionComponent } from "react";
-
-import image from "../../public/site-images/carousel.jpg";
+import { Property } from "csstype";
 
 interface ResponsiveBGImageProps {
-  height?: string;
-  width?: string;
+  height?: Property.Height<string | number>;
+  width?: Property.Width<string | number>;
   minHeight?: string;
+  src;
+  priority?: boolean;
+  placeholder?: "empty" | "blur";
+  alt?: string;
+  blur?: boolean;
+  backgroundColourOverlay?: Property.Background<string | number>;
 }
 
 const ResponsiveBGImage: FunctionComponent<ResponsiveBGImageProps> = ({
@@ -15,6 +20,12 @@ const ResponsiveBGImage: FunctionComponent<ResponsiveBGImageProps> = ({
   width = "100%",
   minHeight,
   children,
+  src,
+  priority = false,
+  placeholder = "empty",
+  alt = "",
+  blur = false,
+  backgroundColourOverlay,
 }) => (
   <div
     className={styles.wrapperDiv}
@@ -25,9 +36,23 @@ const ResponsiveBGImage: FunctionComponent<ResponsiveBGImageProps> = ({
     }}
   >
     <div className={styles.imageDiv}>
-      <Image src={image} layout="fill" objectFit="cover" />
+      <Image
+        src={src}
+        layout="fill"
+        objectFit="cover"
+        priority={priority}
+        placeholder={placeholder}
+        alt={alt}
+      />
     </div>
-    <div className={styles.contentsDiv}>{children}</div>
+    <div
+      className={`${styles.contentsDiv} ${blur && styles.blur}`}
+      style={{
+        background: backgroundColourOverlay ? backgroundColourOverlay : null,
+      }}
+    >
+      {children}
+    </div>
   </div>
 );
 

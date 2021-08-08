@@ -1,17 +1,23 @@
 .wrapperDiv {
-    background-color: red;
     position: relative;
-}
-
-.imageDiv {
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .contentsDiv {
     z-index: 1;
     position: relative;
-    height: 100%;
+    flex-grow: 1;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    transition: backdrop-filter 1s ease-in-out;
+}
+
+.blur {
+    backdrop-filter: blur(4px);
 }
