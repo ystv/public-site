@@ -82,7 +82,7 @@ const MenuList = ({ setMenuOpen }) => (
         link="/hires"
         text="Hires"
       />
-      <a href={process.env.INTERNAL_SITE}>Login</a>
+      <a href={process.env.NEXT_PUBLIC_INTERNAL_SITE}>Login</a>
     </ul>
   </>
 );
