@@ -2,11 +2,14 @@ import "../components/global.css";
 import "video.js/dist/video-js.css";
 import "../components/VideoPlayer/VideoPlayer.css";
 
-import * as nextImage from "next/image";
+import * as NextImage from "next/image";
 
-Object.defineProperty(nextImage, "default", {
+const OriginalNextImage = NextImage.default;
+Object.defineProperty(NextImage, "default", {
   configurable: true,
-  value: (props) => <img {...props} />,
+  value: (props) => (
+    <OriginalNextImage {...props} unoptimized placeholder="empty" />
+  ),
 });
 
 export const parameters = {
