@@ -23,7 +23,10 @@ export default function WatchVideo({ video, time, breadcrumb }) {
         .map((e, i, t) => {
           let sel = i == t.length - 1 ? true : false; // Sets to last item in list (assumed to be highest quality)
           return {
-            src: `https://ystv.co.uk/videofile${e.uri.substring(6)}`,
+            src:
+              e.uri.split("/")[0] == "legacy" // NEEDS to be replaced when API/storage migration is done, this is gross
+                ? `https://ystv.co.uk/videofile${e.uri.substring(6)}`
+                : `https://cdn.ystv.co.uk/${e.uri}`,
             type: e.mimeType,
             label: `${e.height}p`,
             selected: sel,
@@ -113,7 +116,8 @@ export default function WatchVideo({ video, time, breadcrumb }) {
         {/*</Popover>*/}
       </>
     );
-  } catch {
+  } catch (e) {
+    console.log(e);
     return (
       <div className="center thin">
         <h1>Sorry! Video Could Not Be Loaded</h1>
