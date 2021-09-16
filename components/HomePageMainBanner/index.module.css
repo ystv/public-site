@@ -87,3 +87,131 @@
         margin: 0;
     }
 }
+
+/* FRESHERS 2021 BACKGROUND ANIMATION */
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-200px) rotate(360deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #05c7d8;
+    overflow: hidden;
+    border-radius: .5rem;
+    transition: 0.5s ease;
+    scale: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.background:hover {
+    transition: 0.5s ease;
+    scale: 1.03;
+    transform: translate3d(0, -2px, 0);
+}
+
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 8s linear infinite;
+}
+
+
+.background li:nth-child(0) {
+    left: 82%;
+    width: 81px;
+    height: 81px;
+    bottom: -81px;
+    animation-delay: 1s;
+}
+
+.background li:nth-child(1) {
+    left: 36%;
+    width: 50px;
+    height: 50px;
+    bottom: -50px;
+    animation-delay: 2s;
+}
+
+.background li:nth-child(2) {
+    left: 16%;
+    width: 9px;
+    height: 9px;
+    bottom: -9px;
+    animation-delay: 4s;
+}
+
+.background li:nth-child(3) {
+    left: 25%;
+    width: 58px;
+    height: 58px;
+    bottom: -58px;
+    animation-delay: 7s;
+}
+
+.background li:nth-child(4) {
+    left: 33%;
+    width: 17px;
+    height: 17px;
+    bottom: -17px;
+    animation-delay: 6s;
+}
+
+.background li:nth-child(5) {
+    left: 79%;
+    width: 88px;
+    height: 88px;
+    bottom: -88px;
+    animation-delay: 6s;
+}
+
+.background li:nth-child(6) {
+    left: 70%;
+    width: 25px;
+    height: 25px;
+    bottom: -25px;
+    animation-delay: 10s;
+}
+
+.background li:nth-child(7) {
+    left: 51%;
+    width: 14px;
+    height: 14px;
+    bottom: -14px;
+    animation-delay: 6s;
+}
+
+.background li:nth-child(8) {
+    left: 43%;
+    width: 88px;
+    height: 88px;
+    bottom: -88px;
+    animation-delay: 25s;
+}
+
+.background li:nth-child(9) {
+    left: 87%;
+    width: 62px;
+    height: 62px;
+    bottom: -62px;
+    animation-delay: 29s;
+}

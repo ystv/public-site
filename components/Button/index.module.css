@@ -9,8 +9,8 @@
     line-height: 26px;
     text-align: center;
     background-color: var(--light);
-    border: none;
     color: #333;
+    border: 2px solid var(--light);
 }
 
 .button:hover {
@@ -24,7 +24,7 @@
 }
 
 .transparentButton {
-    border: 2px solid var(--light);
+    /*border: 2px solid var(--light);*/
     box-sizing: border-box;
 
     background-color: transparent;

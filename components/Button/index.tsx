@@ -23,7 +23,11 @@ export default function Button({
       style={
         outline
           ? { color: primaryColour, borderColor: primaryColour }
-          : { color: secondaryColour, backgroundColor: primaryColour }
+          : {
+              color: secondaryColour,
+              backgroundColor: primaryColour,
+              borderColor: primaryColour,
+            }
       }
     >
       {label}

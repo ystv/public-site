@@ -40,9 +40,11 @@ export default function GetInvolved() {
                   take a look at our getting started guide
                 </a>
               </strong>{" "}
-              and{" "}
-              <a href="https://auth.ystv.co.uk/signup">
-                create an account on our website
+              and {/*<a href="https://auth.ystv.co.uk/signup">*/}
+              {/*  create an account on our website*/}
+              {/*</a>*/}
+              <a href="http://go.ystv.co.uk/signup">
+                sign up to our freshers events here
               </a>
               !
             </p>
