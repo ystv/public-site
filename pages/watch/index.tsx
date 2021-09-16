@@ -34,12 +34,12 @@ export default function Watch({
           disableSeeMore
         />
 
-        <VideoCarousel
-          title="Most Popular (Month)"
-          videos={popularVideoPageState.month}
-          detail
-          disableSeeMore
-        />
+        {/*<VideoCarousel*/}
+        {/*  title="Most Popular (Month)"*/}
+        {/*  videos={popularVideoPageState.month}*/}
+        {/*  detail*/}
+        {/*  disableSeeMore*/}
+        {/*/>*/}
 
         <VideoCarousel
           title="Most Popular (Year)"
