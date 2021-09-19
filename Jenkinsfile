@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         REGISTRY_ENDPOINT = credentials('docker-registry-endpoint')
-        APP_ENV = credentials('publicsite-staging-env')
     }
 
     stages {
@@ -24,7 +23,6 @@ pipeline {
                     environment {
                         TARGET_SERVER = credentials('staging-server-address')
                         APP_ENV = credentials('publicsite-staging-env')
-                        TARGET_PATH = credentials('staging-server-path')
                     }
                     steps {
                         sh "cp $APP_ENV .env.local"
@@ -38,7 +36,6 @@ pipeline {
                     environment {
                         TARGET_SERVER = credentials('prod-server-address')
                         APP_ENV = credentials('publicsite-production-env')
-                        TARGET_PATH = credentials('staging-server-path')
                     }
                     steps {
                         sh "cp $APP_ENV .env.local"
@@ -87,7 +84,7 @@ pipeline {
                     environment {
                         TARGET_SERVER = credentials('prod-server-address')
                         APP_ENV = credentials('publicsite-production-env')
-                        TARGET_PATH = credentials('staging-server-path')
+                        TARGET_PATH = credentials('prod-server-path')
                     }
                     steps {
                         sshagent(credentials : ['prod-server-key']) {
@@ -96,7 +93,7 @@ pipeline {
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
                                     docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
+                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }
