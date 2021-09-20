@@ -21,12 +21,11 @@ pipeline {
                         }
                     }
                     environment {
-                        TARGET_SERVER = credentials('staging-server-address')
                         APP_ENV = credentials('publicsite-staging-env')
                     }
                     steps {
-                        sh "cp $APP_ENV .env.local"
-                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
+                        sh "install -m 666 $APP_ENV .env.local"
+                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID ."
                     }
                 }
                 stage('Production') {
@@ -34,19 +33,18 @@ pipeline {
                         expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ } // Checking if it is main semantic version release
                     }
                     environment {
-                        TARGET_SERVER = credentials('prod-server-address')
                         APP_ENV = credentials('publicsite-production-env')
                     }
                     steps {
-                        sh "cp $APP_ENV .env.local"
-                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID ."
+                        sh "install -m 666 $APP_ENV .env.local"
+                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID ."
                     }
                 }
             }
         }
         stage('Registry Upload') {
             steps {
-                sh "docker push $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID" // Uploaded to registry
+                sh "docker push $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID" // Uploaded to registry
             }
         }
         stage('Deploy') {
@@ -68,9 +66,9 @@ pipeline {
                             script {
                                 sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
-                                    docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
+                                    docker pull $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
+                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }
@@ -91,9 +89,9 @@ pipeline {
                             script {
                                 sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
-                                    docker pull $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
+                                    docker pull $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/public-site:$BUILD_ID
+                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }
