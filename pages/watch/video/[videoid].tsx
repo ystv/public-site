@@ -12,6 +12,11 @@ export default function WatchVideo({ video, time, breadcrumb }) {
   const [copyButtonText, setCopyButtonText] = useState("Copy");
 
   try {
+    if (!video.files) {
+      console.warn("No files on video #", video.id);
+      return VideoErrorSnippet;
+    }
+
     const videoJSOptions = {
       autoplay: false,
       playbackRates: [0.5, 1, 1.25, 1.5, 2],
@@ -118,13 +123,15 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     );
   } catch (e) {
     console.log(e);
-    return (
-      <div className="center thin">
-        <h1>Sorry! Video Could Not Be Loaded</h1>
-      </div>
-    );
+    return VideoErrorSnippet;
   }
 }
+
+const VideoErrorSnippet = (
+  <div className="center thin">
+    <h1>Sorry! Video Could Not Be Loaded</h1>
+  </div>
+);
 
 export async function getServerSideProps(context) {
   let time: number = 0;
