@@ -7,12 +7,11 @@ module.exports = withMDX({
 });
 
 module.exports = {
-  async redirects() {
+  async rewrites() {
     return [
       {
         source: "/login/internal/",
         destination: "https://old.ystv.co.uk/login/internal",
-        permanent: false,
       },
     ];
   },
