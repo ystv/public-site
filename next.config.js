@@ -1,18 +1,20 @@
 const withMDX = require("@next/mdx")({
   extension: /\.mdx$/,
 });
-module.exports = withMDX({
+const MDXExport = withMDX({
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   trailingSlash: true,
 });
 
 module.exports = {
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: "/login/internal/",
+        source: "/login/internal",
         destination: "https://old.ystv.co.uk/login/internal",
+        permanent: false,
       },
     ];
   },
+  ...MDXExport,
 };
