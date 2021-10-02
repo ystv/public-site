@@ -1,5 +1,6 @@
 import YstvHead from "../../components/YstvHead";
 import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
+import GradientDiv from "../../components/GradientDiv";
 
 export default function Watch({
   recentVideoPageState,
@@ -19,7 +20,46 @@ export default function Watch({
           detail
           disableSeeMore
         />
-
+      </div>
+      <div className="thin center">
+        <a
+          href={"/watch/live"}
+          style={{
+            textDecorationColor: "var(--light)",
+            WebkitTextDecorationColor: "var(--light)",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "6rem",
+              // borderRadius: "1rem",
+              // overflow: "hidden",
+            }}
+          >
+            <GradientDiv>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <h2
+                  style={{
+                    color: "var(--light)",
+                  }}
+                >
+                  Watch YSTV Live!
+                </h2>
+              </div>
+            </GradientDiv>
+          </div>
+        </a>
+      </div>
+      <div className="mediumThin center">
         <VideoCarousel
           title="Recent"
           videos={recentVideoPageState}

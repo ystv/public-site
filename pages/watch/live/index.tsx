@@ -1,28 +1,30 @@
-import YSTVHead from "../../../components/YstvHead";
 import YstvHead from "../../../components/YstvHead";
-import VideoPlayer from "../../../components/VideoPlayer";
+import { channel } from "./[liveURLName]";
+import LiveVideoCell from "../../../components/LiveVideoCell";
 
-export default function Live() {
-  const videoJSOptions = {
-    autoplay: false,
-    playbackRates: [0.5, 1, 1.25, 1.5, 2],
-    height: 500,
-    controls: true,
-    sources: [
-      {
-        src: "https://stream.ystv.co.uk/hls/stream1.m3u8",
-      },
-    ],
-  };
-
-  var myplayer = VideoPlayer(videoJSOptions, 0);
-
+export default function LiveBrowse({ channels }: { channels: channel[] }) {
   return (
-    <>
-      <YstvHead title="Live" />
-      <h1>Live videos</h1>
-      <h3>Stream 1</h3>
-      {myplayer}
-    </>
+    <div className="center thin">
+      <YstvHead title="Live Channels" />
+      <h1>Live Channels</h1>
+      <div style={{ display: "flex" }}>
+        {channels.length == 0 ? (
+          <h3>
+            Sorry, looks like there&apos;s nothing live right now, check back
+            later!
+          </h3>
+        ) : (
+          channels.map((e, i) => <LiveVideoCell video={e} key={i} />)
+        )}
+      </div>
+    </div>
   );
+}
+
+export async function getServerSideProps() {
+  const channels: channel[] = await fetch(
+    `${process.env.REST_API}/v1/public/playout/channels`
+  ).then((res) => res.json());
+
+  return { props: { channels } };
 }
