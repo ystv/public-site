@@ -1,91 +1,46 @@
 import styles from "./index.module.css";
 import Index from "../VideoPlayer";
-import YstvHead from "../YstvHead";
+import { channel } from "../../pages/watch/live/[liveURLName]";
+import { useEffect, useRef } from "react";
 
-const testData = {
-  id: 2469,
-  seriesID: 466,
-  name: "Roses Reports Live: Saturday Afternoon",
-  url: "roses-reports-live-saturday-afternoon",
-  description: "",
-  thumbnail: "",
-  broadcastDate: "2015-06-26T14:53:12Z",
-  views: 0,
-  duration: 818,
-  files: [
-    {
-      uri: "legacy/14-15/15_Roses_Reports_Live_Saturday-Afternoon_sum11.mp4",
-      mimeType: "video/mp4",
-      mode: "watch",
-      width: 640,
-      height: 360,
-    },
-    {
-      uri:
-        "legacy/HDdownload/15_Roses_Reports_Live_Saturday-Afternoon_sum11.mp4",
-      mimeType: "video/mp4",
-      mode: "HDdownload",
-      width: 1280,
-      height: 720,
-    },
-    {
-      uri: "legacy/playout/15_Roses_Reports_Live_Saturday-Afternoon_sum11.mp4",
-      mimeType: "video/mp4",
-      mode: "schedule",
-      width: 1280,
-      height: 720,
-    },
-    {
-      uri: "legacy/14-15/15_Roses_Reports_Live_Saturday-Afternoon_sum11_HD.mp4",
-      mimeType: "video/mp4",
-      mode: "watch",
-      width: 1280,
-      height: 720,
-    },
-    {
-      uri: "legacy/thumbs/02469/%05d.jpg",
-      mimeType: "image/jpeg",
-      mode: "thumbs",
-      width: 80,
-      height: 45,
-    },
-    {
-      uri:
-        "legacy/14-15/15_Roses_Reports_Live_Saturday-Afternoon_sum11_FHD.mp4",
-      mimeType: "video/mp4",
-      mode: "watch",
-      width: 1920,
-      height: 1080,
-    },
-  ],
-};
+const LiveModal = ({ channel }: { channel: channel }) => {
+  const playerRef = useRef(null);
 
-const Embed = ({ video, time }) => {
   const videoJSOptions = {
-    autoplay: false,
-    playbackRates: [0.5, 1, 1.25, 1.5, 2],
+    autoplay: true,
+    muted: true,
     controls: true,
     fluid: true,
-    sources: video.files
-      .filter((e) => e.mode == "watch")
-      .map((e, i, t) => {
-        let sel = i == t.length - 1 ? true : false; // Sets to last item in list (assumed to be highest quality)
-        return {
-          src: `https://ystv.co.uk/videofile${e.uri.substring(6)}`,
-          type: e.mimeType,
-          label: `${e.height}p`,
-          selected: sel,
-        };
-      }),
+    sources: [
+      {
+        src: channel.outputURL,
+      },
+    ],
   };
 
-  // let myplayer = Index(videoJSOptions, time, video.name);
+  const handlePlayerReady = (player) => {
+    playerRef.current = player;
 
-  // return myplayer;
-  return <></>;
-};
+    // you can handle player events here
+    player.on("waiting", () => {
+      console.log("player is waiting");
+    });
 
-const LiveModal = () => {
+    player.on("dispose", () => {
+      console.log("player will dispose");
+    });
+  };
+
+  // const changePlayerOptions = () => {
+  //   // you can update the player through the Video.js player instance
+  //   if (!playerRef.current) {
+  //     return;
+  //   }
+  //   // [update player through instance's api]
+  //   playerRef.current.src([{src: 'http://ex.com/video.mp4', type: 'video/mp4'}]);
+  //   playerRef.current.autoplay(false);
+  // };
+
   return (
     <div className={styles.container}>
       <div className={styles.flexRow}>
@@ -98,7 +53,7 @@ const LiveModal = () => {
             flex: 2,
           }}
         >
-          <Embed time={0} video={testData} />
+          <VideoJS options={videoJSOptions} onReady={handlePlayerReady} />
           <br />
         </div>
         <div style={{ flex: 1 }}>
@@ -119,3 +74,46 @@ const LiveModal = () => {
 };
 
 export default LiveModal;
+
+import videojs from "video.js";
+import "video.js/dist/video-js.css";
+
+const VideoJS = (props) => {
+  const videoRef = useRef(null);
+  const playerRef = useRef(null);
+  const { options, onReady } = props;
+
+  useEffect(() => {
+    // make sure Video.js player is only initialized once
+    if (!playerRef.current) {
+      const videoElement = videoRef.current;
+      if (!videoElement) return;
+
+      const player = (playerRef.current = videojs(videoElement, options, () => {
+        console.log("player is ready");
+        onReady && onReady(player);
+      }));
+    } else {
+      // you can update player here [update player through props]
+      // const player = playerRef.current;
+      // player.autoplay(options.autoplay);
+      // player.src(options.sources);
+    }
+  }, [options]);
+
+  // Dispose the Video.js player when the functional component unmounts
+  useEffect(() => {
+    return () => {
+      if (playerRef.current) {
+        playerRef.current.dispose();
+        playerRef.current = null;
+      }
+    };
+  }, []);
+
+  return (
+    <div data-vjs-player>
+      <video ref={videoRef} className="video-js vjs-big-play-centered" />
+    </div>
+  );
+};
