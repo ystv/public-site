@@ -1,189 +1,193 @@
 .spacer {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .menuFixedBar {
-  height: 4.5rem;
-  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: fixed;
-  width: 100%;
-  background-color: var(--light);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  z-index: 10000;
-  overflow: hidden;
+    height: 4.5rem;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed;
+    width: 100%;
+    background-color: var(--light);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 10000;
+    overflow: hidden;
 }
 
 .menuWidthLimiter {
-  display: flex;
-  flex-direction: column;
-  max-width: 95rem;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 95rem;
+    margin: auto;
 }
 
 .menuContents {
-  height: 4.5rem;
-  display: flex;
-  align-items: center;
-  max-width: 100rem;
-  padding-left: 1rem;
-  flex-shrink: 0;
-}
-.menuOpen{
-  height: 20rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    max-width: 100rem;
+    padding-left: 1rem;
+    flex-shrink: 0;
 }
 
-.menuFixedBar a{
-  transition: transform 0.3s ease-in-out;
+.menuOpen {
+    height: 20rem;
 }
+
+.menuFixedBar a {
+    transition: transform 0.3s ease-in-out;
+}
+
 .menuFixedBar a:hover {
-  transform: scale3d(1.05,1.05,1);
+    transform: scale3d(1.05, 1.05, 1);
 }
 
-.noShrink{
-  flex-shrink: 0;
+.noShrink {
+    flex-shrink: 0;
 }
 
 .logo {
-  transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
-.logo:hover{
-  cursor: pointer;
-  transform: scale3d(1.05,1.05,1);
+.logo:hover {
+    cursor: pointer;
+    transform: scale3d(1.05, 1.05, 1);
 }
 
 /*----------------------------------------------------*/
 
 .searchForm {
-  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0.9rem;
-  height: 2.6rem;
-  border-style: none;
-  display: flex;
-  min-width: 3rem;
-  overflow: hidden;
-  margin-left: 1rem;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0.9rem;
+    height: 2.6rem;
+    border-style: none;
+    display: flex;
+    min-width: 3rem;
+    overflow: hidden;
+    margin-left: 1rem;
 }
 
 .searchForm input {
-  background-color: transparent;
-  border: none;
-  height: 100%;
-  flex: 1;
-  min-width: 3rem;
-  transform: translate3d(5px, -1px, 0px);
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    flex: 1;
+    min-width: 3rem;
+    transform: translate3d(5px, -1px, 0px);
 }
 
 .iconOpacity {
-  opacity: 75%;
+    opacity: 75%;
 }
 
 .searchForm button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  transition: 0.5s ease;
-  flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s ease;
+    flex-shrink: 0;
 }
 
 .searchForm button:focus {
-  outline: none;
+    outline: none;
 }
 
 .searchForm input:focus {
-  outline: none;
+    outline: none;
 }
 
 /*----------------------------------------------------*/
 
 .toggle {
-  --toggleAnimationTime: 0.5s;
-  cursor: pointer;
-  padding: 1rem;
-  -webkit-transition: all var(--toggleAnimationTime) ease;
-  transition: all var(--toggleAnimationTime) ease;
+    --toggleAnimationTime: 0.5s;
+    cursor: pointer;
+    padding: 1rem;
+    -webkit-transition: all var(--toggleAnimationTime) ease;
+    transition: all var(--toggleAnimationTime) ease;
 
-  background-color: transparent;
-  clip-path: circle(50% at 50%);
+    background-color: transparent;
+    clip-path: circle(50% at 50%);
 
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .toggle:active {
-  background-color: var(--dark);
-  transform: scale(1.3);
+    background-color: var(--dark);
+    transform: scale(1.3);
 }
 
 /*----------------------------------------------------*/
 
 .menuList {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  height: calc(20rem - 4.5rem);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: calc(20rem - 4.5rem);
 }
 
 .menuList a {
-  padding: .75rem 1rem;
-  font-size: large;
-  font-weight: normal;
-  text-decoration: none;
+    padding: .75rem 1rem;
+    font-size: large;
+    font-weight: normal;
+    text-decoration: none;
+    border-top: solid rgba(0, 0, 0, .05) 1px;
 }
 
 @media only screen and (min-width: 800px) {
-  .hamburgerToggleArea{
-    display: none;
-  }
+    .hamburgerToggleArea {
+        display: none;
+    }
 
-  .menuContents{
-    max-width: 22rem;
-  }
+    .menuContents {
+        max-width: 22rem;
+    }
 
-  .menuFixedBar{
-    height: 4.5rem;
-  }
+    .menuFixedBar {
+        height: 4.5rem;
+    }
 
-  .menuWidthLimiter{
-    flex-direction: row;
-  }
+    .menuWidthLimiter {
+        flex-direction: row;
+    }
 
-  .menuList{
-    flex-direction: row;
-    align-items: center;
-    max-width: 25rem;
-    height: auto;
-  }
+    .menuList {
+        flex-direction: row;
+        align-items: center;
+        max-width: 25rem;
+        height: auto;
+    }
 
-  .menuList a {
-    padding: 1rem 0.5rem;
-    font-size: 1rem;
-  }
+    .menuList a {
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+        border-top: none;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
-  .menuContents{
-    max-width: 40rem;
-    padding-left: 2rem;
-  }
+    .menuContents {
+        max-width: 40rem;
+        padding-left: 2rem;
+    }
 
-  .menuList{
-    max-width: 35rem;
-  }
+    .menuList {
+        max-width: 35rem;
+    }
 
-  .searchForm{
-    width: 30rem
-  }
+    .searchForm {
+        width: 30rem
+    }
 }
