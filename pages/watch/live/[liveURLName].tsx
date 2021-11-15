@@ -1,6 +1,8 @@
+import React from "react";
 import YstvHead from "../../../components/YstvHead";
 import VideoPlayer from "../../../components/VideoPlayer";
-import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
+import Link from "next/link";
 
 export default function WatchLive({ channel }: { channel: channel }) {
   const videoJSOptions = {
@@ -20,7 +22,7 @@ export default function WatchLive({ channel }: { channel: channel }) {
   return (
     <div className="center thin">
       <br />
-      <a href="/watch/live">&larr; Back to live channels</a>
+      <Link href="/watch/live">&larr; Back to live channels</Link>
       <YstvHead title={`Live - ${channel.name}`} />
       <h1>Live - {channel.name}</h1>
       {myplayer}
@@ -29,14 +31,14 @@ export default function WatchLive({ channel }: { channel: channel }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export const getServerSideProps:GetServerSideProps = async (context) => {
   function redirect() {
     context.res.statusCode = 302;
     context.res.setHeader("Location", `/404`);
   }
 
-  const channels: channel[] = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channels`
+  const channel: channel = await fetch(
+    `${process.env.REST_API}/v1/public/playout/channel/${context.query.liveURLName}`
   ).then((res) => {
     if (!res.ok) {
       redirect();
@@ -44,8 +46,6 @@ export async function getServerSideProps(context) {
       return res.json();
     }
   });
-
-  let channel = channels.find((e) => e.urlName == context.query.liveURLName);
 
   if (channel == undefined) redirect();
 
