@@ -8,13 +8,15 @@ export default function LiveBrowse({ channels }: { channels: channel[] }) {
       <YstvHead title="Live Channels" />
       <h1>Live Channels</h1>
       <div style={{ display: "flex" }}>
-        {channels.length == 0 ? (
+        {channels.filter((e) => e.status != "finished").length == 0 ? (
           <h3>
-            Sorry, looks like there&apos;s nothing live right now, check back
-            later!
+            Sorry, looks like there&apos;s nothing live right now, please check
+            back later!
           </h3>
         ) : (
-          channels.map((e, i) => <LiveVideoCell video={e} key={i} />)
+          channels
+            .filter((e) => e.status != "finished")
+            .map((e, i) => <LiveVideoCell video={e} key={i} />)
         )}
       </div>
     </div>
