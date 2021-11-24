@@ -10,8 +10,8 @@ RUN yarn install --frozen-lockfile
 FROM node:alpine AS builder
 LABEL "site"="public"
 WORKDIR /app
-COPY . .
 COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
 ARG SOURCE_ID_ARG="n/a"
 ARG BUILD_ID_ARG="n/a"
@@ -19,7 +19,7 @@ RUN echo commitID: ${SOURCE_ID_ARG}
 ENV SOURCE_ID=$SOURCE_ID_ARG
 ENV BUILD_ID=$BUILD_ID_ARG
 
-RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
+RUN yarn build
 
 # Production image, copy all the files and run next
 FROM node:alpine AS runner
@@ -31,11 +31,15 @@ ENV NODE_ENV production
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/yarn.lock ./yarn.lock
+
+RUN yarn install --production --ignore-scripts --prefer-offline --frozen-lockfile
+
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+
 
 USER nextjs
 
