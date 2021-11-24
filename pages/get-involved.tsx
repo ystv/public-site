@@ -44,7 +44,7 @@ export default function GetInvolved() {
               {/*  create an account on our website*/}
               {/*</a>*/}
               <a href="http://go.ystv.co.uk/signup">
-                sign up to our freshers events here
+                sign up to our mailing list
               </a>
               !
             </p>

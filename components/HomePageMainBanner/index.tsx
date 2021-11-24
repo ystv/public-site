@@ -63,65 +63,65 @@ export default function HomePageMainBanner() {
                 <m.h3 variants={itemTransition}>
                   University of York Student Group of the Year 2021
                 </m.h3>
-                <m.div
-                  style={{
-                    display: "flex",
-                    // flexDirection: "column",
-                    flexWrap: "wrap",
-                    gap: "1rem",
-                    // alignItems: "center",
-                  }}
-                >
-                  {/*<m.div variants={itemTransition}>*/}
-                  {/*  <Image src={YSTVFreshers} height={54} width={300} />*/}
-                  {/*</m.div>*/}
-                  <m.a
-                    variants={itemTransition}
-                    href={"http://go.ystv.co.uk/signup"}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <ul className={styles.background}>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <div
-                        style={{
-                          position: "relative",
-                          height: "46px",
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <h3
-                          style={{
-                            margin: 0,
-                            fontSize: 18,
-                            fontWeight: "bold",
-                            color: "var(--light)",
-                            padding: "0 2rem",
-                          }}
-                        >
-                          Freshers Sign-Up Form
-                        </h3>
-                      </div>
-                    </ul>
-                    {/*<Button*/}
-                    {/*  primaryColour={"#05c7d8"}*/}
-                    {/*  secondaryColour={"var(--light)"}*/}
-                    {/*  label="Freshers Sign Up"*/}
-                    {/*  // styles={{ fontWeight: "bolder" }}*/}
-                    {/*/>*/}
-                  </m.a>
-                </m.div>
-                <br />
+                {/*<m.div*/}
+                {/*  style={{*/}
+                {/*    display: "flex",*/}
+                {/*    // flexDirection: "column",*/}
+                {/*    flexWrap: "wrap",*/}
+                {/*    gap: "1rem",*/}
+                {/*    // alignItems: "center",*/}
+                {/*  }}*/}
+                {/*>*/}
+                {/*  /!*<m.div variants={itemTransition}>*!/*/}
+                {/*  /!*  <Image src={YSTVFreshers} height={54} width={300} />*!/*/}
+                {/*  /!*</m.div>*!/*/}
+                {/*  <m.a*/}
+                {/*    variants={itemTransition}*/}
+                {/*    href={"http://go.ystv.co.uk/signup"}*/}
+                {/*    style={{ textDecoration: "none" }}*/}
+                {/*  >*/}
+                {/*    <ul className={styles.background}>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <li></li>*/}
+                {/*      <div*/}
+                {/*        style={{*/}
+                {/*          position: "relative",*/}
+                {/*          height: "46px",*/}
+                {/*          display: "flex",*/}
+                {/*          flexDirection: "column",*/}
+                {/*          justifyContent: "center",*/}
+                {/*        }}*/}
+                {/*      >*/}
+                {/*        <h3*/}
+                {/*          style={{*/}
+                {/*            margin: 0,*/}
+                {/*            fontSize: 18,*/}
+                {/*            fontWeight: "bold",*/}
+                {/*            color: "var(--light)",*/}
+                {/*            padding: "0 2rem",*/}
+                {/*          }}*/}
+                {/*        >*/}
+                {/*          Freshers Sign-Up Form*/}
+                {/*        </h3>*/}
+                {/*      </div>*/}
+                {/*    </ul>*/}
+                {/*    /!*<Button*!/*/}
+                {/*    /!*  primaryColour={"#05c7d8"}*!/*/}
+                {/*    /!*  secondaryColour={"var(--light)"}*!/*/}
+                {/*    /!*  label="Freshers Sign Up"*!/*/}
+                {/*    /!*  // styles={{ fontWeight: "bolder" }}*!/*/}
+                {/*/>*/}
+                {/*  </m.a>*/}
+                {/*</m.div>*/}
+                {/*<br />*/}
                 <div
                   style={{
                     display: "flex",
