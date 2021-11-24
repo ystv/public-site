@@ -9,9 +9,10 @@ const usePlayer = (options, time?, titleOverlay?) => {
   useEffect(() => {
     require("@silvermine/videojs-quality-selector")(videojs);
     require("videojs-contrib-quality-levels");
-    require("videojs-hls-quality-selector");
+    const hlsqs = require("videojs-hls-quality-selector");
     // require("videojs-titleoverlay");
     // videojs.registerPlugin("overlay", overlay);
+    videojs.registerPlugin("hlsQualitySelector", () => hlsqs);
     let vjsPlayer = videojs(videoRef.current, {
       controlBar: {
         children: [
