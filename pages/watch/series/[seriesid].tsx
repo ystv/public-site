@@ -26,7 +26,9 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
         <Breadcrumb breadcrumb={breadcrumb} />
         <h1>{series.name}</h1>
         <p dangerouslySetInnerHTML={{ __html: series.description }} />
-        {series.childSeries.length !== 0 ? <h3>Series</h3> : null}
+        {series.childSeries && series.childSeries.length !== 0 ? (
+          <h3>Series</h3>
+        ) : null}
         <div className={styles.seriesContainer}>
           {series.childSeries.map((e, i) => (
             <div key={i} className={styles.flexSpacer}>
@@ -35,7 +37,7 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
           ))}
         </div>
 
-        {series.videos.length !== 0 ? <h3>Videos</h3> : null}
+        {series.videos && series.videos.length !== 0 ? <h3>Videos</h3> : null}
         <div className={styles.videoContainer}>
           {series.videos
             .sort((a, b) => {
