@@ -10,6 +10,7 @@ interface Props {
 }
 
 export default function Breadcrumb({ breadcrumb }: Props) {
+  if (!breadcrumb.length || breadcrumb.length == 0) return <></>;
   return (
     <h4>
       {breadcrumb.map((e, i, a) => (
