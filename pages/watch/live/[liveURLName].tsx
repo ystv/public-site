@@ -10,14 +10,16 @@ export default function WatchLive({ channel }: { channel: channel }) {
     playbackRates: [0.5, 1, 1.25, 1.5, 2],
     height: 500,
     controls: true,
+    liveui: true,
+    fill: true,
+    fluid: true,
     sources: [
       {
         src: channel.outputURL,
+        type: "application/x-mpegURL",
       },
     ],
   };
-
-  var myplayer = VideoPlayer(videoJSOptions, 0);
 
   return (
     <div className="center thin">
@@ -25,13 +27,13 @@ export default function WatchLive({ channel }: { channel: channel }) {
       <Link href="/watch/live">&larr; Back to live channels</Link>
       <YstvHead title={`Live - ${channel.name}`} />
       <h1>Live - {channel.name}</h1>
-      {myplayer}
+      <VideoPlayer options={videoJSOptions} time={0} />
       <p>{channel.description}</p>
     </div>
   );
 }
 
-export const getServerSideProps:GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   function redirect() {
     context.res.statusCode = 302;
     context.res.setHeader("Location", `/404`);
@@ -50,7 +52,7 @@ export const getServerSideProps:GetServerSideProps = async (context) => {
   if (channel == undefined) redirect();
 
   return { props: { channel } };
-}
+};
 
 export interface channel {
   outputURL: string;

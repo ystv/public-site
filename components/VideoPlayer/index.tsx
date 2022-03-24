@@ -1,102 +1,111 @@
-import React, { useEffect, useRef, useState } from "react";
-import videojs, { VideoJsPlayer } from "video.js";
-// import overlay from "videojs-titleoverlay";
+import { useEffect, useRef } from "react";
+import videojs from "video.js";
+import "video.js/dist/video-js.css";
 
-const usePlayer = (options, time?, titleOverlay?) => {
+import overlay from "videojs-titleoverlay";
+
+//
+//
+//     // if (titleOverlay !== undefined) {
+//     //   (vjsPlayer as any).titleoverlay({
+//     //     title: `YSTV: ${titleOverlay}`, //Title for movie
+//     //     floatPosition: "left", //Float left or right (to prevent big play button overlap) (default left)
+//     //     fontSize: "1.5em", //font size (default 1em)
+//     //   });
+//     // }
+//
+
+export const VideoJS = (props) => {
   const videoRef = useRef(null);
-  const [player, setPlayer] = useState<VideoJsPlayer | null>(null);
+  const playerRef = useRef(null);
+  const { options, onReady, time, title } = props;
 
-  useEffect(() => {
-    require("@silvermine/videojs-quality-selector")(videojs);
+  if (options.liveui) {
     require("videojs-contrib-quality-levels");
     const hlsqs = require("videojs-hls-quality-selector");
-    // require("videojs-titleoverlay");
-    // videojs.registerPlugin("overlay", overlay);
     videojs.registerPlugin("hlsQualitySelector", () => hlsqs);
-    let vjsPlayer = videojs(videoRef.current, {
-      controlBar: {
-        children: [
-          "playToggle",
-          "volumePanel",
-          "currentTimeDisplay",
-          "timeDivider",
-          "durationDisplay",
-          "progressControl",
-          "liveDisplay",
-          "seekToLive",
-          "remainingTimeDisplay",
-          "customControlSpacer",
-          "playbackRateMenuButton",
-          "chaptersButton",
-          "descriptionsButton",
-          "subsCapsButton",
-          //"audioTrackButton",
-          "pictureInPictureToggle",
-          "QualitySelector",
-          "fullscreenToggle",
-        ],
-      },
-      ...options,
-    });
+  } else {
+    require("@silvermine/videojs-quality-selector")(videojs);
+    require("@silvermine/videojs-quality-selector/dist/css/quality-selector.css");
+  }
 
-    vjsPlayer.hlsQualitySelector({
-      displayCurrentQuality: true,
-    });
+  useEffect(() => {
+    // make sure Video.js player is only initialized once
+    if (!playerRef.current) {
+      const videoElement = videoRef.current;
+      if (!videoElement) return;
 
-    // if (titleOverlay !== undefined) {
-    //   (vjsPlayer as any).titleoverlay({
-    //     title: `YSTV: ${titleOverlay}`, //Title for movie
-    //     floatPosition: "left", //Float left or right (to prevent big play button overlap) (default left)
-    //     fontSize: "1.5em", //font size (default 1em)
-    //   });
-    // }
+      const player = (playerRef.current = videojs(
+        videoElement,
+        {
+          controlBar: {
+            children: [
+              "playToggle",
+              "volumePanel",
+              "currentTimeDisplay",
+              "timeDivider",
+              "durationDisplay",
+              "progressControl",
+              "liveDisplay",
+              "seekToLive",
+              "remainingTimeDisplay",
+              "customControlSpacer",
+              "playbackRateMenuButton",
+              "chaptersButton",
+              "descriptionsButton",
+              "subsCapsButton",
+              //"audioTrackButton",
+              "pictureInPictureToggle",
+              "QualitySelector",
+              "fullscreenToggle",
+            ],
+          },
+          ...options,
+        },
+        () => {
+          console.log("player is ready");
 
-    // Add settings icon to VOD quality selector
-    vjsPlayer
-      .getChild("ControlBar")
-      .getChild("QualitySelector")
-      .getChild("QualitySelector")
-      .el()
-      .getElementsByClassName("vjs-icon-placeholder")
-      .item(0).className = "vjs-icon-placeholder vjs-icon-cog";
+          // videojs.registerPlugin("overlay", overlay);
 
-    setPlayer(vjsPlayer);
+          if (options.liveui) {
+            player.hlsQualitySelector({
+              displayCurrentQuality: true,
+            });
+            player.qualityLevels(); // Needed for HLS quality selector
+          }
+
+          console.log("plugins added");
+
+          if (time !== 0) {
+            player.play();
+            player.currentTime(time);
+          }
+
+          onReady && onReady(player);
+        }
+      ));
+    } else {
+      // you can update player here [update player through props]
+    }
+  }, [options, videoRef]);
+
+  // Dispose the Video.js player when the functional component unmounts
+  useEffect(() => {
+    const player = playerRef.current;
 
     return () => {
-      if (player !== null) {
+      if (player) {
         player.dispose();
+        playerRef.current = null;
       }
     };
-  }, [options, player, titleOverlay]);
-
-  useEffect(() => {
-    if (player !== null) {
-      player.qualityLevels(); // Needed for HLS quality selector
-      if (time !== 0) {
-        player.play();
-        player.currentTime(time);
-      }
-    }
-  }, [player, time]);
-
-  useEffect(() => {
-    // is this needed?
-    if (player !== null) {
-      player.src(options.src);
-    }
-  }, [options.src, player]);
-
-  return videoRef;
-};
-
-function Index(options, time, titleOverlay?) {
-  const playerRef = usePlayer(options, time, titleOverlay);
+  }, [playerRef]);
 
   return (
     <div data-vjs-player>
-      <video ref={playerRef} className="video-js" />
+      <video ref={videoRef} className="video-js" />
     </div>
   );
-}
+};
 
-export default Index;
+export default VideoJS;

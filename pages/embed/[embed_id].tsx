@@ -1,5 +1,5 @@
 import YstvHead from "../../components/YstvHead";
-import Index from "../../components/VideoPlayer";
+import VideoPlayer from "../../components/VideoPlayer";
 
 import styles from "./embed.module.css";
 
@@ -23,12 +23,10 @@ export default function Embed({ video, time }) {
       }),
   };
 
-  var myplayer = Index(videoJSOptions, time, video.name);
-
   return (
     <div className={styles.bg}>
       <YstvHead title={`Watch - ${video.name}`} />
-      {myplayer}
+      <VideoPlayer options={videoJSOptions} time={time} title={video.name} />
     </div>
   );
 }

@@ -79,9 +79,10 @@ const Embed = ({ video, time }) => {
       }),
   };
 
-  let myplayer = Index(videoJSOptions, time, video.name);
+  // let myplayer = Index(videoJSOptions, time, video.name);
 
-  return myplayer;
+  // return myplayer;
+  return <></>;
 };
 
 const LiveModal = () => {
