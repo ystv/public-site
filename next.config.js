@@ -19,6 +19,6 @@ module.exports = {
   experimental: {
     outputStandalone: true,
   },
-  swcMinify: true,
+  // swcMinify: true,
   ...MDXExport,
 };
