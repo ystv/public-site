@@ -26,6 +26,7 @@ FROM node:alpine AS runner
 LABEL "site"="public"
 WORKDIR /app
 
+ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
 
 RUN addgroup -g 1001 -S nodejs
@@ -33,8 +34,6 @@ RUN adduser -S nextjs -u 1001
 
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/yarn.lock ./yarn.lock
-
-RUN yarn install --production --ignore-scripts --prefer-offline --frozen-lockfile
 
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
@@ -47,12 +46,8 @@ USER nextjs
 
 EXPOSE 3000
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-ENV NEXT_TELEMETRY_DISABLED 1
-
 
 # Healthcheck
 HEALTHCHECK --interval=15s --timeout=3s --start-period=30s CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/healthz/ || exit 1
 
-CMD ["yarn", "start"]
+CMD ["node", "server.js"]
