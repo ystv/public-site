@@ -68,9 +68,9 @@ export const VideoJS = (props) => {
           // videojs.registerPlugin("overlay", overlay);
 
           if (options.liveui) {
-            player.hlsQualitySelector({
-              displayCurrentQuality: true,
-            });
+            // player.hlsQualitySelector({
+            //   displayCurrentQuality: true,
+            // });
             player.qualityLevels(); // Needed for HLS quality selector
           }
 
@@ -87,7 +87,7 @@ export const VideoJS = (props) => {
     } else {
       // you can update player here [update player through props]
     }
-  }, [options, videoRef]);
+  }, [options, videoRef, onReady, time]);
 
   // Dispose the Video.js player when the functional component unmounts
   useEffect(() => {
