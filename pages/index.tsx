@@ -4,17 +4,24 @@ import VideoCarousel from "../components/VideoCarousel/VideoCarousel";
 import styles from "./index.module.css";
 import GenreBox from "../components/GenreBox";
 import HomePageMainBanner from "../components/HomePageMainBanner";
+import HomeLiveBanner from "../components/HomeLiveBanner";
+import { SWRConfig } from "swr";
+import { channel } from "./watch/live/[liveURLName]";
 
 export default function Home({
   recentVideoPageState,
   popularVideoPageState,
   featuredVideoPageState,
   genreVideoPageState,
+  liveFallback,
 }) {
   return (
     <>
       <YstvHead />
       <main>
+        <SWRConfig value={{ fallback: liveFallback }}>
+          <HomeLiveBanner />
+        </SWRConfig>
         <HomePageMainBanner />
 
         <div className="mediumThin center">
@@ -64,12 +71,23 @@ export async function getServerSideProps() {
     `${process.env.REST_API}/v1/public/videos/12/600`
   ).then((res) => res.json());
 
+  let liveFallback = await fetch(
+    `${process.env.REST_API}/v1/public/playout/channel`
+  )
+    .then((res) => res.json())
+    .then((e) => {
+      let keyedData = {};
+      keyedData[`${process.env.REST_API}/v1/public/playout/channel`] = e;
+      return keyedData;
+    });
+
   return {
     props: {
       recentVideoPageState,
       popularVideoPageState,
       featuredVideoPageState,
       genreVideoPageState,
+      liveFallback,
     },
   };
 }

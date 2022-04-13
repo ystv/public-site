@@ -6,6 +6,7 @@ import VideoPlayer from "../VideoPlayer";
 const LiveModal = ({ channel }: { channel: channel }) => {
   const videoJSOptions = {
     autoplay: false,
+    aspectRatio: "16:9",
     playbackRates: [0.5, 1, 1.25, 1.5, 2],
     height: 500,
     controls: true,
