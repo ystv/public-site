@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import LiveModal from "../LiveFeaturedPlayerBanner";
 import { channel } from "../../pages/watch/live/[liveURLName]";
 import {
   AnimatePresence,
@@ -11,6 +10,7 @@ import {
 } from "framer-motion";
 import React, { ReactNode } from "react";
 import styles from "./index.module.css";
+import dynamic from "next/dynamic";
 
 export enum HomeLiveBannerStatus {
   null,
@@ -57,6 +57,8 @@ export default function HomeLiveBanner() {
       {children}
     </m.div>
   );
+
+  const LiveModal = dynamic(() => import("../LiveFeaturedPlayerBanner"));
 
   return (
     <LazyMotion features={domAnimation} strict>
