@@ -60,7 +60,8 @@ export default function HomeLiveBanner() {
           data.length > 0 &&
           (() => {
             const primaryChannel = data[0];
-            const primaryChannelStatus = channelStatus[primaryChannel.status];
+            const primaryChannelStatus =
+              channelStatus[primaryChannel.status.toUpperCase()];
 
             if (primaryChannelStatus == channelStatus.LIVE)
               return (
