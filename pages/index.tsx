@@ -77,7 +77,9 @@ export async function getServerSideProps() {
     .then((res) => res.json())
     .then((e) => {
       let keyedData = {};
-      keyedData[`${process.env.REST_API}/v1/public/playout/channel`] = e;
+      keyedData[
+        `${process.env.REST_API}/v1/public/playout/channel`
+      ] = e as channel[];
       return keyedData;
     });
 
