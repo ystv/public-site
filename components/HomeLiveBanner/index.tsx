@@ -62,7 +62,7 @@ export default function HomeLiveBanner() {
             const primaryChannel = data[0];
             const primaryChannelStatus = channelStatus[primaryChannel.status];
 
-            if (primaryChannel && primaryChannelStatus == channelStatus.LIVE)
+            if (primaryChannelStatus == channelStatus.LIVE)
               return (
                 <SectionWrapper
                   style={{ padding: "0 1rem" }}
