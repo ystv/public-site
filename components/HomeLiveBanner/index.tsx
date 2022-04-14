@@ -11,14 +11,7 @@ import {
 import React, { ReactNode } from "react";
 import styles from "./index.module.css";
 import dynamic from "next/dynamic";
-
-export enum HomeLiveBannerStatus {
-  null,
-  live,
-  scheduled,
-  cancelled,
-  finished,
-}
+import { channelStatus } from "../../types/api/Channel";
 
 export default function HomeLiveBanner() {
   const fetcher = (input: RequestInfo, init?: RequestInit) =>
@@ -67,9 +60,9 @@ export default function HomeLiveBanner() {
           data.length > 0 &&
           (() => {
             const channel = data[0];
-            let status = HomeLiveBannerStatus[channel.status];
+            let status = channelStatus[channel.status];
 
-            if (channel && status == HomeLiveBannerStatus.live)
+            if (channel && status == channelStatus.live)
               return (
                 <SectionWrapper
                   style={{ padding: "0 1rem" }}
@@ -79,7 +72,7 @@ export default function HomeLiveBanner() {
                   <LiveModal channel={channel} />
                 </SectionWrapper>
               );
-            if (status == HomeLiveBannerStatus.scheduled)
+            if (status == channelStatus.scheduled)
               return (
                 <SectionWrapper key={"scheduled"}>
                   <div className={styles.flexRow}>
@@ -96,7 +89,7 @@ export default function HomeLiveBanner() {
                   </div>
                 </SectionWrapper>
               );
-            if (status == HomeLiveBannerStatus.cancelled)
+            if (status == channelStatus.cancelled)
               return (
                 <SectionWrapper key={"cancelled"}>
                   <div className={styles.flexRow}>
@@ -108,7 +101,7 @@ export default function HomeLiveBanner() {
                   </div>
                 </SectionWrapper>
               );
-            if (status == HomeLiveBannerStatus.finished)
+            if (status == channelStatus.finished)
               return (
                 <SectionWrapper key={"finished"}>
                   <div className={styles.flexRow}>

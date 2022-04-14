@@ -1,7 +1,8 @@
-import LiveBanner, { HomeLiveBannerStatus } from "../components/HomeLiveBanner";
+import LiveBanner from "../components/HomeLiveBanner";
 import { ComponentStory } from "@storybook/react";
 import React from "react";
 import { channel } from "../pages/watch/live/[liveURLName]";
+import { channelStatus } from "../types/api/Channel";
 
 export default {
   title: "UI Macro Elements/HomeLiveBanner",
