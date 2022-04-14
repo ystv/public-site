@@ -59,37 +59,36 @@ export default function HomeLiveBanner() {
         {data &&
           data.length > 0 &&
           (() => {
-            const channel = data[0];
-            let status = channelStatus[channel.status];
+            const primaryChannel = data[0];
+            const primaryChannelStatus = channelStatus[primaryChannel.status];
 
-            if (channel && status == channelStatus.live)
+            if (primaryChannel && primaryChannelStatus == channelStatus.LIVE)
               return (
                 <SectionWrapper
                   style={{ padding: "0 1rem" }}
                   key={"player"}
                   transition={{ duration: 2 }}
                 >
-                  <LiveModal channel={channel} />
+                  <LiveModal channel={primaryChannel} />
                 </SectionWrapper>
               );
-            if (status == channelStatus.scheduled)
+            if (primaryChannelStatus == channelStatus.SCHEDULED)
               return (
                 <SectionWrapper key={"scheduled"}>
                   <div className={styles.flexRow}>
                     <div className={styles.livePulse} />
                     <small>
                       YSTV will be going live soon, tune it at{" "}
-                      {new Date(channel.scheduledStart).toLocaleTimeString(
-                        "en-US",
-                        {
-                          timeStyle: "short",
-                        }
-                      )}
+                      {new Date(
+                        primaryChannel.scheduledStart
+                      ).toLocaleTimeString("en-US", {
+                        timeStyle: "short",
+                      })}
                     </small>
                   </div>
                 </SectionWrapper>
               );
-            if (status == channelStatus.cancelled)
+            if (primaryChannelStatus == channelStatus.CANCELLED)
               return (
                 <SectionWrapper key={"cancelled"}>
                   <div className={styles.flexRow}>
@@ -101,7 +100,7 @@ export default function HomeLiveBanner() {
                   </div>
                 </SectionWrapper>
               );
-            if (status == channelStatus.finished)
+            if (primaryChannelStatus == channelStatus.FINISHED)
               return (
                 <SectionWrapper key={"finished"}>
                   <div className={styles.flexRow}>
