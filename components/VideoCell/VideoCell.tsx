@@ -72,7 +72,10 @@ export default function VideoCell({
             {e.views} View{e.views !== 1 ? "s" : null}
           </h5>
           <h5 className={styles.date}>
-            {new Date(e.broadcastDate).toLocaleString("en-GB").split(",")[0]}
+            {
+              // en-GB ensures the date (the only part we care about has the month and day in the right order)
+              new Date(e.broadcastDate).toLocaleString("en-GB").split(",")[0]
+            }
           </h5>
         </span>
         {detail === true ? (

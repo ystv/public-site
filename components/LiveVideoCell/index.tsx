@@ -26,7 +26,7 @@ export default function LiveVideoCell({
         <a href={"/watch/live/" + e.urlName}>
           <div className={styles.imageContainer}>
             <Image
-              src={e.thumbnail}
+              src={e.thumbnail || "/ystv_primary_logo_small.jpg"}
               height="180"
               width="320"
               unoptimized

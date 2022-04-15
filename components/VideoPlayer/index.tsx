@@ -20,20 +20,20 @@ export const VideoJS = (props) => {
   const playerRef = useRef(null);
   const { options, onReady, time, title } = props;
 
-  if (options.liveui) {
-    require("videojs-contrib-quality-levels");
-    const hlsqs = require("videojs-hls-quality-selector");
-    videojs.registerPlugin("hlsQualitySelector", () => hlsqs);
-  } else {
-    require("@silvermine/videojs-quality-selector")(videojs);
-    require("@silvermine/videojs-quality-selector/dist/css/quality-selector.css");
-  }
-
   useEffect(() => {
     // make sure Video.js player is only initialized once
     if (!playerRef.current) {
       const videoElement = videoRef.current;
       if (!videoElement) return;
+
+      if (options.liveui) {
+        require("videojs-contrib-quality-levels");
+        const hlsqs = require("videojs-hls-quality-selector");
+        videojs.registerPlugin("hlsQualitySelector", () => hlsqs);
+      } else {
+        require("@silvermine/videojs-quality-selector")(videojs);
+        require("@silvermine/videojs-quality-selector/dist/css/quality-selector.css");
+      }
 
       const player = (playerRef.current = videojs(
         videoElement,
@@ -68,9 +68,9 @@ export const VideoJS = (props) => {
           // videojs.registerPlugin("overlay", overlay);
 
           if (options.liveui) {
-            player.hlsQualitySelector({
-              displayCurrentQuality: true,
-            });
+            // player.hlsQualitySelector({
+            //   displayCurrentQuality: true,
+            // });
             player.qualityLevels(); // Needed for HLS quality selector
           }
 
@@ -87,7 +87,7 @@ export const VideoJS = (props) => {
     } else {
       // you can update player here [update player through props]
     }
-  }, [options, videoRef]);
+  }, [options, videoRef, onReady, time]);
 
   // Dispose the Video.js player when the functional component unmounts
   useEffect(() => {
