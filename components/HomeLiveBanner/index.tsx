@@ -80,11 +80,14 @@ export default function HomeLiveBanner() {
                     <div className={styles.livePulse} />
                     <small>
                       YSTV will be going live soon, tune it at{" "}
-                      {new Date(
-                        primaryChannel.scheduledStart
-                      ).toLocaleTimeString("en-US", {
-                        timeStyle: "short",
-                      })}
+                      {
+                        // en-US gets us a 12hr clock with am or pm suffix, en-GB is 24hr and less friendly looking
+                        new Date(
+                          primaryChannel.scheduledStart
+                        ).toLocaleTimeString("en-US", {
+                          timeStyle: "short",
+                        })
+                      }
                     </small>
                   </div>
                 </SectionWrapper>
