@@ -28,12 +28,12 @@ export default function HomeLiveBanner() {
   };
 
   const SectionWrapper = ({
-    motionKey,
+    // motionKey,
     children,
     style,
     transition,
   }: {
-    motionKey: string;
+    // motionKey: string;
     children: ReactNode;
     style?: MotionStyle;
     transition?: Transition;
@@ -45,7 +45,7 @@ export default function HomeLiveBanner() {
       animate={"show"}
       exit={"initial"}
       transition={transition ?? { duration: 0.8 }}
-      key={motionKey}
+      // key={motionKey}
     >
       {children}
     </m.div>
@@ -67,7 +67,7 @@ export default function HomeLiveBanner() {
               return (
                 <SectionWrapper
                   style={{ padding: "0 1rem" }}
-                  motionKey={"player"}
+                  key={"player"}
                   transition={{ duration: 2 }}
                 >
                   <LiveModal channel={primaryChannel} />
@@ -75,7 +75,7 @@ export default function HomeLiveBanner() {
               );
             if (primaryChannelStatus == channelStatus.SCHEDULED)
               return (
-                <SectionWrapper motionKey={"scheduled"}>
+                <SectionWrapper key={"scheduled"}>
                   <div className={styles.flexRow}>
                     <div className={styles.livePulse} />
                     <small>
@@ -91,7 +91,7 @@ export default function HomeLiveBanner() {
               );
             if (primaryChannelStatus == channelStatus.CANCELLED)
               return (
-                <SectionWrapper motionKey={"cancelled"}>
+                <SectionWrapper key={"cancelled"}>
                   <div className={styles.flexRow}>
                     <div className={styles.livePulse2} />
                     <small>
@@ -103,7 +103,7 @@ export default function HomeLiveBanner() {
               );
             if (primaryChannelStatus == channelStatus.FINISHED)
               return (
-                <SectionWrapper motionKey={"finished"}>
+                <SectionWrapper key={"finished"}>
                   <div className={styles.flexRow}>
                     <div className={styles.livePulse3} />
                     <small>
