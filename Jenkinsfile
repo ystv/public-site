@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        REGISTRY_ENDPOINT = credentials('docker-registry-endpoint')
-    }
-
     stages {
         stage('Update Components') {
             steps {
@@ -25,7 +21,7 @@ pipeline {
                     }
                     steps {
                         sh "install -m 666 $APP_ENV .env.local"
-                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID ."
+                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t registry.comp.ystv.co.uk/ystv/$JOB_NAME:$BUILD_ID ."
                     }
                 }
                 stage('Production') {
@@ -37,14 +33,16 @@ pipeline {
                     }
                     steps {
                         sh "install -m 666 $APP_ENV .env.local"
-                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID ."
+                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t registry.comp.ystv.co.uk/ystv/$JOB_NAME:$BUILD_ID ."
                     }
                 }
             }
         }
         stage('Registry Upload') {
             steps {
-                sh "docker push $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID" // Uploaded to registry
+                withDockerRegistry(credentialsId: 'docker-registry', url: 'https://registry.comp.ystv.co.uk') {
+                    sh "docker push registry.comp.ystv.co.uk/ystv/$JOB_NAME:$BUILD_ID" // Uploaded to registry
+                }
             }
         }
         stage('Deploy') {
@@ -66,9 +64,9 @@ pipeline {
                             script {
                                 sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
-                                    docker pull $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
+                                    docker pull registry.comp.ystv.co.uk/ystv/$JOB_NAME:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
+                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site registry.comp.ystv.co.uk/ystv/$JOB_NAME:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }
@@ -89,9 +87,9 @@ pipeline {
                             script {
                                 sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
                                 sh '''ssh -tt deploy@$TARGET_SERVER << EOF
-                                    docker pull $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
+                                    docker pull registry.comp.ystv.co.uk/ystv/$JOB_NAME:$BUILD_ID
                                     docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
+                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site registry.comp.ystv.co.uk/ystv/$JOB_NAME:$BUILD_ID
                                     exit 0
                                 EOF'''
                             }
