@@ -13,11 +13,11 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ARG SOURCE_ID_ARG="n/a"
-ARG BUILD_ID_ARG="n/a"
+ARG GIT_REV="n/a"
+ARG BUILD_ID="n/a"
 RUN echo commitID: ${SOURCE_ID_ARG}
-ENV SOURCE_ID=$SOURCE_ID_ARG
-ENV BUILD_ID=$BUILD_ID_ARG
+ENV SOURCE_ID=$GIT_REV
+ENV BUILD_ID=$BUILD_ID
 
 RUN yarn build
 
