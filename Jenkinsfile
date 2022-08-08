@@ -1,117 +1,67 @@
+String registryEndpoint = 'registry.comp.ystv.co.uk'
+
+def image
+String imageName = "ystv/public-site:${env.BRANCH_NAME}-${env.BUILD_ID}"
+
 pipeline {
-    agent any
+  agent {
+    label 'docker'
+  }
 
-    environment {
-        REGISTRY_ENDPOINT = credentials('docker-registry-endpoint')
+  environment {
+    DOCKER_BUILDKIT = '1'
+  }
+
+  stages {
+    stage('Build image') {
+      steps {
+        script {
+          docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
+            image = docker.build(imageName, "--build-arg GIT_REV=${env.GIT_COMMIT} --build-arg BUILD_ID=$JOB_NAME:${BUILD_ID} -f Dockerfile .")
+          }
+        }
+      }
+
+    stage('Push image to registry') {
+      steps {
+        script {
+          docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
+            image.push()
+            if (env.BRANCH_IS_PRIMARY) {
+              image.push('latest')
+            }
+          }
+        }
+      }
     }
 
-    stages {
-        stage('Update Components') {
-            steps {
-                sh "docker pull node:alpine"
-            }
+    stage('Deploy') {
+      stages {
+        stage('Development') {
+          when {
+            expression { env.BRANCH_IS_PRIMARY }
+          }
+          steps {
+            build(job: 'Deploy Nomad Job', parameters: [
+              string(name: 'JOB_FILE', value: 'public-site-dev.nomad'),
+              text(name: 'TAG_REPLACEMENTS', value: "${registryEndpoint}/${imageName}")
+            ])
+          }
         }
-        stage('Build') {
-            stages {
-                stage('Staging') {
-                    when {
-                        branch 'master'
-                        not {
-                            expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ }
-                        }
-                    }
-                    environment {
-                        APP_ENV = credentials('publicsite-staging-env')
-                    }
-                    steps {
-                        sh "install -m 666 $APP_ENV .env.local"
-                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID ."
-                    }
-                }
-                stage('Production') {
-                    when {
-                        expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ } // Checking if it is main semantic version release
-                    }
-                    environment {
-                        APP_ENV = credentials('publicsite-production-env')
-                    }
-                    steps {
-                        sh "install -m 666 $APP_ENV .env.local"
-                        sh "docker build --build-arg SOURCE_ID_ARG=$GIT_COMMIT --build-arg BUILD_ID_ARG=$JOB_NAME:$BUILD_ID -t $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID ."
-                    }
-                }
-            }
+
+        stage('Production') {
+          when {
+            // Checking if it is semantic version release.
+            expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ }
+          }
+          steps {
+            build(job: 'Deploy Nomad Job', parameters: [
+              string(name: 'JOB_FILE', value: 'public-site-prod.nomad'),
+              text(name: 'TAG_REPLACEMENTS', value: "${registryEndpoint}/${imageName}")
+            ])
+          }
         }
-        stage('Registry Upload') {
-            steps {
-                sh "docker push $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID" // Uploaded to registry
-            }
-        }
-        stage('Deploy') {
-            stages {
-                stage('Staging') {
-                    when {
-                        branch 'master'
-                        not {
-                            expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ }
-                        }
-                    }
-                    environment {
-                        TARGET_SERVER = credentials('staging-server-address')
-                        APP_ENV = credentials('publicsite-staging-env')
-                        TARGET_PATH = credentials('staging-server-path')
-                    }
-                    steps {
-                        sshagent(credentials : ['staging-server-key']) {
-                            script {
-                                sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
-                                sh '''ssh -tt deploy@$TARGET_SERVER << EOF
-                                    docker pull $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
-                                    docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
-                                    exit 0
-                                EOF'''
-                            }
-                        }
-                    }
-                }
-                stage('Production') {
-                    when {
-                        expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ } // Checking if it is main semantic version release
-                    }
-                    environment {
-                        TARGET_SERVER = credentials('prod-server-address')
-                        APP_ENV = credentials('publicsite-production-env')
-                        TARGET_PATH = credentials('prod-server-path')
-                    }
-                    steps {
-                        sshagent(credentials : ['prod-server-key']) {
-                            script {
-                                sh 'rsync -av $APP_ENV deploy@$TARGET_SERVER:$TARGET_PATH/public-site/.env'
-                                sh '''ssh -tt deploy@$TARGET_SERVER << EOF
-                                    docker pull $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
-                                    docker rm -f ystv-public-site
-                                    docker run -d -p 1337:3000 --env-file $TARGET_PATH/public-site/.env --name ystv-public-site $REGISTRY_ENDPOINT/ystv/$JOB_NAME:$BUILD_ID
-                                    exit 0
-                                EOF'''
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        stage('Cleanup') {
-            steps {
-                sh 'docker image prune -a -f --filter "label=site=public"' // remove old image
-            }
-        }
+      }
     }
-    post {
-        success {
-            echo 'Very cash-money'
-        }
-        failure {
-            echo 'That is not ideal, cheeky bugger'
-        }
-    }
+  }
 }
