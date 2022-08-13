@@ -59,7 +59,7 @@ pipeline {
       when {
         anyOf {
           expression { env.BRANCH_IS_PRIMARY }
-          equals(actual: env.NAME, expected: 'prod')
+          equals(actual: deployEnv, expected: 'prod')
         }
       }
 
