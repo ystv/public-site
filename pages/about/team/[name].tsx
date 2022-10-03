@@ -19,16 +19,16 @@ export default function TeamID({ team }: Props) {
       <p>{team.longDescription}</p>
       <br />
       <h2>Team Members:</h2>
-      {team.members?.map((e, i) => {
+      {team.members?.map((member, i) => {
         return (
           <Fragment key={`member${i}`}>
             <h3>
-              {e.officerName} - {e.userName}
+              {member.officerName} - {member.userName}
             </h3>
             <span>
               <a
-                href={`mailto:${e.emailAlias}@ystv.co.uk`}
-              >{`${e.emailAlias}@ystv.co.uk`}</a>
+                href={`mailto:${member.emailAlias}@ystv.co.uk`}
+              >{`${member.emailAlias}@ystv.co.uk`}</a>
             </span>
           </Fragment>
         );
@@ -40,7 +40,7 @@ export default function TeamID({ team }: Props) {
 export async function getServerSideProps(context) {
   try {
     let res = await fetch(
-      `${process.env.REST_API}/v1/public/teams/${context.query.teamID}`
+      `${process.env.REST_API}/v1/public/teams/${context.query.name}`
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
