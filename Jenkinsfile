@@ -25,7 +25,8 @@ pipeline {
         script {
           def secrets = [
             [path: "ci/ystv-public-site-${deployEnv}", engineVersion: 2, secretValues: [
-              [envVar: 'NEXT_PUBLIC_INTERNAL_SITE', vaultKey: 'internal-site']
+              [envVar: 'NEXT_PUBLIC_INTERNAL_SITE', vaultKey: 'internal-site'],
+              [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
             ]]
           ]
           withVault([configuration: vaultConfig, vaultSecrets: secrets]) {
