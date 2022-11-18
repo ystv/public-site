@@ -34,7 +34,11 @@ const LiveModal = ({ channel }: { channel: channel }) => {
             width: "100%",
           }}
         >
-          <VideoPlayer options={videoJSOptions} time={0} />
+          <VideoPlayer
+            options={videoJSOptions}
+            time={0}
+            iframe={channel.outputType == "iframe" ? channel.outputURL : null}
+          />
           <br />
         </div>
         <div style={{ flex: 1 }}>

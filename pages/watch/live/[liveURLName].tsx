@@ -27,7 +27,11 @@ export default function WatchLive({ channel }: { channel: channel }) {
       <Link href="/watch/live">&larr; Back to live channels</Link>
       <YstvHead title={`Live - ${channel.name}`} />
       <h1>Live - {channel.name}</h1>
-      <VideoPlayer options={videoJSOptions} time={0} />
+      <VideoPlayer
+        options={videoJSOptions}
+        time={0}
+        iframe={channel.outputType == "iframe" ? channel.outputURL : null}
+      />
       <p>{channel.description}</p>
     </div>
   );

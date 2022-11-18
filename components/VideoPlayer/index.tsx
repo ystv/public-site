@@ -18,7 +18,7 @@ import overlay from "videojs-titleoverlay";
 export const VideoJS = (props) => {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
-  const { options, onReady, time, title } = props;
+  const { options, onReady, time, title, iframe } = props;
 
   useEffect(() => {
     // make sure Video.js player is only initialized once
@@ -100,6 +100,20 @@ export const VideoJS = (props) => {
       }
     };
   }, [playerRef]);
+
+  if (iframe)
+    return (
+      <div className="container">
+        <iframe
+          className="responsive-iframe"
+          src={options.sources[0].src}
+          title={title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    );
 
   return (
     <div data-vjs-player>
