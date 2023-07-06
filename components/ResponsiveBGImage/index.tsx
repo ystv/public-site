@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {FunctionComponent, PropsWithChildren} from "react";
 import { Property } from "csstype";
 

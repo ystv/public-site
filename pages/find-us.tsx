@@ -1,5 +1,5 @@
 import YstvHead from "../components/YstvHead";
-import Image from "next/image"
+import Image from "next/legacy/image"
 import MapImage from "../public/site-images/ystv_map.png"
 
 export default function FindUs() {

@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 function Footer() {
   const current_date = new Date();

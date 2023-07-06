@@ -1,5 +1,5 @@
 import YstvHead from "../components/YstvHead";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Licence1 from "../public/site-images/license/by-nc-sa.png";
 import Licence2 from "../public/site-images/license/by-nc-nd.png";
 

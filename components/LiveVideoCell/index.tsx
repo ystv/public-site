@@ -1,6 +1,6 @@
 import { removeHTMLTags } from "../commonFunctions";
 import { SyntheticEvent } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "./index.module.css";
 import { channel } from "../../pages/watch/live/[liveURLName]";
 
