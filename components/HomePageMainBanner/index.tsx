@@ -43,7 +43,7 @@ export default function HomePageMainBanner() {
     >
       <div className={styles.bannerContents}>
         <LazyMotion features={domAnimation} strict>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode={"wait"}>
             {bannerState == BannerState.Text && (
               <m.div
                 variants={wrapperTransitions}
@@ -169,7 +169,7 @@ export default function HomePageMainBanner() {
                     second longest in the UK).&nbsp; It’s won countless awards
                     for everything from its live music shows to documentaries.
                   </p>
-                  <Link href={"/about"} passHref>
+                  <Link href={"/about"} passHref legacyBehavior>
                     <p
                       style={{
                         fontWeight: "bolder",

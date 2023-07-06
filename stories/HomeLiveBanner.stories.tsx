@@ -9,7 +9,7 @@ export default {
   component: LiveBanner,
 };
 
-const Template: ComponentStory<typeof LiveBanner> = (args) => (
+const Template: ComponentStory<typeof LiveBanner> = (args:object) => (
   <LiveBanner {...args} />
 );
 export const Page = Template;
