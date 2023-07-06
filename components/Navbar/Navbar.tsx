@@ -1,6 +1,6 @@
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import ystv_colour from "../../public/ystv_colour.png";
 
@@ -48,15 +48,14 @@ const MenuIconButton = ({ onClick }) => (
 );
 
 const NextLinkMenuCloser = ({ setMenuOpen, link, text }) => (
-  (<Link
+  <Link
     href={link}
     onClick={(event) => {
       setMenuOpen(false);
-    }}>
-
+    }}
+  >
     {text}
-
-  </Link>)
+  </Link>
 );
 
 const MenuList = ({ setMenuOpen }) => (
@@ -90,7 +89,6 @@ const MenuList = ({ setMenuOpen }) => (
 const Logo = ({ setMenuOpen }) => (
   <div className={styles.noShrink}>
     <Link href="/" passHref>
-
       <Image
         width="104"
         height="52"
@@ -99,12 +97,10 @@ const Logo = ({ setMenuOpen }) => (
         src={ystv_colour}
         alt="YSTV Logo"
         className={styles.logo}
-        layout="fixed"
         onClick={(event) => {
           setMenuOpen(false);
         }}
       />
-
     </Link>
   </div>
 );
@@ -118,10 +114,12 @@ const SearchBar = () => (
         src="/icons/search-24px.svg"
         alt=""
         unoptimized
-        style={{padding:0}}
         height={25}
         width={25}
         draggable="false"
+        style={{
+          padding: 0,
+        }}
       />
     </button>
   </form>

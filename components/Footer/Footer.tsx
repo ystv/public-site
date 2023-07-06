@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 function Footer() {
   const current_date = new Date();
@@ -19,14 +19,10 @@ function Footer() {
           <h3>Legal Stuff</h3>
           <div className={styles.legalContainer}>
             <Link href="/disclaimer">
-
               <p>Disclaimer</p>
-
             </Link>
             <Link href="/license">
-
               <p>License</p>
-
             </Link>
           </div>
         </div>

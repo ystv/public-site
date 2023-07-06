@@ -1,5 +1,5 @@
 import { SyntheticEvent } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styles from "./SeriesCell.module.css";
 
 interface Props {

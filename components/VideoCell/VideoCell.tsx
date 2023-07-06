@@ -1,6 +1,6 @@
 import { formatTime, removeHTMLTags } from "../commonFunctions";
 import { SyntheticEvent } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styles from "./VideoCell.module.css";
 
 interface Props {

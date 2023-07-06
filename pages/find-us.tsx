@@ -1,5 +1,5 @@
 import YstvHead from "../components/YstvHead";
-import Image from "next/legacy/image"
+import Image from "next/image"
 import MapImage from "../public/site-images/ystv_map.png"
 
 export default function FindUs() {
@@ -10,9 +10,12 @@ export default function FindUs() {
       <Image
         src={MapImage}
         alt="Map showing YSTV's location on Campus West"
-        layout="responsive"
         unoptimized
-      />
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       <p>
         YSTV’s studio is in James College; if you need any help finding us just
         ask at Campus South Information or email us. There’s a courtyard in the

@@ -2,7 +2,7 @@ import "../components/global.css";
 import "video.js/dist/video-js.css";
 import "../components/VideoPlayer/VideoPlayer.css";
 
-import * as NextImage from "next/legacy/image";
+import * as NextImage from "next/image";
 
 const OriginalNextImage = NextImage.default;
 Object.defineProperty(NextImage, "default", {

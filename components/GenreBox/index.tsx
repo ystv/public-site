@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import VideoCarousel from "../VideoCarousel/VideoCarousel";
 import { useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import GenreImage from "../../public/site-images/IMG_3734.jpg";
 
 interface Props {
@@ -36,12 +36,14 @@ export default function Index({ videos }: Props) {
     <div className={styles.container}>
       <Image
         src={GenreImage}
-        layout="fill"
-        objectFit="cover"
         priority
         placeholder="blur"
         alt=""
-      />
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover"
+        }} />
       <div className={`${styles[genres[genre].name]} ${styles.showAbove}`}>
         <div className={styles.genreSelector}>
           <div className={styles.disappearingGenre} />

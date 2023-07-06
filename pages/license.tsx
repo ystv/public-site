@@ -1,5 +1,5 @@
 import YstvHead from "../components/YstvHead";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Licence1 from "../public/site-images/license/by-nc-sa.png";
 import Licence2 from "../public/site-images/license/by-nc-nd.png";
 
@@ -9,7 +9,15 @@ export default function License() {
       <YstvHead />
       <h1>License</h1>
       <div>
-        <Image src={Licence1} alt="" unoptimized layout={"responsive"} />
+        <Image
+          src={Licence1}
+          alt=""
+          unoptimized
+          layout={"responsive"}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
       <ul>
         <li>
@@ -37,7 +45,15 @@ export default function License() {
       </ul>
       <p>&nbsp;</p>
       <p>
-        <Image src={Licence2} alt="" unoptimized layout={"responsive"} />
+        <Image
+          src={Licence2}
+          alt=""
+          unoptimized
+          layout={"responsive"}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </p>
       <ul>
         <li>

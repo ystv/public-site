@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import {FunctionComponent, PropsWithChildren} from "react";
 import { Property } from "csstype";
 
@@ -38,12 +38,14 @@ const ResponsiveBGImage: FunctionComponent<PropsWithChildren<ResponsiveBGImagePr
     <div className={styles.imageDiv}>
       <Image
         src={src}
-        layout="fill"
-        objectFit="cover"
         priority={priority}
         placeholder={placeholder}
         alt={alt}
-      />
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover"
+        }} />
     </div>
     <div
       className={`${styles.contentsDiv} ${blur && styles.blur}`}
