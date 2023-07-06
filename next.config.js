@@ -16,9 +16,6 @@ module.exports = {
       },
     ];
   },
-  experimental: {
-    outputStandalone: true,
-  },
-  // swcMinify: true,
+  output: "standalone",
   ...MDXExport,
 };

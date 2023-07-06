@@ -55,7 +55,7 @@ export default function HomeLiveBanner() {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <AnimatePresence exitBeforeEnter initial={false}>
+      <AnimatePresence mode={"wait"} initial={false}>
         {data &&
           data.length > 0 &&
           (() => {

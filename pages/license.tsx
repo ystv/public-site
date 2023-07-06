@@ -9,7 +9,15 @@ export default function License() {
       <YstvHead />
       <h1>License</h1>
       <div>
-        <Image src={Licence1} alt="" unoptimized layout={"responsive"} />
+        <Image
+          src={Licence1}
+          alt=""
+          unoptimized
+          layout={"responsive"}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
       <ul>
         <li>
@@ -37,7 +45,15 @@ export default function License() {
       </ul>
       <p>&nbsp;</p>
       <p>
-        <Image src={Licence2} alt="" unoptimized layout={"responsive"} />
+        <Image
+          src={Licence2}
+          alt=""
+          unoptimized
+          layout={"responsive"}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </p>
       <ul>
         <li>

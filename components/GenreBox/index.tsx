@@ -36,12 +36,14 @@ export default function Index({ videos }: Props) {
     <div className={styles.container}>
       <Image
         src={GenreImage}
-        layout="fill"
-        objectFit="cover"
         priority
         placeholder="blur"
         alt=""
-      />
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover"
+        }} />
       <div className={`${styles[genres[genre].name]} ${styles.showAbove}`}>
         <div className={styles.genreSelector}>
           <div className={styles.disappearingGenre} />

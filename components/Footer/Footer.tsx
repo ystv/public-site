@@ -18,16 +18,12 @@ function Footer() {
         <div>
           <h3>Legal Stuff</h3>
           <div className={styles.legalContainer}>
-            <Link href="/disclaimer">
-              <a>
-                <p>Disclaimer</p>
-              </a>
-            </Link>
-            <Link href="/license">
-              <a>
-                <p>License</p>
-              </a>
-            </Link>
+            <p>
+              <Link href="/disclaimer">Disclaimer</Link>
+            </p>
+            <p>
+              <Link href="/license">License</Link>
+            </p>
           </div>
         </div>
         <div>
@@ -75,8 +71,8 @@ function Footer() {
             <Image
               src="/socials/facebook.svg"
               alt="YSTV Facebook Page"
-              width="32px"
-              height="32px"
+              width={32}
+              height={32}
               unoptimized
             />
           </a>
@@ -84,8 +80,8 @@ function Footer() {
             <Image
               src="/socials/instagram.svg"
               alt="YSTV Instagrm Page"
-              width="32px"
-              height="32px"
+              width={32}
+              height={32}
               unoptimized
             />
           </a>
@@ -93,8 +89,8 @@ function Footer() {
             <Image
               src="/socials/twitter.svg"
               alt="YSTV Twitter Page"
-              width="32px"
-              height="32px"
+              width={32}
+              height={32}
               unoptimized
             />
           </a>
@@ -102,8 +98,8 @@ function Footer() {
             <Image
               src="/socials/youtube.svg"
               alt="YSTV Youtube Page"
-              width="32px"
-              height="32px"
+              width={32}
+              height={32}
               unoptimized
             />
           </a>
@@ -111,8 +107,8 @@ function Footer() {
             <Image
               src="/socials/github.svg"
               alt="YSTV Github Page"
-              width="32px"
-              height="32px"
+              width={32}
+              height={32}
               unoptimized
             />
           </a>

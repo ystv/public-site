@@ -41,21 +41,20 @@ const MenuIconButton = ({ onClick }) => (
       alt="Menu Toggle"
       draggable="false"
       unoptimized
-      width="25px"
-      height="25px"
+      width={25}
+      height={25}
     />
   </div>
 );
 
 const NextLinkMenuCloser = ({ setMenuOpen, link, text }) => (
-  <Link href={link}>
-    <a
-      onClick={(event) => {
-        setMenuOpen(false);
-      }}
-    >
-      {text}
-    </a>
+  <Link
+    href={link}
+    onClick={(event) => {
+      setMenuOpen(false);
+    }}
+  >
+    {text}
   </Link>
 );
 
@@ -90,21 +89,18 @@ const MenuList = ({ setMenuOpen }) => (
 const Logo = ({ setMenuOpen }) => (
   <div className={styles.noShrink}>
     <Link href="/" passHref>
-      <a>
-        <Image
-          width="104"
-          height="52"
-          priority
-          placeholder="blur"
-          src={ystv_colour}
-          alt="YSTV Logo"
-          className={styles.logo}
-          layout="fixed"
-          onClick={(event) => {
-            setMenuOpen(false);
-          }}
-        />
-      </a>
+      <Image
+        width="104"
+        height="52"
+        priority
+        placeholder="blur"
+        src={ystv_colour}
+        alt="YSTV Logo"
+        className={styles.logo}
+        onClick={(event) => {
+          setMenuOpen(false);
+        }}
+      />
     </Link>
   </div>
 );
@@ -118,9 +114,12 @@ const SearchBar = () => (
         src="/icons/search-24px.svg"
         alt=""
         unoptimized
-        height={"25px"}
-        width={"25px"}
+        height={25}
+        width={25}
         draggable="false"
+        style={{
+          padding: 0,
+        }}
       />
     </button>
   </form>
