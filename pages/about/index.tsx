@@ -59,11 +59,11 @@ function About({ teams }: Teams) {
           {teams.map((team, i) => {
             return (
               <div key={`committeemid${i}`}>
-                <Link href={`/about/team/${team.emailAlias}`}>
-
-                  <h3 style={{ textTransform: "capitalize" }}>{team.name}</h3>
-
-                </Link>
+                <h3 style={{ textTransform: "capitalize" }}>
+                  <Link href={`/about/team/${team.emailAlias}`}>
+                    {team.name}
+                  </Link>
+                </h3>
                 <p className="noa">{team.shortDescription}</p>
                 <br />
               </div>

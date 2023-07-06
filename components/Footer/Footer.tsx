@@ -18,12 +18,12 @@ function Footer() {
         <div>
           <h3>Legal Stuff</h3>
           <div className={styles.legalContainer}>
-            <Link href="/disclaimer">
-              <p>Disclaimer</p>
-            </Link>
-            <Link href="/license">
-              <p>License</p>
-            </Link>
+            <p>
+              <Link href="/disclaimer">Disclaimer</Link>
+            </p>
+            <p>
+              <Link href="/license">License</Link>
+            </p>
           </div>
         </div>
         <div>
