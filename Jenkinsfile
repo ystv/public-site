@@ -7,9 +7,6 @@ String registryEndpoint = 'registry.comp.ystv.co.uk'
 def image
 String imageName = "ystv/public-site:${env.BRANCH_NAME}-${env.BUILD_ID}"
 
-// Checking if it is semantic version release.
-// String deployEnv = env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ ? 'prod' : 'dev'
-
 pipeline {
   agent {
     label 'docker'
@@ -23,12 +20,25 @@ pipeline {
     stage('Build image') {
       steps {
         script {
+          // Checking if it is semantic version release.
+          String deployEnv = env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ ? 'prod' : 'dev'
+          def secrets = [
+            [path: "ci/ystv-public-site-${deployEnv}", engineVersion: 2, secretValues: [
+              [envVar: 'NEXT_PUBLIC_INTERNAL_SITE', vaultKey: 'internal-site'],
+              [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
+            ]]
+          ]
+          withVault([configuration: vaultConfig, vaultSecrets: secrets]) {
             docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
+              // sh 'env > .env.local' // this is bad
               image = docker.build(imageName, """ \
-                  --build-arg GIT_REV=${env.GIT_COMMIT} \
-                  --build-arg BUILD_ID=${JOB_NAME}:${BUILD_ID} \
+                  --build-arg GIT_REV_ARG=${env.GIT_COMMIT} \
+                  --build-arg BUILD_ID_ARG=${JOB_NAME}:${BUILD_ID} \
+                  --build-arg NEXT_PUBLIC_INTERNAL_SITE_ARG=${NEXT_PUBLIC_INTERNAL_SITE} \
+                  --build-arg NEXT_PUBLIC_REST_API_ARG=${NEXT_PUBLIC_REST_API} \
                   -f Dockerfile . \
                 """)
+            }
           }
         }
       }
