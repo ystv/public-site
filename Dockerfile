@@ -15,7 +15,7 @@ COPY . .
 
 ARG GIT_REV="n/a"
 ARG BUILD_ID="n/a"
-RUN echo commitID: ${SOURCE_ID_ARG}
+RUN echo commitID: ${GIT_REV}
 ENV SOURCE_ID=$GIT_REV
 ENV BUILD_ID=$BUILD_ID
 
@@ -34,6 +34,7 @@ RUN adduser -S nextjs -u 1001
 
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/yarn.lock ./yarn.lock
+COPY --from=builder /app/.env ./.env
 
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public

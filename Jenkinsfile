@@ -23,22 +23,12 @@ pipeline {
     stage('Build image') {
       steps {
         script {
-//           def secrets = [
-//             [path: "ci/ystv-public-site-${deployEnv}", engineVersion: 2, secretValues: [
-//               [envVar: 'NEXT_PUBLIC_INTERNAL_SITE', vaultKey: 'internal-site'],
-//               [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
-//             ]]
-//           ]
-//           withVault([configuration: vaultConfig, vaultSecrets: secrets]) {
             docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
-//               sh 'env > .env.local'
-//               image = docker.build(imageName, """ \
-//                   --build-arg GIT_REV=${env.GIT_COMMIT} \
-//                   --build-arg BUILD_ID=${JOB_NAME}:${BUILD_ID} \
-//                   -f Dockerfile . \
-//                 """)
-                image = docker.build(imageName)
-//             }
+              image = docker.build(imageName, """ \
+                  --build-arg GIT_REV=${env.GIT_COMMIT} \
+                  --build-arg BUILD_ID=${JOB_NAME}:${BUILD_ID} \
+                  -f Dockerfile . \
+                """)
           }
         }
       }
