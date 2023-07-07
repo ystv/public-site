@@ -1,8 +1,8 @@
 String registryEndpoint = 'registry.comp.ystv.co.uk'
 
-// def vaultConfig = [vaultUrl: 'https://vault.comp.ystv.co.uk',
-//                   vaultCredentialId: 'jenkins-vault',
-//                   engineVersion: 2]
+def vaultConfig = [vaultUrl: 'https://vault.comp.ystv.co.uk',
+                  vaultCredentialId: 'jenkins-vault',
+                  engineVersion: 2]
 
 def image
 String imageName = "ystv/public-site:${env.BRANCH_NAME}-${env.BUILD_ID}"
