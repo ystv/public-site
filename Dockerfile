@@ -34,7 +34,6 @@ RUN adduser -S nextjs -u 1001
 
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/yarn.lock ./yarn.lock
-COPY --from=builder /app/.env ./.env
 
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
