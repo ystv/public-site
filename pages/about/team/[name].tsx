@@ -40,7 +40,7 @@ export default function TeamID({ team }: Props) {
 export async function getServerSideProps(context) {
   try {
     let res = await fetch(
-      `${process.env.REST_API}/v1/public/teams/email/${context.query.name}`
+      `${process.env.REST_API}/v1/public/teams/${context.query.name}`
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
