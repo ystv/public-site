@@ -28,8 +28,9 @@ function YSTVMap() {
         latitude: 53.94636,
         zoom: 14
       }}
-      style={{width: 600, height: 400}}
+      style={{width: "100%", height: 400}}
       mapStyle="mapbox://styles/mapbox/streets-v9"
+      
       >
         <Marker longitude={-1.05553} latitude={53.94636} anchor="bottom">
           <Image src={MapPin} alt="A map pin, with the YSTV Logo in the centre." width={64} height={64} />
