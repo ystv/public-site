@@ -61,7 +61,7 @@ export default function HomePageMainBanner() {
                   <b>We are York Student Television.</b>
                 </m.h1>
                 <m.h3 variants={itemTransition}>
-                  University of York Student Group of the Year 2021
+                  University of York Student Group of the Year 2023
                 </m.h3>
                 {/*<m.div*/}
                 {/*  style={{*/}
