@@ -50,8 +50,8 @@ function About({ teams }: Teams) {
             So if you’ve ever wanted to get your face on screen, try out your
             skills behind a camera, or have a brilliant idea for a show then
             email{" "}
-            <a href="mailto:getinvolved@ystv.co.uk">getinvolved@ystv.co.uk</a>{" "}
-            or click here to <Link href="/get-involved">get involved</Link>!
+            <a href="mailto:welcome@ystv.co.uk">welcome@ystv.co.uk</a>{" "}
+            or <Link href="/get-involved">find out more about getting involved</Link>!
           </p>
         </div>
         <br /> <h2>Our Teams:</h2>
