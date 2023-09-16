@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import videojs from "video.js";
+import videojs, { VideoJsPlayer } from "video.js";
 import "video.js/dist/video-js.css";
 
 import overlay from "videojs-titleoverlay";
@@ -16,8 +16,8 @@ import overlay from "videojs-titleoverlay";
 //
 
 export const VideoJS = (props) => {
-  const videoRef = useRef(null);
-  const playerRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const playerRef = useRef<VideoJsPlayer | null>(null);
   const { options, onReady, time, title, iframe } = props;
 
   useEffect(() => {

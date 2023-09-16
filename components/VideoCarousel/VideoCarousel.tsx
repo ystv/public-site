@@ -20,7 +20,7 @@ export default function VideoCarousel({
   disableSeeMore,
   seeMoreLink,
 }: CarouselProps) {
-  const scrollerCarousel = useRef(null);
+  const scrollerCarousel = useRef<HTMLDivElement>(null);
 
   return (
     <div className={styles.container}>
@@ -35,7 +35,7 @@ export default function VideoCarousel({
         <div className={styles.flexContainer}>
           <button
             onClick={() => {
-              scrollerCarousel.current.scrollLeft -= 400;
+              scrollerCarousel.current!.scrollLeft -= 400;
             }}
             className={`${styles.round} ${inverted ? styles.inv : ""}`}
             style={{ marginRight: ".25rem" }}
@@ -61,7 +61,7 @@ export default function VideoCarousel({
           {/*<div className={styles.fader} />*/}
           <button
             onClick={() => {
-              scrollerCarousel.current.scrollLeft += 400;
+              scrollerCarousel.current!.scrollLeft += 400;
             }}
             className={`${styles.round} ${inverted ? styles.inv : ""}`}
             style={{ marginLeft: ".25rem" }}

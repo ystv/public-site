@@ -31,8 +31,8 @@ const ResponsiveBGImage: FunctionComponent<PropsWithChildren<ResponsiveBGImagePr
     className={styles.wrapperDiv}
     style={{
       width: width,
-      height: height ? height : null,
-      minHeight: minHeight ? minHeight : null,
+      height: height ? height : undefined,
+      minHeight: minHeight ? minHeight : undefined,
     }}
   >
     <div className={styles.imageDiv}>
@@ -50,7 +50,7 @@ const ResponsiveBGImage: FunctionComponent<PropsWithChildren<ResponsiveBGImagePr
     <div
       className={`${styles.contentsDiv} ${blur && styles.blur}`}
       style={{
-        background: backgroundColourOverlay ? backgroundColourOverlay : null,
+        background: backgroundColourOverlay ? backgroundColourOverlay : undefined,
       }}
     >
       {children}
