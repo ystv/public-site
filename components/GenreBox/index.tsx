@@ -27,7 +27,7 @@ export default function Index({ videos }: Props) {
   function GenreButton({ name, id }: ButtonProps) {
     return (
       <a onClick={(e) => setGenre(id)}>
-        <h1 className={id === genre ? styles.selected : null}>{name}</h1>
+        <h1 className={id === genre ? styles.selected : ""}>{name}</h1>
       </a>
     );
   }
