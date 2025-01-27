@@ -7,7 +7,7 @@ export default function LiveBrowse({ channels }: { channels: channel[] }) {
     <div className="center thin">
       <YstvHead title="Live Channels" />
       <h1>Live Channels</h1>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {channels.filter((e) => e.status == "live").length == 0 ? (
           <h3>
             Sorry, looks like there&apos;s nothing live right now, please check
