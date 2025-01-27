@@ -25,7 +25,7 @@ export default function LiveBrowse({ channels }: { channels: channel[] }) {
 
 export async function getServerSideProps() {
   const channels: channel[] = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channel`
+    `${process.env.REST_API}/v1/public/playout/channels`
   ).then((res) => res.json());
 
   return { props: { channels } };
