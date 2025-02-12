@@ -13,7 +13,7 @@ const data = [
     name: "Anna Spowage",
     url: "annaspowage",
     description:
-      'Cast your vote \u003ca href="https://elections.yusu.org"\u003ehere!\u003c/a\u003e',
+      'Cast your vote \u003ca href="https://yorksu.org/elections"\u003ehere!\u003c/a\u003e',
     thumbnail: "",
     broadcastDate: "2019-02-09T12:02:19Z",
     views: 0,
@@ -25,7 +25,7 @@ const data = [
     name: "Samuel Kuo",
     url: "samuelkuo",
     description:
-      'Cast your vote \u003ca href="https://elections.yusu.org"\u003ehere!\u003c/a\u003e',
+      'Cast your vote \u003ca href="https://yorksu.org/elections"\u003ehere!\u003c/a\u003e',
     thumbnail: "",
     broadcastDate: "2019-02-08T18:24:39Z",
     views: 0,
@@ -37,7 +37,7 @@ const data = [
     name: "Ollie Martin",
     url: "olliemartin",
     description:
-      'Cast your vote \u003ca href="https://elections.yusu.org"\u003ehere!\u003c/a\u003e',
+      'Cast your vote \u003ca href="https://yorksu.org/elections"\u003ehere!\u003c/a\u003e',
     thumbnail: "",
     broadcastDate: "2019-02-08T17:16:25Z",
     views: 0,
@@ -49,7 +49,7 @@ const data = [
     name: "Liz Turnbull and Bruna Rodrigues",
     url: "lizandbruna",
     description:
-      'Cast your vote \u003ca href="https://elections.yusu.org"\u003ehere!\u003c/a\u003e',
+      'Cast your vote \u003ca href="https://yorksu.org/elections"\u003ehere!\u003c/a\u003e',
     thumbnail: "",
     broadcastDate: "2019-02-07T16:01:44Z",
     views: 0,
@@ -226,7 +226,7 @@ const data = [
     name: "Oscar Bentley",
     url: "oscarbentley",
     description:
-      'Cast your vote \u003ca href="https://elections.yusu.org"\u003ehere!\u003c/a\u003e',
+      'Cast your vote \u003ca href="https://yorksu.org/elections"\u003ehere!\u003c/a\u003e',
     thumbnail: "",
     broadcastDate: "2019-02-02T18:37:49Z",
     views: 0,
@@ -306,7 +306,7 @@ const data = [
     name: "#bustice",
     url: "bustice",
     description:
-      "YUSU's Steph Hayle is campaigning to improve public transport in York.",
+      "York SU's Steph Hayle is campaigning to improve public transport in York.",
     thumbnail: "",
     broadcastDate: "2019-01-26T12:05:08Z",
     views: 0,

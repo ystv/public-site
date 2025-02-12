@@ -58,7 +58,7 @@ export default function Disclaimer() {
           >
             Data Protection Policy
           </a>{" "}
-          and active York University Student&apos;s Union (YUSU) Policy.
+          and active York University Student&apos;s Union (York SU) Policy.
         </li>
         <li>
           If you are interested in using the contents of this website in any

@@ -34,7 +34,7 @@ function About({ teams }: Teams) {
             Each week YSTV produces live and pre-recorded shows, including
             cookery, news, chat and quiz shows, featuring interviews with bands,
             politicians and celebrities. The major events YSTV broadcasts each
-            year are the whole of Battle of the Bands, the YUSU elections and
+            year are the whole of Battle of the Bands, the York SU elections and
             Roses. Viewers can watch the events from the comfort of their own
             room.
           </p>
