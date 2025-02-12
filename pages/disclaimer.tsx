@@ -63,7 +63,7 @@ export default function Disclaimer() {
         <li>
           If you are interested in using the contents of this website in any
           manner except as described above, please contact{" "}
-          <a href="mailto:webmaster@ystv.co.uk">webmaster</a> for information on
+          <a href="mailto:computing@ystv.co.uk">computing</a> for information on
           licensing.
         </li>
       </ul>{" "}
