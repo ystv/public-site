@@ -17,7 +17,7 @@
     "@types/video.js": "^7.3.27",
     "framer-motion": "^10.12.18",
     "ini": "4.1.1",
-    "next": "^13.4.9",
+    "next": "15.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-popover": "^0.5.10",
@@ -46,5 +46,6 @@
     "storybook": "^7.0.26",
     "storybook-css-modules-preset": "^1.1.1",
     "typescript": "^5.1.6"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
