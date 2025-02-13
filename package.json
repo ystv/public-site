@@ -17,7 +17,7 @@
     "@types/video.js": "^7.3.27",
     "framer-motion": "^10.12.18",
     "ini": "4.1.1",
-    "next": "15.1.2",
+    "next": "15.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-popover": "^0.5.10",
