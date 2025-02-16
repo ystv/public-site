@@ -26,13 +26,13 @@ export default function LiveVideoCell({
         <a href={"/watch/live/" + e.urlName}>
           <div className={styles.imageContainer}>
             <Image
-              src={e.thumbnail || "/ystv_primary_logo_small.jpg"}
+              src={e.thumbnail || "/ystv_primary_logo_small_new.png"}
               height="180"
               width="320"
               unoptimized
               onError={(e: SyntheticEvent<HTMLImageElement>) => {
                 e.currentTarget.onerror = null;
-                e.currentTarget.src = "/ystv_primary_logo_small.jpg";
+                e.currentTarget.src = "/ystv_primary_logo_small_new.png";
                 e.target;
               }}
               className={styles.thumbnail}

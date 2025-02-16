@@ -38,14 +38,14 @@ function YstvHead({ title }: props) {
       />
       {/* Facebook/Open Graph */}
       <meta property="og:site_name" content="YSTV" />
-      <meta property="og:image" content="/ystv_primary_logo_small.jpg" />
+      <meta property="og:image" content="/ystv_primary_logo_small_new.png" />
       <meta property="og:image:alt" content="YSTV" />
       <meta property="og:type" content="website" />
       {/* Twitter Card */}
       <meta name="twitter:title" content="YSTV" />
       <meta name="twitter:site" content="@ystv" />
       <meta name="twitter:domain" content="ystv.co.uk" />
-      <meta name="twitter:image" content="/ystv_primary_logo_small.jpg" />
+      <meta name="twitter:image" content="/ystv_primary_logo_small_new.png" />
       {/* Favicon generator code*/}
       <link
         rel="apple-touch-icon"

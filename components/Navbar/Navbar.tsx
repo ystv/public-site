@@ -2,7 +2,7 @@ import styles from "./Navbar.module.css";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ystv_colour from "../../public/ystv_colour.png";
+import ystv_colour from "../../public/ystv_colour_new.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
