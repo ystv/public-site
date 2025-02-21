@@ -17,7 +17,7 @@ export default function HomeLiveBanner() {
   const fetcher = (input: RequestInfo, init?: RequestInit) =>
     fetch(input, init).then((res) => res.json());
   const { data } = useSWR<Array<channel>>(
-    `${process.env.NEXT_PUBLIC_REST_API}/v1/public/playout/channel`,
+    `${process.env.NEXT_PUBLIC_REST_API}/v1/public/playout/channels`,
     fetcher,
     { refreshInterval: 60000 }
   );
