@@ -72,13 +72,13 @@ export async function getServerSideProps() {
   ).then((res) => res.json());
 
   let liveFallback = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channel`
+    `${process.env.REST_API}/v1/public/playout/channels`
   )
     .then((res) => res.json())
     .then((e) => {
       let keyedData = {};
       keyedData[
-        `${process.env.REST_API}/v1/public/playout/channel`
+        `${process.env.REST_API}/v1/public/playout/channels`
       ] = e as channel[];
       return keyedData;
     });
