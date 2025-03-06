@@ -23,7 +23,7 @@ export default function Hires() {
           <br />
           <p>
             Please contact{" "}
-            <a href="mailto:hires@ystv.co.uk">hires@ystv.co.uk</a> with details
+            <a href="mailto:commercial@ystv.co.uk">commercial@ystv.co.uk</a> with details
             of what you need and what you plan to do at least 24 hours before
             you need it, and we can provide you with a quote.
           </p>
