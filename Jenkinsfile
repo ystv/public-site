@@ -1,8 +1,7 @@
 String registryEndpoint = 'registry.comp.ystv.co.uk'
 
 def vaultConfig = [vaultUrl: 'https://vault.comp.ystv.co.uk',
-                  vaultCredentialId: 'jenkins-vault'/*,
-                  engineVersion: 2*/]
+                  vaultCredentialId: 'jenkins-vault']
 
 def image
 String imageName = "ystv/public-site:${env.BRANCH_NAME}-${env.BUILD_ID}"
@@ -23,7 +22,7 @@ pipeline {
           // Checking if it is semantic version release.
           String deployEnv = env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ ? 'prod' : 'dev'
           def secrets = [
-            [path: "ci/data/ystv-public-site-${deployEnv}", engineVersion: 2, secretValues: [
+            [path: "ci/data/ystv-public-site-${deployEnv}", secretValues: [
               [envVar: 'NEXT_PUBLIC_INTERNAL_SITE', vaultKey: 'internal-site'],
               [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
             ]]
