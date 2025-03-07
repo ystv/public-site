@@ -22,9 +22,8 @@ pipeline {
         script {
           // Checking if it is semantic version release.
           String deployEnv = env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ ? 'prod' : 'dev'
-          echo "ci/ystv-public-site-${deployEnv}"
           def secrets = [
-            [path: "ci/ystv-public-site-${deployEnv}", engineVersion: 2, secretValues: [
+            [path: "ci/data/ystv-public-site-${deployEnv}", engineVersion: 2, secretValues: [
               [envVar: 'NEXT_PUBLIC_INTERNAL_SITE', vaultKey: 'internal-site'],
               [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
             ]]
