@@ -1,0 +1,61 @@
+.memberCard {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.memberCard:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.memberFlex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.memberAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.memberInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.memberName {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.17rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.memberTitle {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.17rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.memberDetails a {
+    color: #444;
+}
+
+.memberDetails a:hover {
+    text-decoration: underline;
+}
