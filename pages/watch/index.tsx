@@ -1,6 +1,8 @@
 import YstvHead from "../../components/YstvHead";
 import VideoCarousel from "../../components/VideoCarousel/VideoCarousel";
 import GradientDiv from "../../components/GradientDiv";
+import {Playlist} from "../../types/api/Playlist";
+import {VideoItem, VideoMeta} from "../../types/api/Video";
 
 export default function Watch({
   recentVideoPageState,
@@ -139,17 +141,21 @@ export default function Watch({
 }
 
 export async function getServerSideProps() {
-  let recentVideoPageState = await fetch(
+  let recentVideoPageState: VideoMeta[] = await fetch(
     `${process.env.REST_API}/v1/public/videos/50/0`
-  ).then((res) => res.json());
+  ).then((res): Promise<VideoMeta[]> => res.json());
 
-  let randomVideoPageState = await fetch(
+  let randomVideoPageState: VideoItem[] = await fetch(
     `${process.env.REST_API}/v1/public/playlist/random`
   )
-    .then((res) => res.json())
+    .then((res): Promise<Playlist> => res.json())
     .then((res) => res.videos);
 
-  let popularVideoPageState = {
+  let popularVideoPageState: {
+      all: VideoItem[] | null;
+      year: VideoItem[] | null;
+      month: VideoItem[] | null;
+  } = {
     all: null,
     year: null,
     month: null,
@@ -158,19 +164,19 @@ export async function getServerSideProps() {
   popularVideoPageState.all = await fetch(
     `${process.env.REST_API}/v1/public/playlist/popular/all`
   )
-    .then((res) => res.json())
+    .then((res): Promise<Playlist> => res.json())
     .then((res) => res.videos);
 
   popularVideoPageState.year = await fetch(
     `${process.env.REST_API}/v1/public/playlist/popular/year`
   )
-    .then((res) => res.json())
+    .then((res): Promise<Playlist> => res.json())
     .then((res) => res.videos);
 
   popularVideoPageState.month = await fetch(
     `${process.env.REST_API}/v1/public/playlist/popular/month`
   )
-    .then((res) => res.json())
+    .then((res): Promise<Playlist> => res.json())
     .then((res) => res.videos);
 
   let featuredVideoPageState = null;

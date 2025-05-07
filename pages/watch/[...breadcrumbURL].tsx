@@ -1,5 +1,6 @@
 import Series from "./series/[seriesid]";
 import Video from "./video/[videoid]";
+import {IBreadcrumb, IBreadcrumbItem} from "../../types/api/Video";
 
 interface Props {
   res;
@@ -34,11 +35,9 @@ export async function getServerSideProps(context) {
   }
 
   try {
-    let res = await fetch(
-      `${
-        process.env.REST_API
-      }/v1/public/find/${context.query.breadcrumbURL.join("/")}`
-    ).then((res) => {
+    let res: IBreadcrumbItem | undefined = await fetch(
+      `${process.env.REST_API}/v1/public/find/${context.query.breadcrumbURL.join("/")}`
+    ).then((res): Promise<IBreadcrumbItem> | undefined => {
       if (!res.ok) {
         context.res.statusCode = 302;
         context.res.setHeader("Location", `/404`);
@@ -47,17 +46,17 @@ export async function getServerSideProps(context) {
       }
     });
 
-    if (res.video == null) {
+    if (res?.video == null) {
       type = pageType.Series;
-      url = `series/${res.series.id}`;
+      url = `series/${res?.series?.id}`;
     } else {
       type = pageType.Video;
       url = `video/${res.video.id}`;
     }
 
-    let breadcrumb: [] = await fetch(
+    let breadcrumb: IBreadcrumb[] = await fetch(
       `${process.env.REST_API}/v1/public/${url}/breadcrumb`
-    ).then((res) => res.json());
+    ).then((res): Promise<IBreadcrumb[]> => res.json());
 
     return {
       props: { res, time, breadcrumb, type },
