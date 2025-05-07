@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -s ../public -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prettify": "prettier --write ."
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
@@ -45,6 +46,7 @@
     "eslint-config-next": "^15.3.2",
     "eslint-config-prettier": "^10.1.3",
     "mapbox-gl": "^3.11.1",
+    "prettier": "^3.5.3",
     "react-map-gl": "^8.0.4",
     "storybook": "^8.6.12",
     "storybook-css-modules-preset": "^1.1.1",
