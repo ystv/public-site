@@ -20,7 +20,10 @@ export default function LiveVideoCell({
   return (
     <div
       className={styles.flexContainer}
-      style={{ color: inverted ? "var(--light)" : "black", margin: "10px 5px 10px 5px" }}
+      style={{
+        color: inverted ? "var(--light)" : "black",
+        margin: "10px 5px 10px 5px",
+      }}
     >
       <div className={styles.cell}>
         <a href={"/watch/live/" + e.urlName}>

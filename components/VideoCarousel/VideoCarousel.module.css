@@ -1,165 +1,165 @@
 .flexContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
 }
 
 .container {
-    width: 98%;
-    margin: auto;
+  width: 98%;
+  margin: auto;
 }
 
 .arrow {
-    border: solid var(--dark);
-    border-width: 0 6px 6px 0;
-    display: inline-block;
-    padding: 6px;
+  border: solid var(--dark);
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 6px;
 }
 
 .round:hover {
-    background-color: var(--dark);
-    cursor: pointer;
-    transition: 0.5s ease;
-    transform: scale(1.05);
+  background-color: var(--dark);
+  cursor: pointer;
+  transition: 0.5s ease;
+  transform: scale(1.05);
 }
 
 .round:hover .arrow {
-    border-color: var(--light);
+  border-color: var(--light);
 }
 
 .round:focus {
-    outline: none;
+  outline: none;
 }
 
 .round {
-    display: none;
-    transition: 0.5s ease;
+  display: none;
+  transition: 0.5s ease;
 }
 
 .fader {
-    position: absolute;
-    right: -.1rem;
-    background: linear-gradient(90deg, rgba(var(--light) 0), var(--light));
-    width: 3rem;
-    height: 100%;
+  position: absolute;
+  right: -0.1rem;
+  background: linear-gradient(90deg, rgba(var(--light) 0), var(--light));
+  width: 3rem;
+  height: 100%;
 }
 
 @media only screen and (min-width: 750px) {
-    .fader {
-        display: none;
-    }
+  .fader {
+    display: none;
+  }
 
-    .round {
-        color: var(--dark);
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
-        background-color: transparent;
-        border-color: var(--dark);
-        border-radius: 1rem;
-        border-style: solid;
-        border-width: 2px;
-        user-select: none;
-        width: 50px;
-        height: 50px;
-        transition: all 0.5s;
-    }
+  .round {
+    color: var(--dark);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    background-color: transparent;
+    border-color: var(--dark);
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 2px;
+    user-select: none;
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s;
+  }
 
-    .round .arrow {
-        border-color: var(--dark);
-        border-style: solid;
-        border-width: 0 5px 5px 0;
-        display: inline-block;
-        padding: 5px;
-    }
+  .round .arrow {
+    border-color: var(--dark);
+    border-style: solid;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 5px;
+  }
 
-    .right {
-        transform: translate(2px, 2px) rotate(-45deg);
-        -webkit-transform: translate(-2px, 2px) rotate(-45deg);
-    }
+  .right {
+    transform: translate(2px, 2px) rotate(-45deg);
+    -webkit-transform: translate(-2px, 2px) rotate(-45deg);
+  }
 
-    .left {
-        transform: translate(3px, 2px) rotate(135deg);
-        -webkit-transform: translate(3px, 2px) rotate(135deg);
-    }
+  .left {
+    transform: translate(3px, 2px) rotate(135deg);
+    -webkit-transform: translate(3px, 2px) rotate(135deg);
+  }
 
-    .container h2 {
-        padding-left: 2.1rem;
-    }
+  .container h2 {
+    padding-left: 2.1rem;
+  }
 }
 
 .container h2 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .inv {
-    border-color: var(--light);
+  border-color: var(--light);
 }
 
 .inv.seeMore {
-    color: var(--light);
+  color: var(--light);
 }
 
 .seeMore {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .inv.seeMore:hover {
-    color: var(--light);
-    background-color: transparent;
+  color: var(--light);
+  background-color: transparent;
 }
 
 .inv:hover {
-    background-color: var(--light);
+  background-color: var(--light);
 }
 
 .inv .arrow {
-    border-color: var(--light);
+  border-color: var(--light);
 }
 
 .inv:hover .arrow {
-    border-color: var(--dark);
+  border-color: var(--dark);
 }
 
 .scrollerCarousel {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    width: 100%;
-    gap: .75rem;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  width: 100%;
+  gap: 0.75rem;
 
-    scroll-behavior: smooth;
-    scroll-snap-points-x: repeat(auto-fill, 200px);
-    scroll-snap-type: x mandatory;
-    padding-bottom: 0.5rem;
+  scroll-behavior: smooth;
+  scroll-snap-points-x: repeat(auto-fill, 200px);
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
 }
 
 .child {
-    scroll-snap-align: start;
+  scroll-snap-align: start;
 }
 
 .scrollerCarousel::-webkit-scrollbar {
-    width: 10px;
-    height: 5px;
+  width: 10px;
+  height: 5px;
 }
 
 .scrollerCarousel::-webkit-scrollbar-thumb {
-    background: #dbdbdb;
-    border-radius: 15px;
+  background: #dbdbdb;
+  border-radius: 15px;
 }
 
 .scrollerCarousel::-webkit-scrollbar-thumb:hover {
-    background: #858585;
+  background: #858585;
 }
 
 .scrollerCarousel::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 0;
+  background: transparent;
+  border-radius: 0;
 }
 
 .scrollerCarousel {
-    scrollbar-width: thin;
-    scrollbar-color: #dbdbdb transparent;
+  scrollbar-width: thin;
+  scrollbar-color: #dbdbdb transparent;
 }

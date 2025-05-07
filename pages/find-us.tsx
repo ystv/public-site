@@ -1,41 +1,42 @@
-'use client';
+"use client";
 import YstvHead from "../components/YstvHead";
 import Image from "next/image";
 import React, { useState } from "react";
-import Map, {Marker} from 'react-map-gl/mapbox';
+import Map, { Marker } from "react-map-gl/mapbox";
 import MapPin from "../public/site-images/Map-Pin-YSTV-Web.svg";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
 
 function YSTVMap() {
-    const [viewState, setViewState] = useState({
+  const [viewState, setViewState] = useState({
+    longitude: -1.05553,
+    latitude: 53.94636,
+    zoom: 16,
+  });
+
+  return (
+    <Map
+      {...viewState}
+      style={{ width: "100%", height: 400 }}
+      mapboxAccessToken={MAPBOX_TOKEN}
+      mapStyle="mapbox://styles/mapbox/streets-v11"
+      initialViewState={{
         longitude: -1.05553,
         latitude: 53.94636,
-        zoom: 16,
-    });
-
-    return (
-        <Map
-            {...viewState}
-            style={{ width: "100%", height: 400 }}
-            mapboxAccessToken={MAPBOX_TOKEN}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
-            initialViewState={{
-                longitude: -1.05553,
-                latitude: 53.94636,
-            }}
-            onMove={(evt) => setViewState(evt.viewState)}>
-            <Marker longitude={-1.05553} latitude={53.94636}>
-                <Image
-                    src={MapPin}
-                    alt="Map pin with YSTV logo"
-                    width={64}
-                    height={64}
-                />
-            </Marker>
-        </Map>
-    );
+      }}
+      onMove={(evt) => setViewState(evt.viewState)}
+    >
+      <Marker longitude={-1.05553} latitude={53.94636}>
+        <Image
+          src={MapPin}
+          alt="Map pin with YSTV logo"
+          width={64}
+          height={64}
+        />
+      </Marker>
+    </Map>
+  );
 }
 
 export default function FindUs() {

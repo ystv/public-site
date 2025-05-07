@@ -1,18 +1,18 @@
 name: PR Checks
 on:
   pull_request:
-    branches: [master]
+    branches: [main]
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   test-build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 22.x # Keep this in sync with Dockerfile
-        cache: yarn
-    - run: yarn install --frozen-lockfile
-    - run: yarn build
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22.x # Keep this in sync with Dockerfile
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build

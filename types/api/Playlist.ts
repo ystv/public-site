@@ -1,9 +1,9 @@
-import {VideoItem} from "./Video";
+import { VideoItem } from "./Video";
 
 export interface Playlist {
-    id: number;
-    name: string;
-    description: string;
-    thumbnail: string;
-    videos: VideoItem[];
+  id: number;
+  name: string;
+  description: string;
+  thumbnail: string;
+  videos: VideoItem[];
 }

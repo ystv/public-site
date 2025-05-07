@@ -79,7 +79,7 @@ export const VideoJS = (props) => {
           }
 
           onReady && onReady(player);
-        }
+        },
       ));
     } else {
       // you can update player here [update player through props]

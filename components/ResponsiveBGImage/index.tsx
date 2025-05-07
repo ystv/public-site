@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import Image from "next/image";
-import {FunctionComponent, PropsWithChildren} from "react";
+import { FunctionComponent, PropsWithChildren } from "react";
 import { Property } from "csstype";
 
 interface ResponsiveBGImageProps {
@@ -15,7 +15,9 @@ interface ResponsiveBGImageProps {
   backgroundColourOverlay?: Property.Background<string | number>;
 }
 
-const ResponsiveBGImage: FunctionComponent<PropsWithChildren<ResponsiveBGImageProps>> = ({
+const ResponsiveBGImage: FunctionComponent<
+  PropsWithChildren<ResponsiveBGImageProps>
+> = ({
   height,
   width = "100%",
   minHeight,
@@ -44,13 +46,16 @@ const ResponsiveBGImage: FunctionComponent<PropsWithChildren<ResponsiveBGImagePr
         fill
         sizes="100vw"
         style={{
-          objectFit: "cover"
-        }} />
+          objectFit: "cover",
+        }}
+      />
     </div>
     <div
       className={`${styles.contentsDiv} ${blur && styles.blur}`}
       style={{
-        background: backgroundColourOverlay ? backgroundColourOverlay : undefined,
+        background: backgroundColourOverlay
+          ? backgroundColourOverlay
+          : undefined,
       }}
     >
       {children}

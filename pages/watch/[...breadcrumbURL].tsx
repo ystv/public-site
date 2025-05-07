@@ -1,6 +1,6 @@
 import Series from "./series/[seriesid]";
 import Video from "./video/[videoid]";
-import {IBreadcrumb, IBreadcrumbItem} from "../../types/api/Video";
+import { IBreadcrumb, IBreadcrumbItem } from "../../types/api/Video";
 
 interface Props {
   res;
@@ -36,7 +36,7 @@ export async function getServerSideProps(context) {
 
   try {
     let res: IBreadcrumbItem | undefined = await fetch(
-      `${process.env.REST_API}/v1/public/find/${context.query.breadcrumbURL.join("/")}`
+      `${process.env.REST_API}/v1/public/find/${context.query.breadcrumbURL.join("/")}`,
     ).then((res): Promise<IBreadcrumbItem> | undefined => {
       if (!res.ok) {
         context.res.statusCode = 302;
@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
     }
 
     let breadcrumb: IBreadcrumb[] = await fetch(
-      `${process.env.REST_API}/v1/public/${url}/breadcrumb`
+      `${process.env.REST_API}/v1/public/${url}/breadcrumb`,
     ).then((res): Promise<IBreadcrumb[]> => res.json());
 
     return {

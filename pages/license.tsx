@@ -16,8 +16,9 @@ export default function License() {
           layout={"responsive"}
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       </div>
       <ul>
         <li>
@@ -52,8 +53,9 @@ export default function License() {
           layout={"responsive"}
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       </p>
       <ul>
         <li>

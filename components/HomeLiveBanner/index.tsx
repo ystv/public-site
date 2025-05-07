@@ -19,7 +19,7 @@ export default function HomeLiveBanner() {
   const { data } = useSWR<Array<Channel>>(
     `${process.env.NEXT_PUBLIC_REST_API}/v1/public/playout/channels`,
     fetcher,
-    { refreshInterval: 60000 }
+    { refreshInterval: 60000 },
   );
 
   const variants = {
@@ -83,7 +83,7 @@ export default function HomeLiveBanner() {
                       {
                         // en-US gets us a 12hr clock with am or pm suffix, en-GB is 24hr and less friendly looking
                         new Date(
-                          primaryChannel.scheduledStart
+                          primaryChannel.scheduledStart,
                         ).toLocaleTimeString("en-US", {
                           timeStyle: "short",
                         })

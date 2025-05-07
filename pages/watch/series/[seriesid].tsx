@@ -4,8 +4,8 @@ import VideoCell from "../../../components/VideoCell/VideoCell";
 import Breadcrumb from "../../../components/Breadcrumb";
 
 import styles from "./seriesid.module.css";
-import {Series} from "../../../types/api/Series";
-import {IBreadcrumb} from "../../../types/api/Video";
+import { Series } from "../../../types/api/Series";
+import { IBreadcrumb } from "../../../types/api/Video";
 
 interface Props {
   series: Series;
@@ -54,10 +54,10 @@ export default function WatchSeries({ series, breadcrumb }: Props) {
 
 export async function getServerSideProps(context) {
   let series = await fetch(
-    `${process.env.REST_API}/v1/public/series/${context.query.seriesid}`
+    `${process.env.REST_API}/v1/public/series/${context.query.seriesid}`,
   ).then((res): Promise<Series> => res.json());
   let breadcrumb = await fetch(
-    `${process.env.REST_API}/v1/public/series/${context.query.seriesid}/breadcrumb`
+    `${process.env.REST_API}/v1/public/series/${context.query.seriesid}/breadcrumb`,
   ).then((res): Promise<IBreadcrumb> => res.json());
   return { props: { series, breadcrumb } };
 }

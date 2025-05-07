@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   const channel: Channel = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channel/${context.query.embed_id}`
+    `${process.env.REST_API}/v1/public/playout/channel/${context.query.embed_id}`,
   ).then((res) => {
     if (!res.ok) {
       redirect();

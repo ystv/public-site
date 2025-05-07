@@ -38,7 +38,7 @@ export async function getServerSideProps(context) {
   }
   try {
     let video = await fetch(
-      `${process.env.REST_API}/v1/public/video/${context.query.embed_id}`
+      `${process.env.REST_API}/v1/public/video/${context.query.embed_id}`,
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
