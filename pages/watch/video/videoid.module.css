@@ -47,3 +47,18 @@
 .embedButton:focus {
   outline: none;
 }
+
+.popover {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  max-width: 500px;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.popoverArrow {
+  fill: white;
+}
+
