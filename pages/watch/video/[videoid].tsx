@@ -6,6 +6,7 @@ import { useState } from "react";
 import Popover from "react-popover";
 
 import styles from "./videoid.module.css";
+import {IBreadcrumb, VideoItem} from "../../../types/api/Video";
 
 export default function WatchVideo({ video, time, breadcrumb }) {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -137,33 +138,33 @@ const VideoErrorSnippet = (
 );
 
 export async function getServerSideProps(context) {
-  let time: number = 0;
-  if (context.query.time !== undefined) {
-    time = context.query.time;
-  }
-  try {
-    let video = await fetch(
-      `${process.env.REST_API}/v1/public/video/${context.query.videoid}`
-    ).then((res) => {
-      if (!res.ok) {
-        context.res.statusCode = 302;
-        context.res.setHeader("Location", `/404`);
-      } else {
-        return res.json();
-      }
-    });
-    let breadcrumb: [] = await fetch(
-      `${process.env.REST_API}/v1/public/video/${context.query.videoid}/breadcrumb`
-    ).then((res) => {
-      if (!res.ok) {
-        context.res.statusCode = 302;
-        context.res.setHeader("Location", `/404`);
-      } else {
-        return res.json();
-      }
-    });
-    return { props: { video, time, breadcrumb } };
-  } catch {
-    return { props: { video: { videos: [] } } };
-  }
+    let time: number = 0;
+    if (context.query.time !== undefined) {
+        time = context.query.time;
+    }
+    try {
+        let video: VideoItem | undefined = await fetch(
+            `${process.env.REST_API}/v1/public/video/${context.query.videoid}`
+        ).then((res): Promise<VideoItem> | undefined => {
+            if (!res.ok) {
+                context.res.statusCode = 302;
+                context.res.setHeader("Location", `/404`);
+            } else {
+                return res.json();
+            }
+        });
+        let breadcrumb: IBreadcrumb[] | undefined = await fetch(
+            `${process.env.REST_API}/v1/public/video/${context.query.videoid}/breadcrumb`
+        ).then((res): Promise<IBreadcrumb[]> | undefined => {
+            if (!res.ok) {
+                context.res.statusCode = 302;
+                context.res.setHeader("Location", `/404`);
+            } else {
+                return res.json();
+            }
+        });
+        return {props: {video, time, breadcrumb}};
+    } catch {
+        return {props: {video: {videos: []}}};
+    }
 }
