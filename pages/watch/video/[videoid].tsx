@@ -45,14 +45,14 @@ export default function WatchVideo({ video, time, breadcrumb }) {
         }),
     };
 
-    const copyText = `<iframe
-    src="http://ystv.co.uk/embed/${video.id}?height=360"
-    width="640"
-    height="360"
-    frameborder="0"
-    allowfullscreen
-    scrolling="no"
-    ></iframe>`;
+        const copyText = `<iframe
+        src="https://ystv.co.uk/embed/${video.id}?height=360"
+        width="640"
+        height="360"
+        frameborder="0"
+        allowfullscreen
+        scrolling="no"
+        ></iframe>`;
 
     const popoverProps = {
       isOpen: isPopoverOpen,
