@@ -1,5 +1,5 @@
 import YstvHead from "../../components/YstvHead";
-import {Teams} from "../../types/api/Team";
+import {Team, Teams} from "../../types/api/Team";
 import Link from "next/link";
 
 import {
@@ -113,6 +113,14 @@ export async function getServerSideProps(context) {
         );
         return {props: {teams: res}};
     } catch {
-        return {props: {teams: null}};
+        let defaultTeams: Team[] = [{
+            id: -1,
+            name: "Unavailable",
+            emailAlias: "unavailable",
+            shortDescription: "Unavailable",
+            longDescription: "Unavailable",
+            members: [],
+        }];
+        return {props: {teams: defaultTeams}};
     }
 }

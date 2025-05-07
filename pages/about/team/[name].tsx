@@ -75,6 +75,14 @@ export async function getServerSideProps(context) {
         });
         return {props: {team: res}};
     } catch {
-        return {props: {team: null}};
+        let defaultTeam: Team = {
+            id: -1,
+            name: "Unavailable",
+            emailAlias: "unavailable",
+            shortDescription: "Unavailable",
+            longDescription: "Unavailable",
+            members: [],
+        };
+        return {props: {team: defaultTeam}};
     }
 }
