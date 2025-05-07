@@ -1,9 +1,11 @@
 import LiveFeaturedPlayerBanner from "../components/LiveFeaturedPlayerBanner";
 import { Channel } from "../pages/watch/live/[liveURLName]";
 
-export default {
+const liveFeature = {
   title: "UI Macro Elements/LiveFeaturedPlayerBanner",
 };
+
+export default liveFeature;
 
 export const Page = () => <LiveFeaturedPlayerBanner channel={testData} />;
 

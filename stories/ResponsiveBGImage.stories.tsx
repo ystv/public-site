@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 
 import ResponsiveBGImage from "../components/ResponsiveBGImage";
 
@@ -8,9 +8,9 @@ import image from "../public/site-images/carousel.jpg";
 export default {
   title: "UI Elements/ResponsiveBGImage",
   component: ResponsiveBGImage,
-} as ComponentMeta<typeof ResponsiveBGImage>;
+} as Meta<typeof ResponsiveBGImage>;
 
-const Template: ComponentStory<typeof ResponsiveBGImage> = (args) => (
+const Template: StoryFn<typeof ResponsiveBGImage> = (args) => (
   <ResponsiveBGImage {...args} />
 );
 

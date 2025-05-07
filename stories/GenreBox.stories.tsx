@@ -1,8 +1,8 @@
-import GenreBox from "../components/GenreBox";
-
-export default {
+const genreBox = {
   title: "UI Macro Elements/GenreBox",
 };
+
+export default genreBox;
 
 export const Page = () => <a>Not working right now</a>;
 

@@ -1,15 +1,16 @@
 import LiveBanner from "../components/HomeLiveBanner";
-import { ComponentStory } from "@storybook/react";
+import { StoryFn } from "@storybook/react";
 import React from "react";
 import { Channel } from "../pages/watch/live/[liveURLName]";
-import { channelStatus } from "../types/api/Channel";
 
-export default {
+const homeLiveBanner = {
   title: "UI Macro Elements/HomeLiveBanner",
   component: LiveBanner,
 };
 
-const Template: ComponentStory<typeof LiveBanner> = (args: object) => (
+export default homeLiveBanner;
+
+const Template: StoryFn<typeof LiveBanner> = (args: object) => (
   <LiveBanner {...args} />
 );
 export const Page = Template;

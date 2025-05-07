@@ -1,5 +1,3 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-
 const HtmlTags = () => (
   <>
     <h1>Heading 1</h1>
@@ -23,8 +21,10 @@ const HtmlTags = () => (
   </>
 );
 
-export default {
-  title: "Utilities/Styleguide",
+const styleguideConfig = {
+    title: "Utilities/Styleguide",
 };
+
+export default styleguideConfig;
 
 export const Default = () => <HtmlTags />;
