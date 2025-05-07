@@ -8,6 +8,7 @@ import {
     mdiTools,
     mdiBullhorn,
     mdiVideoOutline,
+    mdiFileQuestionOutline,
 } from '@mdi/js';
 import styles from "./index.module.css";
 import {Icon} from "@mdi/react";
@@ -18,6 +19,7 @@ const teamIcons = {
     technical: mdiTools,
     marketing: mdiBullhorn,
     production: mdiVideoOutline,
+    unavailable: mdiFileQuestionOutline,
 };
 
 function About({teams}: Teams) {
