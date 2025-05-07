@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { channel } from "../../pages/watch/live/[liveURLName]";
+import { Channel } from "../../pages/watch/live/[liveURLName]";
 import {
   AnimatePresence,
   domAnimation,
@@ -16,7 +16,7 @@ import { channelStatus } from "../../types/api/Channel";
 export default function HomeLiveBanner() {
   const fetcher = (input: RequestInfo, init?: RequestInit) =>
     fetch(input, init).then((res) => res.json());
-  const { data } = useSWR<Array<channel>>(
+  const { data } = useSWR<Array<Channel>>(
     `${process.env.NEXT_PUBLIC_REST_API}/v1/public/playout/channels`,
     fetcher,
     { refreshInterval: 60000 }

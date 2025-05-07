@@ -1,5 +1,5 @@
 import LiveFeaturedPlayerBanner from "../components/LiveFeaturedPlayerBanner";
-import { channel } from "../pages/watch/live/[liveURLName]";
+import { Channel } from "../pages/watch/live/[liveURLName]";
 
 export default {
   title: "UI Macro Elements/LiveFeaturedPlayerBanner",
@@ -7,7 +7,7 @@ export default {
 
 export const Page = () => <LiveFeaturedPlayerBanner channel={testData} />;
 
-const testData: channel = {
+const testData: Channel = {
   urlName: "tennis",
   name: "SU Tennis Championships",
   description: "The biggest student unions go head to head at Tennis!",

@@ -2,10 +2,10 @@ import { removeHTMLTags } from "../commonFunctions";
 import { SyntheticEvent } from "react";
 import Image from "next/image";
 import styles from "./index.module.css";
-import { channel } from "../../pages/watch/live/[liveURLName]";
+import { Channel } from "../../pages/watch/live/[liveURLName]";
 
 interface Props {
-  video: channel;
+  video: Channel;
   detail?: boolean;
   inverted?: boolean;
 }

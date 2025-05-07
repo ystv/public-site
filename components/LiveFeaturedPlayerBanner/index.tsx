@@ -1,9 +1,9 @@
 import styles from "./index.module.css";
-import { channel } from "../../pages/watch/live/[liveURLName]";
+import { Channel } from "../../pages/watch/live/[liveURLName]";
 import React, { useEffect, useRef } from "react";
 import VideoPlayer from "../VideoPlayer";
 
-const LiveModal = ({ channel }: { channel: channel }) => {
+const LiveModal = ({ channel }: { channel: Channel }) => {
   const videoJSOptions = {
     autoplay: false,
     aspectRatio: "16:9",

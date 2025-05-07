@@ -1,7 +1,7 @@
 import LiveBanner from "../components/HomeLiveBanner";
 import { ComponentStory } from "@storybook/react";
 import React from "react";
-import { channel } from "../pages/watch/live/[liveURLName]";
+import { Channel } from "../pages/watch/live/[liveURLName]";
 import { channelStatus } from "../types/api/Channel";
 
 export default {
@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof LiveBanner> = (args:object) => (
 );
 export const Page = Template;
 
-const testData: channel = {
+const testData: Channel = {
   urlName: "tennis",
   name: "SU Tennis Championships",
   description: "The biggest student unions go head to head at Tennis!",

@@ -6,7 +6,7 @@ import GenreBox from "../components/GenreBox";
 import HomePageMainBanner from "../components/HomePageMainBanner";
 import HomeLiveBanner from "../components/HomeLiveBanner";
 import { SWRConfig } from "swr";
-import { channel } from "./watch/live/[liveURLName]";
+import { Channel } from "./watch/live/[liveURLName]";
 
 export default function Home({
   recentVideoPageState,
@@ -79,7 +79,7 @@ export async function getServerSideProps() {
       let keyedData = {};
       keyedData[
         `${process.env.REST_API}/v1/public/playout/channels`
-      ] = e as channel[];
+      ] = e as Channel[];
       return keyedData;
     });
 
