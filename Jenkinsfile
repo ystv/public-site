@@ -27,17 +27,23 @@ pipeline {
               [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
             ]]
           ]
-          withVault([configuration: vaultConfig, vaultSecrets: secrets]) {
-            docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
-              // sh 'env > .env.local' // this is bad
-              image = docker.build(imageName, """ \
-                  --build-arg GIT_REV_ARG=${env.GIT_COMMIT} \
-                  --build-arg BUILD_ID_ARG=${JOB_NAME}:${BUILD_ID} \
-                  --build-arg NEXT_PUBLIC_INTERNAL_SITE_ARG=${NEXT_PUBLIC_INTERNAL_SITE} \
-                  --build-arg NEXT_PUBLIC_REST_API_ARG=${NEXT_PUBLIC_REST_API} \
-                  -f Dockerfile . \
-                """)
-            }
+          try {
+              withVault([configuration: vaultConfig, vaultSecrets: secrets]) {
+                docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
+                  // sh 'env > .env.local' // this is bad
+                  image = docker.build(imageName, """ \
+                      --build-arg GIT_REV_ARG=${env.GIT_COMMIT} \
+                      --build-arg BUILD_ID_ARG=${JOB_NAME}:${BUILD_ID} \
+                      --build-arg NEXT_PUBLIC_INTERNAL_SITE_ARG=${NEXT_PUBLIC_INTERNAL_SITE} \
+                      --build-arg NEXT_PUBLIC_REST_API_ARG=${NEXT_PUBLIC_REST_API} \
+                      -f Dockerfile . \
+                    """)
+                }
+              }
+          } catch (err) {
+              echo "Vault lookup failed: ${err.getMessage()}"
+              // Optionally fail the build
+              error("Stopping build due to Vault error.")
           }
         }
       }
