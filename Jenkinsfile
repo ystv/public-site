@@ -1,5 +1,8 @@
 @Library('ystv-jenkins')
 
+def vaultConfig = [vaultUrl: 'https://vault.comp.ystv.co.uk',
+                  vaultCredentialId: 'jenkins-vault-token']
+
 def imageTag = ''
 pipeline {
   agent {
