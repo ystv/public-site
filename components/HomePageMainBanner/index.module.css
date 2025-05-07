@@ -29,6 +29,13 @@
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
 }
 
+.bannerLink {
+  color: var(--light);
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
 .homeThin {
   display: flex;
   flex-direction: column;

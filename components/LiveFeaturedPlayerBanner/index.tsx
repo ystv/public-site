@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { Channel } from "../../pages/watch/live/[liveURLName]";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import VideoPlayer from "../VideoPlayer";
 
 const LiveModal = ({ channel }: { channel: Channel }) => {

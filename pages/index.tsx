@@ -1,7 +1,6 @@
 import YstvHead from "../components/YstvHead";
 import VideoCarousel from "../components/VideoCarousel/VideoCarousel";
 
-import styles from "./index.module.css";
 import GenreBox from "../components/GenreBox";
 import HomePageMainBanner from "../components/HomePageMainBanner";
 import HomeLiveBanner from "../components/HomeLiveBanner";

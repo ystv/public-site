@@ -17,7 +17,7 @@ export default function Navbar() {
             <SearchBar />
             <div className={styles.spacer} />
             <MenuIconButton
-              onClick={(e) => {
+              onClick={() => {
                 setMenuOpen(!menuOpen);
               }}
             />
@@ -50,7 +50,7 @@ const MenuIconButton = ({ onClick }) => (
 const NextLinkMenuCloser = ({ setMenuOpen, link, text }) => (
   <Link
     href={link}
-    onClick={(event) => {
+    onClick={() => {
       setMenuOpen(false);
     }}
   >
@@ -97,7 +97,7 @@ const Logo = ({ setMenuOpen }) => (
         src={ystv_colour}
         alt="YSTV Logo"
         className={styles.logo}
-        onClick={(event) => {
+        onClick={() => {
           setMenuOpen(false);
         }}
       />

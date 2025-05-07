@@ -31,14 +31,14 @@ export default function GetInvolved() {
             </p>
             <p>
               We send out a regular{" "}
-              <a href="http://go.ystv.co.uk/signup2023">newsletter</a> with
+              <a href="https://go.ystv.co.uk/signup2023">newsletter</a> with
               updates on upcoming productions, so make sure you sign up (you’ll
               need to sign in with your University account).
             </p>
             <p>
               On a day-to-day basis we talk to each other and plan productions
               using Slack (if you’ve used Discord it’s very similar). You can{" "}
-              <a href="http://go.ystv.co.uk/slack">join our Slack workspace</a>{" "}
+              <a href="https://go.ystv.co.uk/slack">join our Slack workspace</a>{" "}
               to talk to us.
             </p>
           </div>

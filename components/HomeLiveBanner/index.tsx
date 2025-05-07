@@ -81,7 +81,7 @@ export default function HomeLiveBanner() {
                     <small>
                       YSTV will be going live soon, tune it at{" "}
                       {
-                        // en-US gets us a 12hr clock with am or pm suffix, en-GB is 24hr and less friendly looking
+                        // en-US gets us a 12 hr clock with am or pm suffix, en-GB is 24 hr and less friendly looking
                         new Date(
                           primaryChannel.scheduledStart,
                         ).toLocaleTimeString("en-US", {

@@ -1,12 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import carouselBG from "../../public/site-images/carousel.jpg";
 import Button from "../Button";
 import { useState } from "react";
 import { m, AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 import ResponsiveBGImage from "../ResponsiveBGImage";
 import styles from "./index.module.css";
-import YSTVFreshers from "../../public/site-images/YSTV_FRESHERS.svg";
 
 export default function HomePageMainBanner() {
   enum BannerState {
@@ -169,13 +167,14 @@ export default function HomePageMainBanner() {
                     second longest in the UK).&nbsp; It’s won countless awards
                     for everything from its live music shows to documentaries.
                   </p>
-                  <Link href={"/about"} passHref legacyBehavior>
+                  <Link href={"/about"} passHref>
                     <p
-                      style={{
-                        fontWeight: "bolder",
-                        fontSize: "larger",
-                        textDecoration: "underline",
-                      }}
+                        className={styles.bannerLink}
+                      // style={{
+                      //   fontWeight: "bolder",
+                      //   fontSize: "larger",
+                      //   textDecoration: "underline",
+                      // }}
                     >
                       Read More &rarr;
                     </p>
