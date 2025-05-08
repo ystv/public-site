@@ -7,8 +7,8 @@ def imageTag = ''
 pipeline {
   agent {
     node {
-      label 'docker && ramdisk'
-      customWorkspace '/mnt/ramdisk/build/workspace/public-site'
+      label 'docker'
+//       customWorkspace '/mnt/ramdisk/build/workspace/public-site'
     }
   }
 
