@@ -87,17 +87,20 @@
   width: 8.35em;
 }
 
-.video-js
-  .vjs-volume-menu-button.vjs-volume-menu-button-horizontal:hover
-  .vjs-menu
-  .vjs-menu-content {
+.video-js,
+.vjs-volume-menu-button.vjs-volume-menu-button-horizontal:hover,
+.vjs-menu,
+.vjs-menu-content {
   height: 3em;
   width: 6.35em;
 }
 
 .video-js .vjs-control:focus:before,
 .video-js .vjs-control:hover:before {
-  text-shadow: 0 0 1em #fff, 0 0 1em #fff, 0 0 1em #fff;
+  text-shadow:
+    0 0 1em #fff,
+    0 0 1em #fff,
+    0 0 1em #fff;
 }
 
 .vjs-control-bar button:focus {
@@ -207,12 +210,12 @@
 }
 
 .video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active .vjs-control-bar,
-.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive
-  .vjs-control-bar,
-.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active
-  .vjs-control-bar,
-.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive
-  .vjs-control-bar,
+.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive,
+.vjs-control-bar,
+.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active,
+.vjs-control-bar,
+.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive,
+.vjs-control-bar,
 .video-js.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-control-bar {
   visibility: visible;
   opacity: 1;
@@ -229,35 +232,45 @@
   transition: transform 1s ease 0s;
 }
 
-.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active
-  .vjs-progress-control,
-.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive
-  .vjs-progress-control,
-.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active
-  .vjs-progress-control,
-.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive
-  .vjs-progress-control,
+.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active,
+.vjs-progress-control,
+.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive,
+.vjs-progress-control,
+.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active,
+.vjs-progress-control,
+.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive,
+.vjs-progress-control,
 .video-js.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-progress-control {
   height: 0.25em;
   top: -0.25em;
   pointer-events: none;
-  -webkit-transition: height 1s, top 1s;
-  -moz-transition: height 1s, top 1s;
-  -ms-transition: height 1s, top 1s;
-  -o-transition: height 1s, top 1s;
-  transition: height 1s, top 1s;
+  -webkit-transition:
+    height 1s,
+    top 1s;
+  -moz-transition:
+    height 1s,
+    top 1s;
+  -ms-transition:
+    height 1s,
+    top 1s;
+  -o-transition:
+    height 1s,
+    top 1s;
+  transition:
+    height 1s,
+    top 1s;
 }
 
-.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active.vjs-fullscreen
-  .vjs-progress-control,
-.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive.vjs-fullscreen
-  .vjs-progress-control,
-.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active.vjs-fullscreen
-  .vjs-progress-control,
-.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive.vjs-fullscreen
-  .vjs-progress-control,
-.video-js.vjs-has-started.vjs-playing.vjs-user-inactive.vjs-fullscreen
-  .vjs-progress-control {
+.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active.vjs-fullscreen,
+.vjs-progress-control,
+.video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive.vjs-fullscreen,
+.vjs-progress-control,
+.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active.vjs-fullscreen,
+.vjs-progress-control,
+.video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive.vjs-fullscreen,
+.vjs-progress-control,
+.video-js.vjs-has-started.vjs-playing.vjs-user-inactive.vjs-fullscreen,
+.vjs-progress-control {
   opacity: 0;
   -webkit-transition: opacity 1s ease 1s;
   -moz-transition: opacity 1s ease 1s;
@@ -283,11 +296,26 @@
   font-size: 3.5em;
   background-color: rgba(0, 0, 0, 0.45);
   color: #fff;
-  -webkit-transition: border-color 0.4s, outline 0.4s, background-color 0.4s;
-  -moz-transition: border-color 0.4s, outline 0.4s, background-color 0.4s;
-  -ms-transition: border-color 0.4s, outline 0.4s, background-color 0.4s;
-  -o-transition: border-color 0.4s, outline 0.4s, background-color 0.4s;
-  transition: border-color 0.4s, outline 0.4s, background-color 0.4s;
+  -webkit-transition:
+    border-color 0.4s,
+    outline 0.4s,
+    background-color 0.4s;
+  -moz-transition:
+    border-color 0.4s,
+    outline 0.4s,
+    background-color 0.4s;
+  -ms-transition:
+    border-color 0.4s,
+    outline 0.4s,
+    background-color 0.4s;
+  -o-transition:
+    border-color 0.4s,
+    outline 0.4s,
+    background-color 0.4s;
+  transition:
+    border-color 0.4s,
+    outline 0.4s,
+    background-color 0.4s;
 }
 
 .video-js .vjs-menu-button-popup .vjs-menu {

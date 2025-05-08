@@ -1,5 +1,3 @@
-import { VideoJsPlayer, VideoJsPlayerOptions } from "video.js";
-
 declare module "video.js" {
   // this tells the type system that the VideoJsPlayer object has a method seekButtons
   export interface VideoJsPlayer {

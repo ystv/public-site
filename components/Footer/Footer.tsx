@@ -30,7 +30,7 @@ function Footer() {
           <h3>Other Sites</h3>
           <div className={styles.sitesContainer}>
             <a href={process.env.NEXT_PUBLIC_INTERNAL_SITE}>
-              <p>MyTV</p>
+              <p>Calendar</p>
             </a>
             <a href="https://wiki.ystv.co.uk">
               <p>History Wiki</p>

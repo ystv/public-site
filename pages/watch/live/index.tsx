@@ -1,8 +1,8 @@
 import YstvHead from "../../../components/YstvHead";
-import { channel } from "./[liveURLName]";
+import { Channel } from "./[liveURLName]";
 import LiveVideoCell from "../../../components/LiveVideoCell";
 
-export default function LiveBrowse({ channels }: { channels: channel[] }) {
+export default function LiveBrowse({ channels }: { channels: Channel[] }) {
   return (
     <div className="center thin">
       <YstvHead title="Live Channels" />
@@ -24,8 +24,8 @@ export default function LiveBrowse({ channels }: { channels: channel[] }) {
 }
 
 export async function getServerSideProps() {
-  const channels: channel[] = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channels`
+  const channels: Channel[] = await fetch(
+    `${process.env.REST_API}/v1/public/playout/channels`,
   ).then((res) => res.json());
 
   return { props: { channels } };

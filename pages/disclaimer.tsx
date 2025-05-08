@@ -10,7 +10,7 @@ export default function Disclaimer() {
         <li>
           In addition to this disclaimer, this website is also covered by the
           University of York&apos;s&nbsp;
-          <a href="http://www.york.ac.uk/docs/disclaimer/disclaimer.htm">
+          <a href="https://www.york.ac.uk/docs/disclaimer/disclaimer.htm">
             standard disclaimer
           </a>
         </li>
@@ -52,7 +52,7 @@ export default function Disclaimer() {
           York&apos;s{" "}
           <a
             title="Data Protection Policy"
-            href="http://www.york.ac.uk/recordsmanagement/dpa/dppolicy2002.htm"
+            href="https://www.york.ac.uk/recordsmanagement/dpa/dppolicy2002.htm"
             target="_blank"
             rel="noreferrer"
           >

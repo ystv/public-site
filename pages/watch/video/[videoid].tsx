@@ -1,24 +1,19 @@
+import * as RadixPopover from "@radix-ui/react-popover";
 import YstvHead from "../../../components/YstvHead";
 import VideoPlayer from "../../../components/VideoPlayer";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { formatTime } from "../../../components/commonFunctions";
 import { useState } from "react";
-import Popover from "react-popover";
 
 import styles from "./videoid.module.css";
+import { IBreadcrumb, VideoItem } from "../../../types/api/Video";
 
 export default function WatchVideo({ video, time, breadcrumb }) {
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [copyButtonText, setCopyButtonText] = useState("Copy");
 
   try {
-    if (!video) {
-      console.warn("No video data on video #", video.id);
-      return VideoErrorSnippet;
-    }
-
-    if (!video.files) {
-      console.warn("No files on video #", video.id);
+    if (!video || !video.files) {
+      console.warn("Video data or files missing.");
       return VideoErrorSnippet;
     }
 
@@ -29,12 +24,12 @@ export default function WatchVideo({ video, time, breadcrumb }) {
       fill: true,
       fluid: true,
       sources: video.files
-        .filter((e) => e.mode == "watch")
+        .filter((e) => e.mode === "watch")
         .map((e, i, t) => {
-          let sel = i == t.length - 1 ? true : false; // Sets to last item in list (assumed to be highest quality)
+          const sel = i === t.length - 1;
           return {
             src:
-              e.uri.split("/")[0] == "legacy" // NEEDS to be replaced when API/storage migration is done, this is gross
+              e.uri.split("/")[0] === "legacy"
                 ? `https://ystv.co.uk/videofile${e.uri.substring(6)}`
                 : `https://cdn.ystv.co.uk/${e.uri}`,
             type: e.mimeType,
@@ -45,47 +40,13 @@ export default function WatchVideo({ video, time, breadcrumb }) {
     };
 
     const copyText = `<iframe
-    src="http://ystv.co.uk/embed/${video.id}?height=360"
-    width="640"
-    height="360"
-    frameborder="0"
-    allowfullscreen
-    scrolling="no"
-    ></iframe>`;
-
-    const popoverProps = {
-      isOpen: isPopoverOpen,
-      onOuterAction: () => setIsPopoverOpen(false),
-      body: (
-        <div className={styles.popover}>
-          <h1 key="a">Embed this video on your site:</h1>
-          <div
-            style={{ border: "solid", padding: "1rem", borderRadius: "1rem" }}
-            key="c"
-          >
-            {copyText}
-          </div>
-          <br />
-          <button
-            className={styles.embedButton}
-            key="b"
-            onClick={() => {
-              navigator.clipboard.writeText(copyText).then(
-                function () {
-                  console.log("Async: Copying to clipboard was successful!");
-                  setCopyButtonText("Copied");
-                },
-                function (err) {
-                  console.error("Async: Could not copy text: ", err);
-                }
-              );
-            }}
-          >
-            {copyButtonText}
-          </button>
-        </div>
-      ),
-    };
+        src="https://ystv.co.uk/embed/${video.id}?height=360"
+        width="640"
+        height="360"
+        frameborder="0"
+        allowfullscreen
+        scrolling="no"
+        ></iframe>`;
 
     return (
       <>
@@ -107,25 +68,58 @@ export default function WatchVideo({ video, time, breadcrumb }) {
               <h5>Duration: {formatTime(video.duration)}</h5>
               <h5>
                 Published{" "}
-                {new Date(video.broadcastDate).toLocaleString().split(",")[0]}
+                {new Date(video.broadcastDate).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}
               </h5>
-              {/*<button*/}
-              {/*  className={styles.embedButton}*/}
-              {/*  onClick={() => setIsPopoverOpen(true)}*/}
-              {/*>*/}
-              {/*  Embed*/}
-              {/*</button>*/}
+
+              {/* RADIX POPOVER INTEGRATION */}
+              <RadixPopover.Root>
+                <RadixPopover.Trigger asChild>
+                  <button className={styles.embedButton}>Embed</button>
+                </RadixPopover.Trigger>
+                <RadixPopover.Portal>
+                  <RadixPopover.Content
+                    className={styles.popover}
+                    sideOffset={8}
+                  >
+                    <h1>Embed this video on your site:</h1>
+                    <div
+                      style={{
+                        border: "solid",
+                        padding: "1rem",
+                        borderRadius: "1rem",
+                        marginTop: "0.5rem",
+                      }}
+                    >
+                      {copyText}
+                    </div>
+                    <br />
+                    <button
+                      className={styles.embedButton}
+                      onClick={() => {
+                        navigator.clipboard.writeText(copyText).then(
+                          () => setCopyButtonText("Copied"),
+                          (err) =>
+                            console.error("Async: Could not copy text: ", err),
+                        );
+                      }}
+                    >
+                      {copyButtonText}
+                    </button>
+                    <RadixPopover.Arrow className={styles.popoverArrow} />
+                  </RadixPopover.Content>
+                </RadixPopover.Portal>
+              </RadixPopover.Root>
             </div>
           </div>
         </div>
-        {/*<Popover {...popoverProps}>*/}
-        {/*  <div />*/}
-        {/*  /!* Needs to be there coz reasons...? *!/*/}
-        {/*</Popover>*/}
       </>
     );
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return VideoErrorSnippet;
   }
 }
@@ -142,9 +136,9 @@ export async function getServerSideProps(context) {
     time = context.query.time;
   }
   try {
-    let video = await fetch(
-      `${process.env.REST_API}/v1/public/video/${context.query.videoid}`
-    ).then((res) => {
+    let video: VideoItem | undefined = await fetch(
+      `${process.env.REST_API}/v1/public/video/${context.query.videoid}`,
+    ).then((res): Promise<VideoItem> | undefined => {
       if (!res.ok) {
         context.res.statusCode = 302;
         context.res.setHeader("Location", `/404`);
@@ -152,9 +146,9 @@ export async function getServerSideProps(context) {
         return res.json();
       }
     });
-    let breadcrumb: [] = await fetch(
-      `${process.env.REST_API}/v1/public/video/${context.query.videoid}/breadcrumb`
-    ).then((res) => {
+    let breadcrumb: IBreadcrumb[] | undefined = await fetch(
+      `${process.env.REST_API}/v1/public/video/${context.query.videoid}/breadcrumb`,
+    ).then((res): Promise<IBreadcrumb[]> | undefined => {
       if (!res.ok) {
         context.res.statusCode = 302;
         context.res.setHeader("Location", `/404`);

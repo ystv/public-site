@@ -26,7 +26,7 @@ export default function Index({ videos }: Props) {
 
   function GenreButton({ name, id }: ButtonProps) {
     return (
-      <a onClick={(e) => setGenre(id)}>
+      <a onClick={() => setGenre(id)}>
         <h1 className={id === genre ? styles.selected : ""}>{name}</h1>
       </a>
     );
@@ -42,8 +42,9 @@ export default function Index({ videos }: Props) {
         fill
         sizes="100vw"
         style={{
-          objectFit: "cover"
-        }} />
+          objectFit: "cover",
+        }}
+      />
       <div className={`${styles[genres[genre].name]} ${styles.showAbove}`}>
         <div className={styles.genreSelector}>
           <div className={styles.disappearingGenre} />

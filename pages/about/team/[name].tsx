@@ -1,7 +1,6 @@
-// import { useRouter } from "next/router";
 import Link from "next/link";
-import { Fragment } from "react";
-import {Team, TeamMember} from "../../../types/api/Team";
+import { Team, TeamMember } from "../../../types/api/Team";
+import styles from "./name.module.css";
 
 interface Props {
   team: Team;
@@ -19,35 +18,49 @@ export default function TeamID({ team }: Props) {
       <p>{team.longDescription}</p>
       <br />
       <h2>Team Members:</h2>
-      {team.members?.map((member, i) => {
-        return (
-          <Fragment key={`member${i}`}>
-            <h3>
-              {member.officerName} - {member.userName}
-            </h3>
-            <span>
-              <a
-                href={`mailto:${member.emailAlias}@ystv.co.uk`}
-              >{`${member.emailAlias}@ystv.co.uk`}</a>
-                {getHistoryWikiURL(member)}
-            </span>
-          </Fragment>
-        );
-      })}
+      <div className={styles.membersGrid}>
+        {team.members?.map((member: TeamMember, i) => (
+          <div key={`member${i}`} className={styles.memberCard}>
+            <div className={styles.memberFlex}>
+              <img
+                src={member.avatar}
+                alt={`${member.userName}'s avatar`}
+                className={styles.memberAvatar}
+                onError={
+                  (e) => (e.currentTarget.src = "/default-avatar.png") // optional fallback
+                }
+              />
+              <div className={styles.memberInfo}>
+                <h3 className={styles.memberName}>{member.userName}</h3>
+                <h3 className={styles.memberTitle}>{member.officerName}</h3>
+                <div className={styles.memberDetails}>
+                  <a href={`mailto:${member.emailAlias}@ystv.co.uk`}>
+                    {member.emailAlias}@ystv.co.uk
+                  </a>
+                  <div>
+                    See the history of this role on the{" "}
+                    <a
+                      href={member.historywikiURL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Wiki
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
-
-function getHistoryWikiURL(member: TeamMember) {
-    return (
-        <div>See the history of this role on the <a href={member.historywikiURL}>Wiki</a><br /></div>
-    )
 }
 
 export async function getServerSideProps(context) {
   try {
     let res = await fetch(
-      `${process.env.REST_API}/v1/public/teams/email/${context.query.name}`
+      `${process.env.REST_API}/v1/public/teams/email/${context.query.name}`,
     ).then((res) => {
       if (!res.ok) {
         context.res.statusCode = 302;
@@ -58,6 +71,14 @@ export async function getServerSideProps(context) {
     });
     return { props: { team: res } };
   } catch {
-    return { props: { team: null } };
+    let defaultTeam: Team = {
+      id: -1,
+      name: "Unavailable",
+      emailAlias: "unavailable",
+      shortDescription: "Unavailable",
+      longDescription: "Unavailable",
+      members: [],
+    };
+    return { props: { team: defaultTeam } };
   }
 }

@@ -4,7 +4,7 @@ import VideoPlayer from "../../../components/VideoPlayer";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 
-export default function WatchLive({ channel }: { channel: channel }) {
+export default function WatchLive({ channel }: { channel: Channel }) {
   const videoJSOptions = {
     autoplay: false,
     playbackRates: [0.5, 1, 1.25, 1.5, 2],
@@ -43,8 +43,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     context.res.setHeader("Location", `/404`);
   }
 
-  const channel: channel = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channel/${context.query.liveURLName}`
+  const channel: Channel = await fetch(
+    `${process.env.REST_API}/v1/public/playout/channel/${context.query.liveURLName}`,
   ).then((res) => {
     if (!res.ok) {
       redirect();
@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return { props: { channel } };
 };
 
-export interface channel {
+export interface Channel {
   outputURL: string;
   urlName: string;
   thumbnail: string;

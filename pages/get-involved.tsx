@@ -24,23 +24,22 @@ export default function GetInvolved() {
             <p>
               To get involved in YSTV email us at{" "}
               <strong>
-                <a href="mailto:welcome@ystv.co.uk">
-                  welcome@ystv.co.uk
-                </a>
+                <a href="mailto:welcome@ystv.co.uk">welcome@ystv.co.uk</a>
               </strong>
               , or drop in to our studio anytime.&nbsp; You can find out where
               we are by clicking <Link href="/find-us">here</Link>.
             </p>
             <p>
               We send out a regular{" "}
-              <a href="http://go.ystv.co.uk/signup2023">
-                newsletter
-              </a>{" "}
-              with updates on upcoming productions, so make sure you sign up (you’ll need to sign in with your University account).
+              <a href="https://go.ystv.co.uk/signup2023">newsletter</a> with
+              updates on upcoming productions, so make sure you sign up (you’ll
+              need to sign in with your University account).
             </p>
             <p>
-              On a day-to-day basis we talk to each other and plan productions using Slack (if you’ve used Discord it’s very similar).
-              You can <a href="http://go.ystv.co.uk/slack">join our Slack workspace</a> to talk to us.
+              On a day-to-day basis we talk to each other and plan productions
+              using Slack (if you’ve used Discord it’s very similar). You can{" "}
+              <a href="https://go.ystv.co.uk/slack">join our Slack workspace</a>{" "}
+              to talk to us.
             </p>
           </div>
 

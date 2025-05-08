@@ -3,7 +3,7 @@ import VideoPlayer from "../../../components/VideoPlayer";
 
 import styles from "../embed.module.css";
 import { GetServerSideProps } from "next";
-import { channel } from "../../watch/live/[liveURLName]";
+import { Channel } from "../../watch/live/[liveURLName]";
 
 export default function Embed({ channel }) {
   const videoJSOptions = {
@@ -35,8 +35,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     context.res.setHeader("Location", `/404`);
   }
 
-  const channel: channel = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channel/${context.query.embed_id}`
+  const channel: Channel = await fetch(
+    `${process.env.REST_API}/v1/public/playout/channel/${context.query.embed_id}`,
   ).then((res) => {
     if (!res.ok) {
       redirect();

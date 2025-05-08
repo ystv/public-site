@@ -18,4 +18,16 @@ module.exports = {
   },
   output: "standalone",
   ...MDXExport,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.ystv.co.uk",
+      },
+      {
+        protocol: "https",
+        hostname: "auth.ystv.co.uk",
+      },
+    ],
+  },
 };

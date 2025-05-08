@@ -2,8 +2,15 @@ import YstvHead from "../../components/YstvHead";
 import VideoPlayer from "../../components/VideoPlayer";
 
 import styles from "./embed.module.css";
+import { VideoItem } from "../../types/api/Video";
 
-export default function Embed({ video, time }) {
+export default function Embed({
+  video,
+  time,
+}: {
+  video: VideoItem;
+  time: number;
+}) {
   const videoJSOptions = {
     autoplay: false,
     playbackRates: [0.5, 1, 1.25, 1.5, 2],
@@ -13,7 +20,7 @@ export default function Embed({ video, time }) {
     sources: video.files
       .filter((e) => e.mode == "watch")
       .map((e, i, t) => {
-        let sel = i == t.length - 1 ? true : false; // Sets to last item in list (assumed to be highest quality)
+        let sel = i == t.length - 1; // Sets to last item in list (assumed to be highest quality)
         return {
           src: `https://ystv.co.uk/videofile${e.uri.substring(6)}`,
           type: e.mimeType,
@@ -38,8 +45,8 @@ export async function getServerSideProps(context) {
   }
   try {
     let video = await fetch(
-      `${process.env.REST_API}/v1/public/video/${context.query.embed_id}`
-    ).then((res) => {
+      `${process.env.REST_API}/v1/public/video/${context.query.embed_id}`,
+    ).then((res): Promise<VideoItem> | undefined => {
       if (!res.ok) {
         context.res.statusCode = 302;
         context.res.setHeader("Location", `/404`);

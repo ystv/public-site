@@ -1,6 +1,26 @@
 import YstvHead from "../../components/YstvHead";
-import { Teams } from "../../types/api/Team";
+import { Team, Teams } from "../../types/api/Team";
 import Link from "next/link";
+
+import {
+  mdiAccountCog,
+  mdiMonitor,
+  mdiTools,
+  mdiBullhorn,
+  mdiVideoOutline,
+  mdiFileQuestionOutline,
+} from "@mdi/js";
+import styles from "./index.module.css";
+import { Icon } from "@mdi/react";
+
+const teamIcons = {
+  admin: mdiAccountCog,
+  computing: mdiMonitor,
+  technical: mdiTools,
+  marketing: mdiBullhorn,
+  production: mdiVideoOutline,
+  unavailable: mdiFileQuestionOutline,
+};
 
 function About({ teams }: Teams) {
   return (
@@ -49,26 +69,34 @@ function About({ teams }: Teams) {
           <p>
             So if you’ve ever wanted to get your face on screen, try out your
             skills behind a camera, or have a brilliant idea for a show then
-            email{" "}
-            <a href="mailto:welcome@ystv.co.uk">welcome@ystv.co.uk</a>{" "}
-            or <Link href="/get-involved">find out more about getting involved</Link>!
+            email <a href="mailto:welcome@ystv.co.uk">welcome@ystv.co.uk</a> or{" "}
+            <Link href="/get-involved">
+              find out more about getting involved
+            </Link>
+            !
           </p>
         </div>
         <br /> <h2>Our Teams:</h2>
-        <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-          {teams.map((team, i) => {
-            return (
-              <div key={`committeemid${i}`}>
-                <h3 style={{ textTransform: "capitalize" }}>
-                  <Link href={`/about/team/${team.emailAlias}`}>
-                    {team.name}
-                  </Link>
-                </h3>
-                <p className="noa">{team.shortDescription}</p>
-                <br />
+        <div className={styles.teamsGrid}>
+          {teams.map((team, i) => (
+            <Link
+              key={`team-${i}`}
+              href={`/about/team/${team.emailAlias}`}
+              className={styles.teamCardLink}
+            >
+              <div className={styles.teamCard}>
+                <div className={styles.teamIcon}>
+                  <Icon path={teamIcons[team.emailAlias]} size={1.5} />
+                </div>
+                <div className={styles.teamInfo}>
+                  <h3 className={styles.teamName}>{team.name}</h3>
+                  <p className={styles.teamDescription}>
+                    {team.shortDescription}
+                  </p>
+                </div>
               </div>
-            );
-          })}
+            </Link>
+          ))}
         </div>
       </main>
     </div>
@@ -87,10 +115,20 @@ export async function getServerSideProps(context) {
         } else {
           return res.json();
         }
-      }
+      },
     );
     return { props: { teams: res } };
   } catch {
-    return { props: { teams: null } };
+    let defaultTeams: Team[] = [
+      {
+        id: -1,
+        name: "Unavailable",
+        emailAlias: "unavailable",
+        shortDescription: "Unavailable",
+        longDescription: "Unavailable",
+        members: [],
+      },
+    ];
+    return { props: { teams: defaultTeams } };
   }
 }

@@ -1,5 +1,5 @@
 import VideoCell from "../VideoCell/VideoCell";
-import { createRef, useRef } from "react";
+import { useRef } from "react";
 
 import styles from "./VideoCarousel.module.css";
 

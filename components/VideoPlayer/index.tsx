@@ -2,18 +2,15 @@ import { useEffect, useRef } from "react";
 import videojs, { VideoJsPlayer } from "video.js";
 import "video.js/dist/video-js.css";
 
-import overlay from "videojs-titleoverlay";
+// import overlay from "videojs-titleoverlay";
 
-//
-//
-//     // if (titleOverlay !== undefined) {
-//     //   (vjsPlayer as any).titleoverlay({
-//     //     title: `YSTV: ${titleOverlay}`, //Title for movie
-//     //     floatPosition: "left", //Float left or right (to prevent big play button overlap) (default left)
-//     //     fontSize: "1.5em", //font size (default 1em)
-//     //   });
-//     // }
-//
+// if (titleOverlay !== undefined) {
+//   (vjsPlayer as any).titleoverlay({
+//     title: `YSTV: ${titleOverlay}`, //Title for movie
+//     floatPosition: "left", //Float left or right (to prevent big play button overlap) (default left)
+//     fontSize: "1.5em", //font size (default 1em)
+//   });
+// }
 
 export const VideoJS = (props) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -21,7 +18,7 @@ export const VideoJS = (props) => {
   const { options, onReady, time, title, iframe } = props;
 
   useEffect(() => {
-    // make sure Video.js player is only initialized once
+    // make sure Video.js player is only initialised once
     if (!playerRef.current) {
       const videoElement = videoRef.current;
       if (!videoElement) return;
@@ -82,7 +79,7 @@ export const VideoJS = (props) => {
           }
 
           onReady && onReady(player);
-        }
+        },
       ));
     } else {
       // you can update player here [update player through props]

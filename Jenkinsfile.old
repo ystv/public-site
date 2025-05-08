@@ -1,0 +1,122 @@
+String registryEndpoint = 'registry.comp.ystv.co.uk'
+
+def vaultConfig = [vaultUrl: 'https://vault.comp.ystv.co.uk',
+                  vaultCredentialId: 'jenkins-vault-token']
+
+def image
+def imageTag = ''
+String imageName = "ystv/public-site:${env.BRANCH_NAME}-${env.BUILD_ID}"
+
+pipeline {
+  agent {
+    label 'docker'
+  }
+
+  environment {
+    DOCKER_BUILDKIT = '1'
+  }
+
+  stages {
+    stage('Prepare') {
+      steps {
+        ciSkip action: 'check'
+        script {
+          def imageNamePrefix = ''
+          if (env.BRANCH_NAME != 'main') {
+            imageNamePrefix = "${env.BRANCH_NAME}-"
+          }
+          imageTag = "${imageNamePrefix.replace('/', '--')}${env.BUILD_NUMBER}"
+        }
+      }
+    }
+    stage('Build image') {
+      steps {
+        script {
+          // Checking if it is semantic version release.
+          String deployEnv = env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ ? 'prod' : 'dev'
+          def secrets = [
+            [path: "ci/public-site-${deployEnv}", secretValues: [
+              [envVar: 'NEXT_PUBLIC_INTERNAL_SITE', vaultKey: 'internal-site'],
+              [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
+            ]]
+          ]
+          try {
+              withVault([configuration: vaultConfig, vaultSecrets: secrets]) {
+                docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
+                  // sh 'env > .env.local' // this is bad
+                  image = docker.build(imageName, """ \
+                      --build-arg GIT_REV_ARG=${env.GIT_COMMIT} \
+                      --build-arg BUILD_ID_ARG=${JOB_NAME}:${BUILD_ID} \
+                      --build-arg NEXT_PUBLIC_INTERNAL_SITE_ARG=${NEXT_PUBLIC_INTERNAL_SITE} \
+                      --build-arg NEXT_PUBLIC_REST_API_ARG=${NEXT_PUBLIC_REST_API} \
+                      -f Dockerfile . \
+                    """)
+                }
+              }
+          } catch (err) {
+              echo "Vault lookup failed: ${err.getMessage()}"
+              // Optionally fail the build
+              error("Stopping build due to Vault error.")
+          }
+        }
+      }
+    }
+
+    stage('Push image to registry') {
+      steps {
+        script {
+          docker.withRegistry('https://' + registryEndpoint, 'docker-registry') {
+            image.push()
+            if (env.BRANCH_IS_PRIMARY) {
+              image.push('latest')
+            }
+          }
+        }
+      }
+    }
+
+    stage('Deploy') {
+//       when {
+//         anyOf {
+//           expression { env.BRANCH_IS_PRIMARY }
+//           equals(actual: deployEnv, expected: 'prod')
+//         }
+//       }
+//
+//       steps {
+//         build(job: 'Deploy Nomad Job', parameters: [
+//           string(name: 'JOB_FILE', value: "public-site-${deployEnv}.nomad"),
+//           text(name: 'TAG_REPLACEMENTS', value: "${registryEndpoint}/${imageName}")
+//         ])
+//       }
+
+
+      stages {
+        stage('Development') {
+          when {
+            expression { env.BRANCH_IS_PRIMARY }
+          }
+          steps {
+            build(job: 'Deploy Nomad Job', parameters: [
+              string(name: 'JOB_FILE', value: 'public-site-dev.nomad'),
+              text(name: 'TAG_REPLACEMENTS', value: "${registryEndpoint}/${imageName}")
+            ])
+          }
+        }
+
+        stage('Production') {
+          when {
+            // Checking if it is semantic version release.
+            expression { return env.TAG_NAME ==~ /v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/ }
+          }
+          steps {
+            build(job: 'Deploy Nomad Job', parameters: [
+              string(name: 'JOB_FILE', value: 'public-site-prod.nomad'),
+              text(name: 'TAG_REPLACEMENTS', value: "${registryEndpoint}/${imageName}")
+            ])
+          }
+        }
+      }
+    }
+  }
+}

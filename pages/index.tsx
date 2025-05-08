@@ -1,12 +1,13 @@
 import YstvHead from "../components/YstvHead";
 import VideoCarousel from "../components/VideoCarousel/VideoCarousel";
 
-import styles from "./index.module.css";
 import GenreBox from "../components/GenreBox";
 import HomePageMainBanner from "../components/HomePageMainBanner";
 import HomeLiveBanner from "../components/HomeLiveBanner";
 import { SWRConfig } from "swr";
-import { channel } from "./watch/live/[liveURLName]";
+import { Channel } from "./watch/live/[liveURLName]";
+import { VideoItem, VideoMeta } from "../types/api/Video";
+import { Playlist } from "../types/api/Playlist";
 
 export default function Home({
   recentVideoPageState,
@@ -53,33 +54,32 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  let recentVideoPageState = await fetch(
-    `${process.env.REST_API}/v1/public/videos/12/0`
+  let recentVideoPageState: VideoMeta[] = await fetch(
+    `${process.env.REST_API}/v1/public/videos/12/0`,
   ).then((res) => res.json());
 
-  let popularVideoPageState = await fetch(
-    `${process.env.REST_API}/v1/public/playlist/popular/all`
+  let popularVideoPageState: VideoItem[] = await fetch(
+    `${process.env.REST_API}/v1/public/playlist/popular/all`,
   )
-    .then((res) => res.json())
-    .then((json) => json.videos);
+    .then((res): Promise<Playlist> => res.json())
+    .then((json): VideoItem[] => json.videos);
 
-  let genreVideoPageState = await fetch(
-    `${process.env.REST_API}/v1/public/videos/12/500`
+  let genreVideoPageState: VideoMeta[] = await fetch(
+    `${process.env.REST_API}/v1/public/videos/12/500`,
   ).then((res) => res.json());
 
-  let featuredVideoPageState = await fetch(
-    `${process.env.REST_API}/v1/public/videos/12/600`
+  let featuredVideoPageState: VideoMeta[] = await fetch(
+    `${process.env.REST_API}/v1/public/videos/12/600`,
   ).then((res) => res.json());
 
   let liveFallback = await fetch(
-    `${process.env.REST_API}/v1/public/playout/channels`
+    `${process.env.REST_API}/v1/public/playout/channels`,
   )
-    .then((res) => res.json())
-    .then((e) => {
+    .then((res): Promise<Channel[]> => res.json())
+    .then((e: Channel[]) => {
       let keyedData = {};
-      keyedData[
-        `${process.env.REST_API}/v1/public/playout/channels`
-      ] = e as channel[];
+      keyedData[`${process.env.REST_API}/v1/public/playout/channels`] =
+        e as Channel[];
       return keyedData;
     });
 

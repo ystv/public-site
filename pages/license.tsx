@@ -16,8 +16,9 @@ export default function License() {
           layout={"responsive"}
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       </div>
       <ul>
         <li>
@@ -25,11 +26,11 @@ export default function License() {
           is made available under the Creative Commons
           &quot;Attribution-NonCommercial-ShareAlike Works&quot; licence,
           version 4.0 (
-          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
             summary
           </a>
           ,{" "}
-          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">
             full details
           </a>
           ). This page <strong>must</strong> be read before embarking on any
@@ -39,7 +40,7 @@ export default function License() {
           This licence requires that you attribute YSTV as the source of the
           work. Attribution of our work must be as follows:
           <br /> <em>[Show Name]</em> produced by York Student Television
-          [http://ystv.co.uk/] released under a Creative Commons BY-NC-SA 4.0
+          [https://ystv.co.uk/] released under a Creative Commons BY-NC-SA 4.0
           licence.
         </li>
       </ul>
@@ -52,8 +53,9 @@ export default function License() {
           layout={"responsive"}
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       </p>
       <ul>
         <li>
@@ -61,11 +63,11 @@ export default function License() {
           made available under&nbsp;the Creative Commons
           &quot;Attribution-NonCommercial-NoDerivative Works&quot; licence,
           version 2.5 (
-          <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/">
+          <a href="https://creativecommons.org/licenses/by-nc-nd/2.5/">
             summary
           </a>
           ,&nbsp;
-          <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/legalcode">
+          <a href="https://creativecommons.org/licenses/by-nc-nd/2.5/legalcode">
             full details
           </a>
           ).&nbsp;
@@ -76,7 +78,7 @@ export default function License() {
           Attribution of our work must be as follows:
           <br />
           <em>[Show Name]</em>&nbsp;produced by York Student Television
-          [http://ystv.co.uk/] released under a Creative Commons BY-NC-ND 2.5
+          [https://ystv.co.uk/] released under a Creative Commons BY-NC-ND 2.5
           licence.
         </li>
         <li>
