@@ -169,7 +169,7 @@ export default function HomePageMainBanner() {
                   </p>
                   <Link href={"/about"} passHref>
                     <p
-                        className={styles.bannerLink}
+                      className={styles.bannerLink}
                       // style={{
                       //   fontWeight: "bolder",
                       //   fontSize: "larger",

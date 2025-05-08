@@ -22,7 +22,7 @@ const HtmlTags = () => (
 );
 
 const styleguideConfig = {
-    title: "Utilities/Styleguide",
+  title: "Utilities/Styleguide",
 };
 
 export default styleguideConfig;

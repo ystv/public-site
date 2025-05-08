@@ -2,9 +2,15 @@ import YstvHead from "../../components/YstvHead";
 import VideoPlayer from "../../components/VideoPlayer";
 
 import styles from "./embed.module.css";
-import {VideoItem} from "../../types/api/Video";
+import { VideoItem } from "../../types/api/Video";
 
-export default function Embed({ video, time }: {video: VideoItem, time: number}) {
+export default function Embed({
+  video,
+  time,
+}: {
+  video: VideoItem;
+  time: number;
+}) {
   const videoJSOptions = {
     autoplay: false,
     playbackRates: [0.5, 1, 1.25, 1.5, 2],
