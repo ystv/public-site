@@ -61,3 +61,8 @@
 .memberDetails a:hover {
   text-decoration: underline;
 }
+
+.email {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}

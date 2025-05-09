@@ -34,7 +34,7 @@ export default function TeamID({ team }: Props) {
                 <h3 className={styles.memberName}>{member.userName}</h3>
                 <h3 className={styles.memberTitle}>{member.officerName}</h3>
                 <div className={styles.memberDetails}>
-                  <a href={`mailto:${member.emailAlias}@ystv.co.uk`}>
+                  <a href={`mailto:${member.emailAlias}@ystv.co.uk`} className={styles.email}>
                     {member.emailAlias}@ystv.co.uk
                   </a>
                   <div>
