@@ -8,6 +8,45 @@ export default function License() {
     <div className="center thin">
       <YstvHead />
       <h1>License</h1>
+      <h2>YouTube content</h2>
+      <p>
+        All videos published on our{" "}
+        <a href={"https://www.youtube.com/@YorkStudentTV"}>
+          official YouTube channel
+        </a>{" "}
+        are released under the YouTube Standard License, unless explicitly
+        stated otherwise.
+        <br />
+        <h3>YouTube Standard License (Default)</h3>
+        Under this license:
+        <ul>
+          <li>We retain full copyright of all our content.</li>
+          <li>
+            Reproduction, redistribution, modification, or reuse of our videos
+            is not permitted without our prior written consent.
+          </li>
+          <li>
+            Our videos may be viewed and shared through official YouTube
+            features (e.g., embedding, linking), but downloading or re-uploading
+            is not allowed.
+          </li>
+          <li>
+            YouTube is granted a limited license to display and distribute the
+            content on its platform only.
+          </li>
+        </ul>
+        This license helps us protect the integrity and value of our original
+        content while still allowing audiences to engage and share responsibly.
+        <br />
+        <h3>Want to Use Our Content?</h3>
+        If you&#39;re interested in featuring or reusing our video content — for
+        media coverage, educational purposes, or other uses — please{" "}
+        <a href={"mailto:admin.team@ystv.co.uk"}>contact us</a> with details of
+        your request.
+        <br />
+        We&#39;re happy to consider permissions on a case-by-case basis.
+      </p>
+      <h2>Website content</h2>
       <div>
         <Image
           src={Licence1}
