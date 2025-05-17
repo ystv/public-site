@@ -46,9 +46,15 @@ export async function getServerSideProps(context) {
       }
     });
 
-    if (res?.video == null) {
+    if (res == undefined) {
+      return {
+        props: { res: null, time: 0, breadcrumb: [], type: pageType.None },
+      };
+    }
+
+    if (res.video == null) {
       type = pageType.Series;
-      url = `series/${res?.series?.id}`;
+      url = `series/${res.series?.id}`;
     } else {
       type = pageType.Video;
       url = `video/${res.video.id}`;
