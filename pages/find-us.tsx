@@ -46,8 +46,16 @@ export default function FindUs() {
       <h1>Find Us</h1>
       <YSTVMap />
       <p>
-        YSTV’s studio is in James College; if you need any help finding us just
-        ask at Campus South Information or email us. There’s a courtyard in the
+        YSTV’s studio is in James College; if you need any help finding us then
+        use the what3words address:&nbsp;
+        <a
+          href="https://what3words.com/hogs.only.blitz"
+          target="_blank"
+          translate="no"
+        >
+          &#x002F;&#x002F;&#x002F;hogs.only.blitz
+        </a>
+        , ask at Campus West Information or email us. There’s a courtyard in the
         centre of James College (where the fountain is), and on one side you
         will see a window with the YSTV sign. As you’re looking at the window,
         there’s a door to the right of it. Go through this door, and you’ll find
