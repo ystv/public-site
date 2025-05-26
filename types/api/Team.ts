@@ -20,4 +20,5 @@ export interface TeamMember {
   officerName: string;
   officerDescription: string;
   historywikiURL: string;
+  pronouns?: string
 }
