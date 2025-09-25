@@ -1,8 +1,5 @@
 @Library('ystv-jenkins')
 
-def vaultConfig = [vaultUrl: 'https://vault.comp.ystv.co.uk',
-                  vaultCredentialId: 'jenkins-vault-token']
-
 def imageTag = ''
 pipeline {
   agent {
@@ -39,7 +36,7 @@ pipeline {
               [envVar: 'NEXT_PUBLIC_REST_API', vaultKey: 'web-api-endpoint']
             ]]
           ]
-          withVault([configuration: vaultConfig, vaultSecrets: secrets]) {
+          withVault([vaultSecrets: secrets]) {
             sh """docker build \\
               --build-arg GIT_REV_ARG=${env.GIT_COMMIT} \
               --build-arg BUILD_ID_ARG=${JOB_NAME}:${BUILD_ID} \
