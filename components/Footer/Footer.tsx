@@ -24,6 +24,13 @@ function Footer() {
             <p>
               <Link href="/license">License</Link>
             </p>
+            <img
+              src="/York_SU_Full_logo_Black.png"
+              height={32}
+              width={94}
+              alt="YorkSU Logo"
+              className={styles.logo}
+            />
           </div>
         </div>
         <div>
