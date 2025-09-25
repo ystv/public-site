@@ -31,7 +31,14 @@ export default function TeamID({ team }: Props) {
                 }
               />
               <div className={styles.memberInfo}>
-                <h3 className={styles.memberName}>{member.userName}{member.pronouns != undefined ? <i>({member.pronouns})</i> : <div></div>}</h3>
+                <h3 className={styles.memberName}>
+                  {member.userName}
+                  {member.pronouns != undefined ? (
+                    <i>({member.pronouns})</i>
+                  ) : (
+                    <div></div>
+                  )}
+                </h3>
                 <h3 className={styles.memberTitle}>{member.officerName}</h3>
                 <div className={styles.memberDetails}>
                   <a
