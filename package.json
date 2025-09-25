@@ -37,6 +37,7 @@
     "@babel/plugin-syntax-export-namespace-from": "^7.8.3",
     "@babel/plugin-syntax-numeric-separator": "^7.10.4",
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "to-fast-properties": "^4.0.0",
     "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-docs": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.12",
@@ -56,8 +57,7 @@
     "react-map-gl": "^8.0.4",
     "storybook": "^8.6.12",
     "storybook-css-modules-preset": "^1.1.1",
-    "to-fast-properties": "^4.0.0",
     "typescript": "^5.8.3"
   },
-  "packageManager": "yarn@4.10.3"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
