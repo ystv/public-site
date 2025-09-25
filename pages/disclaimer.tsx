@@ -12,10 +12,12 @@ export default function Disclaimer() {
           University of York&apos;s&nbsp;
           <a href="https://www.york.ac.uk/docs/disclaimer/disclaimer.htm">
             standard disclaimer
-          </a>{" "} and YorkSU&apos;s&nbsp;
-	  <a href="https://yorksu.org/documents/term-and-conditions">
-	    standard disclaimer
-	  </a>.
+          </a>{" "}
+          and YorkSU&apos;s&nbsp;
+          <a href="https://yorksu.org/documents/term-and-conditions">
+            standard disclaimer
+          </a>
+          .
         </li>
         <li>
           The information supplied on this web page has been provided by York
@@ -61,7 +63,7 @@ export default function Disclaimer() {
           >
             Data Protection Policy
           </a>{" "}
-	  and YorkSU&apos;s{" "}
+          and YorkSU&apos;s{" "}
           <a
             title="YorkSU Data Protection Policy"
             href="https://docs.google.com/document/d/1wEwA5RHy4xCYEXdGd0i4tgBcQi-FZXRU"
@@ -69,7 +71,8 @@ export default function Disclaimer() {
             rel="noreferrer"
           >
             Data Protection Policy
-          </a>.
+          </a>
+          .
         </li>
         <li>
           If you are interested in using the contents of this website in any
