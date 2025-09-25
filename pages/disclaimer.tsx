@@ -12,7 +12,10 @@ export default function Disclaimer() {
           University of York&apos;s&nbsp;
           <a href="https://www.york.ac.uk/docs/disclaimer/disclaimer.htm">
             standard disclaimer
-          </a>
+          </a>&nbsp;and YorkSU&apos;s&nbsp;
+	  <a href="https://yorksu.org/documents/term-and-conditions">
+	    standard disclaimer
+	  </a>.
         </li>
         <li>
           The information supplied on this web page has been provided by York
@@ -51,14 +54,21 @@ export default function Disclaimer() {
           Protection Act 1998, following the guidelines of the University of
           York&apos;s{" "}
           <a
-            title="Data Protection Policy"
+            title="UoY Data Protection Policy"
             href="https://www.york.ac.uk/recordsmanagement/dpa/dppolicy2002.htm"
             target="_blank"
             rel="noreferrer"
           >
             Data Protection Policy
           </a>{" "}
-          and active York University Student&apos;s Union (York SU) Policy.
+          and active York University Student&apos;s Union (York SU){" "}
+	  <a
+	    title="YorkSU"
+	    href="https://docs.google.com/document/d/1wEwA5RHy4xCYEXdGd0i4tgBcQi-FZXRU/edit?usp=sharing&ouid=118341002397494135463&rtpof=true&sd=true"
+	    target="_blank"
+	    rel="noreferrer">
+		  Policy
+	  </a>.
         </li>
         <li>
           If you are interested in using the contents of this website in any
